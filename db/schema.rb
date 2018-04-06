@@ -10,6 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180406042614) do
+
+  create_table "vproducts", force: :cascade do |t|
+    t.integer "bill_id"
+    t.integer "fake_price"
+    t.integer "price"
+    t.text "main_image_link"
+    t.integer "total_buy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vsellers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

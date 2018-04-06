@@ -15,12 +15,15 @@
  */
 
 /* Menu 바 */
+
 * {
    border-style: solid;
 }
+
 .menu {
    border-style: double;
 }
+
 .menu_component {
    border-style: outset;
 }

@@ -5,7 +5,7 @@ class ProductController < ApplicationController
          # exception handling
       end
       startpoint = ( (page_id -1) * 12 )
-      @vproducts = Vprodcut.order(:created_at).limit(12).offset(startpoint)
+      @vproducts = Vproduct.order(:created_at).limit(12).offset(startpoint)
       
       @bills = { }
       @vproducts.each do |vproduct|
