@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  #devise_for :vusers
+  Rails.application.routes.draw do     
+    devise_for :vusers, controllers: { 
+      sessions: 'vusers/sessions', 
+      registrations: 'vusers/registrations'  
+    }                                  
+   end                                  
+
   get 'product/list/:page_id' => 'product#list'
 
   get 'product/detail/:product_id'=> 'product#detail'
