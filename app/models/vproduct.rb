@@ -1,0 +1,2 @@
+class Vproduct < ApplicationRecord
+end
