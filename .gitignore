@@ -2,3 +2,4 @@ config/database.yml
 *sqlite*
 log/
 secrets.yml
+tmp/
