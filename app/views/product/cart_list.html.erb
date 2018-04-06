@@ -1,0 +1,8 @@
+<h1> Cart List</h1>
+
+<% @carts.each do |cart|%>
+   <hr>
+   상품 번호: <%= cart.product_id %>
+   선택한 패키지 이름: <%= cart.package_name %>
+   추가한 후원금: <%= cart.addhoo%>
+<% end %>
