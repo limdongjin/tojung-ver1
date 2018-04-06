@@ -3,4 +3,17 @@
 
 <%= @vproducts %>
 
+<div class="product_list">
+   <% @vproducts.each do |vproduct| %> 
+      <% bill = @bills[vproduct.id] %>
+         <div class="product">
+			 상품이름: <%= vproduct.title %><br>
+			 법안이름: <%= bill.title %><br>
+			 할인 가격: <%= vproduct.price %><br>
+			 정가: <%=  vproduct.fake_price %><br>
+			 상품이미지: <%= vproduct.main_image_link %><br>
+         </div>
+   <% end %>
+</div>
+
 <%= @bills%>
