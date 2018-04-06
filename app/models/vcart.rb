@@ -1,0 +1,2 @@
+class Vcart < ApplicationRecord
+end
