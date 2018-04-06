@@ -23,17 +23,23 @@
       검색창
    </div>
    
-   
+    <% if (current_vuser.blank?) == TRUE %>
    <div class="menu_component">
      <a href="/vusers/sign_in">  Login   </a>
    </div>
-  
-
-   <div class="menu_component">
-      Cart
-   </div>
-
-   <div class="menu_component">
+   <% else %>
+    <div class="menu_component">
+       Cart
+	</div>
+	<div class="menu_componet">
+        Mypage
+	</div>
+	<div class="menu_component">
+		<a href="/vusers/sign_out">Logout</a>
+	</div>
+	
+	<% end %>
+     <div class="menu_component">
       판매자 게시판
    </div>
 </div>

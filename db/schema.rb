@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406042614) do
+ActiveRecord::Schema.define(version: 20180406081308) do
+
+  create_table "vcarts", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+    t.text "package_name"
+    t.integer "num"
+    t.integer "addhoo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "vproducts", force: :cascade do |t|
     t.integer "bill_id"
@@ -20,12 +30,43 @@ ActiveRecord::Schema.define(version: 20180406042614) do
     t.integer "total_buy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "title"
+    t.text "intro"
+    t.integer "deadline"
   end
 
   create_table "vsellers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "vtransactions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.integer "price"
+    t.integer "total_amount"
+    t.integer "num"
+    t.integer "flag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vusers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_vusers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_vusers_on_reset_password_token", unique: true
   end
 
 end

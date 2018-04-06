@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   #devise_for :vusers
   Rails.application.routes.draw do     
     devise_for :vusers, controllers: { 
-      sessions: 'vusers/sessions', 
-      registrations: 'vusers/registrations'  
+      sessions: 'vuser/sessions', 
+      registrations: 'vuser/registrations'  
     }                                  
    end                                  
 
