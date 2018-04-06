@@ -3,6 +3,8 @@ class ProductController < ApplicationController
       page_id = params[:page_id].to_i
       if page_id == 0
          # exception handling
+		 redirect_to '/'
+         return
       end
       startpoint = ( (page_id -1) * 12 )
       @vproducts = Vproduct.order(:created_at).limit(12).offset(startpoint)
@@ -23,6 +25,7 @@ class ProductController < ApplicationController
 	  if current_vuser == nil 
          # 잘못된 접근!! 
          redirect_to '/'
+		 return
 	  else 
          uid = current_vuser.id 
       end
@@ -47,6 +50,7 @@ class ProductController < ApplicationController
 	 if current_vuser == nil
 	   #잘못된 접근
 	   redirect_to '/'
+	   return
      end
 
 	 @carts = Vcart.where(user_id: current_vuser.id)

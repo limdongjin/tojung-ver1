@@ -1,0 +1,36 @@
+<div class="product_buy_form">
+	<%= form_tag( "/product/buy/#{ params[:product_id] }", method: "post" ) do %> <!-- form 은 곧 작성 예정 -->
+       <div class="product_packages_radio">
+		   패키지 선택 라디오 부분
+		   <%= radio_button_tag(:package, "first") %>
+		   <%= label_tag(:package_first, "첫번째 패키지")%>
+		   
+		   <%= radio_button_tag(:package, "second") %>
+           <%= label_tag(:package_first, "두번째 패키지")%>
+          
+		   <%= radio_button_tag(:package, "third") %>
+           <%= label_tag(:package_first, "두번째 패키지")%>
+       </div>
+      <div class="product_hoo_radio">
+		  후원금 선택 라디오 부분
+           <%= radio_button_tag(:hoo, 5000) %>
+		   <%= label_tag(:hoo_first, "5000원")%>
+		   
+		   <%= radio_button_tag(:hoo, 10000) %>
+           <%= label_tag(:hoo_second, "10000원")%>
+          
+		   <%= radio_button_tag(:hoo, 20000) %>
+           <%= label_tag(:package_third, "20000원")%>
+
+	  </div>
+	  <div class="product_buy_button">
+		  구매하기 버튼
+		  <%= submit_tag("buy") %>
+	  </div>
+	  <div class="procut_cart_button">
+		  장바구니 버튼
+		  <%= submit_tag("addcart") %>
+	  </div>
+  <% end %>
+</div>
+
