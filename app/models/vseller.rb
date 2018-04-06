@@ -1,0 +1,2 @@
+class Vseller < ApplicationRecord
+end

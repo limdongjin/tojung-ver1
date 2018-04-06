@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'product/list/:page_id' => 'product#list'
+
+  get 'product/detail/:product_id'=> 'product#detail'
+
+  root 'home#index'
+
   get 'home/index'
 
   get 'home/about'
