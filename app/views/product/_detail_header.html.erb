@@ -1,0 +1,60 @@
+<h1> Header </h1>
+<div class="product_header">
+상품 페이지의 맨윗부분 
+<div class="product_detail_main_image">
+   메인 이미지 부분
+   <%= @vproduct.main_image_link%>
+</div>
+
+<div class="product_detail_title">
+	제목 부분
+	<%= @vproduct.title %>
+	<%#= @bill.title %>
+</div>
+
+<div class="product_detail_prices">
+   가격 부분
+   <%= @vproduct.price %>
+   <%= @vproduct.fake_price%>
+</div>
+
+<div class="product_intro"> 
+   상품 intro 부분
+</div>
+
+<div class="product_total_price">
+   모인금액
+   <%= @vproduct.total_buy %>
+   0%
+</div>
+
+<div class="product_deadline">
+   남은 날짜
+</div>
+
+<div class="product_buy_form">
+	<form> <!-- form 은 곧 작성 예정 -->
+       <div class="product_packages_radio">
+		   패키지 선택 라디오 부분
+		   <input type="text" name="package">
+       </div>
+      <div class="product_hoo_radio">
+		  후원금 선택 라디오 부분
+		  <input type="text" name="hoo">
+	  </div>
+	  <div class="product_buy_button">
+		  구매하기 버튼
+		  <input type="submit">
+	  </div>
+	  <div class="procut_cart_button">
+		  장바구니 버튼
+		  <input type="submit">
+	  </div>
+    <form>
+</div>
+<div class="product_share">
+   공유하기 버튼
+</div>
+</div>
+
+

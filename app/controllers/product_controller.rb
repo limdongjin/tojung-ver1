@@ -13,7 +13,9 @@ class ProductController < ApplicationController
       end 
    end
 
-  def detail
-  end
+   def detail
+      @vproduct = Vproduct.find(params[:product_id])
+      @bill = Bill.find(params[:product_id])
+   end
 
 end
