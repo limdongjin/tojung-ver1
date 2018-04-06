@@ -40,9 +40,16 @@ class ProductController < ApplicationController
 		 #cart.num
 		 cart.save 
          redirect_to '/product/cart_list'
+	  elsif params[:commit] == "buy"
+         @product = Vproduct.find(params[:product_id])
+		 @seller = Vseller.find(@product.seller_id)
+		 @person = Person.find(@product.seller_id)
 	  end
-      
-      
+   end
+   
+   def buyok
+     # buy 페이지에서 최종 구매 정보를 받아서 Vtransaction에 추가하고, Vproduct의 총 펀딩액을 추가한다. 
+
    end
 
    def cart_list

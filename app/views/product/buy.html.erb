@@ -1,5 +1,28 @@
-<h1> Buy !! </h1>
-<%= params %>
+<h1> 구매 페이지 입니다 !! </h1>
+
 <%= params[:hoo]%>
 <%= params[:package]%>
 <%= params[:commit] %>
+
+<div class="form_buy">
+<%= form_tag("/product/buyok", method: "post") do %>
+   개발중 입니다. <br>     
+   <%# @packages = [ [ "첫번째 패키지", "first" ], [ "두번째 패키지", "second" ] , [ "세번째 패키지", "third" ] ]%>
+   <%#= select_tag(:package, options_for_select(@packages ))%>
+   
+   <hr>
+   상품이름 : <%= @product.name %>
+   현재 선택하신 구매정보는 다음과 같습니다. <br> 
+ 
+   후원금 추가 : <% if params[:hoo] != nil %> <%= params[:hoo] %> <% else %> 후원금 추가 없음 <% end %>
+   패키지 추가 : <% if params[:package] != nil %> <%= params[:package] %>  <% else %> 패키지 추가 없음 <% end %>
+
+   현재 선택하신 상품의 구매자 정보는 다음과 같습니다 <br>
+   <%= @seller %>
+   <%= @seller.name %>
+   <%= @seller.account %>
+   <%= @person %>
+
+   결제 방식은 무통장 입금입니다 <br>
+<% end %>
+</div>

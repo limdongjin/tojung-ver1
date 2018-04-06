@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       registrations: 'vuser/registrations'  
     }                                  
    end                                  
-  
+  post 'product/buyok' => 'product#buyok'  
   post 'product/buy/:product_id' => 'product#buy'
   # post 'product/addcart' => 'product#addcart'
   get 'product/cart_list' => 'product#cart_list'  
