@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406081308) do
+ActiveRecord::Schema.define(version: 20180407063652) do
 
   create_table "vcarts", force: :cascade do |t|
     t.integer "product_id"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 20180406081308) do
     t.text "package_name"
     t.integer "num"
     t.integer "addhoo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "package_id"
+  end
+
+  create_table "vpackages", force: :cascade do |t|
+    t.integer "product_id"
+    t.text "name"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,12 +42,14 @@ ActiveRecord::Schema.define(version: 20180406081308) do
     t.text "title"
     t.text "intro"
     t.integer "deadline"
+    t.integer "seller_id"
   end
 
   create_table "vsellers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "account"
   end
 
   create_table "vtransactions", force: :cascade do |t|
@@ -50,6 +61,7 @@ ActiveRecord::Schema.define(version: 20180406081308) do
     t.integer "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "serial"
   end
 
   create_table "vusers", force: :cascade do |t|
@@ -65,6 +77,14 @@ ActiveRecord::Schema.define(version: 20180406081308) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "name"
+    t.text "address"
+    t.text "account"
+    t.text "phone_number"
+    t.text "account_assos"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
     t.index ["email"], name: "index_vusers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_vusers_on_reset_password_token", unique: true
   end

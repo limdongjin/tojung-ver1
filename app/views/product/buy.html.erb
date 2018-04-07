@@ -14,8 +14,8 @@
    상품이름 : <%= @product.title %>
    현재 선택하신 구매정보는 다음과 같습니다. <br> 
  
-   후원금 추가 : <% if params[:hoo] != nil %> <%= params[:hoo] %> <% else %> 후원금 추가 없음 <% end %>
-   패키지 추가 : <% if params[:package] != nil %> <%= params[:package] %>  <% else %> 패키지 추가 없음 <% end %>
+   후원금 추가 정보: <% if params[:hoo] != nil %> <%= params[:hoo] %> <% else %> 후원금 추가 없음 <% end %>
+   패키지 추가 정보: <% if params[:package] != nil %> <%= params[:package] %>  <% else %> 패키지 추가 없음 <% end %>
 
    현재 선택하신 상품의 구매자 정보는 다음과 같습니다 <br>
    <%= @seller %>
