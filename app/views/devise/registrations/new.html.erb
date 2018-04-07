@@ -4,17 +4,30 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+	  이메일을 입력하세요
+	  <%#= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-      <div class="form-group">
-              <%= f.label :name %><br />
-              <%= f.text_field :name, class: 'form-control' %>
-            </div>
 
+  <div class="form-group">
+     이름을 입력하세요
+     <%#= f.label :name %><br />
+     <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+     자신이 살는 주소를 입력하세요 ( 주소 찾기 API 붙여도 좋을듯) 
+     <%#= f.label :address %><br />
+     <%= f.text_field :address, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+     자신이 주로쓰는 계좌번호를 입력하세요. 
+     <%= f.text_field :account, class: 'form-control' %>
 
+  </div>
   <div class="field">
-    <%= f.label :password %>
+	  비밀번호를 입력하세요
+    <%#= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -22,11 +35,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+	  비밀번호를 한번더 입력하세요
+    <%#= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="actions">
+	  제출하세요.
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
