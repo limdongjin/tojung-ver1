@@ -9,7 +9,7 @@ end
 
 gem 'mysql2'
 gem 'devise'
-
+gem 'ruby-json'
 #####################################################
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

@@ -17,8 +17,15 @@ class ProductController < ApplicationController
 
    def detail
       @vproduct = Vproduct.find(params[:product_id])
-	  @vpackages = Vpackage.where(product_id: params[:product_id])
+	  @packages = Vpackage.where(product_id: params[:product_id])
       @bill = Bill.find(params[:product_id])
+	  @package_index = [] 
+	  @package_price = []
+	  @packages.each do |pack|
+         #@package_price_map[pack.id] = pack.price
+		 @package_index.append(pack.id)
+		 @package_price.append(pack.price)
+	  end 
    end
    
    def buy
@@ -32,19 +39,39 @@ class ProductController < ApplicationController
       end
 
 	  if params[:commit] == "addcart"
+		 @package = Vpackage.find(params[:package_id])
+
 		 cart = Vcart.new
 		 cart.user_id = uid
 		 cart.product_id = params[:product_id]
-		 cart.package_name = params[:package] # 임시 방편
-		 #cart.package_id
+		 cart.package_id = params[:package_id]
+		 cart.package_name = @package.name
 		 cart.addhoo = params[:hoo]
-		 #cart.num
+		 cart.num = params[:package_num]
 		 cart.save 
+
          redirect_to '/product/cart_list'
+		 return
 	  elsif params[:commit] == "buy"
+		 
          @product = Vproduct.find(params[:product_id])
+		 
+		 @package = Vpackage.find(params[:package_id])
+		 
 		 @seller = Vseller.find(@product.seller_id)
 		 @person = Person.find(@product.seller_id)
+		 
+		 @user = Vuser.find(uid)
+
+		 @package_num = params[:package_num].to_i
+		 
+		 if @package_num == 0 
+			@package_num = 0
+		 end
+		 
+		 @hoo = params[:hoo].to_i
+		 
+		 @total_amount = (@package.price)*@package_num + @hoo
 	  end
    end
    

@@ -29,9 +29,13 @@
   </div>  
   </div>
   <div class="form-group">
-     자신이 살는 주소를 입력하세요 ( 주소 찾기 API 붙여도 좋을듯) 
+     자신이 살는 주소지 정보를 입력하세요 ( 주소 찾기 API 붙여도 좋을듯) 
      <%#= f.label :address %><br />
      <%= f.text_field :address, class: 'form-control' %>
+  </div>
+  <div class= "form-froup">
+     우편번호를 입력하세요. <br>
+	 <%= f.text_field :address_num, class: 'form-control'%>
   </div>
   <div class="form-group">
      자신이 주로쓰는 계좌번호를 입력하세요. 

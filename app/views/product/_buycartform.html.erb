@@ -1,20 +1,26 @@
 <div class="product_buy_form">
 	<%= form_tag( "/product/buy/#{ params[:product_id] }", method: "post" ) do %>
-       <div class="product_packages_radio">
+		
+		<div class="product_packages_radio">
 		   패키지 선택 드랍다운 부분
-		   <%# @packages = [ [ "첫번째 패키지", "first" ], [ "두번째 패키지", "second" ] , [ "세번째 패키지", "third" ] ]%>
 		   <% packages = [ ] %>
-
 		   <% @packages.each do |package| %>
 				<% packages.push([ package.name , package.id ])%>
-		   <% end %>
-		   
-		   <%= select_tag(:package, options_for_select(packages ))%>
-       </div>
+			<% end %>
+		  <%# packages_price = { }%>
+
+		   <div onkeyup="findPackagePrice();">
+			   <%= select_tag(:package_id, options_for_select(packages ))%></div>
+	   </div>
+
+	   <div class="product_package_num">
+		  해당 패키지를 몇개 구매하실건가요? <br>
+          <%= number_field_tag 'package_num', "1"%>
+	   </div>
       <div class="product_hoo_radio">
-		  후원금 선택 라디오 부분
+		  후원금 추가로 주기 라디오 부분
 		   
-		   <% @hoos = [ [ "5000원", 5000 ], [ "10000원", 10000 ] , [ "20000원", 20000 ] ]%>
+		   <% @hoos = [ [ "추가안함", 0 ], [ "+5000원", 5000 ], [ "+10000원", 10000 ] , [ "+20000원", 20000 ] ]%>
 		   <%= select_tag(:hoo, options_for_select(@hoos ))%>
 
 	  </div>
@@ -28,4 +34,17 @@
 	  </div>
   <% end %>
 </div>
-
+<h1> <%= @package_price_map %></h1>
+<script type="text/javascript">
+   function findPackagePrice(){
+	   var package_id = document.getElementById('package_id').value;
+	   var package_index = <%= @package_index %>
+	   var package_price = <%= @package_price %>
+       var id = package_index.findIndex(function(elem){ return elem == package_id });
+	   console.log(id);
+	   console.log(package_index);
+	   console.log(package_price);
+       
+	   console.log(package_price[id]);
+   }
+</script>
