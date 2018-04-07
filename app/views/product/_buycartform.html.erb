@@ -2,8 +2,14 @@
 	<%= form_tag( "/product/buy/#{ params[:product_id] }", method: "post" ) do %>
        <div class="product_packages_radio">
 		   패키지 선택 드랍다운 부분
-		   <% @packages = [ [ "첫번째 패키지", "first" ], [ "두번째 패키지", "second" ] , [ "세번째 패키지", "third" ] ]%>
-		   <%= select_tag(:package, options_for_select(@packages ))%>
+		   <%# @packages = [ [ "첫번째 패키지", "first" ], [ "두번째 패키지", "second" ] , [ "세번째 패키지", "third" ] ]%>
+		   <% packages = [ ] %>
+
+		   <% @packages.each do |package| %>
+				<% packages.push([ package.name , package.id ])%>
+		   <% end %>
+		   
+		   <%= select_tag(:package, options_for_select(packages ))%>
        </div>
       <div class="product_hoo_radio">
 		  후원금 선택 라디오 부분

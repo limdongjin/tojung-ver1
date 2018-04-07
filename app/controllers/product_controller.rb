@@ -17,6 +17,7 @@ class ProductController < ApplicationController
 
    def detail
       @vproduct = Vproduct.find(params[:product_id])
+	  @vpackages = Vpackage.where(product_id: params[:product_id])
       @bill = Bill.find(params[:product_id])
    end
    
