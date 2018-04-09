@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  post 'product/:product_id/comments/create' => 'comments#create'
+
+  get 'comments/delete/:id' => 'comments#destroy'
+
   #devise_for :vusers
   Rails.application.routes.draw do     
+  get 'comments/create'
+
+  get 'comments/destroy'
+
     devise_for :vusers, controllers: { 
       sessions: 'vuser/sessions', 
       registrations: 'vuser/registrations'  

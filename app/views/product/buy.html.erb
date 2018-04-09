@@ -29,7 +29,7 @@
 	 패키지 id: <div id="current_package_id"> <%= @package.id %> </div><br>
 	 패키지 이름: <div id="current_package_name"><%= @package.name  %> </div><br>
 	 패키지 (1개당)가격: <div id="current_package_price"><%= @package.price %>  <br></div>   
-       <div onkeyup="findTotal();findPackage_num()calculateFinal();">
+       <div onkeyup="findTotal();findPackage_num();calculateFinal();">
    구매하는 해당 패키지 개수: <%= text_field_tag "package_num", @package_num %> <br>
       </div>
    </div>
