@@ -68,17 +68,17 @@
 
 <script type="text/javascript"> 
  function findTotal(){
-	 var package_num = document.getElementById('package_num').value;
-	 var hoo = document.getElementById('hoo').value;
+	 var package_num = parseInt(document.getElementById('package_num').value);
+	 var hoo = parseInt(document.getElementById('hoo').value);
 	 console.log(package_num)
 	 document.getElementById('total').innerHTML = parseInt(package_num) * parseInt(<%= @package.price %>) + parseInt(hoo);
  }
  function findPackage_num(){
-    var package_num = document.getElementById('package_num').value;
+    var package_num = parseInt(document.getElementById('package_num').value);
     document.getElementById('ppackage_num').innerHTML = package_num
  }
  function findHoo(){
-	 var hoo = document.getElementById('hoo').value;
+	 var hoo = parseInt(document.getElementById('hoo').value);
 	 document.getElementById('phoo').innerHTML = hoo;
  }
 </script>

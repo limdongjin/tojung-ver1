@@ -9,15 +9,20 @@
 			<% end %>
 		  <%# packages_price = { }%>
 
-		   <div onkeyup="findPackagePrice();">
+		   <div onchange="findPackagePrice();">
 			   <%= select_tag(:package_id, options_for_select(packages ))%></div>
-	   </div>
+	       </div>
 
-	   <div class="product_package_num">
+	   <div class="product_package_num" onchange="findPackagePrice();">
 		  해당 패키지를 몇개 구매하실건가요? <br>
           <%= number_field_tag 'package_num', "1"%>
 	   </div>
-      <div class="product_hoo_radio">
+
+	   <div id="product_package_total_price">
+		   0
+	   </div>
+
+      <div class="product_hoo_radio" onchange="findPackagePrice();">
 		  후원금 추가로 주기 라디오 부분
 		   
 		   <% @hoos = [ [ "추가안함", 0 ], [ "+5000원", 5000 ], [ "+10000원", 10000 ] , [ "+20000원", 20000 ] ]%>
@@ -41,10 +46,16 @@
 	   var package_index = <%= @package_index %>
 	   var package_price = <%= @package_price %>
        var id = package_index.findIndex(function(elem){ return elem == package_id });
+	   var package_num = document.getElementById('package_num').value;
+	   var hoo = parseInt(document.getElementById('hoo').value);
+
 	   console.log(id);
 	   console.log(package_index);
 	   console.log(package_price);
-       
 	   console.log(package_price[id]);
+
+       document.getElementById('product_package_total_price').innerHTML = package_price[id] * package_num + hoo;
+
    }
+   
 </script>
