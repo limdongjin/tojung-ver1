@@ -11,6 +11,15 @@
 계좌은행: <%= @user.account_assos%><br>
 
 <h2> 주문한 상품 조회 </h2>
-구현중
 
-
+<% @transactions.each do |transaction|%>
+	<hr>
+	<div>
+		
+		상품 번호: <%= transaction.product_id %><br>
+		총 금액  : <%= transaction.total_amount %><br>
+		결제해야할 금액: <%= transaction.total_amount - transaction.received_amount%><br>
+		배송 현황: <%= transaction.baesong_status %><br>
+		
+	</div>
+<% end %>

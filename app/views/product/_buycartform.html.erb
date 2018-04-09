@@ -13,7 +13,7 @@
 			   <%= select_tag(:package_id, options_for_select(packages ))%></div>
 	       </div>
 
-	   <div class="product_package_num" onchange="findPackagePrice();">
+	   <div class="product_package_num" onkeyup="findPackagePrice();" onchange="findPackagePrice();">
 		  해당 패키지를 몇개 구매하실건가요? <br>
           <%= number_field_tag 'package_num', "1"%>
 	   </div>

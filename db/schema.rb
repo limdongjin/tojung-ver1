@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407063652) do
+ActiveRecord::Schema.define(version: 20180409034540) do
 
   create_table "vcarts", force: :cascade do |t|
     t.integer "product_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20180407063652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "account"
+    t.text "account_assos"
   end
 
   create_table "vtransactions", force: :cascade do |t|
@@ -62,6 +63,23 @@ ActiveRecord::Schema.define(version: 20180407063652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "serial"
+    t.integer "package_price"
+    t.integer "package_num"
+    t.integer "hoo"
+    t.integer "user_account"
+    t.text "baesong_name"
+    t.text "baesong_addr"
+    t.integer "baesong_addr_num"
+    t.text "baesong_contact"
+    t.text "payment_way"
+    t.boolean "ispay"
+    t.integer "received_amount"
+    t.text "baesong_status"
+    t.text "user_name"
+    t.text "user_phone"
+    t.text "user_email"
+    t.integer "user_addr_num"
+    t.text "user_addr"
   end
 
   create_table "vusers", force: :cascade do |t|
@@ -85,6 +103,7 @@ ActiveRecord::Schema.define(version: 20180407063652) do
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"
+    t.integer "address_num"
     t.index ["email"], name: "index_vusers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_vusers_on_reset_password_token", unique: true
   end
