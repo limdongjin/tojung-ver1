@@ -3,19 +3,20 @@ class CommentsController < ApplicationController
 	@comment = Vcomment.new
 	@comment.content = params[:content]
 	@comment.user_id = current_vuser.id
-	@comment.product_id = params[:product_id]
-	@comment.save
-
-	redirect_to :back
+	@comment.vproduct_id = params[:product_id].to_i
+	print(@comment)
+	print(@comment.save)
+	print(@comment.errors)
+    # redirect_back(fallback_location: root_path)
   end
 
   def destroy
-	@comment = Vcomment.find(params[:id])
+	@comment = Vcomment.find(params[:id].to_i)
 	if @comment.user_id == current_vuser.id
 		@comment.destroy
-		redirect_to :back
+		redirect_back(fallback_location: root_path)
 	else
-		redirect_to :back
+		    redirect_back(fallback_location: root_path)
 	end
   end
 end

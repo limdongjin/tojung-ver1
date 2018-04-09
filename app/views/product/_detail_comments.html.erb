@@ -3,13 +3,13 @@
 <% @comments.each do |comment| %>
 	<hr>
 	<div>
-		댓글 내용: <%= comment.content%>
-		작성자 유저번호: <%= comment.user_id %>
-		<a href="/comments/delete/:id">[삭제] </a>
+		댓글 내용: <%= comment.content%><br>
+		유저번호: <%= comment.user_id %>
+	<a href="/comments/delete/<%= comment.id%>">[삭제] </a>
 	</div>
 <% end %>
 
-<% if current_vuser.blank? != false %>
+<% if current_vuser.blank? == false %>
 <%= form_tag( "/product/#{ params[:product_id] }/comments/create", method: "post" ) do %>
 	<%= text_field_tag "content", "" ,placeholder: "댓글을 입력해주세요" %> <br>
 	<%= submit_tag("submit") %>

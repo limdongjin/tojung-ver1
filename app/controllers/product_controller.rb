@@ -16,7 +16,7 @@ class ProductController < ApplicationController
    end
 
    def detail
-	  @comments = Vcomment.where(post_id: params[:post_id])
+	  @comments = Vcomment.where(vproduct_id: params[:product_id])
 	   
       @vproduct = Vproduct.find(params[:product_id])
 	  @packages = Vpackage.where(product_id: params[:product_id])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409034540) do
+ActiveRecord::Schema.define(version: 20180409102346) do
 
   create_table "vcarts", force: :cascade do |t|
     t.integer "product_id"
@@ -21,6 +21,25 @@ ActiveRecord::Schema.define(version: 20180409034540) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "package_id"
+  end
+
+  create_table "vcomments", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "vproduct_id"
+  end
+
+  create_table "vcoupons", force: :cascade do |t|
+    t.text "name"
+    t.integer "user_id"
+    t.integer "serial"
+    t.integer "total_amount"
+    t.integer "remain_amount"
+    t.text "will_expire_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "vpackages", force: :cascade do |t|
@@ -80,6 +99,12 @@ ActiveRecord::Schema.define(version: 20180409034540) do
     t.text "user_email"
     t.integer "user_addr_num"
     t.text "user_addr"
+    t.text "payed_account"
+    t.text "payed_name"
+    t.integer "coupon_use"
+    t.integer "coupon"
+    t.text "user_accountt"
+    t.integer "package_id"
   end
 
   create_table "vusers", force: :cascade do |t|

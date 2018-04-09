@@ -1,3 +1,3 @@
 class Vcomment < ApplicationRecord
-  belongs_to :vproducts
+  belongs_to :vproduct
 end
