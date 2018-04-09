@@ -17,5 +17,33 @@
 			  <p class="alert alert-danger"><%= alert %></p>
 		  <% end %>
 	  <%= yield %>
+<!-- Channel Plugin Scripts -->
+<script>
+  window.channelPluginSettings = {
+	  //"pluginKey": "6abc6af7-61c1-4302-8909-60e9bd0736b7"
+	  "pluginKey": "c41b6775-e43d-4cae-888e-8616e0c23cfe"
+  };
+  (function() {
+    var node = document.createElement('div');
+    node.id = 'ch-plugin';
+    document.body.appendChild(node);
+    var async_load = function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//cdn.channel.io/plugin/ch-plugin-web.js';
+      s.charset = 'UTF-8';
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    };
+    if (window.attachEvent) {
+      window.attachEvent('onload', async_load);
+    } else {
+      window.addEventListener('DOMContentLoaded', async_load, false);
+    }
+  })();
+</script>
+<!-- End Channel Plugin -->
+
    </body>
 </html>
