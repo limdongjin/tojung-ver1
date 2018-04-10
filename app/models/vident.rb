@@ -1,0 +1,2 @@
+class Vident < ApplicationRecord
+end

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
     devise_for :vusers, controllers: { 
       sessions: 'vuser/sessions', 
-      registrations: 'vuser/registrations'  
+      registrations: 'vuser/registrations',
+	  omniauth_callbacks: 'vuser/omniauth_callbacks'
     }                                  
    end                                  
   post 'product/buyok' => 'product#buyok'  

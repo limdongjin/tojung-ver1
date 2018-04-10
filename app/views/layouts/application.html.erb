@@ -19,7 +19,24 @@
 	  <%= yield %>
 <!-- Channel Plugin Scripts -->
 <script>
-  window.channelPluginSettings = {
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1014670008686658',
+      xfbml      : true,
+      version    : 'v2.12'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+window.channelPluginSettings = {
 	  //"pluginKey": "6abc6af7-61c1-4302-8909-60e9bd0736b7"
 	  "pluginKey": "c41b6775-e43d-4cae-888e-8616e0c23cfe"
   };

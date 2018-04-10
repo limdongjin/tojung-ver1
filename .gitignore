@@ -3,4 +3,6 @@ config/database.yml
 log/
 secrets.yml
 tmp/
-
+*.crt
+localhost.key
+openssl

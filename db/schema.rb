@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409102346) do
+ActiveRecord::Schema.define(version: 20180410085210) do
 
   create_table "vcarts", force: :cascade do |t|
     t.integer "product_id"
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 20180409102346) do
     t.integer "total_amount"
     t.integer "remain_amount"
     t.text "will_expire_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vidents", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -129,6 +134,11 @@ ActiveRecord::Schema.define(version: 20180409102346) do
     t.integer "birth_month"
     t.integer "birth_day"
     t.integer "address_num"
+    t.string "provider"
+    t.string "uid"
+    t.text "facebook_name"
+    t.text "facebook_image"
+    t.text "image"
     t.index ["email"], name: "index_vusers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_vusers_on_reset_password_token", unique: true
   end
