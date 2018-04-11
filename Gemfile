@@ -8,6 +8,7 @@ end
 ####################################################
 #gem 'omniauth2'
 # gem 'omniauth-kakao', :git => 'git://github.com/hcn1519/omniauth-kakao'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'mysql2'
 gem 'devise'

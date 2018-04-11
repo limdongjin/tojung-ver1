@@ -3,8 +3,19 @@
 class Vuser::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
+
+def google_oauth2
+      @user = Vuser.from_omniauth(request.env["omniauth.auth"])
+      if @user.persisted?
+        flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
+        sign_in_and_redirect @user, :event => :authentication
+      else
+        session["devise.google_data"] = request.env["omniauth.auth"]
+        redirect_to new_vuser_registration_url
+      end
+  end
   
-def facebook
+ def facebook
     @user = Vuser.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
@@ -20,7 +31,8 @@ def facebook
 
   def failure
     redirect_to root_path
-  end	
+  end
+
   # You should also create an action method in this controller like this:
   # def twitter
   # end

@@ -6,3 +6,4 @@ tmp/
 *.crt
 localhost.key
 openssl
+nohup.out

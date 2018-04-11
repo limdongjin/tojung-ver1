@@ -9,6 +9,7 @@
    </head>
 
    <body>
+	   <h1>test </h1>
       <%= render 'layouts/menu' %>
 	  <% if notice %>
 		    <p class="alert alert-success"><%= notice %></p>
@@ -19,7 +20,7 @@
 	  <%= yield %>
 <!-- Channel Plugin Scripts -->
 <script>
-  window.fbAsyncInit = function() {
+  /*window.fbAsyncInit = function() {
     FB.init({
       appId      : '1014670008686658',
       xfbml      : true,
@@ -35,7 +36,7 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-
+*/
 window.channelPluginSettings = {
 	  //"pluginKey": "6abc6af7-61c1-4302-8909-60e9bd0736b7"
 	  "pluginKey": "c41b6775-e43d-4cae-888e-8616e0c23cfe"
