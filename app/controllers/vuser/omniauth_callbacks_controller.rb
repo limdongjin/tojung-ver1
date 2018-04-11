@@ -14,6 +14,19 @@ def google_oauth2
         redirect_to new_vuser_registration_url
       end
   end
+
+ def kakao
+	  print("go")
+      @user = Vuser.from_omniauth(request.env["omniauth.auth"])
+	  print(@user)
+      if @user.persisted?
+        flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Kakao"
+        sign_in_and_redirect @user, :event => :authentication
+      else
+        session["devise.kakao_data"] = request.env["omniauth.auth"]
+        redirect_to new_vuser_registration_url
+      end
+  end
   
  def facebook
     @user = Vuser.from_omniauth(request.env["omniauth.auth"])
@@ -30,6 +43,8 @@ def google_oauth2
   end
 
   def failure
+	print(params)
+	print("Fail!!")
     redirect_to root_path
   end
 
