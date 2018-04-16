@@ -1,0 +1,36 @@
+<h1>Propose#new</h1>
+<p>Find me in app/views/propose/new.html.erb</p>
+<h1> 청원 생성 페이지 </h1>
+
+<%= form_tag("/propose/create", method: "post" ) do %>
+	
+	<!-- 청원 제목 입력 -->
+	<%= text_field_tag 'propose_title', "" , placeholder: "청원 제목을 입력해주세요" %>
+
+	<!-- 청원 카테고리 드랍다운 입력-->
+	<% bg_categorys = [ ["대분류1", "대분류1"] , [ "대분류2", "대분류2" ]  ] %>
+	<div>
+		<%= select_tag(:bg_category_name, options_for_select(bg_categorys))%></div>
+	</div>
+	
+	<% sm_categorys = [ ["소분류1", "소분류1"] , [ "소분류2", "소분류2" ]  ] %>
+	<div>
+		<%= select_tag(:sm_category_name, options_for_select(sm_categorys)) %>
+	</div>
+
+	<!-- 청원 내용 입력 -->
+	<%= text_field_tag 'propose_content', "", placeholder: "청원 내용을 입력해주세요" %>
+	
+	<div class="contract_content">
+		<!-- 약정 내용 입력 -->
+	</div>
+
+	<!-- 약정 금액 입력 -->
+	<%= number_field_tag 'contract_money', 10000, placeholder: "약정하실 금액을 입력해주세요" %>
+
+    <!-- 이미지 업로드 구현중 -->
+	<%#= image_field_tag ''%> 
+
+	<!-- 제출 -->
+	<%= submit_tag("propose_create") %>
+<% end %>

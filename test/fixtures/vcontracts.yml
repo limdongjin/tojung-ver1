@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  propose_id: 1
+  title: MyText
+  content: MyText
+  user_id: 1
+  contract_money: 1
+  real_pay: 1
+
+two:
+  propose_id: 1
+  title: MyText
+  content: MyText
+  user_id: 1
+  contract_money: 1
+  real_pay: 1

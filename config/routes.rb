@@ -1,10 +1,57 @@
 Rails.application.routes.draw do
+  get 'contract/index'
+
+  get 'contract/new'
+
+  get 'contract/edit'
+
+  get 'contract/update'
+
+  get 'contract/create'
+
+  get 'contract/delete'
+
+  get 'propose/index'
+
+  get 'propose/new'
+
+  post 'propose/create'
+
+  get 'propose/edit'
+
+  get 'propose/update'
+
+  get 'propose/delete'
+
   post 'product/:product_id/comments/create' => 'comments#create'
 
   get 'comments/delete/:id' => 'comments#destroy'
 
-  #devise_for :vusers
   Rails.application.routes.draw do     
+  get 'contract/index'
+
+  get 'contract/new'
+
+  get 'contract/edit'
+
+  get 'contract/update'
+
+  get 'contract/create'
+
+  get 'contract/delete'
+
+  get 'propose/index'
+
+  get 'propose/new'
+
+  get 'propose/create'
+
+  get 'propose/edit'
+
+  get 'propose/update'
+
+  get 'propose/delete'
+
   get 'comments/create'
 
   get 'comments/destroy'
@@ -17,7 +64,6 @@ Rails.application.routes.draw do
    end                                  
   post 'product/buyok' => 'product#buyok'  
   post 'product/buy/:product_id' => 'product#buy'
-  # post 'product/addcart' => 'product#addcart'
   get 'product/cart_list' => 'product#cart_list'  
   get 'product/list/:page_id' => 'product#list'
 

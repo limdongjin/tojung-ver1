@@ -1,4 +1,5 @@
 config/database.yml
+config/initializers/fog.rb
 *sqlite*
 log/
 secrets.yml

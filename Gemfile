@@ -8,6 +8,10 @@ end
 ####################################################
 #gem 'omniauth2'
 # gem 'omniauth-kakao', :git => 'git://github.com/hcn1519/omniauth-kakao'
+#Gemfile
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
 gem 'omniauth-kakao'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'

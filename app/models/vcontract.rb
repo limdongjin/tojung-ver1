@@ -1,0 +1,2 @@
+class Vcontract < ApplicationRecord
+end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  base_option_id: 1
+  option_name: MyText
+  price: 1
+  user_id: 1
+  propose_id: 1
+  status: MyText
+
+two:
+  base_option_id: 1
+  option_name: MyText
+  price: 1
+  user_id: 1
+  propose_id: 1
+  status: MyText
