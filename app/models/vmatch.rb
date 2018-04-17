@@ -1,0 +1,2 @@
+class Vmatch < ApplicationRecord
+end

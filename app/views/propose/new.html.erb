@@ -2,7 +2,7 @@
 <p>Find me in app/views/propose/new.html.erb</p>
 <h1> 청원 생성 페이지 </h1>
 
-<%= form_tag("/propose/create", method: "post" ) do %>
+<%= form_tag("/propose/create", method: "post", multipart: true ) do %>
 	
 	<!-- 청원 제목 입력 -->
 	<%= text_field_tag 'propose_title', "" , placeholder: "청원 제목을 입력해주세요" %>
@@ -28,8 +28,8 @@
 	<!-- 약정 금액 입력 -->
 	<%= number_field_tag 'contract_money', 10000, placeholder: "약정하실 금액을 입력해주세요" %>
 
-    <!-- 이미지 업로드 구현중 -->
-	<%#= image_field_tag ''%> 
+    <!-- 이미지 업로드 -->
+	<%= file_field_tag('propose_image', accept: "image/png,image/gif,image/jpeg,image/PNG,image/jpg") %>
 
 	<!-- 제출 -->
 	<%= submit_tag("propose_create") %>

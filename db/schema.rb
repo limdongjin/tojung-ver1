@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410085210) do
+ActiveRecord::Schema.define(version: 20180416132515) do
 
   create_table "vcarts", force: :cascade do |t|
     t.integer "product_id"
@@ -23,12 +23,44 @@ ActiveRecord::Schema.define(version: 20180410085210) do
     t.integer "package_id"
   end
 
+  create_table "vcategoryimages", force: :cascade do |t|
+    t.text "name"
+    t.text "bg_category_name"
+    t.text "sm_category_name"
+    t.text "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "vcomments", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "vproduct_id"
+  end
+
+  create_table "vcontract_options", force: :cascade do |t|
+    t.integer "base_option_id"
+    t.text "option_name"
+    t.integer "price"
+    t.integer "user_id"
+    t.integer "propose_id"
+    t.text "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vcontracts", force: :cascade do |t|
+    t.integer "propose_id"
+    t.text "title"
+    t.text "content"
+    t.integer "user_id"
+    t.integer "contract_money"
+    t.integer "real_pay"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "deadline"
   end
 
   create_table "vcoupons", force: :cascade do |t|
@@ -67,6 +99,22 @@ ActiveRecord::Schema.define(version: 20180410085210) do
     t.text "intro"
     t.integer "deadline"
     t.integer "seller_id"
+  end
+
+  create_table "vproposes", force: :cascade do |t|
+    t.text "title"
+    t.text "content"
+    t.integer "user_id"
+    t.integer "funded_money"
+    t.integer "funded_num"
+    t.integer "goal_money"
+    t.text "bg_category_name"
+    t.text "sm_category_name"
+    t.text "image"
+    t.text "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "deadline"
   end
 
   create_table "vsellers", force: :cascade do |t|
@@ -139,6 +187,7 @@ ActiveRecord::Schema.define(version: 20180410085210) do
     t.text "facebook_name"
     t.text "facebook_image"
     t.text "image"
+    t.text "real_name"
     t.index ["email"], name: "index_vusers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_vusers_on_reset_password_token", unique: true
   end

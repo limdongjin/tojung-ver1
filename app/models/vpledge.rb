@@ -1,0 +1,2 @@
+class Vpledge < ApplicationRecord
+end

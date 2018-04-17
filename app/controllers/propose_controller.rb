@@ -2,9 +2,54 @@ class ProposeController < ApplicationController
   
   # GET /propose/index
   def index
+	# 청원 목록 페이지 ( 테스트용 )
     @proposes= Vpropose.all
+	
   end
+  
+  # GET /propose/:id
+  def detail
+	# 청원 세부 정보 페이지
+	@propose = Vpropose.find(params[:id].to_i)
+	
+	if @propose.deadlines - Time.now <= 0
+	    lll =  [ "펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전" ]
+		lll.each do |l|
+			if l == @propose.status
+				@propose.status = "매칭진행중"
+			end
+		end
+	elsif @propose.deadlines - Time.now <= (60*60*24)
+		@propose.status = "펀딩 마감 하루전"
+	elsif @propose.deadlines - Time.now <= (60*60*24)*2
+		@propose.status = "펀딩 마감 이틀전"
+	end
 
+	@propose.save
+
+	if @propose.status == "입법진행중" or @propose.status == "법안심사"
+		@sellers = [ ]
+		Vmatch.where(propose_id: @propose.id).each do |vmatch|
+			@sellers.push( Vseller.find(vmatch.seller_id) )
+		end
+	end
+    @candidates = Vcandidate.where(propose_id: @propose.id)
+	@votes = Vvote.where(propose_id: @propose.id)
+	@dict_candidate = {  }
+	
+	@candidates.each do |candidate|
+		@dict_candidate[candidate.id] = { }
+		@dict_candidate[candidate.id] = { "name": Vseller.find(candidate.seller_id).name , "info": ""  }
+	end
+
+    @writer = Vuser.find(@propose.user_id)
+	@contracts = Vcontract.where(propose_id: @propose.id)
+	
+	@dict = { }
+	@contracts.each do |contract|
+		@dict[contract.user_id] = Vuser.find(contract.user_id).name 
+	end
+  end
   # GET /propose/new
   def new
     # 청원 생성 페이지
@@ -45,20 +90,22 @@ class ProposeController < ApplicationController
 	
 	# 약정 생성
     @contract = Vcontract.new
-	@contract.content = params[:contract_content]
+	# @contract.content = params[:contract_content]
 	@contract.contract_money = params[:contract_money].to_i
 	@contract.user_id = current_vuser.id
 	@contract.propose_id = @propose.id
+	
+	@propose.deadlines = @propose.created_at + 60*60*24*30 # 한달
 
 	@propose.funded_num = 1
 	@propose.funded_money = @contract.contract_money 
-	@propose.real_pay = 0
+	@contract.real_pay = 0
 	
 	@propose.save
 	@contract.save
 	
 	# 청원 페이지로 이동
-	redirect_to '/'
+	# redirect_to '/'
   end
 
   def edit

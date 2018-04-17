@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  
+  # 후보자 등록	
+  get 'candidate/index'
+
+  post 'candidate/create/:propose_id' => 'candidate#create'
+
+  get 'candidate/new/:propose_id' => 'candidate#new'
+
+  get 'candidate/delete'
+
+  get 'candidate/update'
+
+  get 'candidate/edit'
+
+  get 'candidate/detail'
+
+  # 약정 	
   get 'contract/index'
 
   get 'contract/new'
@@ -11,6 +28,7 @@ Rails.application.routes.draw do
 
   get 'contract/delete'
 
+  # 청원
   get 'propose/index'
 
   get 'propose/new'
@@ -23,11 +41,26 @@ Rails.application.routes.draw do
 
   get 'propose/delete'
 
+  get 'propose/:id' => 'propose#detail'
   post 'product/:product_id/comments/create' => 'comments#create'
 
   get 'comments/delete/:id' => 'comments#destroy'
 
   Rails.application.routes.draw do     
+  get 'candidate/index'
+
+  get 'candidate/create'
+
+  get 'candidate/new'
+
+  get 'candidate/delete'
+
+  get 'candidate/update'
+
+  get 'candidate/edit'
+
+  get 'candidate/detail'
+
   get 'contract/index'
 
   get 'contract/new'

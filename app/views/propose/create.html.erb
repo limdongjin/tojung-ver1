@@ -1,2 +1,24 @@
-<h1>Propose#create</h1>
+<h1>청원+약정 공유 페이지 </h1>
 <p>Find me in app/views/propose/create.html.erb</p>
+
+<!-- 청원 정보-->
+<h2> 청원 정보 </h2>
+<p>청원제목: <%= @propose.title %></p>
+<p>청원내용: <%= @propose.content %></p>
+<p>청원이미지:<img src="<%= @propose.image.url %>"></p>
+
+<!-- 약정 정보 -->
+<h2> 약정 정보</h2>
+<p> 약정 내용: <%= @contract.content %> </p>
+<p> 약정 금액: <%= @contract.contract_money %><p>
+
+<!-- 작성자 정보-->
+<p> 작성자 정보 </p>
+<p> 약정자 이름: <%= current_vuser.name %> </p>
+
+<!-- 공유 하기 버튼 -->
+<div>
+</div>
+
+<!-- 청원 세부 페이지로 이동하기 -->
+<a href="/propose/<%= @propose.id%>"> 청원 세부 페이지 </a>

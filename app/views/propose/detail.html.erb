@@ -1,0 +1,99 @@
+<h1> 청원 세부 페이지 </h1>
+
+<!-- 청원 정보-->
+<h2> 청원 정보 </h2>
+<p>청원제목: <%= @propose.title %></p>
+<p>청원내용: <%= @propose.content %></p>
+<p>청원이미지:<img src="<%= @propose.image.url %>"></p>
+
+<!-- 청원 작성자 정보-->
+<p> 청원 작성자 정보 </p>
+<p> 작성자 이름: <%= @writer.name %> </p>
+
+<!-- 공유 하기 버튼 -->
+<div>
+</div>
+
+<% status = @propose.status %>
+<% if status == "펀딩진행중" or status == "펀딩 마감 하루전" or status == "펀딩 마감 이틀전" %>
+<div>
+	약정하기 버튼
+</div>
+<% end %>
+<br>
+
+<!-- 펀딩 현황 -->
+<% if status == "펀딩진행중" %>
+	<p> 현재 펀딩이 진행되고있습니다. </p>
+
+	<p> 펀딩 생성일: <%= @propose.created_at %>
+	<p> 현재 시간: <%= Time.now %></p>
+	<p> 마감 종료 일정: <%= @propose.deadlines %> </p>
+
+	<p> 현재 펀딩 금액(약정된 총 금액): <%= @propose.funded_money%><p>
+	<p> 현재 펀딩에 참여한 인원: <%= @propose.funded_num %> </p>
+<% elsif status == "펀딩 마감 하루전" %>
+	<p> 현재 펀딩이 하루남았습니다.</p>
+
+	<p> 펀딩 생성일: <%= @propose.created_at %>
+	<p> 현재 시간: <%= Time.now %></p>
+	<p> 마감 종료 일정: <%= @propose.deadlines %> </p>
+
+	<p> 현재 펀딩 금액(약정된 총 금액): <%= @propose.funded_money%><p>
+	<p> 현재 펀딩에 참여한 인원: <%= @propose.funded_num %> </p>
+<% elsif stauts == "편딩 마감 이틀전" %>
+	<p> 현재 펀딩이 이틀남았습니다.</p>
+	<p> 펀딩 생성일: <%= @propose.created_at %>
+	<p> 현재 시간: <%= Time.now %></p>
+	<p> 마감 종료 일정: <%= @propose.deadlines %> </p>
+
+	<p> 현재 펀딩 금액(약정된 총 금액): <%= @propose.funded_money%><p>
+	<p> 현재 펀딩에 참여한 인원: <%= @propose.funded_num %> </p>
+<% elsif status == "매칭진행중" %>
+	<p> 매칭이 진행중입니다. </p>
+	<p> 펀딩 총 금액(약정된 총 금액): <%= @propose.funded_money%><p>
+	<p> 펀딩에 참여한 총 인원: <%= @propose.funded_num %> </p>
+<% elsif status == "입법진행중"%>
+	<p> 매칭이 완료되어 입법 과정이 진행중입니다. </p>
+	<p> 최종 매칭의원은:  <% @sellers.each do |seller| %> 매칭의원이름:<%= seller.name %> <% end%> </p>
+
+	<p> 펀딩 총 금액(약정된 총 금액): <%= @propose.funded_money%><p>
+	<p> 펀딩에 참여한 총 인원: <%= @propose.funded_num %> </p>
+<% elsif status == "법안심사" %>
+	<p> 법안 심사중입니다. </p>
+	<p> 최종 매칭의원은:  <% @sellers.each do |seller| %> 매칭의원이름:<%= seller.name %> <% end%> </p>
+	<p> 펀딩 총 금액(약정된 총 금액): <%= @propose.funded_money%><p>
+	<p> 펀딩에 참여한 총 인원: <%= @propose.funded_num %> </p>
+<% end %>
+
+<!-- 의원용 로직 -->
+<% if current_vuser == "국회의원" and status == "매칭진행중" %>
+	<p>후보자 등록하기</p>
+<% end %>
+
+<!-- 후보자 정보 및 투표 -->
+<% if status == "매칭진행중" %>
+	<% num = 1%>
+	<% @candidates.each do |candidate| %> 
+		<hr>
+		<p>후보자 번호: <%= num %></p>
+		<% num += 1 %>
+		<p>후보자 이름: <%= @dict_candidate[candidate.id][:"name"] %> </p>
+		<p>후보자 득표수: <%= candidate.vote_num %> </p>
+		<div> 후보자 정보 및 소개 </div><br>
+		<p> 이 의원에게 투표하기 버튼 </p>
+	<% end %>
+<% end %>
+
+<!-- 펀딩 세부 현황 -->
+<hr>
+<% num = 1 %>
+<% @contracts.each do |contract| %>
+	<hr>
+	<p>펀딩 번호: <%= num %></p>
+	<% num += 1%>
+	<p>펀딩 약정자 이름:  <%= @dict[contract.user_id] %></p>
+	<p>펀딩 내용: <%= contract.content %></p>
+	<p>펀딩 금액: <%= contract.contract_money%></p>
+<% end %>
+

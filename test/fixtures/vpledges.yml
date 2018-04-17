@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  propose_id: 1
+  seller_id: 1
+  candidate_id: 1
+  user_id: 1
+  status: MyText
+
+two:
+  content: MyText
+  propose_id: 1
+  seller_id: 1
+  candidate_id: 1
+  user_id: 1
+  status: MyText

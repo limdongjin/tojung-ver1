@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  bg_category_name: MyText
+  sm_category_name: MyText
+  image: MyText
+
+two:
+  name: MyText
+  bg_category_name: MyText
+  sm_category_name: MyText
+  image: MyText
