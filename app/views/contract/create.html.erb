@@ -1,2 +1,14 @@
-<h1>Contract#create</h1>
+<h1> 약정 공유 하기 페이지 </h1>
 <p>Find me in app/views/contract/create.html.erb</p>
+
+<!-- 약정 정보 -->
+<p>청원 이름: <%= @propose.share %></p>
+<p>약정 내용: <%= @contract.content %></p>
+<p>약정자 이름: <%= @writer.real_name %>
+<p>약정 금액: <%= @contract.contract_money %></p>
+
+<div>
+공유하기 버튼
+</div>
+<hr>
+<a href="/propose/<%= @propose.id %>"> 청원 상세 페이지로 돌아가기 </a>

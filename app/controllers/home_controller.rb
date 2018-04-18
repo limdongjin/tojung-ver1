@@ -7,10 +7,31 @@ class HomeController < ApplicationController
 		  current_vuser.real_name == "" or 
 		  current_vuser.phone_number == ""
 		  #current_vuser.address == ""
-
 		 redirect_to(edit_vuser_registration_path)
+		 return
 	  end
-   end
+    end
+	  @proposes = Vpropose.all
+	  	@proposes.each do |propose|
+	    if propose.deadlines == nil 
+           next
+		end
+		if propose.deadlines - Time.now <= 0
+	    	lll =  [ "펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전" ]
+			lll.each do |l|
+				if l == propose.status
+					propose.status = "매칭진행중"
+				end
+			end
+			
+		elsif propose.deadlines - Time.now <= (60*60*24)
+			propose.status = "펀딩 마감 하루전"
+		elsif propose.deadlines - Time.now <= (60*60*24)*2
+			propose.status = "펀딩 마감 이틀전"
+		end
+		propose.save
+	  end 
+	 
   end
 
   def about

@@ -1,4 +1,20 @@
 <h1> 인덱스 페이지 </h1>
+
+<a href="/propose/new"> 청원 하러 가기 </a>
+<% @proposes.each do |propose| %>
+	<div>
+		<img src="<%= propose.image.url %>"> 
+		<p> 청원 이름: <%= propose.title %> </p>
+		<p> 청원 상태: <%= propose.status %></p>
+		<p> 청원 펀딩액: <%= propose.funded_money %></p>
+	<% if (propose.status == "펀딩진행중" or propose.status == "펀딩 마감 하루전" or propose.status == "펀딩 마감 이틀전") and propose.deadlines != nil %>
+		<p> 청원 남은 기간: <%= (propose.deadlines - Time.now)/(60*60*24) + 1%>일 남았습니다. </p>
+	 <% end %>
+		<a href="/propose/<%= propose.id %>"> 청원 상세 페이지 이동 하기 <a>
+	</div>
+<% end %>
+
+<!-- 
 <div class="main_image">
    메인이미지
 </div>
@@ -31,4 +47,6 @@
 
 <div class="recommend_bill">
    법안 추천 
-</div>
+   </div>
+
+-->

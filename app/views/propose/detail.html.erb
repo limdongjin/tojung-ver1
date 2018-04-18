@@ -8,17 +8,18 @@
 
 <!-- 청원 작성자 정보-->
 <p> 청원 작성자 정보 </p>
-<p> 작성자 이름: <%= @writer.name %> </p>
+<p> 작성자 이름: <%= @writer.real_name %> </p>
 
 <!-- 공유 하기 버튼 -->
 <div>
 </div>
 
 <% status = @propose.status %>
-<% if status == "펀딩진행중" or status == "펀딩 마감 하루전" or status == "펀딩 마감 이틀전" %>
-<div>
-	약정하기 버튼
-</div>
+<% if (status == "펀딩진행중" or status == "펀딩 마감 하루전" or status == "펀딩 마감 이틀전") %>
+	<%= form_tag("/contract/new/#{ @propose.id }", method: "get") do %>
+		약정하기 버튼
+		<%= submit_tag("contract_new") %>
+	<% end %>
 <% end %>
 <br>
 
@@ -41,7 +42,7 @@
 
 	<p> 현재 펀딩 금액(약정된 총 금액): <%= @propose.funded_money%><p>
 	<p> 현재 펀딩에 참여한 인원: <%= @propose.funded_num %> </p>
-<% elsif stauts == "편딩 마감 이틀전" %>
+<% elsif status == "편딩 마감 이틀전" %>
 	<p> 현재 펀딩이 이틀남았습니다.</p>
 	<p> 펀딩 생성일: <%= @propose.created_at %>
 	<p> 현재 시간: <%= Time.now %></p>
@@ -67,8 +68,9 @@
 <% end %>
 
 <!-- 의원용 로직 -->
-<% if current_vuser == "국회의원" and status == "매칭진행중" %>
+<% if current_vuser.category == "국회의원" and status == "매칭진행중" %>
 	<p>후보자 등록하기</p>
+	<a href="/candidate/new/<%= @propose.id %>"> 후보자 등록 페이지 이동 </a>
 <% end %>
 
 <!-- 후보자 정보 및 투표 -->
@@ -79,10 +81,31 @@
 		<p>후보자 번호: <%= num %></p>
 		<% num += 1 %>
 		<p>후보자 이름: <%= @dict_candidate[candidate.id][:"name"] %> </p>
-		<p>후보자 득표수: <%= candidate.vote_num %> </p>
+		<p>후보자 득표수: <div id="c<%= candidate.id%>"><%= candidate.vote_num %></div> </p>
 		<div> 후보자 정보 및 소개 </div><br>
-		<p> 이 의원에게 투표하기 버튼 </p>
+		<p> 후보자 한줄소개: <%= candidate.intro %> </p>
+		<% if current_vuser != nil and @ispossibleVote == TRUE %> 
+			<div class="vote_button"  onclick="vote( <%= candidate.id %> );">
+				<%= link_to 'Vote', vote_create_path( :id => candidate.id ), method: :post, remote: true%>
+			</div>
+		<% elsif current_vuser == nil %>
+			로그인 하시면 투표하실수있습니다.
+		<% elsif @ispossibleVote == FALSE and @myseller_id == candidate.id %>
+			내가 투표한 의원 입니다.
+		<% elsif @ispossibleVote == FALSE %>
+            Already Vote
+		<% end %>
 	<% end %>
+	<script>
+       function vote(cid){
+		Array.prototype.forEach.call(document.getElementsByClassName('vote_button'), function(el) {
+    		// Do stuff here
+			el.innerHTML = "Already Vote"
+		});	
+		  document.getElementById('c'+ cid).innerHTML = parseInt(document.getElementById('c' + cid).innerHTML) + 1
+	   }
+       
+	</script>
 <% end %>
 
 <!-- 펀딩 세부 현황 -->

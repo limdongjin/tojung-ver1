@@ -1,5 +1,30 @@
 Rails.application.routes.draw do
   
+  # 댓글 기능
+  get 'comment/index'
+
+  get 'comment/new'
+
+  get 'comment/create'
+
+  get 'comment/edit'
+
+  get 'comment/update'
+  
+  # 투표 기능
+  get 'vote/index'
+
+  get 'vote/new'
+
+  post 'vote/create' => 'vote#create'
+
+  # 의원 등록 기능
+  get 'regist/index'
+
+  get 'regist/new'
+
+  post 'regist/create'
+
   # 후보자 등록	
   get 'candidate/index'
 
@@ -9,22 +34,22 @@ Rails.application.routes.draw do
 
   get 'candidate/delete'
 
-  get 'candidate/update'
+  post 'candidate/update' #'/:id' => 'candidate#update'
 
-  get 'candidate/edit'
+  get 'candidate/edit'  #/:id' => 'candidate#edit'
 
   get 'candidate/detail'
 
   # 약정 	
   get 'contract/index'
-
-  get 'contract/new'
+  get 'contract/:id' => 'contract#share'
+  get 'contract/new/:propose_id' => 'contract#new'
 
   get 'contract/edit'
 
   get 'contract/update'
 
-  get 'contract/create'
+  post 'contract/create/:propose_id' => 'contract#create'
 
   get 'contract/delete'
 
@@ -35,9 +60,9 @@ Rails.application.routes.draw do
 
   post 'propose/create'
 
-  get 'propose/edit'
+  get 'propose/edit/:id' => 'propose#edit'
 
-  get 'propose/update'
+  post 'propose/update/:id' => 'propose#update'
 
   get 'propose/delete'
 
@@ -47,6 +72,28 @@ Rails.application.routes.draw do
   get 'comments/delete/:id' => 'comments#destroy'
 
   Rails.application.routes.draw do     
+  get 'comment/index'
+
+  get 'comment/new'
+
+  get 'comment/create'
+
+  get 'comment/edit'
+
+  get 'comment/update'
+
+  get 'vote/index'
+
+  get 'vote/new'
+
+  get 'vote/create'
+
+  get 'regist/index'
+
+  get 'regist/new'
+
+  get 'regist/create'
+
   get 'candidate/index'
 
   get 'candidate/create'

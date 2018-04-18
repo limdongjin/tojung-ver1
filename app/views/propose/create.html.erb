@@ -14,11 +14,11 @@
 
 <!-- 작성자 정보-->
 <p> 작성자 정보 </p>
-<p> 약정자 이름: <%= current_vuser.name %> </p>
+<p> 청원 및 약정자 이름: <%= @writer.real_name %> </p>
 
 <!-- 공유 하기 버튼 -->
 <div>
 </div>
 
 <!-- 청원 세부 페이지로 이동하기 -->
-<a href="/propose/<%= @propose.id%>"> 청원 세부 페이지 </a>
+<a href="/propose/<%= @propose.id%>"> 청원 세부 페이지로 이동</a>

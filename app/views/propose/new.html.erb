@@ -23,8 +23,9 @@
 	
 	<div class="contract_content">
 		<!-- 약정 내용 입력 -->
+		<%= text_field_tag 'contract_content',"" , placeholder: "약정내용을 입력해주세요"%>
 	</div>
-
+   
 	<!-- 약정 금액 입력 -->
 	<%= number_field_tag 'contract_money', 10000, placeholder: "약정하실 금액을 입력해주세요" %>
 

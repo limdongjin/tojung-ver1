@@ -1,0 +1,2 @@
+class Vreward < ApplicationRecord
+end

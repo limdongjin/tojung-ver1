@@ -1,0 +1,27 @@
+<head>
+  <meta name="description" content="Description Here" />
+</head>
+
+<h1> 약정 공유 하기 페이지 </h1>
+<p>Find me in app/views/contract/create.html.erb</p>
+
+<!-- 약정 정보 -->
+<p>청원 이름: <%= @propose.title%></p>
+<p>약정 내용: <%= @contract.content %></p>
+<p>약정자 이름: <%= @writer.real_name %>
+<p>약정 금액: <%= @contract.contract_money %></p>
+
+<!-- 약정 이미지-->
+<img src="https://www.google.co.kr/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png">
+<div>
+	<% if current_vuser != nil and current_vuser.id == @writer.id %>	
+		공유하기 버튼
+	<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2F2jung.com%2Fcontract%2F<%= params[:id]%>&layout=button_count&size=large&mobile_iframe=true&appId=1014670008686658&width=113&height=28" width="113" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+	
+<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Ftojung.ap-northeast-2.elasticbeanstalk.com%2Fcontract%2F<%= params[:id] %>&layout=button_count&size=large&mobile_iframe=true&appId=1014670008686658&width=113&height=28" width="113" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+	<% end %>
+</div>
+<hr>
+<a href="/propose/<%= @propose.id %>"> 청원 상세 페이지로 돌아가기 </a>
+
+
