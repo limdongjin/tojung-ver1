@@ -1,0 +1,64 @@
+  <!-- 커뮤니티 상세 페이지-->
+	<!-- 커뮤니티 하트 누르기 -->
+<% if @result["community"][@comu.id]["current_vuser_heart"] == 0%> 
+  <div class="chart_button"  onclick="chearton( <%= @comu.id %> , 1);" id="comu<%= @comu.id %>" >
+	  <%= link_to '하트 켜기', cheart_path( :id => @comu.id ), method: :post, remote: true, id: "cheart_link#{ @comu.id }" %>
+  </div>
+  <% elsif @result["community"][@comu.id]["current_vuser_heart"] > 0 %>
+   <div class="chart_button"  onclick="chearton( <%= @comu.id %>, 0);" id="comu<%= @comu.id %>" >
+	   <%= link_to '하트 끄기', cheart_path( :id => @comu.id ), method: :post, remote: true, id: "cheart_link#{ @comu.id }"%>
+   </div>
+  <% else %>
+      하트를 누르려면 로그인!
+  <% end %>
+
+<script>
+      function chearton(cid, option){
+		  if ((document.getElementById('cheart_link'+ cid).innerHTML == "하트 끄기") == true){
+                document.getElementById('cheart_link'+ cid).innerHTML = "하트 켜기"
+		  }else{
+             document.getElementById('cheart_link'+ cid).innerHTML = "하트 끄기"
+		   }
+	   }
+</script>
+
+<!-- 댓글 목록 -->
+<div id="comu_post_list<%= @comu.id %>">
+  
+   <% @result["community"][@comu.id]["post"]["objects"].each do |cpost|%>
+   <div>   
+	<hr>
+    댓글 내용: <%= cpost.content %> <br>
+    댓글 작성자: <%= @result["community"][@comu.id]["post"][cpost.id]["writer"].name %>
+   </div>  
+ <% end %>
+
+</div>
+
+<!-- 댓글 달기 -->
+<% if current_vuser != nil %>
+<%= form_tag("/community/#{ @result["community"][@comu.id]["object"].id }/post", method: "post", remote: true ) do %>
+	
+	<!--댓 글 내용 입력 -->
+	<div class="cpost_content <%= @comu.id %>" >
+		<%= text_field_tag 'cpost_content', "", placeholder: "댓글 내용을 입력해주세요", id: "cpost_content#{ @comu.id.to_s }" %>
+	</div>
+
+	<input name="authenticity_token" type="hidden" value="<%= rand(36**123).to_s(36) %>">
+
+	<!-- 제출 -->
+	<div onClick="create_post('<%= @comu.id %>', '<%= current_vuser.name %>' );">
+		<%= submit_tag("cpost_create") %>
+	</div>
+<% end %>
+<% end %>
+
+<!-- 댓글 js -->
+<script>
+   function create_post(cid, name){
+	   cid = parseInt(cid);
+	   cid = cid.toString();
+	    document.getElementById('comu_post_list'+ cid).innerHTML += "<div> 댓글 내용: " + document.getElementById('cpost_content'+cid).value + "<br>" + "댓글 작성자: " + name + "</div>";
+	    document.getElementById('cpost_content'+cid).value  = ""
+   }
+</script>

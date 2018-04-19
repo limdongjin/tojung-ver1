@@ -1,10 +1,42 @@
 class CommunityController < ApplicationController
   # def index
   # end
+   # skip_before_action :verify_authenticity_token
+  # POST /community/new
+  def new
+      # render :html => 'propose/community_create' # index.html.erb
+      respond_to do |format|
+        # format.js
+        format.html
+      end
 
-  # def new
-  # end
-  
+  end
+
+ # GET /api/community/:id
+ def apidetail 
+   id = params[:id]
+   @c = Vcommunity.find(id.to_i)
+   if current_vuser != nil 
+     @heart = Vheartlog.where(target_category: "community", target_id: @c.id).count
+   else
+     @heart = -100
+   end 
+   @posts = Vcpost.where(community_id: @c.id)
+   if @posts.count == 0
+     @res_posts = {  }
+   else 
+   @res_posts = {  }
+   @res_posts["objects"] = @posts
+     @posts.each do |post|
+       @res_posts[post.id] = {  }
+	   @res_posts[post.id]["object"] = post
+	   @res_posts[post.id]["writer"] = Vuser.find(post.user_id)
+     end
+   end
+
+   render :json => { "detail": @c, "heart": @heart, "posts": @res_posts }
+ end  
+
   # POST /community/create/:id 
   def create
     if current_vuser == nil or !(Vpropose.exists? params[:id])

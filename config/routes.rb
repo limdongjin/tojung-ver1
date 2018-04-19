@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   
   get 'community/index'
 
-  get 'community/new'
+  post 'community/new'
 
   post 'community/create/:id' => 'community#create'
-
+  get 'api/community/:id' => 'community#apidetail'
   get 'community/edit'
    
   get 'community/:id' => 'community#detail'

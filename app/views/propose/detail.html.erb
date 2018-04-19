@@ -1,165 +1,8 @@
-<h1> 청원 세부 페이지 </h1>
-
-<!-- 청원 정보-->
-<h2> 청원 정보 </h2>
-<p>청원제목: <%= @propose.title %></p>
-<p>청원내용: <%= @propose.content %></p>
-<p>청원이미지:<img src="<%= @propose.image.url %>"></p>
-
-
-
-<!-- 청원 작성자 정보
-<p> 청원 작성자 정보 </p>
-<p> 작성자 이름: <%#= @writer.real_name %> </p>
--->
-
-<!-- 공유 하기 버튼 -->
-<div>
-</div>
-
-<% status = @propose.status %>
-<% if (status == "펀딩진행중" or status == "펀딩 마감 하루전" or status == "펀딩 마감 이틀전") %>
-	<%= form_tag("/contract/new/#{ @propose.id }", method: "get") do %>
-		약정하기 버튼
-		<%= submit_tag("contract_new") %>
-	<% end %>
-<% end %>
-<br>
-
-<!-- 펀딩 현황 -->
-<% if status == "펀딩진행중" %>
-	<p> 현재 펀딩이 진행되고있습니다. </p>
-
-	<p> 펀딩 생성일: <%= @propose.created_at %>
-	<p> 현재 시간: <%= Time.now %></p>
-	<p> 마감 종료 일정: <%= @propose.deadlines %> </p>
-
-	<p> 현재 펀딩 금액(약정된 총 금액): <%= @propose.funded_money%><p>
-	<p> 현재 펀딩에 참여한 인원: <%= @propose.funded_num %> </p>
-<% elsif status == "펀딩 마감 하루전" %>
-	<p> 현재 펀딩이 하루남았습니다.</p>
-
-	<p> 펀딩 생성일: <%= @propose.created_at %>
-	<p> 현재 시간: <%= Time.now %></p>
-	<p> 마감 종료 일정: <%= @propose.deadlines %> </p>
-
-	<p> 현재 펀딩 금액(약정된 총 금액): <%= @propose.funded_money%><p>
-	<p> 현재 펀딩에 참여한 인원: <%= @propose.funded_num %> </p>
-<% elsif status == "편딩 마감 이틀전" %>
-	<p> 현재 펀딩이 이틀남았습니다.</p>
-	<p> 펀딩 생성일: <%= @propose.created_at %>
-	<p> 현재 시간: <%= Time.now %></p>
-	<p> 마감 종료 일정: <%= @propose.deadlines %> </p>
-
-	<p> 현재 펀딩 금액(약정된 총 금액): <%= @propose.funded_money%><p>
-	<p> 현재 펀딩에 참여한 인원: <%= @propose.funded_num %> </p>
-<% elsif status == "매칭진행중" %>
-	<p> 매칭이 진행중입니다. </p>
-	<p> 펀딩 총 금액(약정된 총 금액): <%= @propose.funded_money%><p>
-	<p> 펀딩에 참여한 총 인원: <%= @propose.funded_num %> </p>
-<% elsif status == "입법진행중"%>
-	<p> 매칭이 완료되어 입법 과정이 진행중입니다. </p>
-	<p> 최종 매칭의원은:  <% @sellers.each do |seller| %> 매칭의원이름:<%= seller.name %> <% end%> </p>
-
-	<p> 펀딩 총 금액(약정된 총 금액): <%= @propose.funded_money%><p>
-	<p> 펀딩에 참여한 총 인원: <%= @propose.funded_num %> </p>
-<% elsif status == "법안심사" %>
-	<p> 법안 심사중입니다. </p>
-	<p> 최종 매칭의원은:  <% @sellers.each do |seller| %> 매칭의원이름:<%= seller.name %> <% end%> </p>
-	<p> 펀딩 총 금액(약정된 총 금액): <%= @propose.funded_money%><p>
-	<p> 펀딩에 참여한 총 인원: <%= @propose.funded_num %> </p>
-<% end %>
-
-<!-- 의원용 로직 -->
-<% if current_vuser != nil and current_vuser.category == "국회의원" and status == "매칭진행중" %>
-	<p>후보자 등록하기</p>
-	<a href="/candidate/new/<%= @propose.id %>"> 후보자 등록 페이지 이동 </a>
-<% end %>
-
-<!-- 후보자 정보 및 투표 -->
-<% if status == "매칭진행중" %>
-	<% num = 1%>
-	<% @candidates.each do |candidate| %> 
-		<hr>
-		<p>후보자 번호: <%= num %></p>
-		<% num += 1 %>
-		<p>후보자 이름: <%= @dict_candidate[candidate.id][:"name"] %> </p>
-		<p>후보자 득표수: <div id="c<%= candidate.id%>"><%= candidate.vote_num %></div> </p>
-		<div> 후보자 정보 및 소개 </div><br>
-		<p> 후보자 한줄소개: <%= candidate.intro %> </p>
-		<% if current_vuser != nil and @ispossibleVote == TRUE %> 
-			<div class="vote_button"  onclick="vote( <%= candidate.id %> );">
-				<%= link_to 'Vote', vote_create_path( :id => candidate.id ), method: :post, remote: true%>
-			</div>
-		<% elsif current_vuser == nil %>
-			로그인 하시면 투표하실수있습니다.
-		<% elsif @ispossibleVote == FALSE and @myseller_id == candidate.id %>
-			내가 투표한 의원 입니다.
-		<% elsif @ispossibleVote == FALSE %>
-            Already Vote
-		<% end %>
-	<% end %>
-   	<script>
-       function vote(cid){
-		Array.prototype.forEach.call(document.getElementsByClassName('vote_button'), function(el) {
-    		// Do stuff here
-			el.innerHTML = "Already Vote"
-		});	
-		  document.getElementById('c'+ cid).innerHTML = parseInt(document.getElementById('c' + cid).innerHTML) + 1
-		  
-	   }
-       
-	</script>
-<% end %>
-
-<!-- 펀딩 세부 현황 -->
-<hr>
-<% num = 1 %>
-<% @contracts.each do |contract| %>
-	<hr>
-	<p>펀딩 번호: <%= num %></p>
-	<% num += 1%>
-	<p>펀딩 약정자 이름:  <%= @dict[contract.user_id] %></p>
-	<p>펀딩 내용: <%= contract.content %></p>
-	<p>펀딩 금액: <%= contract.contract_money%></p>
-<% end %>
-
-<!-- 커뮤니티 등록  -->
-<%= form_tag("/community/create/#{ @propose.id }", method: "post", multipart: true ) do %>
-	
-	<!-- 커뮤니티 제목 입력 -->
-	<%= text_field_tag 'community_title', "" , placeholder: "커뮤니티 제목을 입력해주세요" %>
-
-	<!-- 커뮤니티 내용 입력 -->
-	<%= text_field_tag 'community_content', "", placeholder: "커뮤니티 내용을 입력해주세요" %>
-	
-    <!-- 이미지 업로드 -->
-	<%= file_field_tag('community_image', accept: "image/png,image/gif,image/jpeg,image/PNG,image/jpg") %>
-
-	<!-- 제출 -->
-	<%= submit_tag("propose_create") %>
-<% end %>
-
-<!-- 커뮤니티 목록 -->
-<% @communities.each do |comu| %>
-  <hr>
-  커뮤니티 제목: <%= comu.title %>
-  커뮤니티 개설자: <%= @dict_co[comu.user_id].name %>
-  커뮤니티 하트수: <%= comu.heart %>
-  <a href="/community/<%= comu.id %>"> 커뮤니티로 이동 </a>
-<% end %>
-
-<hr><hr><hr><hr><hr>
-
 <!-- 청원 정보-->
 <h2> 청원 정보 </h2>
 <p>청원제목: <%= @result["propose"]["object"].title %></p>
 <p>청원내용: <%= @result["propose"]["object"].content %></p>
 <p>청원이미지:<img src="<%= @result["propose"]["object"].image.url %>"></p>
-
-<!-- 청원 작성자 정보-->
-<p> 청원 작성자 정보 </p>
-<p> 작성자 이름: <%= @result["propose"]["writer"].real_name %> </p>
 
 <!-- 공유 하기 버튼 -->
 <div>
@@ -169,7 +12,7 @@
 <% status = @result["propose"]["object"].status %>
 <% if status.include? "펀딩" and current_vuser != nil %>
 	<%= form_tag("/contract/new/#{ @result["propose"]["object"].id }", method: "get") do %>
-		약정하기 버튼
+		펀딩 약정서 쓰기
 		<%= submit_tag("contract_new") %>
 	<% end %>
 <% elsif current_vuser == nil %>
@@ -272,21 +115,83 @@
 	</script>
 <% end %>
 
-<!-- 커뮤니티 등록  -->
-<%= form_tag("/community/create/#{ @result["propose"]["object"].id }", method: "post", multipart: true ) do %>
-	
-	<!-- 커뮤니티 제목 입력 -->
-	<%= text_field_tag 'community_title', "" , placeholder: "커뮤니티 제목을 입력해주세요" %>
 
-	<!-- 커뮤니티 내용 입력 -->
-	<%= text_field_tag 'community_content', "", placeholder: "커뮤니티 내용을 입력해주세요" %>
-	
-    <!-- 이미지 업로드 -->
-	<%= file_field_tag('community_image', accept: "image/png,image/gif,image/jpeg,image/PNG,image/jpg") %>
 
-	<!-- 제출 -->
-	<%= submit_tag("propose_create") %>
-<% end %>
+
+
+<hr><hr><hr><hr><hr><hr><hr><hr>
+<hr><hr><hr><hr><hr><hr><hr><hr>
+
+<div id="propose_menu_bar">
+	<div onclick="render_community_new(); render_community_list();">
+      커뮤니티
+    </div>
+
+   <div>
+	  압력넣기
+   </div>
+
+   <div>
+	   명예의전당
+   </div>
+</div>
+
+<div id="rendered_place">
+    
+</div>
+
+<script>
+function render_community_list(){
+    var res = "<%= escape_javascript(render 'propose/community_list') %>"
+    document.getElementById('rendered_place').innerHTML += res;
+}
+function render_community_new(){
+     var res = "<%= escape_javascript(render 'propose/community_create') %>"
+     document.getElementById('rendered_place').innerHTML = res;
+}
+function render_community_detail(cid){
+		var httpRequest;
+		var res = "blank";
+
+		if (window.XMLHttpRequest) { 
+		    httpRequest = new XMLHttpRequest();
+		} else if (window.ActiveXObject) { 
+		    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+        httpRequest.onreadystatechange = hello; 
+        cid = parseInt(cid);
+        cid = cid.toString();
+        httpRequest.open('GET', 'https://52.78.7.40:3000/api/community/'+ cid , true);
+		httpRequest.send(null);
+	    console.log(GetResponse())
+		function hello(){
+			res = httpRequest.response;
+			element = document.getElementById('rendered_place');
+			element.innerHTML = "";
+            
+			heartarea = document.createElement('div')
+		}
+        function resolveGetResponse(){
+             return new Promise(resolve => {
+				 setTimeout(() => {
+					 
+                    resolve("resolve"); 
+				}, 2);
+			 });
+		}
+		async function GetResponse(){
+			console.log("Get Response");
+			var ress = await httpRequest.response;
+      
+		    console.log(ress)
+		}
+ }
+
+
+</script>
+
+<script src="detail_js.js.erb"> </script>
+
 
 <!-- 커뮤니티 목록 -->
 <% @result["community"]["objects"].each do |comu| %>
@@ -320,10 +225,6 @@
 	   }
 </script>
 
-
-
-
-
 <!-- 댓글 목록 -->
 <div id="comu_post_list<%= comu.id %>">
   
@@ -331,7 +232,7 @@
    <div>   
 	<hr>
     댓글 내용: <%= cpost.content %> <br>
-    댓글 작성자: <%= @result["community"][comu.id]["post"][cpost.id]["writer"].name %>
+     댓글 작성자: <%= @result["community"][comu.id]["post"][cpost.id]["writer"].name %>
    </div>  
  <% end %>
 
