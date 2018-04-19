@@ -14,7 +14,10 @@
      <%#= f.label :name %><br />
      <%= f.text_field :real_name, class: 'form-control' %>
   </div>
- 
+  <div class="form-group">
+     닉네임을 입력하세요.
+  <%= f.text_field :name, class: 'form-control' %>
+  </div> 
   <!-- 생년월일 받는 폼 보류 
 	  <div class="birth-form">
 	  생년월일 입력하세요,

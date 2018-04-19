@@ -1,0 +1,50 @@
+<h1> 커뮤니티 상세 페이지 </h1>
+
+<hr>
+커뮤니티 제목:  <%= @comu.title %>
+
+<hr>
+커뮤니티 내용: <%= @comu.content %>
+
+<hr>
+<img src=<%= @comu.image.url %>>
+<hr>
+
+<!-- 커뮤니티 하트 누르기 -->
+  <% if @ishearton == false and current_vuser != nil%> 
+  <div class="chart_button"  onclick="chearton( <%= @comu.id %> , 1);" id="comu<%= @comu.id %>" >
+	  <%= link_to '하트 켜기', cheart_path( :id => @comu.id ), method: :post, remote: true, id: "cheart_link#{ @comu.id }" %>
+  </div>
+  <% elsif @ishearton == true %>
+   <div class="chart_button"  onclick="chearton( <%= @comu.id %>, 0);" id="comu<%= @comu.id %>" >
+	   <%= link_to '하트 끄기', cheart_path( :id => @comu.id ), method: :post, remote: true, id: "cheart_link#{ @comu.id }"%>
+   </div>
+  <% else %>
+      하트를 누르려면 로그인!
+  <% end %>
+<script>
+      function chearton(cid, option){
+		  if ((document.getElementById('cheart_link'+ cid).innerHTML == "하트 끄기") == true){
+                document.getElementById('cheart_link'+ cid).innerHTML = "하트 켜기"
+		  }else{
+             document.getElementById('cheart_link'+ cid).innerHTML = "하트 끄기"
+		   }
+	   }
+</script>
+
+<!-- 댓글 목록 -->
+<% @cposts.each do |cpost|%>
+	<hr>
+   댓글 내용: <%= cpost.content %> <br>
+   댓글 작성자: <%= @dict_comu_user[cpost.user_id].name %>
+<% end %>
+
+<!-- 댓글 달기 -->
+<%= form_tag("/community/#{ params[:id].to_i }/post", method: "post" ) do %>
+	
+	<!--댓 글 내용 입력 -->
+	<%= text_field_tag 'cpost_content', "", placeholder: "글 내용을 입력해주세요" %>
+
+	<!-- 제출 -->
+	<%= submit_tag("cpost_create") %>
+<% end %>

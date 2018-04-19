@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   post 'community/create/:id' => 'community#create'
 
   get 'community/edit'
+   
+  get 'community/:id' => 'community#detail'
 
   get 'community/update'
 
   post 'community/cheart/:id' => 'community#cheart', as: "cheart"
-
+  post 'community/:id/post' => 'community#crepost', as: "cpost"
   get 'community/pheart'
 
   # 댓글 기능

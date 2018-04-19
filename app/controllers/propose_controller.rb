@@ -79,6 +79,66 @@ class ProposeController < ApplicationController
       end
    end
    print("world")
+
+   @result = {  }
+   
+   @result["propose"] = {  }
+   @result["propose"]["object"] = @propose
+   @result["propose"]["writer"] = Vuser.find(@propose.user_id)
+   
+   @result["seller"] = {  }
+   @result["seller"]["objects"] = Vmatch.where(propose_id: @propose.id)
+   @result["seller"]["objects"].each do |obj|
+     @result["seller"][obj.id] = { }
+	 @result["seller"][obj.id]["user_object"] = Vuser.find(obj.user_id)
+	 @result["seller"][obj.id]["candidate_object"] = Vcandidate.find(obj.candidate_id)
+	 @result["seller"][obj.id]["seller_object"] = Vseller.find(obj.seller_id)
+   end
+
+   if current_vuser != nil
+      votelog = Vvote.where(propose_id: @propose.id, user_id: current_vuser.id)
+      if votelog.count != 0
+          @result["current_vuser_vote_candidate_id"] = votelog[0].candidate_id
+	  else
+          @result["current_vuser_vote_candidate_id"] = -1
+	  end
+   else
+      @result["current_vuser_vote_candidate_id"] = -100
+   end 
+   
+   @result["candidate"] = {  }
+   @result["candidate"]["objects"] = Vcandidate.where(propose_id: @propose.id)
+   @result["candidate"]["objects"].each do |obj|
+      @result["candidate"][obj.id] = {  }
+      @result["candidate"][obj.id]["object"] = obj
+	  @result["candidate"][obj.id]["user_object"] = Vuser.find(obj.user_id)
+	  @result["candidate"][obj.id]["seller_object"] = Vseller.find(obj.seller_id)
+   end
+
+   @result["community"] = { }
+   @result["community"]["objects"] = Vcommunity.where(propose_id: @propose.id)
+   
+   @result["community"]["objects"].each do |obj|
+     @result["community"][obj.id] = {  }
+     @result["community"][obj.id]["object"] = obj
+	 @result["community"][obj.id]["writer"] = Vuser.find(obj.user_id)
+	 
+	 if current_vuser != nil
+        @result["community"][obj.id]["current_vuser_heart"] = Vheartlog.where(target_category: "community", target_id: obj.id, user_id: current_vuser.id).count
+	 else
+        @result["community"][obj.id]["current_vuser_heart"] = -100
+	 end
+
+	 @result["community"][obj.id]["post"] = {  }
+	 @result["community"][obj.id]["post"]["objects"] = Vcpost.where(community_id: obj.id)
+     
+	 @result["community"][obj.id]["post"]["objects"].each do |post|
+        @result["community"][obj.id]["post"][post.id] = {  }
+		@result["community"][obj.id]["post"][post.id]["object"] = post
+		@result["community"][obj.id]["post"][post.id]["writer"] = Vuser.find(post.user_id)
+	 end
+   end
+
   end
 
   # GET /propose/new
