@@ -68,7 +68,7 @@
 <% end %>
 
 <!-- 의원용 로직 -->
-<% if current_vuser.category == "국회의원" and status == "매칭진행중" %>
+<% if current_vuser != nil and current_vuser.category == "국회의원" and status == "매칭진행중" %>
 	<p>후보자 등록하기</p>
 	<a href="/candidate/new/<%= @propose.id %>"> 후보자 등록 페이지 이동 </a>
 <% end %>
@@ -96,7 +96,7 @@
             Already Vote
 		<% end %>
 	<% end %>
-	<script>
+   	<script>
        function vote(cid){
 		Array.prototype.forEach.call(document.getElementsByClassName('vote_button'), function(el) {
     		// Do stuff here
@@ -119,4 +119,51 @@
 	<p>펀딩 내용: <%= contract.content %></p>
 	<p>펀딩 금액: <%= contract.contract_money%></p>
 <% end %>
+
+<!-- 커뮤니티 등록  -->
+<%= form_tag("/community/create/#{ @propose.id }", method: "post", multipart: true ) do %>
+	
+	<!-- 커뮤니티 제목 입력 -->
+	<%= text_field_tag 'community_title', "" , placeholder: "커뮤니티 제목을 입력해주세요" %>
+
+	<!-- 커뮤니티 내용 입력 -->
+	<%= text_field_tag 'community_content', "", placeholder: "커뮤니티 내용을 입력해주세요" %>
+	
+    <!-- 이미지 업로드 -->
+	<%= file_field_tag('community_image', accept: "image/png,image/gif,image/jpeg,image/PNG,image/jpg") %>
+
+	<!-- 제출 -->
+	<%= submit_tag("propose_create") %>
+<% end %>
+<!-- 커뮤니티 목록 -->
+<% @communities.each do |comu| %>
+  커뮤니티 제목: <%= comu.title %>
+  커뮤니티 내용: <%= comu.content %>
+  커뮤니티 개설자: <%= @dict_co[comu.user_id].name %>
+  커뮤니티 이미지: <img src="<%= comu.image.url%>">
+  커뮤니티 하트수: <%= comu.heart %>
+  <!-- 커뮤니티 하트 누르기 -->
+  <% if current_vuser != nil and @heart_comu[comu.id] == nil %> 
+  <div class="chart_button"  onclick="chearton( <%= comu.id %> );" id="comu<%= comu.id %>" >
+	  <%= link_to 'Heart 누르기', cheart_path( :id => comu.id ), method: :post, remote: true, id: "cheart_link#{ comu.id }" %>
+  </div>
+  <% elsif current_vuser != nil %>
+   <div class="chart_button"  onclick="cheartoff( <%= comu.id %> );" id="comu<%= comu.id %>" >
+	   <%= link_to 'Heart 끄기', cheart_path( :id => comu.id ), method: :post, remote: true, id: "cheart_link#{ comu.id }"%>
+   </div>
+  <% else %>
+      하트를 누르려면 로그인!
+  <% end %>
+<% end %>
+<script>
+       function chearton(cid){
+		   document.getElementById('cheart_link'+ cid).innerHTML = "하트 끄기"
+		   document.getElementById('comu'+cid).on
+	   }
+	   
+       function cheartoff(cid){
+         document.getElementById('cheart_link'+ cid).innerHTML = "하트 켜기"
+	   }
+</script>
+
 

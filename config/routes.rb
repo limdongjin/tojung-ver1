@@ -1,60 +1,74 @@
 Rails.application.routes.draw do
   
+  get 'community/index'
+
+  get 'community/new'
+
+  post 'community/create/:id' => 'community#create'
+
+  get 'community/edit'
+
+  get 'community/update'
+
+  post 'community/cheart/:id' => 'community#cheart', as: "cheart"
+
+  get 'community/pheart'
+
   # 댓글 기능
-  get 'comment/index'
+  # get 'comment/index'
 
-  get 'comment/new'
+  # get 'comment/new'
 
-  get 'comment/create'
+  # get 'comment/create'
 
-  get 'comment/edit'
+  # get 'comment/edit'
 
-  get 'comment/update'
+  # get 'comment/update'
   
   # 투표 기능
-  get 'vote/index'
+  # get 'vote/index'
 
-  get 'vote/new'
+  # get 'vote/new'
 
   post 'vote/create' => 'vote#create'
 
   # 의원 등록 기능
-  get 'regist/index'
+  # get 'regist/index'
 
   get 'regist/new'
 
   post 'regist/create'
 
   # 후보자 등록	
-  get 'candidate/index'
+  # get 'candidate/index'
 
   post 'candidate/create/:propose_id' => 'candidate#create'
 
   get 'candidate/new/:propose_id' => 'candidate#new'
 
-  get 'candidate/delete'
+  # get 'candidate/delete'
 
-  post 'candidate/update' #'/:id' => 'candidate#update'
+  # post 'candidate/update' #'/:id' => 'candidate#update'
 
-  get 'candidate/edit'  #/:id' => 'candidate#edit'
+  # get 'candidate/edit'  #/:id' => 'candidate#edit'
 
   get 'candidate/detail'
 
   # 약정 	
-  get 'contract/index'
+  # get 'contract/index'
   get 'contract/:id' => 'contract#share'
   get 'contract/new/:propose_id' => 'contract#new'
 
-  get 'contract/edit'
+  # get 'contract/edit'
 
-  get 'contract/update'
+  # get 'contract/update'
 
   post 'contract/create/:propose_id' => 'contract#create'
 
-  get 'contract/delete'
+  # get 'contract/delete'
 
   # 청원
-  get 'propose/index'
+  # get 'propose/index'
 
   get 'propose/new'
 
@@ -64,90 +78,104 @@ Rails.application.routes.draw do
 
   post 'propose/update/:id' => 'propose#update'
 
-  get 'propose/delete'
+  # get 'propose/delete'
 
   get 'propose/:id' => 'propose#detail'
-  post 'product/:product_id/comments/create' => 'comments#create'
+  # post 'product/:product_id/comments/create' => 'comments#create'
 
-  get 'comments/delete/:id' => 'comments#destroy'
+  # get 'comments/delete/:id' => 'comments#destroy'
 
-  Rails.application.routes.draw do     
-  get 'comment/index'
+  #Rails.application.routes.draw do     
+  #get 'community/index'
 
-  get 'comment/new'
+  #get 'community/new'
 
-  get 'comment/create'
+  #get 'community/create'
 
-  get 'comment/edit'
+  #get 'community/edit'
 
-  get 'comment/update'
+  # get 'community/update'
 
-  get 'vote/index'
+  # get 'community/cheart'
 
-  get 'vote/new'
+  #get 'community/pheart'
 
-  get 'vote/create'
+  #get 'comment/index'
 
-  get 'regist/index'
+  #get 'comment/new'
 
-  get 'regist/new'
+  #get 'comment/create'
 
-  get 'regist/create'
+  #get 'comment/edit'
 
-  get 'candidate/index'
+  #get 'comment/update'
 
-  get 'candidate/create'
+  #get 'vote/index'
 
-  get 'candidate/new'
+  #get 'vote/new'
 
-  get 'candidate/delete'
+  #get 'vote/create'
 
-  get 'candidate/update'
+  #get 'regist/index'
 
-  get 'candidate/edit'
+  #get 'regist/new'
 
-  get 'candidate/detail'
+  #get 'regist/create'
 
-  get 'contract/index'
+  #get 'candidate/index'
 
-  get 'contract/new'
+  #get 'candidate/create'
 
-  get 'contract/edit'
+  #get 'candidate/new'
 
-  get 'contract/update'
+  #get 'candidate/delete'
 
-  get 'contract/create'
+  #get 'candidate/update'
 
-  get 'contract/delete'
+  #get 'candidate/edit'
 
-  get 'propose/index'
+  #get 'candidate/detail'
 
-  get 'propose/new'
+  #get 'contract/index'
 
-  get 'propose/create'
+  #get 'contract/new'
 
-  get 'propose/edit'
+  #get 'contract/edit'
 
-  get 'propose/update'
+  #get 'contract/update'
 
-  get 'propose/delete'
+  #get 'contract/create'
 
-  get 'comments/create'
+  #get 'contract/delete'
 
-  get 'comments/destroy'
+  #get 'propose/index'
+
+  #get 'propose/new'
+
+  #get 'propose/create'
+
+  #get 'propose/edit'
+
+  #get 'propose/update'
+
+  #get 'propose/delete'
+
+  # get 'comments/create'
+
+  # get 'comments/destroy'
 
     devise_for :vusers, controllers: { 
       sessions: 'vuser/sessions', 
       registrations: 'vuser/registrations',
 	  omniauth_callbacks: 'vuser/omniauth_callbacks'
     }                                  
-   end                                  
-  post 'product/buyok' => 'product#buyok'  
-  post 'product/buy/:product_id' => 'product#buy'
-  get 'product/cart_list' => 'product#cart_list'  
-  get 'product/list/:page_id' => 'product#list'
+   #end                                  
+  # post 'product/buyok' => 'product#buyok'  
+  # post 'product/buy/:product_id' => 'product#buy'
+  # get 'product/cart_list' => 'product#cart_list'  
+  # get 'product/list/:page_id' => 'product#list'
 
-  get 'product/detail/:product_id'=> 'product#detail'
+  # get 'product/detail/:product_id'=> 'product#detail'
 
   root 'home#index'
 

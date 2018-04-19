@@ -1,0 +1,2 @@
+class AddImageVcommunity < ApplicationRecord
+end

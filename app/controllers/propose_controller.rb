@@ -60,8 +60,27 @@ class ProposeController < ApplicationController
 	elsif current_vuser != nil and Vvote.where(propose_id: @propose.id, user_id: current_vuser.id).count != 0
         @myseller_id = Vvote.where(propose_id: @propose.id, user_id: current_vuser.id)[0].candidate_id
 	end
-     
+    
+   # 커뮤니티 정보
+   @communities = Vcommunity.where(propose_id: @propose.id)
+   @dict_co = { }
+   print(@communites)
+   @communities.each do |comu|
+	   print("o")
+      @dict_co[comu.user_id] = Vuser.find(comu.user_id)
+   end
+   
+   print("hello") 
+   
+   @heart_comu = {  }
+   if current_vuser != nil
+      Vheartlog.where(user_id: current_vuser.id, propose_id: @propose.id, target_category: "community").each do |log|
+         @heart_comu[log.target_id] = true
+      end
+   end
+   print("world")
   end
+
   # GET /propose/new
   def new
     # 청원 생성 페이지

@@ -22,6 +22,6 @@ class VoteController < ApplicationController
 	candidate.vote_num = candidate.vote_num + 1
 	candidate.save
 
-	render :json => {"name" => "Hello world"}
+	render :json => {"success" => "Vote create Success"}
   end
 end

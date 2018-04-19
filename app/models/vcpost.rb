@@ -1,0 +1,2 @@
+class Vcpost < ApplicationRecord
+end
