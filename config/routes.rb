@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'community/:id' => 'community#detail'
 
   get 'community/update'
-
+  post 'communities/:propose_id' => 'community#index' 
   post 'community/cheart/:id' => 'community#cheart', as: "cheart"
   post 'community/:id/post' => 'community#crepost', as: "cpost"
   get 'community/pheart'
