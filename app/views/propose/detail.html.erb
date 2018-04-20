@@ -123,7 +123,7 @@
 <hr><hr><hr><hr><hr><hr><hr><hr>
 
 <div id="propose_menu_bar">
-	<div onclick="render_five_new( );">
+	<div onclick="setscroll();community_button( );">
       커뮤니티
     </div>
 
@@ -136,11 +136,41 @@
    </div>
 </div>
 
-<div id="rendered_place" onscroll="render_five_new();">
+<div id="rendered_place">
     
 </div>
 
 <script>
+function setscroll(){
+ console.log(window)
+ 
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        render_five_new();
+    }else { console.log(window) }
+}; }
+    function resolveList(cid) {
+var httprequest;
+		var res = "blank";
+
+		if (window.XMLHttpRequest) { 
+		    httprequest = new XMLHttpRequest();
+		} else if (window.ActiveXObject) { 
+		    httprequest = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+        httprequest.onreadystatechange = function() {  }; 
+        cid = parseInt(cid);
+        cid = cid.toString();
+        httprequest.open('post', 'https://52.78.7.40:3000/communities/'+cid, false);
+		httprequest.send(null);
+  return new Promise(resolve => {
+    setTimeout(() => {
+        console.log(httprequest.response);
+        resolve(JSON.parse(httprequest.response)); 
+    }, 50);
+  });
+};
+
 function resolveList(cid) {
 var httprequest;
 		var res = "blank";
@@ -176,7 +206,6 @@ function requestList(cid){
     });
  }
 function requestListNew(cid){
-  render_community_new();
   fetch("https://52.78.7.40:3000/communities/"+ cid, { method: "post" })
   .then(res => {
     res
@@ -207,8 +236,24 @@ function requestListNew(cid){
       }).then(div => 
         {console.log("ㅅㅂ!!!") });}).then(() => {console.log("ㅠ............."); });
 }
-function render_five_new(res){
- fetch("https://52.78.7.40:3000/communities/17", { method: "post" })
+function community_button(){
+   var but = new Promise(
+        function(resolve, reject) {
+            render_community_new( <%= @propose.id %> );
+            window.setTimeout(
+                function() {
+                    // 프로미스 이행 !
+                    resolve(thisPromiseCount);
+                }, Math.random() * 2000 + 1000);
+        }
+    );
+    but.then( () => { render_five_new(  ) } );
+}
+function render_five_new(){
+var pid = "<%= @propose.id %>"
+pid = parseInt(pid);
+pid = pid.toString();
+ fetch("https://52.78.7.40:3000/communities/" + pid, { method: "post" })
   .then(res => {
     res.json()
       .then(json => {
