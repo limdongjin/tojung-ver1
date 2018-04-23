@@ -15,11 +15,42 @@
 <% @transactions.each do |transaction|%>
 	<hr>
 	<div>
-		
+
 		상품 번호: <%= transaction.product_id %><br>
 		총 금액  : <%= transaction.total_amount %><br>
 		결제해야할 금액: <%= transaction.total_amount - transaction.received_amount%><br>
 		배송 현황: <%= transaction.baesong_status %><br>
-		
+
 	</div>
 <% end %>
+
+<!-- /////////////////////////////////////Front///////////////////////////////////////// -->
+<!-- MY PAGE -->
+<section class="mypage d-flex flex-column justify-content-between align-items-center">
+  <h2 class="font-24 font-sm-14 text-primary mb-4 mb-lg-5">MY PAGE</h2>
+  <p class="font-14 font-sm-10 text-primary mb-4 mb-lg-5">진영이다 님(이름)</p>
+  <div class="buttons d-flex w-100 justify-content-around">
+    <button class="btn btn-white font-14 font-sm-10 w-160 w-sm-130">회원정보 수정하기</button>
+    <button class="btn btn-white font-14 font-sm-10 w-160 w-sm-130">로그아웃</button>
+  </div>
+</section>
+<!-- //MY PAGE -->
+
+<section class="funding_list">
+  <h2 class="font-24 font-sm-14 font-weight-bold font-grey text-center mb-4 mb-lg-5">내가 입법에 기여하고 있는 펀딩 리스트</h2>
+  <div class="container">
+    <div class="row">
+      <div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box">
+        <div class="funding_card d-flex flex-column h-100">
+					<a href="#">
+	          <h4 class="funding_title text-white">경력단절 여성 채용 늘려주세요</h4>
+	          <div class="funding_card_info h-100">
+	            <p class="funding_days text-white text-right"><span class="funding_d_day text-white">12</span>일 남음</p>
+	            <p class="funding_money text-white text-right">&#8361;7,900,000</p>
+	          </div>
+					</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

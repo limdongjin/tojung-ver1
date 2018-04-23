@@ -173,6 +173,10 @@
    height: calc(50vw * 0.53);
  }
 
+ .funding_card a{
+  text-decoration: none;
+ }
+
  .funding_card_box:nth-child(6n){
    background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
  }
