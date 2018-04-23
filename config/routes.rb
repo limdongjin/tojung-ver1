@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'community/index'
 
   post 'community/new'
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'community/create/:id' => 'community#create'
   get 'api/community/:id' => 'community#apidetail'
   get 'community/edit'
-   
+
   get 'community/:id' => 'community#detail'
 
   get 'community/update'
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # get 'comment/edit'
 
   # get 'comment/update'
-  
+
   # 투표 기능
   # get 'vote/index'
 
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   post 'regist/create'
 
-  # 후보자 등록	
+  # 후보자 등록
   # get 'candidate/index'
 
   post 'candidate/create/:propose_id' => 'candidate#create'
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
   get 'candidate/detail'
 
-  # 약정 	
+  # 약정
   # get 'contract/index'
   get 'contract/:id' => 'contract#share'
   get 'contract/new/:propose_id' => 'contract#new'
@@ -87,7 +87,7 @@ Rails.application.routes.draw do
 
   # get 'comments/delete/:id' => 'comments#destroy'
 
-  #Rails.application.routes.draw do     
+  #Rails.application.routes.draw do
   #get 'community/index'
 
   #get 'community/new'
@@ -166,15 +166,15 @@ Rails.application.routes.draw do
 
   # get 'comments/destroy'
 
-    devise_for :vusers, controllers: { 
-      sessions: 'vuser/sessions', 
+    devise_for :vusers, controllers: {
+      sessions: 'vuser/sessions',
       registrations: 'vuser/registrations',
 	  omniauth_callbacks: 'vuser/omniauth_callbacks'
-    }                                  
-   #end                                  
-  # post 'product/buyok' => 'product#buyok'  
+    }
+   #end
+  # post 'product/buyok' => 'product#buyok'
   # post 'product/buy/:product_id' => 'product#buy'
-  # get 'product/cart_list' => 'product#cart_list'  
+  # get 'product/cart_list' => 'product#cart_list'
   # get 'product/list/:page_id' => 'product#list'
 
   # get 'product/detail/:product_id'=> 'product#detail'
