@@ -13,7 +13,6 @@
     </div>
     <% if devise_mapping.rememberable? -%>
     <div class="custom-control custom-checkbox d-flex">
-      <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
       <%= f.check_box :remember_me, class: "custom-control-input", id: "customControlAutosizing" %>
       <label class="custom-control-label mb-3" for="customControlAutosizing">로그인 유지</label>
       <%= f.submit "로그인", class: "btn btn-primary sign_up_btn login_btn font-sm-12" %>
