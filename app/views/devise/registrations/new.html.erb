@@ -1,108 +1,29 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-	  이메일을 입력하세요
-	  <%#= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="form-group">
-     이름(실명)을 입력하세요
-     <%#= f.label :name %><br />
-     <%= f.text_field :real_name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-     닉네임을 입력하세요.
-  <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <!-- 생년월일 받는 폼 보류
-	  <div class="birth-form">
-	  생년월일 입력하세요,
-  <div class="form-group">
-	  <%#= f.number_field :birth_year%>
-  </div>
-<div class="form-group">
-<%#= f.number_field :birth_month%>
-
-</div>
-
-<div class="form-group">
-<%#= f.number_field :birth_day%>
-</div>
-</div> -->
-<!--  보류
-  <div class="form-group">
-     자신이 살는 주소지 정보를 입력하세요 ( 주소 찾기 API 붙여도 좋을듯)
-     <%#= f.label :address %><br />
-     <%= f.text_field :address, class: 'form-control' %>
-  </div>
-  <div class= "form-froup">
-     우편번호를 입력하세요. <br>
-	 <%= f.text_field :address_num, class: 'form-control'%>
-  </div>
-  <div class="form-group">
-     자신이 주로쓰는 계좌번호를 입력하세요.
-     <%= f.text_field :account, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-     계좌의 은행을 입력하세요.
-	 <%= f.text_field :account_assos, class: 'form-control'%>
-  </div> -->
-
-  <div class="form-group">
-	  자신의 휴대전화 번호를 정확히 입력해주세요.
-	  <br> ( ex, 010-1234-5678 )
-	 <%= f.text_field :phone_number, class: 'form-control'%>
-  </div>
-  <div class="field">
-	  비밀번호를 입력하세요
-    <%#= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-	  비밀번호를 한번더 입력하세요
-    <%#= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-	  제출하세요.
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-<!-- ///////////////////////////////////FRont//////////////////////////////// -->
 <section class="sign">
   <h3 class="sign_up_text">회원가입하기</h3>
-  <form>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
     <div class="form-group">
-      <input type="email" class="form-control" placeholder="이메일 주소">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "이메일 주소" %>
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="비밀번호">
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "비밀번호(6자리이상)" %>
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="비밀번호 확인">
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "비밀번호 확인" %>
     </div>
     <div class="form-group">
-      <input type="tel" class="form-control" placeholder="휴대폰 번호">
+      <%= f.text_field :real_name, class: 'form-control', placeholder: "이름(실명)" %>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="닉네임">
+      <%= f.text_field :phone_number, class: 'form-control', placeholder: "휴대폰 번호"%>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :name, class: 'form-control', placeholder: "닉네임" %>
     </div>
     <div class="custom-control custom-checkbox ">
       <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
       <label class="custom-control-label" for="customControlAutosizing">이용약관 및 개인정보 수집 및 이용 에 동의합니다. </label>
     </div>
-    <button type="submit" class="btn btn-primary sign_up_btn">회원가입</button>
-  </form>
+    <%= f.submit "회원가입", class: "btn btn-primary sign_up_btn" %>
+  <% end %>
 </section>

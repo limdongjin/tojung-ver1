@@ -1,72 +1,41 @@
-<div class="menu">
-   <div class="menu_component menu_tojunglogo">
-	   <a href="/">Logo</a>
-   </div>
-
-   <div class="menu_component">
-	   <a href="/home/about">About</a>
-   </div>
-<!--
-   <div class="menu_component">
-      Best
-   </div> -->
-<!--
-   <div class="menu_component">
-	   <a href="/product/list/1">판매중인 상품</a>
-   </div>
-
-   <div class="menu_component">
-      주제별 상품
-   </div>
--->
-
-<div class="menu_component">
-      검색창
-   </div>
-
-    <% if (current_vuser.blank?) == true %>
-   <div class="menu_component">
-     <a href="/vusers/sign_in">  Login   </a>
-   </div>
-   <% else %>
-	   <!--
-    <div class="menu_component">
-		<a href="/product/cart_list"> Cart </a>
-	</div> -->
-	<div class="menu_componet">
-		<a href="/mypage"> Mypage </a>
-	</div>
-	<div class="menu_component">
-		<a href="/vusers/sign_out">Logout</a>
-	</div>
-
-<% end %>
-<!--
-     <div class="menu_component">
-      판매자 게시판
-	 </div> -->
-</div>
-
 <!-- Header -->
 <header class="header">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light2">
     <div class="visible-xs">
-      <a href="#"><img class="mylog_icon" src="assets/images/mylog.png" alt="mylog"></a>
+      <a href="/">
+        <%=image_tag("/assets//images/mylog.png", class: "mylog_icon")%>
+      </a>
     </div>
     <div class="brand">
-      <a class="navbar-brand justify-content-center py-0 mr-0" href="#"><img class="logo" src="assets/images/tojung_green.png" alt="투정로고"></a>
+      <a class="navbar-brand justify-content-center py-0 mr-0" href="/">
+        <%=image_tag("/assets/images/tojung_green.png", class:"logo")%>
+      </a>
     </div>
     <div class="visible-xs">
-      <a href="#"><img class="search_icon" src="assets/images/search.png" alt="mylog"></a>
+      <a href="#">
+        <%=image_tag("/assets/images/search.png", class:"search_icon")%>
+      </a>
     </div>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#" lang="en">MY PAGE</a>
+          <a class="nav-link" href="/home/about" lang="en">ABOUT</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" lang="en">SEARCH</a>
         </li>
+        <% if (current_vuser.blank?) == true %>
+        <li class="nav-item">
+          <a class="nav-link" href="/vusers/sign_in" lang="en">LOGIN</a>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="/mypage" lang="en">MY PAGE</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/vusers/sign_out" lang="en">LOGOUT</a>
+        </li>
+        <% end %>
       </ul>
     </div>
   </nav>

@@ -19,7 +19,7 @@
    font-family: 'Nanum Gothic', sans-serif;
  }
 
- .bg-light{
+ .bg-light2{
    background-color: white !important;
  }
 
@@ -742,13 +742,22 @@ input[placeholder]{
   border-color: #3e6373 !important;
 }
 
+.line-1{
+  line-height: 1 !important;
+}
+
 .sign_up_btn{
-  font-size: 0.875rem;
+  font-size: 0.875rem ;
   line-height: 1.07;
   padding: 3.5%;
   border-radius: 3px;
   box-shadow: 0 1px 5px 0 rgba(171, 175, 179, 0.6), inset 0 -2px 2px 0 rgba(122, 125, 128, 0.2);
-  border: solid 1px rgba(122, 125, 128, 0.3);
+  border: solid 1px rgba(122, 125, 128, 0.3) !important;
+}
+.custom-checkbox > .login_btn{
+  width: 50%;
+  padding: 8%;
+  border-radius: 8px;
 }
 
 input[checkbox]:checked{
@@ -793,12 +802,16 @@ input[checkbox]:checked{
   width: 20%;
 }
 
+.social_sign form.button_to{
+  width: 100%;
+}
+
 .btn-facebook{
   background-color: #3a589b;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
   width: 100%;
-  font-weight: bold;
-  border-radius: 8px;
+  font-weight: bold !important;
+  border-radius: 8px !important;
 }
 
 .fb_icon{
@@ -815,10 +828,10 @@ input[checkbox]:checked{
 
 .btn-kakao{
   background-color: #ffea00;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
   width: 100%;
-  font-weight: bold;
-  border-radius: 8px;
+  font-weight: bold !important;
+  border-radius: 8px !important;
 }
 
 .kakao_icon{
@@ -829,6 +842,22 @@ input[checkbox]:checked{
   background-color: #ffea00;
 }
 
+.btn-google{
+  background-color: #DC4A38;
+  font-size: 0.875rem !important;
+  width: 100%;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+}
+
+.google_icon{
+  width: auto;
+  height: 25px;
+  margin-top: 3%;
+  margin-left: 5%;
+  background-color: #DC4A38;
+}
+
 .btn-lawmaker{
   border-radius: 8px;
 }
@@ -837,7 +866,7 @@ input[checkbox]:checked{
   font-size: 0.875rem;
 }
 
-.social_sign > button.btn{
+.social_sign > form > button.btn{
   line-height: 2.5;
 }
 
@@ -905,7 +934,7 @@ form.sign_in input:hover{
   justify-content: space-between;
 }
 
-.text-primary{
+a.text-primary{
   color: #3e6373 !important;
 }
 
@@ -1039,7 +1068,7 @@ form.sign_in input:hover{
     font-size: 0.625rem;
   }
 
-  button.sign_up_btn{
+  input.sign_up_btn{
     font-size: 0.75rem;
     padding-top: 6%;
     padding-bottom: 6%;
@@ -1068,6 +1097,14 @@ form.sign_in input:hover{
   .sign .social_sign{
     width: 70%;
     padding-top: 10%;
+  }
+
+  .social_sign form.button_to{
+    width: 100% !important;
+  }
+
+  .line-1{
+    line-height: 1 !important;
   }
 
   .sign_in .custom-checkbox .custom-control-label{
