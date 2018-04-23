@@ -141,16 +141,24 @@
 </div>
 
 <script>
+
+function community_detail(){
+   console.log("community_detail")   
+}
+
+function offscroll(){
+   console.log("offscroll");
+}
+
 function setscroll(){
- console.log(window)
- 
-window.onscroll = function(ev) {
+  console.log(window)
+  window.onscroll = function(ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         render_five_new();
     }else { console.log(window) }
 }; }
     function resolveList(cid) {
-var httprequest;
+        var httprequest;
 		var res = "blank";
 
 		if (window.XMLHttpRequest) { 
@@ -161,7 +169,7 @@ var httprequest;
         httprequest.onreadystatechange = function() {  }; 
         cid = parseInt(cid);
         cid = cid.toString();
-        httprequest.open('post', 'https://52.78.7.40:3000/communities/'+cid, false);
+		httprequest.open('post', "<%= @base_url %>" + '/communities/'+cid, false);
 		httprequest.send(null);
   return new Promise(resolve => {
     setTimeout(() => {
@@ -169,8 +177,7 @@ var httprequest;
         resolve(JSON.parse(httprequest.response)); 
     }, 50);
   });
-};
-
+}
 function resolveList(cid) {
 var httprequest;
 		var res = "blank";
@@ -183,7 +190,7 @@ var httprequest;
         httprequest.onreadystatechange = function() {  }; 
         cid = parseInt(cid);
         cid = cid.toString();
-        httprequest.open('post', 'https://52.78.7.40:3000/communities/'+cid, false);
+		httprequest.open('post', "<%= @base_url %>"+'/communities/'+cid, false);
 		httprequest.send(null);
   return new Promise(resolve => {
     setTimeout(() => {
@@ -206,7 +213,7 @@ function requestList(cid){
     });
  }
 function requestListNew(cid){
-  fetch("https://52.78.7.40:3000/communities/"+ cid, { method: "post" })
+	fetch("<%= @base_url%>" + "/"+ cid, { method: "post" })
   .then(res => {
     res
       .json()
@@ -243,7 +250,6 @@ function community_button(){
             window.setTimeout(
                 function() {
                     // 프로미스 이행 !
-                    resolve(thisPromiseCount);
                 }, Math.random() * 2000 + 1000);
         }
     );
@@ -253,7 +259,7 @@ function render_five_new(){
 var pid = "<%= @propose.id %>"
 pid = parseInt(pid);
 pid = pid.toString();
- fetch("https://52.78.7.40:3000/communities/" + pid, { method: "post" })
+fetch( "<%= @base_url %>" + "/communities/" + pid, { method: "post" })
   .then(res => {
     res.json()
       .then(json => {
@@ -283,7 +289,7 @@ pid = pid.toString();
             continue;
           }
           kk.innerHTML =
-            "<div id ='" + i.toString() +"'>"+ "<div class='tit'> title: " +json[i]["title"] +
+            "<div id ='" + i.toString() +"' onclick='render_community_detail(" + i.toString() + ")' >"+ "<div class='tit'> title: " +json[i]["title"] +
             "</div>" +"<div> writer: " +json[i]["writername"] +
             "</div>" +"<div> heart: " +
             json[i]["heart"] +
@@ -399,43 +405,39 @@ function createComu(){
 }
 
 function render_community_detail(cid){
-		var httprequest;
-		var res = "blank";
+     var detail = new Promise(
+        function(resolve, reject) {
+                document.getElementById('rendered_place').innerHTML = ""
+				window.onscroll = null;
+				window.setTimeout(
+                function() {
+					console.log("gogo")
+                }, Math.random() * 2000 + 1000);
+        }
+    );
 
-		if (window.xmlhttprequest) { 
-		    httprequest = new xmlhttprequest();
-		} else if (window.activexobject) { 
-		    httprequest = new activexobject("microsoft.xmlhttp");
-		}
-        httprequest.onreadystatechange = hello; 
-        cid = parseint(cid);
-        cid = cid.tostring();
-        httprequest.open('get', 'https://52.78.7.40:3000/api/community/'+ cid , true);
-		httprequest.send(null);
-	    console.log(getresponse())
-		
-
-		function hello(){
-			res = httprequest.response;
-			element = document.getelementbyid('rendered_place');
-			element.innerhtml = "";
-            
-			heartarea = document.createelement('div')
-		}
-        function resolvegetresponse(){
-             return new promise(resolve => {
-				 settimeout(() => {
-					 
-                    resolve("resolve"); 
-				}, 2);
-			 });
-		}
-		async function getresponse(){
-			console.log("get response");
-			var ress = await httprequest.response;
-            
-		    console.log(ress)
-		}
+	 detail
+		 .then( () => {  
+		 alert("?!")
+		 cid = parseInt(cid);
+        cid = cid.toString();
+		alert(cid);
+		fetch( "<%= @base_url %>"  + "/api/community/"+ cid, { method: "get" })
+  .then(res => {
+    res.json()
+      .then(json => {
+        console.log(json);
+        var div = document.createElement("div");
+         div.setAttribute("class", "community_detail");
+		  div = document.createElement('div');
+		  div.setAttribute('class', 'community_detail');
+		  div.innerHTML = json["detail"]["title"] 
+		  document.getElementById('rendered_place').innerHTML = div.innerHTML;
+        return div;
+      }).then(div => 
+        {console.log("ㅅㅂ!!!") });}).then(() => {console.log("ㅠ............."); });
+		 }   ).catch( (e) => { console.log(e) } );
+       		
  }
 
 
