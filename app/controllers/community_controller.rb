@@ -39,13 +39,17 @@ class CommunityController < ApplicationController
 
   end
 
- # GET /api/community/:id
+ # POST /api/community/:id
  def apidetail 
    id = params[:id]
    @c = Vcommunity.find(id.to_i)
+   print(current_vuser)
+   print(current_vuser)
    if current_vuser != nil 
-     @heart = Vheartlog.where(target_category: "community", target_id: @c.id).count
+     @heart = Vheartlog.where(target_category: "community", target_id: @c.id, user_id: current_vuser.id ).count
    else
+	 print(current_vuser)
+	 print(vuser_signed_in?)
      @heart = -100
    end 
    @posts = Vcpost.where(community_id: @c.id)
@@ -60,12 +64,13 @@ class CommunityController < ApplicationController
 	   @res_posts[post.id]["writer"] = Vuser.find(post.user_id)
      end
    end
-
-   render :json => { "detail": @c, "heart": @heart, "posts": @res_posts }
+   @writer = Vuser.find(@c.user_id)
+   render :json => { "detail": @c, "heart": @heart, "posts": @res_posts, "writername": @writer.name }
  end  
 
   # POST /community/create/:id 
   def create
+	print(current_vuser)
     if current_vuser == nil or !(Vpropose.exists? params[:id])
 	   print("nnn")
        render :json => { "fail": "fail" }

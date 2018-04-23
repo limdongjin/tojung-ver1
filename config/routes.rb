@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'community/new'
 
   post 'community/create/:id' => 'community#create'
-  get 'api/community/:id' => 'community#apidetail'
+  post 'api/community/:id' => 'community#apidetail'
   get 'community/edit'
    
   get 'community/:id' => 'community#detail'

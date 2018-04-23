@@ -15,16 +15,4 @@
  */
 
 /* Menu 바 */
-* {
-   border-style: solid;
-}
 
-.menu {
-   border-style: double;
-   display: flex;
-   justify-content: space-around;
-}
-
-.menu_component {
-   border-style: outset;
-}

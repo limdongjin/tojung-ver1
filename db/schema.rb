@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416132515) do
+ActiveRecord::Schema.define(version: 20180419071824) do
+
+  create_table "vcandidates", force: :cascade do |t|
+    t.integer "propose_id"
+    t.integer "seller_id"
+    t.integer "vuser_id"
+    t.integer "vote_num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.text "intro"
+  end
 
   create_table "vcarts", force: :cascade do |t|
     t.integer "product_id"
@@ -32,12 +43,33 @@ ActiveRecord::Schema.define(version: 20180416132515) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vcodes", force: :cascade do |t|
+    t.text "user_name"
+    t.text "code_name"
+    t.integer "user_id"
+    t.text "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "vcomments", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "vproduct_id"
+    t.integer "propose_id"
+  end
+
+  create_table "vcommunities", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "propose_id"
+    t.text "title"
+    t.text "content"
+    t.integer "heart"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "image"
   end
 
   create_table "vcontract_options", force: :cascade do |t|
@@ -74,15 +106,65 @@ ActiveRecord::Schema.define(version: 20180416132515) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vcposts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "community_id"
+    t.integer "propose_id"
+    t.text "title"
+    t.text "content"
+    t.integer "heart"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "image"
+    t.integer "like"
+  end
+
+  create_table "vheartlogs", force: :cascade do |t|
+    t.integer "propose_id"
+    t.integer "user_id"
+    t.integer "target_id"
+    t.text "target_category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "vidents", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "vlikelogs", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cpost_id"
+    t.integer "community_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vmatches", force: :cascade do |t|
+    t.integer "propose_id"
+    t.integer "seller_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "candidate_id"
   end
 
   create_table "vpackages", force: :cascade do |t|
     t.integer "product_id"
     t.text "name"
     t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vpledges", force: :cascade do |t|
+    t.text "content"
+    t.integer "propose_id"
+    t.integer "seller_id"
+    t.integer "candidate_id"
+    t.integer "user_id"
+    t.text "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -115,6 +197,16 @@ ActiveRecord::Schema.define(version: 20180416132515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "deadline"
+    t.datetime "deadlines"
+  end
+
+  create_table "vrewards", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "title"
+    t.integer "amount"
+    t.text "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "vsellers", force: :cascade do |t|
@@ -123,6 +215,7 @@ ActiveRecord::Schema.define(version: 20180416132515) do
     t.datetime "updated_at", null: false
     t.text "account"
     t.text "account_assos"
+    t.integer "user_id"
   end
 
   create_table "vtransactions", force: :cascade do |t|
@@ -188,8 +281,18 @@ ActiveRecord::Schema.define(version: 20180416132515) do
     t.text "facebook_image"
     t.text "image"
     t.text "real_name"
+    t.text "category"
+    t.integer "seller_id"
     t.index ["email"], name: "index_vusers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_vusers_on_reset_password_token", unique: true
+  end
+
+  create_table "vvotes", force: :cascade do |t|
+    t.integer "candidate_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "propose_id"
   end
 
 end
