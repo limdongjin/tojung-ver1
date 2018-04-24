@@ -71,10 +71,18 @@
    color: #3e6373 !important;
  }
 
+ .decoration-none{
+   text-decoration: none;
+ }
+ 
  .decoration-none:hover{
    text-decoration: none;
  }
 
+ .alert{
+   float: left;
+   width: 100%;
+ }
  /* Header */
  .brand{
    margin-bottom: 0;
@@ -724,6 +732,10 @@
 
 form{
   width: 50%;
+}
+
+.box-none{
+  box-shadow: none !important;
 }
 
 form .form-group{

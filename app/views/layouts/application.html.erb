@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>TojungPageRails</title>
+    <title>입법안 크라우드펀딩 플랫폼, 투정</title>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,13 +23,12 @@
   </head>
   <body>
     <%= render 'layouts/menu' -%>
-
-    <% if notice %>
-      <p class="alert alert-success" id="alert"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger" id="notice"><%= alert %></p>
-    <% end %>
+      <% if notice %>
+        <p class="alert alert-success" id="alert"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
 
     <%= yield %>
 
@@ -79,7 +78,7 @@
     <!-- End Channel Plugin -->
     <!-- Alert -->
     <script type='text/javascript'>
-      $(".alert" ).fadeOut(3000);
+      $('#alert').fadeOut(10000);
     </script>
     <!-- // Alert -->
     <!-- Optional JavaScript -->
