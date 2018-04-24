@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   post 'community/new'
 
   post 'community/create/:id' => 'community#create'
-  get 'api/community/:id' => 'community#apidetail'
+  post 'api/community/:id' => 'community#apidetail'
   get 'community/edit'
 
   get 'community/:id' => 'community#detail'
 
   get 'community/update'
-
+  post 'communities/:propose_id' => 'community#index' 
   post 'community/cheart/:id' => 'community#cheart', as: "cheart"
   post 'community/:id/post' => 'community#crepost', as: "cpost"
   get 'community/pheart'
@@ -66,7 +66,7 @@ Rails.application.routes.draw do
   # get 'contract/update'
 
   post 'contract/create/:propose_id' => 'contract#create'
-
+  
   # get 'contract/delete'
 
   # 청원

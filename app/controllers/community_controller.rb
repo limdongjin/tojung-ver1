@@ -1,7 +1,34 @@
 class CommunityController < ApplicationController
-  # def index
-  # end
-   # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token  
+  # POST /communities/:propose_id
+  def index
+	print(params[:propose_id].to_i)
+	propose_id = params[:propose_id].to_i
+	print(propose_id)
+	print("\n")
+    res = Vcommunity.where(propose_id: propose_id)
+	print("\n")
+	
+	print(res.count)
+    if res.count == 0
+      render :json => { "count" => 0 }
+	  return
+	end
+    resdict = {  }
+	resdict["count"] = res.count
+    res.each do |r|
+      resdict[r.id] = {  }
+	  resdict[r.id]["object"] = r
+	  resdict[r.id]["title"] = r.title
+	  resdict[r.id]["writer"] = {  }
+	  resdict[r.id]["writer"]["object"] = Vuser.find(r.user_id)
+      resdict[r.id]["writername"] = Vuser.find(r.user_id).name
+	  resdict[r.id]["heart"] = r.heart
+	end
+	render :json => resdict
+  end
+  
+  # skip_before_action :verify_authenticity_token
   # POST /community/new
   def new
       # render :html => 'propose/community_create' # index.html.erb
@@ -12,13 +39,17 @@ class CommunityController < ApplicationController
 
   end
 
- # GET /api/community/:id
+ # POST /api/community/:id
  def apidetail 
    id = params[:id]
    @c = Vcommunity.find(id.to_i)
+   print(current_vuser)
+   print(current_vuser)
    if current_vuser != nil 
-     @heart = Vheartlog.where(target_category: "community", target_id: @c.id).count
+     @heart = Vheartlog.where(target_category: "community", target_id: @c.id, user_id: current_vuser.id ).count
    else
+	 print(current_vuser)
+	 print(vuser_signed_in?)
      @heart = -100
    end 
    @posts = Vcpost.where(community_id: @c.id)
@@ -33,16 +64,20 @@ class CommunityController < ApplicationController
 	   @res_posts[post.id]["writer"] = Vuser.find(post.user_id)
      end
    end
-
-   render :json => { "detail": @c, "heart": @heart, "posts": @res_posts }
+   @writer = Vuser.find(@c.user_id)
+   render :json => { "detail": @c, "heart": @heart, "posts": @res_posts, "writername": @writer.name }
  end  
 
   # POST /community/create/:id 
   def create
+	print(current_vuser)
     if current_vuser == nil or !(Vpropose.exists? params[:id])
-       return
+	   print("nnn")
+       render :json => { "fail": "fail" }
+	   return
 	end
-    
+    print(params[:community_content]) 
+	print(params)
 	comu = Vcommunity.new
 	comu.title = params[:community_title]
     comu.content = params[:community_content]
@@ -51,8 +86,10 @@ class CommunityController < ApplicationController
 	comu.image = params[:community_image]
 	comu.heart = 0
 	comu.save
-    
-    redirect_to '/propose/' + params[:id]
+
+    print("okkkk") 
+	
+	render :json => { "success": comu }
   end
 
   # GET /community/:id

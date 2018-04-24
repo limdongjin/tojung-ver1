@@ -1,0 +1,156 @@
+/* Mobile CSS */
+@media screen and (max-width: 576px) {
+  /* Main */
+  /* Header */
+  nav.navbar.navbar-expand-lg{
+    justify-content: space-between;
+    padding: 12px 20px;
+  }
+
+  .visible-xs{
+    display: inline;
+  }
+
+  .mylog_icon{
+    width: 14px;
+    height: 20px;
+  }
+
+  .logo{
+    width: 36px;
+    height: 34px;
+  }
+
+  .search_icon{
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Cover */
+  .cover{
+    height: 40vh;
+  }
+  /* New */
+
+  .new_logo{
+    padding: 5% 7%;
+  }
+
+  .mic_icon{
+    width: 220%;
+    height: auto;
+  }
+
+  .new_text{
+    font-size: 0.625rem;
+    line-height: 1.4;
+    padding-left: 15px;
+    border-left: 1px solid #858585;
+  }
+
+  .visible-lg{
+    display: none;
+  }
+
+  /* Funding */
+
+  .funding_card_box{
+    height: 40vh;
+  }
+
+  .funding_card, .funding_title, .funding_d_day, .funding_money{
+    font-size: 1.125rem;
+  }
+
+  .funding_days{
+    font-size: 0.66666666rem;
+  }
+
+  .funding_title{
+    margin-bottom: 15%;
+  }
+
+  /* // Main */
+
+  /* SignUp */
+  form{
+    width: 72% !important;
+  }
+
+  h3.sign_up_text{
+    font-size: 0.875rem;
+    margin-top: 9%;
+    margin-bottom: 9%;
+  }
+
+  form input[placeholder]{
+    font-size: 0.75rem;
+    padding: 6%;
+  }
+
+  div.custom-control.custom-checkbox{
+    margin-bottom: 10%;
+  }
+
+  .custom-control .custom-control-label{
+    font-size: 0.625rem;
+  }
+
+  button.sign_up_btn{
+    font-size: 0.75rem;
+    padding-top: 6%;
+    padding-bottom: 6%;
+  }
+
+  /* SingUp_lawmaker */
+  label.custom-file-label{
+    font-size: 0.75rem;
+    padding: 6%;
+  }
+
+  label.custom-file-label::after{
+    height: auto;
+    padding: 6%;
+    content: "Browse";
+    font-size: 0.75rem;
+  }
+
+  div.custom-control.custom-checkbox.mr_lawmaker{
+    margin-top: 10%;
+  }
+
+  /* Sign In */
+  .sign .social_sign{
+    width: 70%;
+    padding-top: 10%;
+  }
+
+  .sign_in .custom-checkbox .custom-control-label{
+    margin-top: 8%;
+  }
+
+  img.or_img{
+    width: 65%;
+    padding-top: 5%;
+  }
+
+  div.login_click{
+    font-size: 0.75rem;
+  }
+
+  .sign_in_text{
+    font-size: 1rem !important;
+  }
+
+  /* Propose */
+  /* Propose cover */
+  .propose_cover{
+    height: 50vh;
+  }
+
+  /* Propose form */
+  #propose_form{
+    padding-bottom: 10%;
+  }
+
+}

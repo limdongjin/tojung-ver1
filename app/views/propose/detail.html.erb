@@ -123,7 +123,7 @@
 <hr><hr><hr><hr><hr><hr><hr><hr>
 
 <div id="propose_menu_bar">
-	<div onclick="render_community_new(); render_community_list();">
+	<div onclick="setscroll();community_button( );">
       커뮤니티
     </div>
 
@@ -140,81 +140,316 @@
     
 </div>
 
+<div id="app">
+	<p> {{ message }} </p>
+	<p v-text="name" v-show="visible"></p>
+</div>
+    <script src="https://unpkg.com/vue@2.3.3"></script>
 <script>
-function render_community_list(){
-    var res = "<%= escape_javascript(render 'propose/community_list') %>"
-    document.getElementById('rendered_place').innerHTML += res;
-}
-function render_community_new(){
-     var res = "<%= escape_javascript(render 'propose/community_create') %>"
-     document.getElementById('rendered_place').innerHTML = res;
-}
-function render_community_detail(cid){
-		var httpRequest;
-		var res = "blank";
 
-		if (window.XMLHttpRequest) { 
-		    httpRequest = new XMLHttpRequest();
-		} else if (window.ActiveXObject) { 
-		    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-        httpRequest.onreadystatechange = hello; 
-        cid = parseInt(cid);
-        cid = cid.toString();
-        httpRequest.open('GET', 'https://52.78.7.40:3000/api/community/'+ cid , true);
-		httpRequest.send(null);
-	    console.log(GetResponse())
-		function hello(){
-			res = httpRequest.response;
-			element = document.getElementById('rendered_place');
-			element.innerHTML = "";
-            
-			heartarea = document.createElement('div')
-		}
-        function resolveGetResponse(){
-             return new Promise(resolve => {
-				 setTimeout(() => {
-					 
-                    resolve("resolve"); 
-				}, 2);
-			 });
-		}
-		async function GetResponse(){
-			console.log("Get Response");
-			var ress = await httpRequest.response;
-      
-		    console.log(ress)
-		}
+var app = new Vue({   
+		 el: '#app',
+         data: {     
+			 message: '안녕하세요 Vue!',
+			 name: 'Hello world',
+			 visible: true 
+         } 
+})
+
+</script>
+<script>
+
+function community_detail(){
+   console.log("community_detail")   
+}
+
+function offscroll(){
+   console.log("offscroll");
+}
+
+function setscroll(){
+  console.log(window)
+  window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        render_five_new();
+    }else { console.log(window) }
+  }; 
+}
+function community_button(){
+   var but = new Promise(
+        function(resolve, reject) {
+            render_community_new( <%= @propose.id %> );
+            window.setTimeout(
+                function() {
+                }, Math.random() * 2000 + 1000);
+        }
+    );
+    but.then( () => { render_five_new(  ) } );
+}
+function render_five_new(){
+   var pid = "<%= @propose.id %>"
+   pid = parseInt(pid);
+   pid = pid.toString();
+   fetch( "<%= @base_url %>" + "/communities/" + pid, 
+		   { method: "post", credentials: 'include' })
+     .then(res => {
+       res.json()
+         .then(json => {
+        console.log(json);
+        var div = document.createElement("div");
+        div.setAttribute("class", "community_list");
+        var startpoint;
+        rd = document.getElementById('rendered_place')
+        if(document.getElementById('rendered_place').lastElementChild === null){
+              startpoint = -1;
+        }else{
+              startpoint = document.getElementById('rendered_place').lastElementChild.id;
+              if(document.getElementById('rendered_place').lastElementChild.id === "count"){ startpoint = -1; }
+        }
+        ii = 1
+        for (i in json) {
+          var kk = document.createElement('div');
+          kk.setAttribute('id', i.toString());
+          console.log(i);
+          console.log(json[i]);
+          if(ii > 1){ 
+              break
+          }
+          if(i === "count"){  continue }
+          if( parseInt(i) <= startpoint && startpoint != -1 ){  continue }else{ ii += 1;  }
+          if (json[i] == "count") {
+            continue;
+          }
+          kk.innerHTML =
+            "<div id ='" + i.toString() +"' onclick='render_community_detail(" + i.toString() + ")' >"+ "<div class='tit'> title: " +json[i]["title"] +
+            "</div>" +"<div> writer: " +json[i]["writername"] +
+            "</div>" +"<div> heart: " +
+            json[i]["heart"] +
+            "</div></div>";
+          document.getElementById('rendered_place').insertAdjacentElement("beforeend", kk);
+        }
+        return div;
+      }).then(div => 
+        {console.log("ㅅㅂ!!!") });})
+        .then(() => {console.log("ㅠ.............");});
+}
+
+function render_post_new(){
+	var wraper = document.createElement('div');
+	wraper.setAttribute('id', 'new_post');
+
+	var form = document.createElement('form'); 
+	var pid = "<%= @propose.id %>";
+    pid = parseInt(pid);
+	form.setAttribute('enctype', 'multipart/form-data');
+    form.setAttribute('action', '/community/create/' + pid.toString());
+	form.setAttribute('accept-charset', 'UTF-8');
+	form.setAttribute('data-remote', 'true')
+	form.setAttribute('method', 'post');
+    
+    var input1 = document.createElement('input');
+    input1.setAttribute('name', 'utf8');
+    input1.setAttribute('type', 'hidden');
+    input1.setAttribute('value', '✓');
+
+	var input2 = document.createElement('input');
+	input2.setAttribute('type', 'hidden');
+	input2.setAttribute('value', '<%= rand(36**123).to_s(36) %>');
+
+	var input3 = document.createElement('input');
+	input3.setAttribute('type', 'text');
+    input3.setAttribute('name', 'community_title');
+	input3.setAttribute('id', 'community_title');
+	input3.setAttribute('value', '');
+	input3.setAttribute('placeholder', '커뮤니티 제목을 입력해주세요');
+    
+	var input4 = document.createElement('input');
+	input4.setAttribute('type', 'text');
+    input4.setAttribute('name', 'community_content');
+	input4.setAttribute('id', 'community_content');
+	input4.setAttribute('value', '');
+	input4.setAttribute('placeholder', '커뮤니티 내용을 입력해주세요');
+    
+	var input5 = document.createElement('input');
+	input5.setAttribute('type', 'file');
+	input5.setAttribute('name', 'community_image');
+	input5.setAttribute('id', 'community_image');
+    input5.setAttribute('accept', 'image/png,image/gif,image/jpeg,image/PNG,image/jpg');
+    
+    var submit = document.createElement('input');
+	submit.setAttribute('type', 'submit');
+	submit.setAttribute('name', 'commit');
+	submit.setAttribute('value', 'propose_create');
+	submit.setAttribute('data-disable-with', 'propose_create');
+
+    form.appendChild(input1);
+	form.appendChild(input2);
+    form.appendChild(input3);
+	form.appendChild(input4);
+	form.appendChild(input5);
+	form.appendChild(submit);
+    
+	wraper.appendChild(form);
+	document.getElementById('rendered_place').innerHTML = "";
+	document.getElementById('rendered_place').appendChild(wraper);
+}
+function submit_cpost_form(){
+   sleep
+}
+
+function render_community_new(){
+	var wraper = document.createElement('div');
+	wraper.setAttribute('id', 'new_commu');
+
+	var form = document.createElement('form'); 
+	var pid = "<%= @propose.id %>";
+    pid = parseInt(pid);
+	form.setAttribute('enctype', 'multipart/form-data');
+    form.setAttribute('action', '/community/create/' + pid.toString());
+	form.setAttribute('accept-charset', 'UTF-8');
+	form.setAttribute('data-remote', 'true')
+	form.setAttribute('method', 'post');
+    
+    var input1 = document.createElement('input');
+    input1.setAttribute('name', 'utf8');
+    input1.setAttribute('type', 'hidden');
+    input1.setAttribute('value', '✓');
+
+	var input2 = document.createElement('input');
+	input2.setAttribute('type', 'hidden');
+	input2.setAttribute('value', '<%= rand(36**123).to_s(36) %>');
+
+	var input3 = document.createElement('input');
+	input3.setAttribute('type', 'text');
+    input3.setAttribute('name', 'community_title');
+	input3.setAttribute('id', 'community_title');
+	input3.setAttribute('value', '');
+	input3.setAttribute('placeholder', '커뮤니티 제목을 입력해주세요');
+    
+	var input4 = document.createElement('input');
+	input4.setAttribute('type', 'text');
+    input4.setAttribute('name', 'community_content');
+	input4.setAttribute('id', 'community_content');
+	input4.setAttribute('value', '');
+	input4.setAttribute('placeholder', '커뮤니티 내용을 입력해주세요');
+    
+	var input5 = document.createElement('input');
+	input5.setAttribute('type', 'file');
+	input5.setAttribute('name', 'community_image');
+	input5.setAttribute('id', 'community_image');
+    input5.setAttribute('accept', 'image/png,image/gif,image/jpeg,image/PNG,image/jpg');
+    
+    var submit = document.createElement('input');
+	submit.setAttribute('type', 'submit');
+	submit.setAttribute('name', 'commit');
+	submit.setAttribute('value', 'propose_create');
+	submit.setAttribute('data-disable-with', 'propose_create');
+
+    form.appendChild(input1);
+	form.appendChild(input2);
+    form.appendChild(input3);
+	form.appendChild(input4);
+	form.appendChild(input5);
+	form.appendChild(submit);
+    
+	wraper.appendChild(form);
+	document.getElementById('rendered_place').innerHTML = "";
+	document.getElementById('rendered_place').appendChild(wraper);
+}
+
+function render_community_detail(cid){
+	fetch( "<%= @base_url %>" + "/api/community/" + cid, 
+			{ method: "post", credentials: 'include' })
+		.then( res => {  
+			res.json()
+				.then( json => {  
+					window.onscroll = null;
+					console.log(json);
+					if(json['heart'] == -100){
+						// not login user
+						console.log('not login');
+					    document.getElementById('rendered_place').innerHTML = 
+								"<div id='cpost'><div> 커뮤니티 번호: " + json['detail']['id']
+							  +"</div><div> 제목: " + json['detail']['title'] 
+						      +"</div> <div> 작성자 : " + json['writername']
+						      +"</div><div> <img src='" +json['detail']['image']['url'] + "'>"
+							  +"</div><div >내용: " + json['detail']['content'] + "</div>"
+							  + "<div onclick=''> 하트</div>"
+							  +"<div onclick=''> 이전으로 돌아가기 </div>";
+						document.gelElementById('rendered_place').innerHTML += 
+					}else{
+						// login user
+						if(json['heart'] == 0){
+							// 이미 하트를 누른 유저
+						    document.getElementById('rendered_place').innerHTML = 
+								"<div id='cpost'><div> 커뮤니티 번호: " + json['detail']['id']
+							  +"</div><div> 제목: " + json['detail']['title'] 
+						      +"</div> <div> 작성자 : " + json['writername']
+						      +"</div><div> <img src='" +json['detail']['image']['url'] + "'>"
+							  +"</div><div >내용: " + json['detail']['content'] + "</div>"
+							  + "<div onclick=''> 하트 끄기 </div>"
+							  +"<div onclick=''> 이전으로 돌아가기 </div>" 
+							  +"<form enctype='form-data' name='cpost_form' onsubmit='submit_cpost_form();' action='/community/" + cid +"/post'" 
+							  + "accept-charset='UTF-8' data-remote='true' method='post'>"
+							  + "<input name='utf8' type='hidden' value='✓'>"
+							  + "<input type='hidden' value='" + "<%= rand(36**123).to_s(36) %>'>"
+							   + "<input type='text' name='cpost_content' id='cpost_content' value='' placeholder='댓글을 입력해주세요'>"
+ 							  + "<input type='submit' name='commit' value='cpost_create' data-disable-with='cpost_create'>"
+							  + "</form></div>"
+							 ;
+						}else{
+							// 아직 누르지 않은 유저
+							  document.getElementById('rendered_place').innerHTML = 
+						        "<div> 커뮤니티 번호: " + json['detail']['id']
+						      + "<div> 제목: " + json['detail']['title'] 
+						      + "</div> <div> 작성자 : " + json['writername']
+						      + "</div><div> <img src='" +json['detail']['image']['url'] + "'>"
+							  + "</div><div >내용: " + json['detail']['content'] + "</div>"
+							  + "<div onclick=''> 하트 켜기 </div>"
+							  + "<div onclick=''> 이전으로 돌아가기 </div>" 
+							  + "<form enctype='form-data' name='cpost_form' onsubmit='submit_cpost_form()' action='/community/" + cid +"/post'" 
+							  + "accept-charset='UTF-8' data-remote='true' method='post'>"
+							  + "<input name='utf8' type='hidden' value='✓'>"
+						      + "<input type='hidden' value='" + "<%= rand(36**123).to_s(36) %>'>"
+							  + "<input type='text' name='cpost_content' id='cpost_content' value='' placeholder='댓글을 입력해주세요'>"
+ 							  + "<input type='submit' name='commit' value='cpost_create' data-disable-with='cpost_create' onclick=''>"
+							  + "</form></div>"
+
+							 ;
+						}
+					}
+				});
+		});
+	
  }
 
 
 </script>
-
+<!-- 
 <script src="detail_js.js.erb"> </script>
+-->
 
-
-<!-- 커뮤니티 목록 -->
-<% @result["community"]["objects"].each do |comu| %>
+<!-- 커뮤니티 목록 
+<%# @result["community"]["objects"].each do |comu| %>
   <hr>
-  커뮤니티 제목: <%= comu.title %>
-  커뮤니티 개설자: <%= @result["community"][comu.id]["writer"].name %>
-  커뮤니티 하트수: <%= comu.heart %>
-  <a href="/community/<%= comu.id %>"> 커뮤니티로 이동 </a>
+  커뮤니티 제목: <%#= comu.title %>
+  커뮤니티 개설자: <%#= @result["community"][comu.id]["writer"].name %>
+  커뮤니티 하트수: <%#= comu.heart %>
+  <a href="/community/<%#= comu.id %>"> 커뮤니티로 이동 </a>
 
-  <!-- 커뮤니티 상세 페이지-->
-	<!-- 커뮤니티 하트 누르기 -->
-	<% if @result["community"][comu.id]["current_vuser_heart"] == 0%> 
-  <div class="chart_button"  onclick="chearton( <%= comu.id %> , 1);" id="comu<%= comu.id %>" >
-	  <%= link_to '하트 켜기', cheart_path( :id => comu.id ), method: :post, remote: true, id: "cheart_link#{ comu.id }" %>
+	<%# if @result["community"][comu.id]["current_vuser_heart"] == 0%> 
+  <div class="chart_button"  onclick="chearton( <%#= comu.id %> , 1);" id="comu<%#= comu.id %>" >
+	  <%#= link_to '하트 켜기', cheart_path( :id => comu.id ), method: :post, remote: true, id: "cheart_link#{# comu.id }" %>
   </div>
-  <% elsif @result["community"][comu.id]["current_vuser_heart"] > 0 %>
-   <div class="chart_button"  onclick="chearton( <%= comu.id %>, 0);" id="comu<%= comu.id %>" >
-	   <%= link_to '하트 끄기', cheart_path( :id => comu.id ), method: :post, remote: true, id: "cheart_link#{ comu.id }"%>
+  <%# elsif @result["community"][comu.id]["current_vuser_heart"] > 0 %>
+   <div class="chart_button"  onclick="chearton( <%#= comu.id %>, 0);" id="comu<%#= comu.id %>" >
+	   <%#= link_to '하트 끄기', cheart_path( :id => comu.id ), method: :post, remote: true, id: "cheart_link#{# comu.id }"%>
    </div>
-  <% else %>
-      하트를 누르려면 로그인!
-  <% end %>
-
+  <%# else %>
+  하트를 누르려면 로그인
+  <%# end %>
+  -->
+<!-- 
 <script>
       function chearton(cid, option){
 		  if ((document.getElementById('cheart_link'+ cid).innerHTML == "하트 끄기") == true){
@@ -224,39 +459,39 @@ function render_community_detail(cid){
 		   }
 	   }
 </script>
-
+-->
 <!-- 댓글 목록 -->
-<div id="comu_post_list<%= comu.id %>">
+<!--
+<div id="comu_post_list<%#= comu.id %>">
   
-   <% @result["community"][comu.id]["post"]["objects"].each do |cpost|%>
+   <%# @result["community"][comu.id]["post"]["objects"].each do |cpost|%>
    <div>   
 	<hr>
-    댓글 내용: <%= cpost.content %> <br>
-     댓글 작성자: <%= @result["community"][comu.id]["post"][cpost.id]["writer"].name %>
+    댓글 내용: <%#= cpost.content %> <br>
+     댓글 작성자: <%#= @result["community"][comu.id]["post"][cpost.id]["writer"].name %>
    </div>  
- <% end %>
+ <%# end %>
 
 </div>
-
-<!-- 댓글 달기 -->
-<% if current_vuser != nil %>
-<%= form_tag("/community/#{ @result["community"][comu.id]["object"].id }/post", method: "post", remote: true ) do %>
+-->
+<!-- 댓글 달기 
+<%# if current_vuser != nil %>
+<%#= form_tag("/community/#{ @result["community"][comu.id]["object"].id }/post", method: "post", remote: true ) do %>
 	
-	<!--댓 글 내용 입력 -->
-	<div class="cpost_content <%= comu.id %>" >
-		<%= text_field_tag 'cpost_content', "", placeholder: "댓글 내용을 입력해주세요", id: "cpost_content#{ comu.id.to_s }" %>
+	<div class="cpost_content <%#= comu.id %>" >
+		<%#= text_field_tag 'cpost_content', "", placeholder: "댓글 내용을 입력해주세요", id: "cpost_content#{# comu.id.to_s }" %>
 	</div>
 
-	<input name="authenticity_token" type="hidden" value="<%= rand(36**123).to_s(36) %>">
+	<input name="authenticity_token" type="hidden" value="<%#= rand(36**123).to_s(36) %>">
 
-	<!-- 제출 -->
-	<div onClick="create_post('<%= comu.id %>', '<%= current_vuser.name %>' );">
-		<%= submit_tag("cpost_create") %>
+	<div onClick="create_post('<%#= comu.id %>', '<%#= current_vuser.name %>' );">
+		<%#= submit_tag("cpost_create") %>
 	</div>
-<% end %>
-<% end %>
-<% end %>
+<%# end %>
+<%# end %>
 
+<%# end %>
+-->
 <!-- 댓글 js -->
 <script>
    function create_post(cid, name){

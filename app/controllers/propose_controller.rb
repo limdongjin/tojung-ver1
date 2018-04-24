@@ -10,6 +10,9 @@ class ProposeController < ApplicationController
   # GET /propose/:id
   def detail
 	# 청원 세부 정보 페이지
+	print("리퀘")
+	print(request.base_url)
+	@base_url = request.base_url
 	@propose = Vpropose.find(params[:id].to_i)
 	
 	# 청원 상태 정보 업데이트
@@ -53,10 +56,10 @@ class ProposeController < ApplicationController
 	end
 	
 	# 투표권 여부 체크.
-	@ispossibleVote = FALSE
+	@ispossibleVote = false
     
 	if current_vuser != nil and Vvote.where(propose_id: @propose.id, user_id: current_vuser.id).count == 0
-		@ispossibleVote = TRUE
+		@ispossibleVote = true
 	elsif current_vuser != nil and Vvote.where(propose_id: @propose.id, user_id: current_vuser.id).count != 0
         @myseller_id = Vvote.where(propose_id: @propose.id, user_id: current_vuser.id)[0].candidate_id
 	end
@@ -66,11 +69,9 @@ class ProposeController < ApplicationController
    @dict_co = { }
    print(@communites)
    @communities.each do |comu|
-	   print("o")
       @dict_co[comu.user_id] = Vuser.find(comu.user_id)
    end
    
-   print("hello") 
    
    @heart_comu = {  }
    if current_vuser != nil
@@ -78,7 +79,6 @@ class ProposeController < ApplicationController
          @heart_comu[log.target_id] = true
       end
    end
-   print("world")
 
    @result = {  }
    
@@ -171,8 +171,8 @@ class ProposeController < ApplicationController
 	@propose.user_id = current_vuser.id
 	@propose.status  = "펀딩진행중"
 
-	@propose.bg_category_name = params[:propose_bg_category]
-	@propose.sm_category_name = params[:propose_sm_category]
+	@propose.bg_category_name = params[:category]
+	#@propose.sm_category_name = params[:propose_sm_category]
 	
 	@propose.funded_money = 0
     @propose.goal_money = 10000000
@@ -181,7 +181,7 @@ class ProposeController < ApplicationController
 	
 	# 약정 생성
     @contract = Vcontract.new
-	@contract.content = params[:contract_content]
+	# @contract.content = params[:contract_content]
 	@contract.contract_money = params[:contract_money].to_i
 	@contract.user_id = current_vuser.id
 	@contract.propose_id = @propose.id
@@ -195,8 +195,7 @@ class ProposeController < ApplicationController
 	@propose.save
 	@contract.save
 	@writer  = Vuser.find(@contract.user_id)	
-	# 청원 페이지로 이동
-	# redirect_to '/'
+    redirect_to '/contract/'+ @contract.id.to_s
   end
   
   # GET /propose/edit/:id
