@@ -1,3 +1,107 @@
 // Place all the styles related to the propose controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* Propose */
+/* Cover */
+.propose_cover{
+  background-image: url(../assets/images/propose_bg.png);
+  height: 360px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.propose_text{
+  font-size: 1.25rem;
+}
+
+.propose{
+  display: flex;
+  justify-content: center;
+}
+
+.propose_form{
+  width: 50%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.propose_form .form-group{
+  margin-bottom: 7%;
+  box-shadow: none;
+  border: none;
+}
+
+.propose_form .form-group input{
+  border-radius: 4px;
+}
+
+.propose_form .form-group input[placeholder]{
+  padding: 2%;
+}
+
+.propose_form textarea{
+  font-size: 0.875rem;
+}
+
+.propose_form .form-group select *{
+  border: none;
+  box-shadow: none;
+
+}
+
+.file_title{
+  font-size: 1rem;
+  margin-bottom: 10%;
+}
+
+#propose_funding{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(231, 231, 231, 0.6);
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+#propose_funding p{
+    font-size: 0.875rem;
+}
+
+.fund_money_form input{
+  display: inline-block;
+}
+
+.propose_text.d-flex > input{
+  width: 30%;
+  padding: 1% 2% 1% 1% ;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+#propose_notice{
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  padding-top: 3%;
+  padding-bottom: 10%;
+}
+
+#propose_notice p {
+  width: 100%;
+  margin-left: 10%;
+  font-size: 0.875rem;
+  list-style-type: circle;
+  display: list-item;
+}
+
+#propose_notice .btn{
+  width: 30%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5%;
+}

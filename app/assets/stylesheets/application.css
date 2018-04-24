@@ -76,7 +76,7 @@
  .decoration-none{
    text-decoration: none;
  }
- 
+
  .decoration-none:hover{
    text-decoration: none;
  }
@@ -263,119 +263,11 @@
    justify-content: flex-end;
    align-items: flex-end;
  }
- /* Propose */
- /* Cover */
- .propose_cover{
-   background-image: url(../images/propose_bg.png);
-   height: 360px;
-   background-position: center center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
- }
-
- .propose_text{
-   font-size: 1.25rem;
- }
-
- .propose{
-   display: flex;
-   justify-content: center;
- }
-
- .propose_form{
-   width: 50%;
-   padding-top: 5%;
-   padding-bottom: 5%;
- }
-
- .propose_form .form-group{
-   margin-bottom: 7%;
-   box-shadow: none;
-   border: none;
- }
-
- .propose_form .form-group input{
-   border-radius: 4px;
- }
-
- .propose_form .form-group input[placeholder]{
-   padding: 2%;
- }
-
- .propose_form textarea{
-   font-size: 0.875rem;
- }
-
- .propose_form .form-group select *{
-   border: none;
-   box-shadow: none;
-
- }
-
- .file_title{
-   font-size: 1rem;
-   margin-bottom: 10%;
- }
-
- #propose_funding{
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background-color: rgba(231, 231, 231, 0.6);
-   padding-top: 3%;
-   padding-bottom: 3%;
- }
-
- #propose_funding p{
-     font-size: 0.875rem;
- }
-
- .fund_money_form input{
-   display: inline-block;
- }
-
- .propose_text.d-flex{
-   width: 50%;
- }
-
- .propose_text.d-flex > input{
-   width: 30%;
-   padding: 1% 2% 1% 1% ;
-   margin-right: 2%;
-   margin-left: 2%;
- }
-
- #propose_notice{
-   display: block;
-   margin: 0 auto;
-   width: 50%;
-   padding-top: 3%;
-   padding-bottom: 10%;
- }
-
- #propose_notice p {
-   width: 100%;
-   margin-left: 10%;
-   font-size: 0.875rem;
-   list-style-type: circle;
-   display: list-item;
- }
-
- #propose_notice .btn{
-   width: 30%;
-   display: block;
-   margin: 0 auto;
-   margin-top: 5%;
- }
 
  /* Funding */
  .funding_cover{
    background-image: url(../images/funding_bg.png);
-   height: 360px;
+   height: calc(100vw*0.35);
    background-position: center center;
    background-repeat: no-repeat;
    background-size: cover;
@@ -415,63 +307,6 @@
    margin-top: 5%;
  }
 
- /* Share */
- .share_cover{
-   background-image: url(../images/share_bg.png);
-   height: 682px;
-   background-position: center center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding-top: 5%;
- }
-
- .share_cover p{
-   font-size: 0.875rem;
- }
-
- .share_content{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
-
- .share_icons{
-   width: 20%;
-   justify-content: space-around;
- }
-
- .share_icon{
-   width: 60px;
-   height: 60px;
- }
-
- .share_content p{
-   font-size: 1.125rem;
- }
-
- .money{
-   font-size: 1.25rem;
-   font-weight: bold;
- }
-
- .share_ment{
-   font-size: 1.5rem;
-   font-weight: bold;
- }
-
- .fund_link{
-   font-size: 1.5rem;
-   color: #404040;
- }
-
- .process{
-   width: 50%;
-   margin-top: 5%;
-   margin-bottom: 10%;
- }
 
  /* Funding detail */
  .funding_detail_cover{
@@ -1077,6 +912,9 @@ a.text-primary{
     margin-bottom: 10%;
   }
 
+  .funding_cover{
+    height: calc(100vw*0.7);
+  }
   /* // Main */
 
   /* SignUp */

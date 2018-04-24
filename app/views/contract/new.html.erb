@@ -1,20 +1,26 @@
-<h1>약정 하는 페이지</h1>
-<p>Find me in app/views/contract/new.html.erb</p>
+<!-- Funding Cover -->
+<section class="funding_cover" style="background-image: url(/assets/images/funding_bg.png);">
+  <h2 class="sr-only">펀딩하기</h2>
+  <p class="propose_text text-white mb-2 font-sm-12">이 법안이 당신에게 꼭 필요한가요?</p>
+  <p class="propose_text text-white mb-2 font-sm-12">커피 한잔 값이라도 펀딩에 동참해 주세요!</p>
+  <p class="propose_text text-white mb-2 font-sm-12">인생이 바뀔 수 있어요:)</p>
+</section>
+<!-- //Funding Cover -->
 
-<%= form_tag("/contract/create/#{ @propose.id }", method: "post") do %>
-	<p>작성자 이름: <%= current_vuser.name %> </p>
-    <p>약정하는 청원제목: <%= @propose.title %></p>
-   
-	<div class="contract_content">
-		<!-- 약정 내용 입력 -->
-		~~~~~~ 약정 내용 ~~~~~~~
-	</div>
-
-	<!-- 요구하는 내용-->
-	<%= text_field_tag 'content', '', placeholder: "요구하실 내용을 적으세요" %>
-	<!-- 약정 금액 입력 -->
-	<%= number_field_tag 'contract_money', 10000, placeholder: "약정하실 금액을 입력해주세요" %>
-
-	<!-- 제출 -->
-	<%= submit_tag("propose_create") %>
-<% end %>
+<!-- Funding Content -->
+<section id="funding_content" class="propose">
+	<%= form_tag("/contract/create/#{ @propose.id }", method: "post", class: "text-center") do %>
+	  <h2 class="fund_title font-sm-12">"<%= @propose.title %>"</h2>
+	  <p class="propose_text mb-2 font-sm-10">나 <span class="user_nickname font-sm-10"><%= current_vuser.name %></span>는 위와 같은 내용의 입법을 추진하는 의원에게 의정활동비를 후원하여,</p>
+	  <p class="propose_text mb-2 font-sm-10">이제는 내 삶을 바꾸기 위해 강력히 행동하겠습니다.</p><br />
+	  <p class="propose_text mb-2 font-sm-10">펀딩 마감 후 투표를 통해 선정한 의원에게 </p>
+	  <p class="propose_text mb-2 font-sm-10 d-flex justify-content-center">
+	    <span>\</span>
+			<%= number_field_tag 'contract_money','', placeholder: "숫자로 적어주세요.", class: "form-control" %>
+	    <span>를 후원하겠습니다.</span>
+	  </p>
+	  <p class="propose_text mb-2 font-sm-10">(한 명의 의원에게는 연간 500만원까지 후원이 가능합니다)</p>
+		<%= submit_tag("후원 약정하기", :class=> "btn btn-primary w-100 font-sm-12")%>
+	<%end%>
+</section>
+<!-- //Funding Content -->

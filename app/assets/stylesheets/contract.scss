@@ -1,3 +1,60 @@
 // Place all the styles related to the contract controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Share */
+.share_cover{
+  height: 682px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+}
+
+.share_cover p{
+  font-size: 0.875rem;
+}
+
+.share_content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.share_icons{
+  width: 20%;
+  justify-content: space-around;
+}
+
+.share_icon{
+  width: 60px;
+  height: 60px;
+}
+
+.share_content p{
+  font-size: 1.125rem;
+}
+
+.money{
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.share_ment{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.fund_link{
+  font-size: 1.5rem;
+  color: #404040;
+}
+
+.process{
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
