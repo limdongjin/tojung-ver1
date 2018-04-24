@@ -21,7 +21,7 @@
    font-family: 'Nanum Gothic', sans-serif;
  }
 
- .bg-light{
+ .bg-light2{
    background-color: white !important;
  }
 
@@ -68,8 +68,13 @@
  .text-primary{
    color: #3e6373 !important;
  }
+
  .active{
    color: #3e6373 !important;
+ }
+
+ .decoration-none:hover{
+   text-decoration: none;
  }
 
  /* Header */
@@ -110,7 +115,7 @@
  .cover{
    height: 576px;
    width: 100%;
-   background-image: url(../../assets/images/funding.jpg);
+   background-image: url(/assets/images/funding.jpg);
    background-position: center center;
    background-repeat: no-repeat;
    background-size: cover;
@@ -173,34 +178,50 @@
    background-position: center center;
    background-size: 100% 100%;
    height: calc(50vw * 0.53);
+   position: relative;
+ }
+
+ .funding_card_box::before{
+   content: '';
+   position: absolute;
+   display: block;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
  }
 
  .funding_card a{
   text-decoration: none;
  }
 
- .funding_card_box:nth-child(6n){
-   background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../../assets/images/woman.jpg);
+ .funding_card_box:nth-child(6n)::before{
+   background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6));
  }
 
- .funding_card_box:nth-child(6n+1){
-   background-image: linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(../../assets/images/woman.jpg);
+ .funding_card_box:nth-child(6n+1)::before{
+   background-image: linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6));
  }
 
- .funding_card_box:nth-child(6n+2){
-   background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../../assets/images/woman.jpg);
+ .funding_card_box:nth-child(6n+2)::before{
+   background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6));
  }
 
- .funding_card_box:nth-child(6n+3){
-   background-image: linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(../../assets/images/woman.jpg);
+ .funding_card_box:nth-child(6n+3)::before{
+   background-image: linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6));
  }
 
- .funding_card_box:nth-child(6n+4){
-   background-image: linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(../../assets/images/woman.jpg);
+ .funding_card_box:nth-child(6n+4)::before{
+   background-image: linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6));
  }
 
- .funding_card_box:nth-child(6n+5){
-   background-image: linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(../../assets/images/woman.jpg);
+ .funding_card_box:nth-child(6n+5)::before{
+   background-image: linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6));
+ }
+
+ .funding_card{
+   z-index: 1000;
+   position: absolute;
  }
 
  .funding_title{
@@ -744,13 +765,22 @@ input[placeholder]{
   border-color: #3e6373 !important;
 }
 
+.line-1{
+  line-height: 1 !important;
+}
+
 .sign_up_btn{
-  font-size: 0.875rem;
+  font-size: 0.875rem ;
   line-height: 1.07;
   padding: 3.5%;
   border-radius: 3px;
   box-shadow: 0 1px 5px 0 rgba(171, 175, 179, 0.6), inset 0 -2px 2px 0 rgba(122, 125, 128, 0.2);
-  border: solid 1px rgba(122, 125, 128, 0.3);
+  border: solid 1px rgba(122, 125, 128, 0.3) !important;
+}
+.custom-checkbox > .login_btn{
+  width: 50%;
+  padding: 8%;
+  border-radius: 8px;
 }
 
 input[checkbox]:checked{
@@ -795,12 +825,16 @@ input[checkbox]:checked{
   width: 20%;
 }
 
+.social_sign form.button_to{
+  width: 100%;
+}
+
 .btn-facebook{
   background-color: #3a589b;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
   width: 100%;
-  font-weight: bold;
-  border-radius: 8px;
+  font-weight: bold !important;
+  border-radius: 8px !important;
 }
 
 .fb_icon{
@@ -817,10 +851,10 @@ input[checkbox]:checked{
 
 .btn-kakao{
   background-color: #ffea00;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
   width: 100%;
-  font-weight: bold;
-  border-radius: 8px;
+  font-weight: bold !important;
+  border-radius: 8px !important;
 }
 
 .kakao_icon{
@@ -831,6 +865,22 @@ input[checkbox]:checked{
   background-color: #ffea00;
 }
 
+.btn-google{
+  background-color: #DC4A38;
+  font-size: 0.875rem !important;
+  width: 100%;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+}
+
+.google_icon{
+  width: auto;
+  height: 25px;
+  margin-top: 3%;
+  margin-left: 5%;
+  background-color: #DC4A38;
+}
+
 .btn-lawmaker{
   border-radius: 8px;
 }
@@ -839,7 +889,7 @@ input[checkbox]:checked{
   font-size: 0.875rem;
 }
 
-.social_sign > button.btn{
+.social_sign > form > button.btn{
   line-height: 2.5;
 }
 
@@ -907,7 +957,7 @@ form.sign_in input:hover{
   justify-content: space-between;
 }
 
-.text-primary{
+a.text-primary{
   color: #3e6373 !important;
 }
 
@@ -1041,7 +1091,7 @@ form.sign_in input:hover{
     font-size: 0.625rem;
   }
 
-  button.sign_up_btn{
+  input.sign_up_btn{
     font-size: 0.75rem;
     padding-top: 6%;
     padding-bottom: 6%;
@@ -1070,6 +1120,14 @@ form.sign_in input:hover{
   .sign .social_sign{
     width: 70%;
     padding-top: 10%;
+  }
+
+  .social_sign form.button_to{
+    width: 100% !important;
+  }
+
+  .line-1{
+    line-height: 1 !important;
   }
 
   .sign_in .custom-checkbox .custom-control-label{

@@ -66,7 +66,7 @@ Rails.application.routes.draw do
   # get 'contract/update'
 
   post 'contract/create/:propose_id' => 'contract#create'
-
+  
   # get 'contract/delete'
 
   # 청원
