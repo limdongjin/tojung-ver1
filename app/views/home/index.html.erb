@@ -69,7 +69,7 @@
 <a href="/propose/new"> 청원 하러 가기 </a>
 <% @proposes.each do |propose| %>
 	<div>
-		<img src="<%= propose.image.url %>"> 
+		<img src="<%= propose.image.url %>">
 		<p> 청원 이름: <%= propose.title %> </p>
 		<p> 청원 상태: <%= propose.status %></p>
 		<p> 청원 펀딩액: <%= propose.funded_money %></p>
@@ -81,3 +81,95 @@
 <% end %>
 
 
+<!--
+<div class="main_image">
+   메인이미지
+</div>
+
+<div class="best_bill_images">
+   <div class="best_bill_image">
+      Best 법안 상품 및 패키지 상품
+   </div>
+
+   <div class="best_bill_image">
+      Best 법안 상품 및 패키지 상품
+   </div>
+
+   <div class="best_bill_image">
+      Best 법안 상품 및 패키지 상품
+   </div>
+
+   <div class="best_bill_image">
+      Best 법안 상품 및 패키지 상품
+   </div>
+</div>
+
+<div class="hoowon">
+   후원금이 필요한 이유 이미지
+</div>
+
+<div class="index_about">
+   투정 소개 이미지
+</div>
+
+<div class="recommend_bill">
+   법안 추천
+   </div>
+-->
+
+<!-- Cover -->
+<section class="cover">
+  <!-- 영상 들어갈 부분-->
+</section>
+<!-- //Cover -->
+
+<!-- New 제안하기-->
+<section class="new">
+  <h2 class="sr-only">제안하기</h2>
+  <div class="container mx-0">
+    <div class="row">
+      <div class="col-2 col-lg-3 new_logo">
+				<!--청원 제안하기  -->
+        <a href="#"><img class="mic_icon" src="assets/images/shape.png" alt="제안하기"></a>
+      </div>
+      <div class="col-8 col-lg-5 new_textbox px-0">
+        <p id="mention" class="new_text"></p>
+      </div>
+      <div class="visible-lg col-lg-4 new_textbox px-0">
+        <ul class="nav align-items-end h-100">
+          <li class="nav-item px-0 py-0">
+            <a class="nav-link active" href="#">인기순</a>
+          </li>
+          <li class="nav-item px-0 py-0">
+            <a class="nav-link" href="#">최신순</a>
+          </li>
+          <li class="nav-item px-0 py-0">
+            <a class="nav-link" href="#">마감임박순</a>
+          </li>
+          <li class="nav-item px-0 py-0">
+            <a class="nav-link" href="#">의원투표진행중</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- //New -->
+
+<section class="funding_list">
+  <div class="container">
+    <div class="row">
+      <div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box">
+        <div class="funding_card d-flex flex-column h-100">
+					<a href="#">
+	          <h4 class="funding_title text-white">청원이름</h4>
+	          <div class="funding_card_info h-100">
+	            <p class="funding_days text-white text-right"><span class="funding_d_day text-white">남은기간</span>일 남음</p>
+	            <p class="funding_money text-white text-right">&#8361;펀딩금액</p>
+	          </div>
+					</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

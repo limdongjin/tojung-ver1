@@ -244,7 +244,6 @@ ActiveRecord::Schema.define(version: 20180419071824) do
     t.text "user_phone"
     t.text "user_email"
     t.integer "user_addr_num"
-    t.text "user_addr"
     t.text "payed_account"
     t.text "payed_name"
     t.integer "coupon_use"

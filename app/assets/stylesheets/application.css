@@ -16,3 +16,1294 @@
 
 /* Menu 바 */
 
+ /* Custom settings */
+ *{
+   font-family: 'Nanum Gothic', sans-serif;
+ }
+
+ .bg-light{
+   background-color: white !important;
+ }
+
+ .bg-grey{
+   background-color: #f1f1f1;
+ }
+
+ .font-10{
+   font-size: 0.625rem;
+ }
+
+ .font-12{
+   font-size: 0.75rem;
+ }
+
+ .font-14{
+   font-size: 0.875rem;
+ }
+
+ .font-16{
+   font-size: 1rem;
+ }
+
+ .font-18{
+   font-size: 1.125rem;
+ }
+
+ .font-20{
+   font-size: 1.25rem;
+ }
+
+ .font-24{
+   font-size: 1.5rem;
+ }
+
+ .font-36{
+   font-size: 2.25rem;
+ }
+
+ .font-grey{
+   color: #858585;
+ }
+
+ .text-primary{
+   color: #3e6373 !important;
+ }
+ .active{
+   color: #3e6373 !important;
+ }
+
+ /* Header */
+ .brand{
+   margin-bottom: 0;
+ }
+
+ .logo{
+   width: 78px;
+   height: 73px;
+ }
+
+ nav.navbar.navbar-expand-lg{
+   padding: 1.75rem 2.0625rem 1.75rem 2.75rem;
+ }
+
+ .nav-item{
+   padding: 21px 21px;
+ }
+
+ .nav-link {
+   font-size: 0.875rem;
+   text-transform: uppercase;
+   color: #858585;
+   line-height: 1.15;
+ }
+
+ .visible-xs{
+   display: none;
+ }
+
+ .visible-xs-block{
+   display: none;
+ }
+
+
+ /* Cover */
+ .cover{
+   height: 576px;
+   width: 100%;
+   background-image: url(../../assets/images/funding.jpg);
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ video{
+   height: 576px;
+   width: 100%;
+ }
+
+ /* New */
+ .new{
+   background-color: #eeeef0;
+ }
+
+ .new_logo{
+   padding: 8% 8.3%;
+ }
+
+ .mic_icon{
+   width: 70%;
+   height: auto;
+ }
+
+ .new_textbox{
+   white-space: pre-wrap;
+   display: flex;
+   align-items: center;
+ }
+
+ .new_text{
+   font-size: 1.5rem;
+   line-height: 1.25;
+   color: #858585;
+   margin-bottom: 0;
+   padding-left: 11%;
+   border-left: 4px solid #858585;
+ }
+
+ .new .container{
+   max-width: 100vw;
+ }
+
+ .visible-lg .nav-item{
+   height: 28%;
+   font-size: 0.875rem;
+ }
+
+ .visible-lg .nav-item .active{
+   color: #3e6373;
+   font-weight: bold;
+ }
+
+ /* Funding_list */
+ .funding_list > .container{
+   max-width: 100vw;
+ }
+
+ .funding_card_box{
+   background-position: center center;
+   background-size: 100% 100%;
+   height: calc(50vw * 0.53);
+ }
+
+ .funding_card a{
+  text-decoration: none;
+ }
+
+ .funding_card_box:nth-child(6n){
+   background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../../assets/images/woman.jpg);
+ }
+
+ .funding_card_box:nth-child(6n+1){
+   background-image: linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(../../assets/images/woman.jpg);
+ }
+
+ .funding_card_box:nth-child(6n+2){
+   background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../../assets/images/woman.jpg);
+ }
+
+ .funding_card_box:nth-child(6n+3){
+   background-image: linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(../../assets/images/woman.jpg);
+ }
+
+ .funding_card_box:nth-child(6n+4){
+   background-image: linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(../../assets/images/woman.jpg);
+ }
+
+ .funding_card_box:nth-child(6n+5){
+   background-image: linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(../../assets/images/woman.jpg);
+ }
+
+ .funding_title{
+   font-size: 1.5rem;
+   font-weight: bold;
+   width: 55%;
+   padding: 6% 6%;
+   margin-bottom: 15%;
+ }
+
+ .funding_d_day{
+   font-size: 1.5rem;
+ }
+
+ .funding_days{
+   font-size: .875rem;
+   font-weight: bold;
+   padding-right: 5%;
+   margin-bottom: 0;
+ }
+
+ .funding_money{
+   font-size: 1.5rem;
+   font-weight: bold;
+   padding-right: 5%;
+   line-height: 1;
+   margin-bottom: 0;
+ }
+
+ .funding_card_info{
+   justify-content: flex-end;
+   align-items: flex-end;
+ }
+ /* Propose */
+ /* Cover */
+ .propose_cover{
+   background-image: url(../images/propose_bg.png);
+   height: 360px;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .propose_text{
+   font-size: 1.25rem;
+ }
+
+ .propose{
+   display: flex;
+   justify-content: center;
+ }
+
+ .propose_form{
+   width: 50%;
+   padding-top: 5%;
+   padding-bottom: 5%;
+ }
+
+ .propose_form .form-group{
+   margin-bottom: 7%;
+   box-shadow: none;
+   border: none;
+ }
+
+ .propose_form .form-group input{
+   border-radius: 4px;
+ }
+
+ .propose_form .form-group input[placeholder]{
+   padding: 2%;
+ }
+
+ .propose_form textarea{
+   font-size: 0.875rem;
+ }
+
+ .propose_form .form-group select *{
+   border: none;
+   box-shadow: none;
+
+ }
+
+ .file_title{
+   font-size: 1rem;
+   margin-bottom: 10%;
+ }
+
+ #propose_funding{
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(231, 231, 231, 0.6);
+   padding-top: 3%;
+   padding-bottom: 3%;
+ }
+
+ #propose_funding p{
+     font-size: 0.875rem;
+ }
+
+ .fund_money_form input{
+   display: inline-block;
+ }
+
+ .propose_text.d-flex{
+   width: 50%;
+ }
+
+ .propose_text.d-flex > input{
+   width: 30%;
+   padding: 1% 2% 1% 1% ;
+   margin-right: 2%;
+   margin-left: 2%;
+ }
+
+ #propose_notice{
+   display: block;
+   margin: 0 auto;
+   width: 50%;
+   padding-top: 3%;
+   padding-bottom: 10%;
+ }
+
+ #propose_notice p {
+   width: 100%;
+   margin-left: 10%;
+   font-size: 0.875rem;
+   list-style-type: circle;
+   display: list-item;
+ }
+
+ #propose_notice .btn{
+   width: 30%;
+   display: block;
+   margin: 0 auto;
+   margin-top: 5%;
+ }
+
+ /* Funding */
+ .funding_cover{
+   background-image: url(../images/funding_bg.png);
+   height: 360px;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+
+ #funding_content{
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 7%;
+ }
+
+ #funding_content p{
+     font-size: 0.875rem;
+ }
+
+ .fund_title{
+   margin-top: 5%;
+   margin-bottom: 5%;
+   font-size: 2.25rem;
+   font-weight: bold;
+   color: #3e6373;
+ }
+
+ .user_nickname{
+   font-weight: bold;
+ }
+
+ #funding_content .btn{
+   width: 15%;
+   display: block;
+   margin: 0 auto;
+   margin-top: 5%;
+ }
+
+ /* Share */
+ .share_cover{
+   background-image: url(../images/share_bg.png);
+   height: 682px;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 5%;
+ }
+
+ .share_cover p{
+   font-size: 0.875rem;
+ }
+
+ .share_content{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .share_icons{
+   width: 20%;
+   justify-content: space-around;
+ }
+
+ .share_icon{
+   width: 60px;
+   height: 60px;
+ }
+
+ .share_content p{
+   font-size: 1.125rem;
+ }
+
+ .money{
+   font-size: 1.25rem;
+   font-weight: bold;
+ }
+
+ .share_ment{
+   font-size: 1.5rem;
+   font-weight: bold;
+ }
+
+ .fund_link{
+   font-size: 1.5rem;
+   color: #404040;
+ }
+
+ .process{
+   width: 50%;
+   margin-top: 5%;
+   margin-bottom: 10%;
+ }
+
+ /* Funding detail */
+ .funding_detail_cover{
+   background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: cover;
+   height: calc(100vw * 0.53);
+   padding-top: 5%;
+ }
+
+ .funding_detail_content{
+   padding-left: 20%;
+   padding-right: 20%;
+ }
+
+ .btn-white{
+   background-color: white;
+   border: 1px solid #a7a7a7;
+   border-radius: 0;
+   color: #a7a7a7;
+ }
+
+ .btn-share{
+   width: 15%;
+ }
+
+ .border-bottom{
+   border-bottom: 1px solid #a7a7a7;
+ }
+
+ .detail_menu{
+   padding-left: 10%;
+   padding-right: 10%;
+ }
+
+ .detail_menu form{
+   padding-left: 12%;
+   padding-right: 12%;
+ }
+
+ .detail_menu form .form-group{
+   box-shadow: none;
+ }
+
+ .detail_menu form input[placeholder]{
+   padding: 1%;
+ }
+
+ .detail_menu form .custom-file-label{
+   padding: 2%;
+ }
+
+ .detail_menu form .custom-file-label::after{
+   padding: 2%;
+ }
+
+ .detail_menu .btn{
+   width: 20%;
+   margin: 0 auto;
+   display: block;
+ }
+
+ .detail_posts{
+   padding-left: 20%;
+   padding-right: 20%;
+   padding-bottom: 15%;
+ }
+
+ /* Detail Matching 1 */
+ .matching1_text{
+   padding-top: 8%;
+   padding-bottom: 8%;
+ }
+
+ .detail_menu > .container{
+   margin-top: 10%;
+ }
+
+ /* Detail Matching 2 */
+ .lawmaker_img{
+   width: 100px;
+   height: 100px;
+   border-radius: 300px;
+ }
+
+ .lawmaker_img:hover{
+   border: 4px solid #3e6373;
+ }
+
+ .hover_green:hover{
+   color: #3e6373;
+   font-weight: bold;
+   text-decoration: none;
+ }
+
+ /* Detail_Funding 2 */
+ .post{
+   padding-left: 15%;
+   padding-right: 15%;
+ }
+
+ .post_heart:hover{
+   background-image: url('../images/heart_black.png');
+ }
+
+ .back{
+   display: block;
+   text-align: left;
+   text-decoration: none;
+ }
+
+ .border-bottom-c{
+   border-bottom: 1px solid #cccccc;
+ }
+
+ .crown{
+   width: 5%;
+   padding-left: 1%;
+ }
+
+ /* Detail Lawmake */
+ .button-lg{
+   width: 20%;
+ }
+
+ /* Detail Test */
+ #promise{
+   padding: 3% 20% 1% 20%;
+ }
+
+ .crown2{
+   width: 22.9px;
+   height: 10.9px;
+   margin-left: 3px;
+ }
+
+ /* Detail Candidate */
+ .candidate{
+   padding: 5% 20% 10% 20%;
+ }
+
+ .mb-10p{
+   margin-bottom: 10%;
+ }
+
+ .candidate form > .form-group{
+   box-shadow: none;
+ }
+
+ .candidate form > .form-group input[placeholder]{
+   padding: 1.5%;
+ }
+
+ .candidate form .custom-checkbox .custom-control-label{
+   margin-top: 0%;
+ }
+ .candidate form .custom-checkbox .custom-control-label::before{
+   margin-top: 0%;
+ }
+ .candidate form .custom-checkbox .custom-control-label::after{
+   margin-top: 0%;
+ }
+
+ .candidate form .custom-checkbox .writebox::before{
+   margin-top: 3px;
+ }
+
+ .candidate form .custom-checkbox .writebox::after{
+   margin-top: 3px;
+ }
+
+ .text-black{
+   color: black !important;
+ }
+
+ .candidate form .custom-control.custom-checkbox{
+   margin: 3% 0;
+ }
+
+ .checkbox_text{
+   border: none;
+   border-bottom: 1px solid #cccccc;
+   width: 200%;
+ }
+
+ .check_box:focus{
+   outline: none;
+   border: none;
+ }
+
+ .candidate form .btn{
+   width: 30%;
+   margin: 10% auto 0 auto;
+   display: block;
+ }
+
+ /* MY PAGE */
+ .mypage{
+   padding: 3% 32% 5% 32%;
+ }
+
+ .w-160{
+   width: 160px;
+ }
+ /* SEARCH */
+ .search{
+   padding-left: 8%;
+   padding-right: 8%;
+
+ }
+ .icon_search{
+   width: 15px;
+   height: 15px;
+   position: absolute;
+   left: 30px;
+   top: 21px;
+ }
+
+ input.search_bar{
+   background-color: #fafafa;
+   border-radius: 18px;
+   width: 100%;
+   border: none;
+ }
+
+ input.search_bar[placeholder]{
+   font-size: 0.875rem;
+   font-weight: bold;
+   padding: 8px;
+   padding-left: 5%;
+   color: rgba(0, 0, 0, 0.38);
+ }
+
+ /* ERROR */
+ .error_img{
+   width: 270px;
+   height: 253px;
+ }
+
+ .error{
+   padding: 8% 30% 22% 30%;
+ }
+
+ .error_title{
+   font-size: 3rem;
+   font-weight: bold;
+   color: #3e6373;
+ }
+
+/* ---------------------------------------SIGN------------------------------------------- */
+/* SignUp */
+.sign{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10%;
+}
+
+form{
+  width: 50%;
+}
+
+form .form-group{
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 3px 0 #ccd1d9;
+}
+
+.sign_up_text{
+  font-size: 1.5rem;
+  line-height: 1.67;
+  color: #3e6373;
+  margin-bottom: 2.5%;
+}
+
+::placeholder{
+  color: #aab2bd !important;
+}
+
+input[placeholder]{
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 3%;
+}
+
+.custom-control.custom-checkbox{
+  margin: 4% 0;
+}
+
+.custom-control-label{
+  font-size: 0.875rem;
+  color: #3e6373;
+}
+
+.btn-primary{
+  background-color: #3e6373 !important;
+  width: 100%;
+  border-color: #3e6373 !important;
+}
+
+.sign_up_btn{
+  font-size: 0.875rem;
+  line-height: 1.07;
+  padding: 3.5%;
+  border-radius: 3px;
+  box-shadow: 0 1px 5px 0 rgba(171, 175, 179, 0.6), inset 0 -2px 2px 0 rgba(122, 125, 128, 0.2);
+  border: solid 1px rgba(122, 125, 128, 0.3);
+}
+
+input[checkbox]:checked{
+  background-color: #3e6373 !important;
+}
+
+/* SignUp_lawmaker */
+.img-form{
+  box-shadow: none !important;
+  border: none;
+  display: inline-block;
+}
+
+.img_upload{
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #3e6373;
+}
+
+.custom-file-label{
+  font-size: 0.875rem;
+  color: #aab2bd;
+  height: auto;
+  padding: 3%;
+}
+
+.custom-file-label::after{
+  height: auto;
+  padding: 3%;
+  content: "Browse";
+  font-size: 0.875rem;
+}
+
+.file_btn{
+  border: 1px solid #cccccc;
+}
+
+/* Sign In */
+.social_sign{
+  padding-top: 5%;
+  padding-bottom: 4%;
+  width: 20%;
+}
+
+.btn-facebook{
+  background-color: #3a589b;
+  font-size: 0.875rem;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.fb_icon{
+  width: auto;
+  height: 25px;
+  margin-top: 2%;
+  margin-left: 3%;
+  background-color: #3a589b;
+}
+
+.fb_text, .kakao_text{
+  margin-right: 3%;
+}
+
+.btn-kakao{
+  background-color: #ffea00;
+  font-size: 0.875rem;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.kakao_icon{
+  width: auto;
+  height: 25px;
+  margin-top: 3%;
+  margin-left: 5%;
+  background-color: #ffea00;
+}
+
+.btn-lawmaker{
+  border-radius: 8px;
+}
+
+.social_sign > .btn-primary{
+  font-size: 0.875rem;
+}
+
+.social_sign > button.btn{
+  line-height: 2.5;
+}
+
+.or_img{
+  width: 20%;
+  padding-bottom: 4%;
+}
+
+.sign_in{
+  width: 20%;
+}
+
+form.sign_in ::placeholder{
+  color: #3e6373 !important;
+}
+
+form.sign_in .form-group{
+  background-color: white;
+  box-shadow: none;
+}
+
+form.sign_in input{
+  background-color: #eeeeee;
+  border: none;
+  box-shadow: none;
+  padding: 7%;
+  border-radius: 8px;
+}
+
+form.sign_in input:hover{
+  background-color: #eeeeee;
+  border: none;
+}
+
+.custom-checkbox.d-flex{
+  justify-content: space-between;
+}
+
+.custom-checkbox button{
+  width: 50%;
+  padding: 8%;
+  border-radius: 8px;
+}
+
+.custom-checkbox .custom-control-label{
+  margin-top: 7%;
+}
+
+.custom-checkbox .custom-control-label::before{
+  margin-top: 6%;
+}
+
+.custom-checkbox .custom-control-label::after{
+  margin-top: 6%;
+}
+
+.sign_in_text{
+  font-size: 1.125rem !important;
+}
+
+.login_click{
+  font-size: 0.875rem;
+  color: #3e6373 !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-primary{
+  color: #3e6373 !important;
+}
+
+
+/* --------------------------------------Mobile------------------------------------------- */
+/* Mobile CSS */
+@media screen and (max-width: 576px) {
+  .font-sm-8{
+    font-size: 0.5rem !important;
+  }
+  .font-sm-10{
+    font-size: 0.625rem !important;
+  }
+
+  .font-sm-12{
+    font-size: 0.75rem !important;
+  }
+
+  .font-sm-14{
+    font-size: 0.875rem !important;
+  }
+
+  .font-sm-16{
+    font-size: 1rem !important;
+  }
+
+  .font-sm-18{
+    font-size: 1.125rem !important;
+  }
+
+  .font-sm-20{
+    font-size: 1.25rem !important;
+  }
+  /* Main */
+  /* Header */
+  nav.navbar.navbar-expand-lg{
+    justify-content: space-between;
+    padding: 12px 20px;
+  }
+
+  .visible-xs{
+    display: inline;
+  }
+
+  .visible-xs-block{
+    display: block;
+  }
+
+  .mylog_icon{
+    width: 14px;
+    height: 20px;
+  }
+
+  .logo{
+    width: 36px;
+    height: 34px;
+  }
+
+  .search_icon{
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Cover */
+  .cover{
+    height: 40vh;
+  }
+  /* New */
+
+  .new_logo{
+    padding: 5% 7%;
+  }
+
+  .mic_icon{
+    width: 220%;
+    height: auto;
+  }
+
+  .new_text{
+    font-size: 0.625rem;
+    line-height: 1.4;
+    padding-left: 15px;
+    border-left: 1px solid #858585;
+  }
+
+  .visible-lg{
+    display: none !important;
+  }
+
+  /* Funding */
+
+  .funding_card_box{
+    height: calc(100vw * 0.53);
+  }
+
+  .funding_card, .funding_title, .funding_d_day, .funding_money{
+    font-size: 1.125rem;
+  }
+
+  .funding_days{
+    font-size: 0.66666666rem;
+  }
+
+  .funding_title{
+    margin-bottom: 10%;
+  }
+
+  /* // Main */
+
+  /* SignUp */
+  form{
+    width: 72% !important;
+  }
+
+  h3.sign_up_text{
+    font-size: 0.875rem;
+    margin-top: 9%;
+    margin-bottom: 9%;
+  }
+
+  form input[placeholder]{
+    font-size: 0.75rem;
+    padding: 6%;
+  }
+
+  div.custom-control.custom-checkbox{
+    margin-bottom: 10%;
+  }
+
+  .custom-control .custom-control-label{
+    font-size: 0.625rem;
+  }
+
+  button.sign_up_btn{
+    font-size: 0.75rem;
+    padding-top: 6%;
+    padding-bottom: 6%;
+  }
+
+  /* SingUp_lawmaker */
+  label.custom-file-label{
+    font-size: 0.75rem;
+    padding: 2%;
+  }
+
+  label.custom-file-label::after{
+    height: auto;
+    padding: 1%;
+    content: "찾기";
+    font-size: 0.625rem;
+    width: 15%;
+    text-align: center;
+  }
+
+  div.custom-control.custom-checkbox.mr_lawmaker{
+    margin-top: 10%;
+  }
+
+  /* Sign In */
+  .sign .social_sign{
+    width: 70%;
+    padding-top: 10%;
+  }
+
+  .sign_in .custom-checkbox .custom-control-label{
+    margin-top: 8%;
+  }
+
+  img.or_img{
+    width: 65%;
+    padding-top: 5%;
+  }
+
+  div.login_click{
+    font-size: 0.75rem;
+  }
+
+  .sign_in_text{
+    font-size: 1rem !important;
+  }
+
+  /* Propose */
+  /* Propose cover */
+  .propose_cover{
+    height: calc(100vw * 0.7);
+  }
+
+  .propose_cover p{
+    font-size: 1rem;
+  }
+
+  /* Propose form */
+  #propose_form{
+    padding-bottom: 5%;
+  }
+
+  #propose_funding p, #propose_notice p{
+    font-size: 0.625rem;
+    margin-left: 0;
+  }
+
+  #propose_notice .btn{
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  #propose_notice{
+    width: 80%;
+    padding-top: 5%;
+  }
+
+  select.form-control:not([size]):not([multiple]){
+    height: 30px;
+    padding: 1%;
+  }
+
+  #propose_funding{
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+  .propose_text.d-flex > input{
+    width: 120px;
+    height: 30px;
+    border-radius: 4px;
+    margin-top: -2%;
+  }
+
+  .w-250p{
+    width: 250px !important;
+  }
+
+  /* Share */
+  .share_cover{
+    height: calc(100vw * 0.84);
+  }
+
+  .fund_title{
+    font-size: 0.75rem;
+  }
+
+  .share_cover p , .share_content p{
+    font-size: 0.625rem;
+    text-align: center;
+  }
+
+  .mobile_text{
+    display: block;
+  }
+
+  .share_icons{
+    width: 40%;
+  }
+
+  .share_icon{
+    width: 40px;
+    height: 40px;
+  }
+
+  .money{
+    font-size: 0.75rem;
+  }
+
+  .share_ment{
+    font-size: 0.75rem;
+  }
+
+  .fund_link{
+    font-size: 0.75rem;
+    color: #aaaaaa;
+  }
+
+  .process{
+    width: 80%;
+  }
+
+  /* Detail */
+  .detail{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .detail_img{
+    width: 90%;
+  }
+
+  .btn-share{
+    width: 35%;
+  }
+
+  .detail_mobile_cover{
+    background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../images/woman.jpg);
+    height: calc(100vw * 0.53);
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .detail_title{
+    width: 60%;
+  }
+
+  .funding_detail_content{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .funding_detail_content .btn{
+    width: 40%;
+  }
+
+  .detail_menu form{
+    padding: 0;
+  }
+
+  .detail_menu form input[placeholder]{
+    padding: 3%;
+  }
+
+  .detail_menu .btn{
+    width: 100%;
+    padding: 4%;
+  }
+
+  .detail_posts{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  /* Detail Funding 2 */
+  .post{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .post_img{
+    width: 100%;
+  }
+
+  /* Detail Matching 1 */
+  .vw-80{
+    width: 80vw !important;
+  }
+
+  .matching1_text{
+    padding-top: 12%;
+  }
+
+  /* Detail LawMake */
+  .button-lg{
+    width: 80% !important;
+  }
+
+  #detail_matching2{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  /* Detail Test */
+  #promise{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    padding-bottom: 10px;
+  }
+
+  /* Detail Candidate */
+  .candidate{
+    padding: 5% 13% 10% 13%;
+  }
+
+  .candidate form input[placeholder]{
+    padding: 2%;
+  }
+
+  .checkbox_text{
+    width: 150%;
+  }
+  .candidate form .btn{
+    width: 100%;
+  }
+
+  /* MY PAGE */
+  .mypage{
+    padding: 10% 6% 15% 6%;
+  }
+
+  .w-sm-130{
+    width: 130px;
+  }
+
+  /* SEARCH */
+  input.search_bar[placeholder]{
+    padding-left: 15%;
+  }
+  /*  ERROR */
+  .error{
+    padding: 8% 5% 22% 5%;
+  }
+}

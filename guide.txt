@@ -1,2 +1,2 @@
 1. RAILS_ENV=production rails assets:precompile
-2. RAILS_ENV=production rails s -b 'ssl://0.0.0.0:3000?key=localhost.key&cert=localhost.crt' 
+2. rails s -b 'ssl://0.0.0.0:3000?key=localhost.key&cert=localhost.crt' 
