@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def index
    if !(current_vuser.blank?)
-      if current_vuser.real_name == nil or 
-		  #current_vuser.address == nil or 
-		  current_vuser.phone_number == nil or 
-		  current_vuser.real_name == "" or 
+      if current_vuser.real_name == nil or
+		  #current_vuser.address == nil or
+		  current_vuser.phone_number == nil or
+		  current_vuser.real_name == "" or
 		  current_vuser.phone_number == ""
 		  #current_vuser.address == ""
 		 redirect_to(edit_vuser_registration_path)
@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     end
 	  @proposes = Vpropose.all
 	  	@proposes.each do |propose|
-	    if propose.deadlines == nil 
+	    if propose.deadlines == nil
            next
 		end
 		if propose.deadlines - Time.now <= 0
@@ -23,15 +23,15 @@ class HomeController < ApplicationController
 					propose.status = "매칭진행중"
 				end
 			end
-			
+
 		elsif propose.deadlines - Time.now <= (60*60*24)
 			propose.status = "펀딩 마감 하루전"
 		elsif propose.deadlines - Time.now <= (60*60*24)*2
 			propose.status = "펀딩 마감 이틀전"
 		end
 		propose.save
-	  end 
-	 
+	  end
+
   end
 
   def about
@@ -41,10 +41,10 @@ class HomeController < ApplicationController
     if (current_vuser.blank?) == true
 	   redirect_to '/'
 	   return
-	end    
+	end
 	@user = current_vuser
 	@transactions = Vtransaction.where(user_id: @user.id)
-	
+	@proposes=Vpropose.where(user_id: @user.id)
 	@pack_dict = { }
 	@prod_dict = { }
 	@transactions.each do |tran|

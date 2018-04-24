@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>TojungPageRails</title>
-	   <%= csrf_meta_tags %>
-  <meta charset="UTF-8">
-    <!-- Required meta tags -->
+    <title>입법안 크라우드펀딩 플랫폼, 투정</title>
+    <%= csrf_meta_tags %>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -33,6 +32,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
 
     <% if notice %>
       <p class="alert alert-success" id="alert"><%= notice %></p>
@@ -134,7 +134,7 @@
     <!-- End Channel Plugin -->
     <!-- Alert -->
     <script type='text/javascript'>
-      $(".alert" ).fadeOut(3000);
+      $('#alert').fadeOut(10000);
     </script>
     <!-- // Alert -->
     <!-- Optional JavaScript -->

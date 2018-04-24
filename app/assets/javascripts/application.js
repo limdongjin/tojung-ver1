@@ -43,3 +43,7 @@ typewriter.typeString('겪고 있는 문제가 있나요?\n')
     .typeString('지금 바로 말해주세요. 당신의 투정.')
     .pauseFor(2500)
     .start();
+
+
+var abb= $(".alert");
+abb.hide(3000);

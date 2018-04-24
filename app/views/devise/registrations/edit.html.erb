@@ -1,96 +1,32 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="sign">
+  <h3 class="sign_up_text">회원정보 수정하기</h3>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%#= f.label :email %><br />
-    <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <div class="form-group box-none">
+      <%= f.label :email, "이메일", class: "pl-lg-1 font-sm-12" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "이메일 주소" %>
+    </div>
+    <div class="form-group box-none">
+      <%= f.label :real_name, "이름(실명)", class: "pl-lg-1 font-sm-12" %>
+      <%= f.text_field :real_name, class: 'form-control', placeholder: "이름(실명)" %>
+    </div>
+    <div class="form-group box-none">
+      <%= f.label :phone_number, "휴대폰 번호", class: "pl-lg-1 font-sm-12" %>
+      <%= f.text_field :phone_number, class: 'form-control', placeholder: "휴대폰 번호"%>
+    </div>
+    <div class="form-group box-none">
+      <%= f.label :name, "닉네임", class: "pl-lg-1 font-sm-12" %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "닉네임" %>
+    </div>
+    <%= f.submit "수정하기", class: "btn btn-primary sign_up_btn" %>
   <% end %>
-  <div class="field">
-	  이메일을 입력하세요
-	  <%#= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="login_click mt-lg-5 mt-3">
+    <%= link_to "탈퇴하기", registration_path(resource_name), data: { confirm: "정말 탈퇴하시겠습니까?" }, method: :delete, class: "text-primary px-lg-4 px-3"%>
+    <span>|</span>
+    <%= link_to "돌아가기", :back, class: "text-primary px-lg-4 px-3" %>
   </div>
-
-  <div class="form-group">
-     이름(실명)을 입력하세요
-     <%#= f.label :name %><br />
-     <%= f.text_field :real_name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-     닉네임을 입력하세요.
-  <%= f.text_field :name, class: 'form-control' %>
-  </div> 
-
-
-  <div class="birth-form">
-	  생년월일 입력하세요,
-  <div class="form-group">
-	  <%= f.number_field :birth_year%>
-  </div>  
-<div class="form-group">
-<%= f.number_field :birth_month%>
-
-</div>  
-<div class="form-group">
-<%= f.number_field :birth_day%>
-
-  </div>  
-  </div>
-  <div class="form-group">
-     자신이 살는 주소지 정보를 입력하세요 ( 주소 찾기 API 붙여도 좋을듯) 
-     <%#= f.label :address %><br />
-     <%= f.text_field :address, class: 'form-control' %>
-  </div>
-  <div class= "form-froup">
-     우편번호를 입력하세요. <br>
-	 <%= f.text_field :address_num, class: 'form-control'%>
-  </div>
-  <div class="form-group">
-     자신이 주로쓰는 계좌번호를 입력하세요. 
-     <%= f.text_field :account, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-     계좌의 은행을 입력하세요.
-	 <%= f.text_field :account_assos, class: 'form-control'%>
-  </div>
-  <div class="form-group">
-	  자신의 휴대전화 번호를 정확히 입력해주세요.
-	  <br> ( ex, 010-1234-5678 )
-	 <%= f.text_field :phone_number, class: 'form-control'%>
-  </div>
-
-  <div class="field">
-    <%#= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%#= f.password_field :password, autocomplete: "off" %>
-    <%# if @minimum_password_length %>
-      <br />
-      <em><%#= @minimum_password_length %> characters minimum</em>
-    <%# end %>
-  </div>
-
-  <div class="field">
-    <%#= f.label :password_confirmation %><br />
-    <%#= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%#= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%#= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</section>

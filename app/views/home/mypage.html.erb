@@ -4,36 +4,44 @@
   <p class="font-14 font-sm-10 text-primary mb-4 mb-lg-5"><%= @user.name %>님</p>
   <div class="buttons d-flex w-100 justify-content-around">
     <button class="btn btn-white font-14 font-sm-10 w-160 w-sm-130">
-			<!-- 링크 필요함 (동진) -->
-			회원정보수정하기
+      <a href="/vusers/edit" class="decoration-none font-grey">
+			 회원정보수정하기
+      </a>
     </button>
     <button class="btn btn-white font-14 font-sm-10 w-160 w-sm-130">
-			<!-- 링크 필요함(동진) -->
-			로그아웃
+      <a href="/vusers/sign_out" class="decoration-none font-grey">
+       로그아웃
+      </a>
     </button>
   </div>
 </section>
 <!-- //MY PAGE -->
-<!-- My funding list -->
+<!-- List -->
 <section class="funding_list">
-  <h2 class="font-24 font-sm-14 font-weight-bold font-grey text-center mb-4 mb-lg-5">내가 입법에 기여하고 있는 펀딩 리스트</h2>
   <div class="container">
     <div class="row">
-      <div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box">
-        <div class="funding_card d-flex flex-column h-100">
-					<a href="#">
-	          <h4 class="funding_title text-white">경력단절 여성 채용 늘려주세요</h4>
-	          <div class="funding_card_info h-100">
-	            <p class="funding_days text-white text-right"><span class="funding_d_day text-white">12</span>일 남음</p>
-	            <p class="funding_money text-white text-right">&#8361;7,900,000</p>
-	          </div>
-					</a>
-        </div>
-      </div>
+			<% @proposes.each do |propose| %>
+	      <div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<%= propose.image.url %>)">
+	        <div class="funding_card d-flex flex-column h-100 w-100">
+	          <a href="/propose/<%= propose.id %>">
+	            <h4 class="funding_title text-white"><%= propose.title %></h4>
+	            <div class="funding_card_info h-100">
+								<p class="funding_days text-white text-right"><%= propose.status %></p>
+								<% if (propose.status == "펀딩진행중" or propose.status == "펀딩 마감 하루전" or propose.status == "펀딩 마감 이틀전") and propose.deadlines != nil %>
+              	<p class="funding_days text-white text-right">
+									<span class="funding_d_day text-white"><%= (propose.deadlines - Time.now)/(60*60*24) + 1%></span>일 남음
+								</p>
+								<% end %>
+	              <p class="funding_money text-white text-right">&#8361;<%= propose.funded_money %></p>
+	            </div>
+	          </a>
+	        </div>
+	      </div>
+			<% end %>
     </div>
   </div>
 </section>
-<!-- //My funding list -->
+<!--//List  -->
 
 <h2> 회원 정보 </h2>
 이름 : <%= @user.name %><br>
@@ -44,17 +52,3 @@
 연락처: <%= @user.phone_number %><br>
 계좌번호: <%= @user.account %><br>
 계좌은행: <%= @user.account_assos%><br>
-
-<h2> 주문한 상품 조회 </h2>
-
-<% @transactions.each do |transaction|%>
-	<hr>
-	<div>
-
-		상품 번호: <%= transaction.product_id %><br>
-		총 금액  : <%= transaction.total_amount %><br>
-		결제해야할 금액: <%= transaction.total_amount - transaction.received_amount%><br>
-		배송 현황: <%= transaction.baesong_status %><br>
-
-	</div>
-<% end %>
