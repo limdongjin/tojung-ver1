@@ -8,8 +8,8 @@
 </section>
 <!-- //Propose Cover -->
 <!-- Propose Form -->
-<form  class="propose_form font-sm-10" enctype="multipart/form-data" action="/propose/create" accept-charset="UTF-8" method="post">
- <section id="propose_form" class="propose mb-">
+<form  class="propose_form w-100 font-sm-10" enctype="multipart/form-data" action="/propose/create" accept-charset="UTF-8" method="post">
+ <section id="propose_form" class="propose_new">
 	<h2 class="sr-only">제안폼 작성</h2>
 		<input name="utf8" type="hidden" value="&#x2713;">
 	  <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
@@ -39,31 +39,31 @@
 				<label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02">업로드 하지 않으면, 카테고리별 기본 사진으로 지정됩니다!</label>
 			</div>
 		</div>
-</section>
-<!-- //Propose Form -->
-<!-- Propose Funding -->
-<section id="propose_funding" class="propose px-2">
-	<h2 class="sr-only">제안-펀딩금액</h2>
-	<p class="propose_text text-center mb-2">나는 위와 같은 내용의 입법을 추진하는 의원에게 의정활동비를 후원하여,</p>
-	<p class="propose_text mb-2">이제는 내 삶을 바꾸기 위해 강력히 행동하겠습니다.</p><br />
-	<p class="propose_text mb-2">펀딩 마감 후 투표를 통해 선정한 의원에게 </p>
-	<p class="propose_text mb-2 d-flex justify-content-center w-250p">
-		<span>\</span>
-		<input type="text" name="contract_money" id="contract_money" name="contract_money" class="form-control font-sm-10" placeholder="금액을 숫자로 적어주세요.">
-		<span>를 후원하겠습니다.</span>
-	</p>
-	<p class="propose_text mb-2">(한 명의 의원에게는 연간 500만원까지 후원이 가능합니다)</p>
-</section>
-<!-- //Propose Funding -->
-<!-- Propose Notice -->
-<section id="propose_notice" class="propose">
-	<h2 class="sr-only">제안 안내사항</h2>
-	<p class="propose_text mb-2">펀딩에 참여할 수 있는 기간은 30일 입니다.</p>
-	<p class="propose_text mb-2">30일 이내에 입법 1건당 드는 비용의 평균인 1,000만원을 달성하면 펀딩 성공입니다.</p>
-	<p class="propose_text mb-2">한번 작성된 투정은 수정 및 삭제가 불가능합니다.</p>
-	<input type="submit" class="btn btn-primary" name="commit" value="투정하기">
-</section>
-<!-- //Propose Notice -->
+	</section>
+	<!-- //Propose Form -->
+	<!-- Propose Funding -->
+	<section id="propose_funding" class="propose px-2">
+		<h2 class="sr-only">제안-펀딩금액</h2>
+		<p class="propose_text text-center mb-2">나는 위와 같은 내용의 입법을 추진하는 의원에게 의정활동비를 후원하여,</p>
+		<p class="propose_text mb-2">이제는 내 삶을 바꾸기 위해 강력히 행동하겠습니다.</p><br />
+		<p class="propose_text mb-2">펀딩 마감 후 투표를 통해 선정한 의원에게 </p>
+		<p class="propose_text mb-2 d-flex justify-content-center w-600p">
+			<span>\</span>
+			<input type="text" name="contract_money" id="contract_money" name="contract_money" class="form-control font-sm-10" placeholder="금액을 숫자로 적어주세요.">
+			<span>를 후원하겠습니다.</span>
+		</p>
+		<p class="propose_text mb-2">(한 명의 의원에게는 연간 500만원까지 후원이 가능합니다)</p>
+	</section>
+	<!-- //Propose Funding -->
+	<!-- Propose Notice -->
+	<section id="propose_notice" class="propose">
+		<h2 class="sr-only">제안 안내사항</h2>
+		<p class="propose_text mb-2">펀딩에 참여할 수 있는 기간은 30일 입니다.</p>
+		<p class="propose_text mb-2">30일 이내에 입법 1건당 드는 비용의 평균인 1,000만원을 달성하면 펀딩 성공입니다.</p>
+		<p class="propose_text mb-2">한번 작성된 투정은 수정 및 삭제가 불가능합니다.</p>
+		<input type="submit" class="btn btn-primary" name="commit" value="투정하기">
+	</section>
+	<!-- //Propose Notice -->
 </form>
 
 <script>
