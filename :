@@ -22,7 +22,7 @@ class HomeController < ApplicationController
 	elsif params[:order] == "voting"
 	  @proposes = Vpropose.where(:status => "매칭진행중")
 	elsif params[:order] == "deadl"
-     @proposes = Vpropose.where("status like ?", "%펀딩%").order("created_at")
+     @proposes = Vpropose.where("status like ?" "%펀딩%").order("created_at")
 	else
       @proposes = Vpropose.all
 	end 
