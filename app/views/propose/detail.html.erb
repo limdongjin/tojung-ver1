@@ -103,6 +103,45 @@
 	<% end %>
 
 <% end %>
+<!-- Funding Detail Cover Desktop-->
+    <section class="funding_detail_cover d-flex flex-column justify-content-around align-items-center visible-lg">
+		<h2 class="detail_title text-white font-20 font-sm-18 font-weight-bold >  <%= @result[""] %></h2>
+      <p class="detail_category text-white font-sm-12 font-weight-bold">과학기술</p>
+      <img src="assets/images/group-4-1.png" alt="" class="detail_img">
+      <div class="detail_info d-flex w-100 px-3 px-lg-5 justify-content-between">
+        <p class="text-white font-14 font-sm-10 font-weight-bold">남은 기간 <span class="font-20 font-sm-16 font-weight-bold">04</span>일</p>
+        <p class="text-white font-20 font-sm-16 font-weight-bold">\15,304,523</p>
+        <p class="text-white font-14 font-sm-10 font-weight-bold"><span class="font-20 font-sm-16 font-weight-bold">502</span>명</p>
+      </div>
+    </section>
+    <!-- //Funding Detail Cover Desktop-->
+    <!-- Funding Detail Cover Mobile -->
+    <section class="detail_mobile_cover visible-xs-block">
+      <h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-3">원자력 발전소 점진적 폐지 해주세요!</h2>
+      <p class="detail_day text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18">12</span>일 남음</p>
+      <p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18">502</span>명</p>
+      <div class="d-flex justify-content-between">
+        <p class="detail_category font-weight-bold text-white font-10 pl-3 mt-2">과학기술</p>
+        <p class="detail_money font-weight-bold text-white font-18 pr-3">&#8361;7,900,000</p>
+      </div>
+    </section>
+    <!-- //Funding Detail Cover Mobile -->
+      <!-- Funding Detail Content -->
+      <section class="funding_detail_content py-4 d-flex flex-column justify-content-center align-items-center">
+        <img src="assets/images/group_mobile_1.png" alt="" class="visible-xs w-100">
+        <p class="detail_content pt-4 pt-lg-0 pb-3 pb-lg-5 font-grey font-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="buttons d-flex w-100 justify-content-around">
+          <button class="btn btn-white font-14 font-sm-10">펀딩약정서 쓰기</button>
+          <button class="btn btn-secondary btn-share btn-white font-14 font-sm-10 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             공유하기
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Facebook</a>
+            <a class="dropdown-item" href="#">Kakao</a>
+          </div>
+        </div>
+      </section>
+      <!-- //Funding Detail Content -->
 
 <div id="propose_menu_bar">
 	<div onclick="setscroll();community_button( );">  
@@ -144,4 +183,6 @@
   커뮤니티 하트수: <%= comu.heart %>
   <p> <a href="/community/<%= comu.id %>">커뮤니티로 이동 </a> </p>
 <% end %>   
+
+
 </div>
