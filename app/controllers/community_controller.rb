@@ -73,7 +73,8 @@ class CommunityController < ApplicationController
 	print(current_vuser)
     if current_vuser == nil or !(Vpropose.exists? params[:id])
 	   print("nnn")
-       render :json => { "fail": "fail" }
+	   redirect_to '/propose/' + params[:id]
+       # render :json => { "fail": "fail" }
 	   return
 	end
     print(params[:community_content]) 
@@ -88,8 +89,10 @@ class CommunityController < ApplicationController
 	comu.save
 
     print("okkkk") 
+
+	redirect_to '/propose/' + params[:id]
 	
-	render :json => { "success": comu }
+	# render :json => { "success": comu }
   end
 
   # GET /community/:id

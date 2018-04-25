@@ -52,7 +52,7 @@
 								<p class="funding_days text-white text-right"><%= propose.status %></p>
 								<% if (propose.status == "펀딩진행중" or propose.status == "펀딩 마감 하루전" or propose.status == "펀딩 마감 이틀전") and propose.deadlines != nil %>
               	<p class="funding_days text-white text-right">
-									<span class="funding_d_day text-white"><%= (propose.deadlines - Time.now)/(60*60*24) + 1%></span>일 남음
+									<span class="funding_d_day text-white"><%= ((propose.deadlines - Time.now)/(60*60*24) + 1).to_i %></span>일 남음
 								</p>
 								<% end %>
 	              <p class="funding_money text-white text-right">&#8361;<%= propose.funded_money %></p>
