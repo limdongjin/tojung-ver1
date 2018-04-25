@@ -33,37 +33,9 @@
     <% end %>
 
     <%= yield %>
-    <!-- Channel Plugin Scripts -->
-    <script>
-      /*window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1014670008686658',
-      xfbml      : true,
-      version    : 'v2.12'
-    });
-    FB.AppEvents.logPageView();
-  };
-    <%= yield %>
 
     <!-- Channel Plugin Scripts -->
     <script>
-      /*window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1014670008686658',
-          xfbml      : true,
-          version    : 'v2.12'
-        });
-        FB.AppEvents.logPageView();
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-    */
       window.channelPluginSettings = {
         //"pluginKey": "6abc6af7-61c1-4302-8909-60e9bd0736b7"
         "pluginKey": "c41b6775-e43d-4cae-888e-8616e0c23cfe"
@@ -89,26 +61,13 @@
       })();
     </script>
     <!-- End Channel Plugin -->
+
     <!-- Alert -->
     <script type='text/javascript'>
       $('#alert').fadeOut(10000);
     </script>
     <!-- // Alert -->
-    <!-- Typewriter -->
-    <script type="text/javascript" >
-    	var app = document.getElementById('mention');
 
-    	var typewriter = new Typewriter(app, {
-    		loop: true
-    	});
-
-    	typewriter.typeString('겪고 있는 문제가 있나요?\n')
-    		.pauseFor(1000)
-    		.typeString('지금 바로 말해주세요. 당신의 투정.')
-    		.pauseFor(2500)
-    		.start();
-    </script>
-    <!-- //TypeWriter -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

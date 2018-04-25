@@ -310,7 +310,7 @@
 
  /* Funding detail */
  .funding_detail_cover{
-   background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
+   background-image: url(../images/woman.jpg);
    background-repeat: no-repeat;
    background-position: center center;
    background-size: cover;

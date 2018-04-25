@@ -35,8 +35,8 @@
 		<label for="inputGroupFile02">대표 사진 업로드</label><br />
 		<div class="input-group">
 			<div class="custom-file">
-				<input type="file" class="custom-file-input" id="propose_image" name="propose_image" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg" >
-				<label class="custom-file-label font-sm-8" for="inputGroupFile02">업로드 하지 않으면, 카테고리별 기본 사진으로 지정됩니다!</label>
+				<input type="file" class="custom-file-input" id="propose_image" onchange="filename_change(this)" name="propose_image" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg" >
+				<label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02">업로드 하지 않으면, 카테고리별 기본 사진으로 지정됩니다!</label>
 			</div>
 		</div>
 </section>
@@ -65,3 +65,10 @@
 </section>
 <!-- //Propose Notice -->
 </form>
+
+<script>
+	function filename_change(obj){
+		var file_name=obj.files[0].name;
+		document.getElementById('image_label').innerHTML=file_name;
+	}
+</script>
