@@ -85,6 +85,7 @@
    float: left;
    width: 100%;
  }
+
  /* Header */
  .brand{
    margin-bottom: 0;
@@ -401,7 +402,10 @@
    color: #3e6373;
    font-weight: bold;
    text-decoration: none;
+   cursor: pointer;
  }
+
+
 
  /* Detail_Funding 2 */
  .post{
@@ -1218,5 +1222,13 @@ a.text-primary{
   /*  ERROR */
   .error{
     padding: 8% 5% 22% 5%;
+  }
+
+  .w-sm-100{
+    width: 100% !important;
+  }
+
+  .w-sm-50{
+    width: 50% !important;
   }
 }
