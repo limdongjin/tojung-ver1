@@ -282,9 +282,6 @@ class CommunityController < ApplicationController
 	  vc.heart -= 1
 	  vc.save
 
-	  render :json => { "success" => "Delete Heart" }
-
-	  
 	  redirect_to '/community/'+ params[:id]
 	else 
       # 하트 누르기
@@ -292,8 +289,9 @@ class CommunityController < ApplicationController
 	  Vheartlog.create(target_id: params[:id], target_category: "community", user_id: current_vuser.id, propose_id: vc.propose_id)
 	  vc.heart += 1
       vc.save
-
-	  render :json => { "success" => "Create Heart" }
+      
+	  redirect_to '/community/'+ params[:id]
+	  # render :json => { "success" => "Create Heart" }
 	  return
 	end
   end
