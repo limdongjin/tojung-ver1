@@ -155,7 +155,8 @@ class CommunityController < ApplicationController
 	  vc.save
 
 	  render :json => { "success" => "Delete Heart" }
-	  return
+	  
+	  redirect_to '/community/'+ params[:id]
 	else 
       # 하트 누르기
 	  print("Heart")
