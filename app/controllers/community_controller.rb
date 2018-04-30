@@ -287,9 +287,10 @@ class CommunityController < ApplicationController
 	  print("Heart")
 	  Vheartlog.create(target_id: params[:id], target_category: "community", user_id: current_vuser.id, propose_id: vc.propose_id)
 	  vc.heart += 1
-      vc.save
+    vc.save
 
 	  redirect_to '/community/'+ params[:id]
+	  # render :json => { "success" => "Create Heart" }
 	end
   end
 
