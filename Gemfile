@@ -17,6 +17,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'mysql2'
 gem 'devise'
+gem 'devise-i18n'
 gem 'ruby-json'
 #####################################################
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
