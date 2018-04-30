@@ -7,10 +7,26 @@ class ProposeController < ApplicationController
 	
   end
   
+  # GET /search_form
+  def search_form
+  end
+  
+  # GET /search?keyword=과학
+  def search
+    keyword = params[:keyword]
+	if keyword == nil 
+      redirect_to '/'
+	end
+    wild_keyword = "%" + keyword + "%"
+	@proposes = Vpropose.where("title LIKE ?", wild_keyword)
+	.or(Vpropose.where("content LIKE ?", wild_keyword)
+	.or(Vpropose.where("bg_category_name LIKE ?", wild_keyword)))
+    
+  end
+    
   # GET /propose/:id
   def detail
 	# 청원 세부 정보 페이지
-	print("리퀘")
 	print(request.base_url)
 	@base_url = request.base_url
 	@propose = Vpropose.find(params[:id].to_i)
@@ -171,7 +187,7 @@ class ProposeController < ApplicationController
 	@propose.user_id = current_vuser.id
 	@propose.status  = "펀딩진행중"
 
-	@propose.bg_category_name = params[:category]
+	@propose.bg_category_name = params[:category_name]
 	#@propose.sm_category_name = params[:propose_sm_category]
 	
 	@propose.funded_money = 0

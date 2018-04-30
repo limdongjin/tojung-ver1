@@ -99,12 +99,12 @@ class CommunityController < ApplicationController
   def detail
   	# 청원 세부 정보 페이지
   	@base_url = request.base_url
-  	@propose = Vpropose.find(params[:id].to_i)
+  	@propose = Vpropose.find(Vcommunity.find(params[:id]).propose_id)
 
   	# 청원 상태 정보 업데이트
   	if @propose.deadlines - Time.now <= 0
   	    lll =  [ "펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전" ]
-  		lll.each do |l|
+		lll.each do |l|
   			if l == @propose.status
   				@propose.status = "매칭진행중"
   			end
@@ -238,6 +238,8 @@ class CommunityController < ApplicationController
 	@cposts.each do |cp|
       @dict_comu_user[cp.user_id] = Vuser.find(cp.user_id)
 	end
+
+	@community = Vcommunity.find(params[:id])
   end
 
   def edit
@@ -273,6 +275,7 @@ class CommunityController < ApplicationController
     vheart = Vheartlog.where(target_id: params[:id].to_i, target_category: "community", user_id: current_vuser.id,
 							 propose_id: Vcommunity.find(params[:id].to_i).propose_id )
 	vc = Vcommunity.find(params[:id].to_i)
+	
 	if vheart.count != 0
       # 하트 취소
 	  print("Heart Destroy")
@@ -291,7 +294,6 @@ class CommunityController < ApplicationController
       vc.save
       
 	  redirect_to '/community/'+ params[:id]
-	  # render :json => { "success" => "Create Heart" }
 	  return
 	end
   end
