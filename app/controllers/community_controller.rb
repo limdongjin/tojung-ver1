@@ -261,7 +261,7 @@ class CommunityController < ApplicationController
        format.js
        format.html
      end
-    return
+    redirect_to '/community/' + params[:id]
   end
 
   # POST /community/cheart/:id
@@ -283,8 +283,10 @@ class CommunityController < ApplicationController
 	  vc.save
 
 	  render :json => { "success" => "Delete Heart" }
-	  return
-	else
+
+	  
+	  redirect_to '/community/'+ params[:id]
+	else 
       # 하트 누르기
 	  print("Heart")
 	  Vheartlog.create(target_id: params[:id], target_category: "community", user_id: current_vuser.id, propose_id: vc.propose_id)
