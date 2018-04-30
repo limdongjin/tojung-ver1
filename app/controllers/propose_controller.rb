@@ -188,6 +188,7 @@ class ProposeController < ApplicationController
 	@propose.status  = "펀딩진행중"
 
 	@propose.bg_category_name = params[:category_name]
+	print(@propose.bg_category_name)
 	#@propose.sm_category_name = params[:propose_sm_category]
 	
 	@propose.funded_money = 0
