@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+   
+  
+  
+  get 'search_form' => 'propose#search_form' 
+  get 'search' => 'propose#search'
+
   get 'community/index'
 
   post 'community/new'
@@ -16,54 +22,22 @@ Rails.application.routes.draw do
   post 'community/:id/post' => 'community#crepost', as: "cpost"
   get 'community/pheart'
 
-  # 댓글 기능
-  # get 'comment/index'
+ post 'vote/create' => 'vote#create'
 
-  # get 'comment/new'
-
-  # get 'comment/create'
-
-  # get 'comment/edit'
-
-  # get 'comment/update'
-
-  # 투표 기능
-  # get 'vote/index'
-
-  # get 'vote/new'
-
-  post 'vote/create' => 'vote#create'
-
-  # 의원 등록 기능
-  # get 'regist/index'
-
-  get 'regist/new'
+   get 'regist/new'
 
   post 'regist/create'
-
-  # 후보자 등록
-  # get 'candidate/index'
 
   post 'candidate/create/:propose_id' => 'candidate#create'
 
   get 'candidate/new/:propose_id' => 'candidate#new'
 
-  # get 'candidate/delete'
-
-  # post 'candidate/update' #'/:id' => 'candidate#update'
-
-  # get 'candidate/edit'  #/:id' => 'candidate#edit'
-
   get 'candidate/detail'
 
   # 약정
-  # get 'contract/index'
   get 'contract/:id' => 'contract#share'
   get 'contract/new/:propose_id' => 'contract#new'
 
-  # get 'contract/edit'
-
-  # get 'contract/update'
 
   post 'contract/create/:propose_id' => 'contract#create'
   
