@@ -1,5 +1,5 @@
 <% status = @result["propose"]["object"].status %>
-<% remain_time = (((@result["propose"]["object"].deadlines)-(Time.now)).to_i)/86400.to_i%>
+<% remain_time = ((@result["propose"]["object"].deadlines-Time.now)/86400+1).to_i%>
 <!-- 펀딩 현황 -->
 <% if ["펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전"].include?(status)%>
 <% elsif status == "매칭진행중" %>
@@ -88,16 +88,17 @@
 			<!-- 약정하기 버튼-->
 			<% if status.include? "펀딩" and current_vuser != nil %>
 				<%= form_tag("/contract/new/#{ @result["propose"]["object"].id }", method: "get", class:"w-sm-100") do %>
-					<%= submit_tag("펀딩약정서 쓰기", :class => "btn btn-white font-14 font-sm-10 w-sm-50") %>
+					<%= submit_tag("펀딩약정서 쓰기", :class => "btn btn-white font-14 font-sm-10 w-sm-70") %>
 				<% end %>
+				<div>
+		    	<% if current_vuser != nil and current_vuser.id == @writer.id %>
+		    	<iframe src="https://www.facebook.com/plugins/share_button.php?href=https://2jung.com%2fcontract%2f<%= params[:id]%>&layout=button_count&size=large&mobile_iframe=true&appid=1014670008686658&width=113&height=28" width="113" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+		    	<% end %>
+		    </div>
 			<% elsif current_vuser == nil %>
 				<a href="/vusers/sign_in" class="btn btn-white font-14 font-sm-10">로그인하기</a>
 			<% end %>
-			<div>	
-	    	<% if current_vuser != nil and current_vuser.id == @writer.id %>
-	    	<iframe src="https://www.facebook.com/plugins/share_button.php?href=https://2jung.com%2fcontract%2f<%= params[:id]%>&layout=button_count&size=large&mobile_iframe=true&appid=1014670008686658&width=113&height=28" width="113" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-	    	<% end %>
-	    </div>
+
 			<!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				<a class="dropdown-item" href="#"</a>
 				<a class="dropdown-item" href="#">Kakao</a>

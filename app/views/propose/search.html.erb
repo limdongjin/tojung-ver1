@@ -1,5 +1,15 @@
+<!-- SEARCH-->
+<section class="search d-flex flex-column justify-content-between align-items-center mb-4 mb-lg-5">
+	<nav class="navbar navbar-light bg-light w-100">
+		<%= form_tag("/search", method: "get", class:"search_form w-100") do %>
+			<%=image_tag("/assets/images/icon_search.png", class: "icon_search")%>
+			<%= search_field_tag 'keyword', "" , class: "form-control mr-sm-2 search_bar", placeholder: "검색" %>
+		<% end %>
+	</nav>
+</section>
+<!-- //SEARCH-->
 <% if @proposes.count == 0 %>
-   검색 결과 없음 
+   <p class="text-center text-primary font-weight-bold font-20">검색 결과를 찾을 수 없습니다</p>
 <% end %>
 <!-- List -->
 <section class="funding_list">
@@ -27,4 +37,3 @@
   </div>
 </section>
 <!--//List  -->
-

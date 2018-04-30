@@ -29,7 +29,7 @@
 								<p class="funding_days text-white text-right"><%= propose.status %></p>
 								<% if (propose.status == "펀딩진행중" or propose.status == "펀딩 마감 하루전" or propose.status == "펀딩 마감 이틀전") and propose.deadlines != nil %>
               	<p class="funding_days text-white text-right">
-									<span class="funding_d_day text-white"><%= (propose.deadlines - Time.now)/(60*60*24) + 1%></span>일 남음
+									<span class="funding_d_day text-white"><%= ((propose.deadlines - Time.now)/(60*60*24) + 1).to_i %></span>일 남음
 								</p>
 								<% end %>
 	              <p class="funding_money text-white text-right">&#8361;<%= propose.funded_money %></p>
@@ -43,7 +43,7 @@
 </section>
 <!--//List  -->
 
-<h2> 회원 정보 </h2>
+<!-- <h2> 회원 정보 </h2>
 이름 : <%= @user.name %><br>
 이메일: <%= @user.email %><br>
 주소: <%= @user.address %><br>
@@ -51,4 +51,4 @@
 생년월일: <%= @user.birth_year %> / <%= @user.birth_month %> / <%= @user.birth_day %><br>
 연락처: <%= @user.phone_number %><br>
 계좌번호: <%= @user.account %><br>
-계좌은행: <%= @user.account_assos%><br>
+계좌은행: <%= @user.account_assos%><br> -->
