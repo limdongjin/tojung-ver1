@@ -38,11 +38,15 @@ class ContractController < ApplicationController
    @contract.propose_id = @propose.id
    @contract.content = params[:content]
    @contract.user_id = current_vuser.id
-   @contract.contract_money = params[:contract_money]
+   @contract.contract_money = params[:contract_money].to_i
    @contract.real_pay = 0 
    @contract.save 
    
    @writer = Vuser.find(@contract.user_id)
+   
+   @propose.funded_num += 1
+   @propose.funded_money += @contract.contract_money
+   @propose.save 
 
    redirect_to '/contract/' + @contract.id.to_s
   end
