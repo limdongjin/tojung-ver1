@@ -60,7 +60,7 @@
 <!-- Funding Detail Cover Desktop-->
 <section id="detail_cover" class="funding_detail_cover d-flex flex-column justify-content-around align-items-center visible-lg" style="background-image: url(<%= @result["propose"]["object"].image.url %>);">
 	<h2 class="detail_title text-white font-20 font-sm-18 font-weight-bold "><%= @result["propose"]["object"].title %></h2>
-	<p class="detail_category text-white font-sm-12 font-weight-bold">과학기술</p>
+	<p class="detail_category text-white font-sm-12 font-weight-bold"><%= @result["propose"]["object"].bg_category_name %></p>
 	<%=image_tag("/assets/images/group-4-1.png", class: "detail_img")%>
 	<div class="detail_info d-flex w-100 px-3 px-lg-5 justify-content-between">
 		<p class="text-white font-14 font-sm-10 font-weight-bold">남은 기간 <span class="font-20 font-sm-16 font-weight-bold"><%=remain_time%></span>일</p>
@@ -75,7 +75,7 @@
 	<p class="detail_day text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%=remain_time%></span>일 남음</p>
 	<p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%= @result["propose"]["object"].funded_num %></span>명</p>
 	<div class="d-flex justify-content-between">
-		<p class="detail_category font-weight-bold text-white font-10 pl-3 mt-2">과학기술</p>
+		<p class="detail_category font-weight-bold text-white font-10 pl-3 mt-2">  <%= @result["propose"]["object"].bg_category_name %> </p>
 		<p id="fund_money" class="detail_money font-weight-bold text-white font-18 pr-3">&#8361;<%= @result["propose"]["object"].funded_money%></p>
 	</div>
 </section>
