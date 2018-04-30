@@ -93,13 +93,15 @@
 			<% elsif current_vuser == nil %>
 				<a href="/vusers/sign_in" class="btn btn-white font-14 font-sm-10">로그인하기</a>
 			<% end %>
-			<button class="btn btn-secondary btn-share btn-white font-14 font-sm-10 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				 공유하기
-			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<div>
+	    	<% if current_vuser != nil and current_vuser.id == @writer.id %>
+	    	<iframe src="https://www.facebook.com/plugins/share_button.php?href=https://2jung.com%2fcontract%2f<%= params[:id]%>&layout=button_count&size=large&mobile_iframe=true&appid=1014670008686658&width=113&height=28" width="113" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+	    	<% end %>
+	    </div>
+			<!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				<a class="dropdown-item" href="#"</a>
 				<a class="dropdown-item" href="#">Kakao</a>
-			</div>
+			</div> -->
 		</div>
 	</section>
 	<!-- //Funding Detail Content -->

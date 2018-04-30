@@ -1231,4 +1231,7 @@ a.text-primary{
   .w-sm-50{
     width: 50% !important;
   }
+  .w-sm-120p{
+    width: 120px !important;
+  }
 }
