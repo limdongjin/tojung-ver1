@@ -133,7 +133,7 @@ class CommunityController < ApplicationController
        format.js
        format.html
      end
-    return
+    redirect_to '/community/' + params[:id]
   end
 
   # POST /community/cheart/:id
