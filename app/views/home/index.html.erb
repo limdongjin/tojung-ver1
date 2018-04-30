@@ -82,3 +82,18 @@
     .start();
 </script>
 <!-- //TypeWriter -->
+<!-- 원화 콤마찍기 -->
+<script type="text/javascript">
+  function comma(str) {
+      str = String(str);
+      return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+  }
+  var i = 0
+  while( i< $(".funding_money").length){
+    var money=$(".funding_money")[i].innerHTML;
+    var newMoney=comma(money);
+    $(".funding_money")[i].innerHTML=newMoney;
+    i+=1;
+  }
+</script>
+<!-- //원화 콤마찍기 -->

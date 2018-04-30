@@ -1,66 +1,26 @@
-<!-- 약정하기 버튼-->
 <% status = @result["propose"]["object"].status %>
-<% if status.include? "펀딩" and current_vuser != nil %>
-	<%= form_tag("/contract/new/#{ @result["propose"]["object"].id }", method: "get") do %>
-		펀딩 약정서 쓰기
-		<%= submit_tag("contract_new") %>
-	<% end %>
-<% elsif current_vuser == nil %>
-   약정할려면 로그인 하세요.
-<% end %>
-<br>
-
+<% remain_time = (((@result["propose"]["object"].deadlines)-(Time.now)).to_i)/86400.to_i%>
 <!-- 펀딩 현황 -->
-<% if status == "펀딩진행중" %>
-	<p> 현재 펀딩이 진행되고있습니다. </p>
-
-	<p> 펀딩 생성일: <%= @result["propose"]["object"].created_at %>
-	<p> 현재 시간: <%= Time.now %></p>
-	<p> 마감 종료 일정: <%= @result["propose"]["object"].deadlines%> </p>
-	<% remain_time = (((@result["propose"]["object"].deadlines)-(Time.now)).to_i)/86400.to_i%>
-	<%= remain_time%>
-
-	<p> 현재 펀딩 금액(약정된 총 금액): <%= @result["propose"]["object"].funded_money%><p>
-	<p> 현재 펀딩에 참여한 인원: <%= @result["propose"]["object"].funded_num %> </p>
-<% elsif status == "펀딩 마감 하루전" %>
-	<p> 현재 펀딩이 하루남았습니다.</p>
-
-	<p> 펀딩 생성일: <%= @result["propose"]["object"].created_at %>
-	<p> 현재 시간: <%= Time.now %></p>
-	<p> 마감 종료 일정: <%=  @result["propose"]["object"].deadlines %> </p>
-
-	<p> 현재 펀딩 금액(약정된 총 금액): <%= @result["propose"]["object"].funded_money%><p>
-	<p> 현재 펀딩에 참여한 인원: <%=  @result["propose"]["object"].funded_num %> </p>
-<% elsif status == "편딩 마감 이틀전" %>
-	<p> 현재 펀딩이 이틀남았습니다.</p>
-	<p> 펀딩 생성일: <%= @result["propose"]["object"].created_at %>
-	<p> 현재 시간: <%= Time.now %></p>
-	<p> 마감 종료 일정: <%=  @result["propose"]["object"].deadlines %> </p>
-
-	<p> 현재 펀딩 금액(약정된 총 금액): <%= @result["propose"]["object"].funded_money%><p>
-	<p> 현재 펀딩에 참여한 인원: <%=  @result["propose"]["object"].funded_num %> </p>
+<% if ["펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전"].include?(status)%>
 <% elsif status == "매칭진행중" %>
-	<p> 매칭이 진행중입니다. </p>
-	<p> 펀딩 총 금액(약정된 총 금액): <%= @result["propose"]["object"].funded_money%><p>
-	<p> 펀딩에 참여한 총 인원: <%= @result["propose"]["object"].funded_num %> </p>
 <% elsif status == "입법진행중"%>
-	<p> 매칭이 완료되어 입법 과정이 진행중입니다. </p>
+	<!-- <p> 매칭이 완료되어 입법 과정이 진행중입니다. </p>
 	<p> 최종 매칭의원은:
 	<% @result["seller"]["objects"].each do |seller| %>
 	매칭의원이름:<%= @result["seller"][seller.id]["user_object"].name %>
 	<% end%> </p>
 
 	<p> 펀딩 총 금액(약정된 총 금액): <%= @result["propose"]["object"].funded_money%><p>
-	<p> 펀딩에 참여한 총 인원: <%= @result["propose"]["object"].funded_num %> </p>
+	<p> 펀딩에 참여한 총 인원: <%= @result["propose"]["object"].funded_num %> </p> -->
 <% elsif status == "법안심사" %>
-	<p> 법안 심사중입니다. </p>
+	<!-- <p> 법안 심사중입니다. </p>
 
 	<% @result["seller"]["objects"].each do |seller| %>
  	  매칭의원이름:<%= @result["seller"][seller.id]["user_object"].name %>
 	<% end%> </p>
 
 	<p> 펀딩 총 금액(약정된 총 금액): <%= @result["propose"]["object"].funded_money%><p>
-	<p> 펀딩에 참여한 총 인원: <%= @result["propose"]["object"].funded_num %> </p>
+	<p> 펀딩에 참여한 총 인원: <%= @result["propose"]["object"].funded_num %> </p> -->
 <% end %>
 
 <!-- 의원용 로직 -->
@@ -94,87 +54,8 @@
 	<% end %>
 
 <% end %>
-<!-- Funding Detail Cover Desktop-->
-    <section class="funding_detail_cover d-flex flex-column justify-content-around align-items-center visible-lg">
-		<h2 class="detail_title text-white font-20 font-sm-18 font-weight-bold >  <%= @result[""] %></h2>
-      <p class="detail_category text-white font-sm-12 font-weight-bold">과학기술</p>
-      <img src="assets/images/group-4-1.png" alt="" class="detail_img">
-      <div class="detail_info d-flex w-100 px-3 px-lg-5 justify-content-between">
-        <p class="text-white font-14 font-sm-10 font-weight-bold">남은 기간 <span class="font-20 font-sm-16 font-weight-bold">04</span>일</p>
-        <p class="text-white font-20 font-sm-16 font-weight-bold">\15,304,523</p>
-        <p class="text-white font-14 font-sm-10 font-weight-bold"><span class="font-20 font-sm-16 font-weight-bold">502</span>명</p>
-      </div>
-    </section>
-    <!-- //Funding Detail Cover Desktop-->
-    <!-- Funding Detail Cover Mobile -->
-    <section class="detail_mobile_cover visible-xs-block">
-      <h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-3">원자력 발전소 점진적 폐지 해주세요!</h2>
-      <p class="detail_day text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18">12</span>일 남음</p>
-      <p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18">502</span>명</p>
-      <div class="d-flex justify-content-between">
-        <p class="detail_category font-weight-bold text-white font-10 pl-3 mt-2">과학기술</p>
-        <p class="detail_money font-weight-bold text-white font-18 pr-3">&#8361;7,900,000</p>
-      </div>
-    </section>
-    <!-- //Funding Detail Cover Mobile -->
-      <!-- Funding Detail Content -->
-      <section class="funding_detail_content py-4 d-flex flex-column justify-content-center align-items-center">
-        <img src="assets/images/group_mobile_1.png" alt="" class="visible-xs w-100">
-        <p class="detail_content pt-4 pt-lg-0 pb-3 pb-lg-5 font-grey font-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <div class="buttons d-flex w-100 justify-content-around">
-          <button class="btn btn-white font-14 font-sm-10">펀딩약정서 쓰기</button>
-          <button class="btn btn-secondary btn-share btn-white font-14 font-sm-10 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             공유하기
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Facebook</a>
-            <a class="dropdown-item" href="#">Kakao</a>
-          </div>
-        </div>
-      </section>
-      <!-- //Funding Detail Content -->
 
-<div id="propose_menu_bar">
-	<div onclick="setscroll();community_button( );">
-		커뮤니티
-    </div>
 
-   <div>
-	  압력넣기
-   </div>
-
-   <div>
-	   명예의전당
-   </div>
-</div>
-
-<div id="rendered_place">
-  <!-- 커뮤니티 등록  -->
-  <% if current_vuser != nil %>
-  <%= form_tag("/community/create/#{ @result["propose"]["object"].id }", method: "post", multipart: true ) do %>
-
-	<!-- 커뮤니티 제목 입력 -->
-	<%= text_field_tag 'community_title', "" , placeholder: "커뮤니티 제목을 입력해주세요" %>
-
-	<!-- 커뮤니티 내용 입력 -->
-	<%= text_field_tag 'community_content', "", placeholder: "커뮤니티 내용을 입력해주세요" %>
-
-    <!-- 이미지 업로드 -->
-	<%= file_field_tag('community_image', accept: "image/png,image/gif,image/jpeg,image/PNG,image/jpg") %>
-
-	<!-- 제출 -->
-	<%= submit_tag("propose_create") %>
- <% end %>
- <% end %>
- <!-- 커뮤니티 목록 -->
- <% @result["community"]["objects"].each do |comu| %>
-  <hr>
-  커뮤니티 제목: <%= comu.title %>
-  커뮤니티 개설자: <%= @result["community"][comu.id]["writer"].name %>
-  커뮤니티 하트수: <%= comu.heart %>
-  <p> <a href="/community/<%= comu.id %>">커뮤니티로 이동 </a> </p>
-<% end %>   
-</div>
 
 <!-- Funding Detail Cover Desktop-->
 <section id="detail_cover" class="funding_detail_cover d-flex flex-column justify-content-around align-items-center visible-lg" style="background-image: url(<%= @result["propose"]["object"].image.url %>);">
@@ -189,8 +70,8 @@
 </section>
 <!-- //Funding Detail Cover Desktop-->
 <!-- Funding Detail Cover Mobile -->
-<section class="detail_mobile_cover visible-xs-block" style="background-image: url(<%= @result["propose"]["object"].image.url %>);">
-	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-3"><%= @result["propose"]["object"].title %></h2>
+<section id="detail_mobile_cover" class="detail_mobile_cover visible-xs-block" style="background-image: url(<%= @result["propose"]["object"].image.url %>);">
+	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-5"><%= @result["propose"]["object"].title %></h2>
 	<p class="detail_day text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%=remain_time%></span>일 남음</p>
 	<p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%= @result["propose"]["object"].funded_num %></span>명</p>
 	<div class="d-flex justify-content-between">
@@ -203,45 +84,57 @@
 	<section class="funding_detail_content py-4 d-flex flex-column justify-content-center align-items-center">
 		<%=image_tag("/assets/images/group_mobile_1.png", class: "visible-xs w-100")%>
 		<p class="detail_content pt-4 pt-lg-0 pb-3 pb-lg-5 font-grey font-sm-12"><%= @result["propose"]["object"].content %></p>
-		<div class="buttons d-flex w-100 justify-content-around">
-			<button class="btn btn-white font-14 font-sm-10">펀딩약정서 쓰기</button>
-			<button class="btn btn-secondary btn-share btn-white font-14 font-sm-10 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				 공유하기
-			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="#">Facebook</a>
+		<div class="buttons d-flex w-100 justify-content-around px-4 px-lg-0">
+			<!-- 약정하기 버튼-->
+			<% if status.include? "펀딩" and current_vuser != nil %>
+				<%= form_tag("/contract/new/#{ @result["propose"]["object"].id }", method: "get", class:"w-sm-100") do %>
+					<%= submit_tag("펀딩약정서 쓰기", :class => "btn btn-white font-14 font-sm-10 w-sm-50") %>
+				<% end %>
+			<% elsif current_vuser == nil %>
+				<a href="/vusers/sign_in" class="btn btn-white font-14 font-sm-10">로그인하기</a>
+			<% end %>
+			<div>
+	    	<% if current_vuser != nil and current_vuser.id == @writer.id %>
+	    	<iframe src="https://www.facebook.com/plugins/share_button.php?href=https://2jung.com%2fcontract%2f<%= params[:id]%>&layout=button_count&size=large&mobile_iframe=true&appid=1014670008686658&width=113&height=28" width="113" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+	    	<% end %>
+	    </div>
+			<!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" href="#"</a>
 				<a class="dropdown-item" href="#">Kakao</a>
-			</div>
+			</div> -->
 		</div>
 	</section>
 	<!-- //Funding Detail Content -->
 	<!-- Detail Community -->
 	<section class="detail_menu pb-5">
-		<nav class="nav justify-content-around border-bottom px-3 px-lg-5 mb-5">
+		<nav class="nav justify-content-around border-bottom px-3 px-lg-5 mb-3 mb-lg-5">
 			<a class="nav-link active py-4 font-weight-bold font-sm-12" href="#">커뮤니티</a>
 			<a class="nav-link py-4 font-sm-12" href="#">압력넣기</a>
 			<a class="nav-link py-4 font-sm-12" href="#">명예의전당</a>
 		</nav>
-		<form class="w-100">
-			<div class="form-group">
-				<label for="exampleFormControlInput1">제목</label>
-				<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="20자 이내로 제목을 써주세요.">
-			</div>
-			<div class="form-group">
-				<label for="exampleFormControlTextarea1">내용</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-			</div>
-			<label for="inputGroupFile02">사진 업로드</label><br />
-			<div class="input-group mb-4 mb-lg-5">
-				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="inputGroupFile02">
-					<label class="custom-file-label" for="inputGroupFile02">사진을 업로드해주세요.</label>
+		<% if current_vuser != nil %>
+		  <%= form_tag("/community/create/#{ @result["propose"]["object"].id }", method: "post", multipart: true, class:"w-100" ) do %>
+				<div class="form-group">
+					<%= label_tag 'exampleFormControlInput1', '제목', class: "font-sm-10"%>
+					<%= text_field_tag 'community_title', "" , class: "form-control font-sm-10", id: "exampleFormControlInput1", placeholder: "20자 이내로 제목을 써주세요." %>
 				</div>
-			</div>
-			<button class="btn btn-primary">글쓰기</button>
-		</form>
+				<div class="form-group">
+					<%= label_tag 'exampleFormControlTextarea1', '내용', class: "font-sm-10"%>
+					<%= text_area_tag 'community_content', "" , class: "form-control", rows: 10 %>
+				</div>
+				<label for="inputGroupFile02" class="font-sm-10">사진 업로드</label><br />
+				<div class="input-group mb-4 mb-lg-5">
+					<div class="custom-file">
+						<%= file_field_tag('community_image', class: "custom-file-input font-sm-10", id: "inputGroupFile02", onchange: "filename_change(this)", accept: "image/png,image/gif,image/jpeg,image/PNG,image/jpg") %>
+						<label id="image_label" class="custom-file-label font-sm-10" for="inputGroupFile02">사진을 업로드해주세요.</label>
+					</div>
+				</div>
+				<%= submit_tag("글쓰기", class: "btn btn-primary font-sm-12") %>
+		 	<% end %>
+	 <% end %>
 	</section>
 	<!-- //Detail Commnnity -->
+	<div id="test"></div>
 	<!-- Detail Posts -->
 	<section class="detail_posts">
 		<ul class="nav align-items-end h-100 justify-content-end pb-3 visible-lg">
@@ -262,50 +155,72 @@
 					</tr>
 				</thead>
 				<tbody class="font-14 font-grey">
-					<tr>
-						<td>gazzzzzzzzzzzzzzzzzzzzzza</td>
-						<td>Otto</td>
-						<td>30</td>
-					</tr>
-					<tr>
-						<td>gazzzzzzzzzzzzzzzzzzzzzza</td>
-						<td>Otto</td>
-						<td>30</td>
-					</tr>
-					<tr>
-						<td>gazzzzzzzzzzzzzzzzzzzzzza</td>
-						<td>Otto</td>
-						<td>30</td>
-					</tr>
+					<% @result["community"]["objects"].each do |comu| %>
+						<tr class="hover_green" onclick="window.location='/community/<%=comu.id%>'">
+							<td><%= comu.title %></td>
+							<td><%= @result["community"][comu.id]["writer"].name %></td>
+							<td><%= comu.heart %></td>
+						</tr>
+					<% end %>
 				</tbody>
 			</table>
 		</div>
 		<!-- Mobile Posts -->
 		<div class="table_mobile visible-xs-block">
-			<div class="border-bottom font-grey mt-2">
-				<p class="mobile_title font-sm-10 mb-2">15 Tips To Increase Your Adwords Profits (댓글수)</p>
-				<p class="font-sm-10">김예인 / 3공감</p>
-			</div>
-			<div class="border-bottom font-grey mt-2">
-				<p class="mobile_title font-sm-10 mb-2">15 Tips To Increase Your Adwords Profits (댓글수)</p>
-				<p class="font-sm-10">김예인 / 3공감</p>
-			</div>
-			<div class="border-bottom font-grey mt-2">
-				<p class="mobile_title font-sm-10 mb-2">15 Tips To Increase Your Adwords Profits (댓글수)</p>
-				<p class="font-sm-10">김예인 / 3공감</p>
-			</div>
-
+			<% @result["community"]["objects"].each do |comu| %>
+				<a href='/community/<%=comu.id%>' class="decoration-none">
+					<div class="border-bottom font-grey mt-2">
+						<p class="mobile_title font-sm-10 mb-2"><%= comu.title %>(댓글수)</p>
+						<p class="font-sm-10"><%= @result["community"][comu.id]["writer"].name %> / <%= comu.heart %>공감</p>
+					</div>
+				</a>
+			<% end %>
 		</div>
 	</section>
 	<!-- Detail Posts -->
-
-	<script>
-		//콤마찍기
-		function comma(str) {
-		    str = String(str);
-		    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-		}
-		var money=$(".detail_money")[0].innerHTML;
-		var newMoney=comma(money);
-		$(".detail_money").html('&#8361;'+newMoney);
-	</script>
+<!-- Layer -->
+<script type="text/javascript">
+	var proposeNum=$(location)[0].href.split("/")[4]%6
+	if (proposeNum ==1){
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+	}
+	else if (proposeNum == 2){
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+	}
+	else if (proposeNum == 3){
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+	}
+	else if (proposeNum == 4){
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+	}
+	else if (proposeNum == 5){
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+	}
+	else{
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+	}
+</script>
+<!-- //Layer -->
+<!-- Comma -->
+<script>
+	function comma(str) {
+	    str = String(str);
+	    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+	}
+	var money=$(".detail_money")[0].innerHTML;
+	var newMoney=comma(money);
+	$(".detail_money").html('&#8361;'+newMoney);
+</script>
+<!-- 사진파일명 업로드 -->
+<script>
+	function filename_change(obj){
+		var file_name=obj.files[0].name;
+		document.getElementById('image_label').innerHTML=file_name;
+	}
+</script>

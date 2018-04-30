@@ -2,7 +2,11 @@
 <header class="header">
   <nav class="navbar navbar-expand-lg navbar-light bg-light2">
     <div class="visible-xs">
+      <% if (current_vuser.blank?) == true %>
+      <a href="/vusers/sign_in">
+      <%else%>
       <a href="/mypage">
+      <%end%>
         <%=image_tag("/assets/images/mylog.png", class: "mylog_icon")%>
       </a>
     </div>

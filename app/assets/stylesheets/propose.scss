@@ -25,9 +25,7 @@
 }
 
 .propose_form{
-  width: 50%;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  width: 100%;
 }
 
 .propose_form .form-group{
@@ -104,4 +102,21 @@
   display: block;
   margin: 0 auto;
   margin-top: 5%;
+}
+
+.propose_new{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 50%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px){
+  .w-600p{
+    width: 600px;
+  }
+}
+@media screen and (max-width: 576px){
+  .w-600p{
+    width: 300px;
+  }
 }
