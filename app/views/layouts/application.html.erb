@@ -2,24 +2,27 @@
 <html lang="ko">
   <head>
     <title>입법안 크라우드펀딩 플랫폼, 투정</title>
+    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-<!-- Bootstrap CSS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="tojung" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url"           content="https://2jung.com<%= request.fullpath %>" />
+    <meta property="og:description"   content="투정 사이트 입니다. " />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Font CSS -->
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700" rel="stylesheet">
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="tojung" >
-    <meta property="og:type" content="website" >
-    <meta property="og:url"           content="https://2jung.com<%= request.fullpath %>" >
-    <meta property="og:description"   content="투정 사이트 입니다. " >
-    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" >
+    <title>입법안 크라우드펀딩 플랫폼, 투정</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <%= csrf_meta_tags %>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
@@ -33,37 +36,9 @@
     <% end %>
 
     <%= yield %>
-    <!-- Channel Plugin Scripts -->
-    <script>
-      /*window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1014670008686658',
-      xfbml      : true,
-      version    : 'v2.12'
-    });
-    FB.AppEvents.logPageView();
-  };
-    <%= yield %>
 
     <!-- Channel Plugin Scripts -->
     <script>
-      /*window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1014670008686658',
-          xfbml      : true,
-          version    : 'v2.12'
-        });
-        FB.AppEvents.logPageView();
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-    */
       window.channelPluginSettings = {
         //"pluginKey": "6abc6af7-61c1-4302-8909-60e9bd0736b7"
         "pluginKey": "c41b6775-e43d-4cae-888e-8616e0c23cfe"
@@ -89,26 +64,13 @@
       })();
     </script>
     <!-- End Channel Plugin -->
+
     <!-- Alert -->
     <script type='text/javascript'>
       $('#alert').fadeOut(10000);
     </script>
     <!-- // Alert -->
-    <!-- Typewriter -->
-    <script type="text/javascript" >
-    	var app = document.getElementById('mention');
 
-    	var typewriter = new Typewriter(app, {
-    		loop: true
-    	});
-
-    	typewriter.typeString('겪고 있는 문제가 있나요?\n')
-    		.pauseFor(1000)
-    		.typeString('지금 바로 말해주세요. 당신의 투정.')
-    		.pauseFor(2500)
-    		.start();
-    </script>
-    <!-- //TypeWriter -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
