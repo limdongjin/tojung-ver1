@@ -120,7 +120,7 @@
     <p class="post_text font-14 font-sm-10 font-grey my-3 my-lg-5"><%= @comu.content %></p>
 		<!-- 커뮤니티 하트 누르기 -->
 		  <% if @ishearton == false and current_vuser != nil%>
-				<div class="chart_button"  onclick="chearton(<%= @comu.id %>, 1);" id="comu<%= @comu.id %>" >
+				<div class="chart_button d-inline"  onclick="chearton(<%= @comu.id %>, 1);" id="comu<%= @comu.id %>" >
 					<a id="cheart_link<%=@comu.id%>" data-remote="true" rel="nofollow" data-method="get" href="/community/cheart/<%=@comu.id%>">
 						<i class="far fa-heart"></i>
 					</a>
@@ -129,7 +129,7 @@
 					<%end%> -->
 				</div>
 		  <% elsif @ishearton == true %>
-		  	<div class="chart_button"  onclick="chearton(<%= @comu.id %>, 0);" id="comu<%= @comu.id %>" >
+		  	<div class="chart_button d-inline"  onclick="chearton(<%= @comu.id %>, 0);" id="comu<%= @comu.id %>" >
 					<a id="cheart_link<%=@comu.id%>" data-remote="true" rel="nofollow" data-method="get" href="/community/cheart/<%=@comu.id%>">
 						<i class="fas fa-heart"></i>
 					</a>
@@ -141,6 +141,7 @@
 		  <% else %>
 				<p class="">로그인하십시오</p>
 		  <% end %>
+			<span><%=@comu.heart%></span>
 			<!-- <%=image_tag('/assets/images/heart.png', class: "post_img")%> -->
 
 		<script>
