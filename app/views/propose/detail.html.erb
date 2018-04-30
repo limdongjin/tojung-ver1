@@ -170,7 +170,7 @@
 			<% @result["community"]["objects"].each do |comu| %>
 				<a href='/community/<%=comu.id%>' class="decoration-none">
 					<div class="border-bottom font-grey mt-2">
-						<p class="mobile_title font-sm-10 mb-2"><%= comu.title %>(댓글수)</p>
+						<p class="mobile_title font-sm-10 mb-2"><%= comu.title %></p>
 						<p class="font-sm-10"><%= @result["community"][comu.id]["writer"].name %> / <%= comu.heart %>공감</p>
 					</div>
 				</a>
