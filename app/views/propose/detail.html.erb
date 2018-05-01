@@ -159,6 +159,14 @@
 		  전화번호: <%= person.tel %><br>
 	      이메일: <% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%>
 	   <% end %>  
+   
+   <% elsif params["option"] == "best"%>
+	   <!-- 명예의 전당 -->
+       <% @result["contributors"].each do |contr|%>
+		   <hr>
+		   사용자 이름: <%= contr["user"].name %><br>
+		   랭킹: <%= contr["rank"]%><br>
+	   <% end %>
 	<% else %>
 		<ul class="nav align-items-end h-100 justify-content-end pb-3 visible-lg">
 			<li class="nav-item px-0 py-0">

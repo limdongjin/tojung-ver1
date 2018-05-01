@@ -47,7 +47,15 @@ class ContractController < ApplicationController
    @propose.funded_num += 1
    @propose.funded_money += @contract.contract_money
    @propose.save 
-
+   
+   Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "약정생성", plus: true)
+   vuser_point = Vpoint.find_by_user_id(current_vuser.id)
+   if vuser_point == nil
+     Vpoint.create(user_id: current_vuser.id, amount: 1004)
+   else 
+     vuser_point.amount += 1004
+	 vuser_point.save
+   end
    redirect_to '/contract/' + @contract.id.to_s
   end
 
