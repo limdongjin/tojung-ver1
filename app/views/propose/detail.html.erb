@@ -79,7 +79,7 @@
 <!-- //Funding Detail Cover Desktop-->
 <!-- Funding Detail Cover Mobile -->
 <section id="detail_mobile_cover" class="detail_mobile_cover visible-xs-block" style="background-image: url(<%=@result['image']%>);">
-	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-3"><%= @result["propose"]["object"].title %></h2>
+	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3"><%= @result["propose"]["object"].title %></h2>
 	<p class="detail_day text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%=remain_time%></span>일 남음</p>
 	<p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%= @result["propose"]["object"].funded_num %></span>명</p>
 	<div class="d-flex justify-content-between">
@@ -162,30 +162,36 @@
 		  <% end %>
 		 <% end%>
 		 <!-- 압력 넣기 -->
-	 <% if params["option"] == "push" %>
-		 <% @result["pusher"].each do |push|%>
-            <h1> 
-              소관위 이름: <%= push["name"] %><br>
-			  <%= push["boss"].name %><br>
-			  <%= push["boss"].polynm %><br>
-			  <%= push["boss"].tel %><br>
-              이메일: <% if push["boss"].email != "x"%> <%= push["boss"].email %> <% else %> <%= push["boss"].emaill%><%end%>
-		     <hr>
-			  <% push["people"].each do |person|%> 
-             <hr>
-			 이름: <%= person.name %><br>
-			 정당: <%= person.polynm %><br>
-			 전화번호: <%= person.tel %><br>
-			 이메일: <% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%>
 
-			<% end %>
-		<% end %>
-		 
+	 <% if params["option"] == "push" %>
+	 <h4 class="push_title text-center mb-3 mb-lg-4 font-14 font-sm-10 font-weight-bold text-primary">해당 입법 주제 담당 국회 내 상임위원회</h4>
+	 <% @result["pusher"].each do |push|%>
+      <p class="push_tel text-center font-14 font-sm-10 font-weight-bold text-primary"><%= push["name"] %></p>
+			<p class="push_tel text-center font-14 font-sm-10 font-weight-bold text-primary"><%= push["boss"].name %>(위원장)</p>
+			<p class="push_tel text-center font-14 font-sm-10 font-weight-bold text-primary">(<%= push["boss"].polynm %>)</p>
+			<p class="push_tel text-center font-14 font-sm-10 font-weight-bold text-primary"><%= push["boss"].tel %></p>
+			<p class="push_tel text-center font-14 font-sm-10 font-weight-bold text-primary">
+			<% if push["boss"].email != "x"%> <%= push["boss"].email %> <% else %> <%= push["boss"].emaill%><%end%></p>
+      <div class="container pt-4 pt-lg-0">
+        <div class="row">
+					<% push["people"].each do |person|%>
+          <div class="col-12 col-lg-4 pb-5 text-center font-grey font-14">
+            <p class="lawmaker_name"><%= person.name %></p>
+            <p class="lawmaker_party">(<%= person.polynm %>)</p>
+            <p class="lawmaker_tel"><%= person.tel %></p>
+            <p class="lawmaker_email">
+						<% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%></p>
+          </div>
+					<% end %>
+        </div>
+      </div>
+	 <% end %>
+
 		 <% elsif params["option"] == "best"%>
 			<!-- 명예의 전당 -->
 			<p class="font-14 font-sm-10 font-grey text-center">이  입법을 추진시키기 위해, 큰 공헌을 한 10명의 시민분들입니다.</p>
 			<div class="container">
-		    
+
 			<% @result["contributors"].each do |contr|%>
 			    <% if @result["contributors"] == [ ] %>
 				   <% break %>

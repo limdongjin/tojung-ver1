@@ -61,7 +61,15 @@
 <section id="detail_cover" class="funding_detail_cover d-flex flex-column justify-content-around align-items-center visible-lg" style="background-image: url(<%= @result["image"] %>);">
 	<h2 class="detail_title text-white font-20 font-sm-18 font-weight-bold "><%= @result["propose"]["object"].title %></h2>
 	<p class="detail_category text-white font-sm-12 font-weight-bold">과학기술</p>
-	<%=image_tag("/assets/images/group-4-1.png", class: "detail_img")%>
+	<% if ["펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전"].include?(status)%>
+		<%=image_tag("/assets/images/group-4-1.png", class: "detail_img")%>
+	<% elsif status == "매칭진행중" %>
+		<%=image_tag("/assets/images/group-4-2.png", class: "detail_img")%>
+	<% elsif status == "입법진행중"%>
+		<%=image_tag("/assets/images/group-4-3.png", class: "detail_img")%>
+	<% elsif status == "법안심사" %>
+		<%=image_tag("/assets/images/group-4-4.png", class: "detail_img")%>
+	<% end %>
 	<div class="detail_info d-flex w-100 px-3 px-lg-5 justify-content-between">
 		<p class="text-white font-14 font-sm-10 font-weight-bold">남은 기간 <span class="font-20 font-sm-16 font-weight-bold"><%=remain_time%></span>일</p>
 		<p class="text-white font-20 font-sm-16 font-weight-bold detail_money"><%= @result["propose"]["object"].funded_money%></p>
@@ -82,7 +90,15 @@
 <!-- //Funding Detail Cover Mobile -->
 <!-- Funding Detail Content -->
 <section class="funding_detail_content py-4 d-flex flex-column justify-content-center align-items-center">
-	<%=image_tag("/assets/images/group_mobile_1.png", class: "visible-xs w-100")%>
+	<% if ["펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전"].include?(status)%>
+		<%=image_tag("/assets/images/group_mobile_1.png", class: "visible-xs w-100")%>
+	<% elsif status == "매칭진행중" %>
+		<%=image_tag("/assets/images/group_mobile_2.png", class: "visible-xs w-100")%>
+	<% elsif status == "입법진행중"%>
+		<%=image_tag("/assets/images/group_mobile_3.png", class: "visible-xs w-100")%>
+	<% elsif status == "법안심사" %>
+		<%=image_tag("/assets/images/group_mobile_4.png", class: "visible-xs w-100")%>
+	<% end %>
 	<p class="detail_content pt-4 pt-lg-0 pb-3 pb-lg-5 font-grey font-sm-12"><%= @result["propose"]["object"].content %></p>
 	<div class="buttons d-flex w-100 justify-content-around px-4 px-lg-0">
 		<!-- 약정하기 버튼-->
@@ -185,7 +201,7 @@
 
 <!-- Layer -->
 <script type="text/javascript">
-	var proposeNum=$(location)[0].href.split("/")[4]%6
+	var proposeNum= <%=@propose.id%>
 	if (proposeNum ==1){
 		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @result["image"] %>)');
 		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @result["image"] %>)');

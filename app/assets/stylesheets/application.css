@@ -157,6 +157,10 @@
    align-items: center;
  }
 
+ .d-inherit{
+   display: inherit;
+ }
+
  .new_text{
    font-size: 1.5rem;
    line-height: 1.25;
@@ -241,7 +245,8 @@
    font-weight: bold;
    width: 55%;
    padding: 6% 6%;
-   margin-bottom: 20%;
+   height: 50%;
+   margin-bottom: 0;
  }
 
  .funding_d_day{
@@ -260,12 +265,12 @@
    font-weight: bold;
    padding-right: 5%;
    line-height: 1;
-   margin-bottom: 0;
  }
 
  .funding_card_info{
    justify-content: flex-end;
    align-items: flex-end;
+   height: 50%;
  }
 
  /* Funding */
@@ -916,7 +921,12 @@ a.text-primary{
   }
 
   .funding_title{
-    margin-bottom: 10%;
+    margin-bottom: 0;
+    height: 50%;
+  }
+
+  .funding_card_info{
+    height: 50%;
   }
 
   .funding_cover{
@@ -1128,6 +1138,7 @@ a.text-primary{
 
   .detail_title{
     width: 60%;
+    height: 50%;
   }
 
   .funding_detail_content{
