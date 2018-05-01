@@ -275,7 +275,7 @@ class CommunityController < ApplicationController
     vheart = Vheartlog.where(target_id: params[:id].to_i, target_category: "community", user_id: current_vuser.id,
 							 propose_id: Vcommunity.find(params[:id].to_i).propose_id )
 	vc = Vcommunity.find(params[:id].to_i)
-	
+
 	if vheart.count != 0
       # 하트 취소
 	  print("Heart Destroy")
@@ -284,16 +284,16 @@ class CommunityController < ApplicationController
 	  end
 	  vc.heart -= 1
 	  vc.save
-
 	  redirect_to '/community/'+ params[:id]
-	else 
+	else
       # 하트 누르기
 	  print("Heart")
 	  Vheartlog.create(target_id: params[:id], target_category: "community", user_id: current_vuser.id, propose_id: vc.propose_id)
 	  vc.heart += 1
-      vc.save
-      
+    vc.save
+
 	  redirect_to '/community/'+ params[:id]
+
 	  return
 	end
   end

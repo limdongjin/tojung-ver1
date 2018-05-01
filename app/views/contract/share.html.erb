@@ -19,7 +19,7 @@
     	<iframe src="https://www.facebook.com/plugins/share_button.php?href=https://2jung.com%2fcontract%2f<%= params[:id]%>&layout=button_count&size=large&mobile_iframe=true&appid=1014670008686658&width=113&height=28" width="113" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     	<% end %>
     </div>
-    <%=image_tag("/assets/images/kakao.png", class: "share_icon")%>
+    <!-- <%=image_tag("/assets/images/kakao.png", class: "share_icon")%> -->
   </div>
   <p class="propose_text mb-3">남은 펀딩기간은 <%= ((@propose.deadlines - Time.now)/(60*60*24) + 1).to_i%>일 입니다.</p>
   <p class="propose_text mb-3">입법 1건당 드는 비용의 평균인 1,000만원을 달성하면 펀딩 성공입니다.</p>

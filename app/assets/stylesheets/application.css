@@ -185,7 +185,8 @@
 
  .funding_card_box{
    background-position: center center;
-   background-size: 100% 100%;
+   background-size: contain;
+   background-repeat: no-repeat;
    height: calc(50vw * 0.53);
    position: relative;
  }
@@ -314,7 +315,7 @@
    background-image: url(../images/woman.jpg);
    background-repeat: no-repeat;
    background-position: center center;
-   background-size: cover;
+   background-size: contain;
    height: calc(100vw * 0.53);
    padding-top: 5%;
  }
@@ -858,7 +859,7 @@ a.text-primary{
   }
 
   .mylog_icon{
-    width: 14px;
+    width: 20px;
     height: 20px;
   }
 
@@ -1119,7 +1120,8 @@ a.text-primary{
     background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../images/woman.jpg);
     height: calc(100vw * 0.53);
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   .detail_title{
@@ -1233,5 +1235,8 @@ a.text-primary{
   }
   .w-sm-120p{
     width: 120px !important;
+  }
+  .w-sm-70{
+    width: 70% !important;
   }
 }

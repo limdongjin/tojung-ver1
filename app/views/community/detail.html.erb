@@ -120,8 +120,8 @@
     <p class="post_text font-14 font-sm-10 font-grey my-3 my-lg-5"><%= @comu.content %></p>
 		<!-- 커뮤니티 하트 누르기 -->
 		  <% if @ishearton == false and current_vuser != nil%>
-				<div class="chart_button"  onclick="chearton( <%= @comu.id %> , 1);" id="comu<%= @comu.id %>" >
-					<a id="cheart_link3" data-remote="true" rel="nofollow" data-method="get" href="/community/cheart/<%=@comu.id%>">
+				<div class="chart_button d-inline"  onclick="chearton(<%= @comu.id %>, 1);" id="comu<%= @comu.id %>" >
+					<a id="cheart_link<%=@comu.id%>" data-remote="true" rel="nofollow" data-method="get" href="/community/cheart/<%=@comu.id%>">
 						<i class="far fa-heart"></i>
 					</a>
 					<!-- <%= link_to cheart_path( :id => @comu.id ), method: :post, remote: true, id: "cheart_link#{ @comu.id }" do%>
@@ -129,7 +129,10 @@
 					<%end%> -->
 				</div>
 		  <% elsif @ishearton == true %>
-		  	<div class="chart_button"  onclick="chearton( <%= @comu.id %>, 0);" id="comu<%= @comu.id %>" >
+		  	<div class="chart_button d-inline"  onclick="chearton(<%= @comu.id %>, 0);" id="comu<%= @comu.id %>" >
+					<a id="cheart_link<%=@comu.id%>" data-remote="true" rel="nofollow" data-method="get" href="/community/cheart/<%=@comu.id%>">
+						<i class="fas fa-heart"></i>
+					</a>
 			   <!-- <%= link_to image_tag('/assets/images/heart_black.png', class: "post_img"), cheart_path( :id => @comu.id ), method: :post, remote: true, id: "cheart_link#{ @comu.id }" %> -->
 				 <!-- <form action="/community/cheart/<%=@comu.id%>" method="post" data-remote="true" rel="nofollow">
 					 <button><i class="far fas-heart"></i></button>
@@ -138,19 +141,20 @@
 		  <% else %>
 				<p class="">로그인하십시오</p>
 		  <% end %>
+			<span><%=@comu.heart%></span>
 			<!-- <%=image_tag('/assets/images/heart.png', class: "post_img")%> -->
 
 		<script>
 		      function chearton(cid, option){
-				  if ((document.getElementById('cheart_link'+ cid).innerHTML == '하트켜기') == true){
-		                document.getElementById('cheart_link'+ cid).innerHTML = '하트끄기'
+				  if ((document.getElementById('cheart_link'+ cid).innerHTML == "<i class='far fa-heart'></i>") == true){
+		                document.getElementById('cheart_link'+ cid).innerHTML = "<i class='fas fa-heart'></i>"
 				  }else{
-		             document.getElementById('cheart_link'+ cid).innerHTML = '하트켜기'
+		             document.getElementById('cheart_link'+ cid).innerHTML = "<i class='far fa-heart'></i>"
 				   }
 			   }
 		</script>
     <!-- <img src="assets/images/heart.png" alt="" class="post_heart"> -->
-    <a href="/" class="back font-grey font-14 font-sm-10 mt-4 mb-5 my-lg-5">&lt;이전으로 돌아가기</a>
+    <a href="/propose/<%=@propose.id%>" class="back font-grey font-14 font-sm-10 mt-4 mb-5 my-lg-5">&lt;이전으로 돌아가기</a>
 		<%= form_tag("/community/#{ params[:id].to_i }/post", method: "post", class: "w-100 px-0" ) do %>
 	    <div class="form-group">
 				<%= text_area_tag 'cpost_content', "", class: "form-control", id: "exampleFormControlTextarea1", rows: 3 %>
