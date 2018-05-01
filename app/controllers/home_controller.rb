@@ -5,12 +5,12 @@ class HomeController < ApplicationController
 	end
 	  
 	if !(current_vuser.blank?)
-      if current_vuser.real_name == nil or
-		  #current_vuser.address == nil or
-		  current_vuser.phone_number == nil or
-		  current_vuser.real_name == "" or
-		  current_vuser.phone_number == ""
-		  #current_vuser.address == ""
+      if   # current_vuser.real_name == nil or
+		   # current_vuser.address == nil or
+		   current_vuser.phone_number == nil or
+		   # current_vuser.real_name == "" or
+		   current_vuser.phone_number == ""
+		   #current_vuser.address == ""
 		 redirect_to(edit_vuser_registration_path)
 		 return
 	  end
