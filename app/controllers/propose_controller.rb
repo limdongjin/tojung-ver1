@@ -254,10 +254,9 @@ class ProposeController < ApplicationController
   # GET /propose/new
   def new
     # 청원 생성 페이지
-	if current_vuser == nil
-    redirect_to '/', alert: "로그인해야 청원할 수 있습니다."
-	end
-
+    if current_vuser == nil
+      redirect_to '/', alert: "로그인해야 청원할 수 있습니다."
+    end
   end
 
   # POST /propose/create
@@ -301,8 +300,10 @@ class ProposeController < ApplicationController
 		"문화/예술/체육/언론"=> "art",
 		"기타"=> "etc"
 	   }
-	   @propose.default_image = base_url + image_dict[@propose.bg_category_name] + ".png"
-	#end
+	   if @propose.bg_category_name != nil 
+	    @propose.default_image = base_url + image_dict[@propose.bg_category_name] + ".png"
+	   end
+	#end 
 
 	#@propose.sm_category_name = params[:propose_sm_category]
 
@@ -326,7 +327,18 @@ class ProposeController < ApplicationController
 
 	@propose.save
 	@contract.save
-	@writer  = Vuser.find(@contract.user_id)
+
+	@writer  = Vuser.find(@contract.user_id)	
+
+   Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "약정생성", plus: true)
+   vuser_point = Vpoint.find_by_user_id(current_vuser.id)
+   if vuser_point == nil
+     Vpoint.create(user_id: current_vuser.id, amount: 1004)
+   else 
+     vuser_point.amount += 1004
+	 vuser_point.save
+   end
+   
     redirect_to '/contract/'+ @contract.id.to_s
   end
 
