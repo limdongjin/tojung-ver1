@@ -90,20 +90,20 @@ class CommunityController < ApplicationController
 
     print("okkkk")
    Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "커뮤니티 생성", plus: true, propose_id: params[:id].to_i)
-   vuser_point = Vpoint.where(user_id: current_vuser.id, propose_id: params[:id].to_id)
+   vuser_point = Vpoint.where(user_id: current_vuser.id, propose_id: params[:id].to_i)
    if vuser_point.count == 0
      Vpoint.create(user_id: current_vuser.id, amount: 1004, propose_id: params[:id].to_i)
-   else 
+   else
      vuser_point[0].amount += 1004
 	 vuser_point[0].save
    end
    contr = Vcontributor.where(user_id: current_vuser.id, propose_id: params[:id].to_i)
-   if contr.count == 0 
+   if contr.count == 0
      Vcontributor.create(user_id: current_vuser.id, propose_id: params[:id].to_i, count: 1)
-   else 
+   else
      contr[0].count += 1
-	 contr[0].save 
-   end 
+	 contr[0].save
+   end
 	redirect_to '/propose/' + params[:id]
 
 	# render :json => { "success": comu }
@@ -238,7 +238,15 @@ class CommunityController < ApplicationController
   		@result["community"][obj.id]["post"][post.id]["writer"] = Vuser.find(post.user_id)
   	 end
      end
-
+     
+     if @result["propose"]["object"].image.url != nil
+  	   print("not nil")
+  	   @result["image"] = @result["propose"]["object"].image.url
+  	else
+  		print("nil")
+  	   @result["image"] = @result["propose"]["object"].default_image
+  	   print(@result["image"])
+  	end
     @comu = Vcommunity.find(params[:id].to_i)
     if current_vuser != nil and Vheartlog.where(target_category: "community", target_id: params[:id].to_i, user_id: current_vuser.id).count != 0
       @ishearton = true
@@ -278,24 +286,24 @@ class CommunityController < ApplicationController
    vuser_point = Vpoint.where(user_id: current_vuser.id, propose_id: params[:id].to_i)
    if vuser_point.count == 0
      Vpoint.create(user_id: current_vuser.id, amount: 100, propose_id: params[:id].to_i)
-   else 
+   else
      vuser_point[0].amount += 100
 	 vuser_point[0].save
    end
-  
+
    contr = Vcontributor.where(user_id: current_vuser.id, propose_id: vc.propose_id)
-   if contr.count == 0 
+   if contr.count == 0
      Vcontributor.create(user_id: current_vuser.id, propose_id: vc.propose_id, count: 1)
-   else 
+   else
      contr[0].count += 1
-	 contr[0].save 
-   end 
+	 contr[0].save
+   end
 
 	respond_to do |format|
        format.js
        format.html
      end
-    
+
 	redirect_to '/community/' + params[:id]
   end
 

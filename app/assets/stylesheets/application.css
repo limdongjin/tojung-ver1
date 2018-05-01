@@ -54,7 +54,7 @@
  }
 
  .font-24{
-   font-size: 1.5rem;
+   font-size: 1.5rem !important;
  }
 
  .font-36{
@@ -82,8 +82,10 @@
  }
 
  .alert{
+   position: absolute;
    float: left;
    width: 100%;
+   z-index: 10000;
  }
 
  /* Header */
@@ -185,7 +187,7 @@
 
  .funding_card_box{
    background-position: center center;
-   background-size: contain;
+   background-size: cover;
    background-repeat: no-repeat;
    height: calc(50vw * 0.53);
    position: relative;
@@ -239,7 +241,7 @@
    font-weight: bold;
    width: 55%;
    padding: 6% 6%;
-   margin-bottom: 15%;
+   margin-bottom: 20%;
  }
 
  .funding_d_day{
@@ -247,7 +249,7 @@
  }
 
  .funding_days{
-   font-size: .875rem;
+   font-size: 0.875rem;
    font-weight: bold;
    padding-right: 5%;
    margin-bottom: 0;
@@ -315,7 +317,7 @@
    background-image: url(../images/woman.jpg);
    background-repeat: no-repeat;
    background-position: center center;
-   background-size: contain;
+   background-size: cover;
    height: calc(100vw * 0.53);
    padding-top: 5%;
  }
@@ -1120,7 +1122,7 @@ a.text-primary{
     background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../images/woman.jpg);
     height: calc(100vw * 0.53);
     background-position: center center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 
