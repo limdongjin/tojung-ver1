@@ -255,7 +255,7 @@ class ProposeController < ApplicationController
   def new
     # 청원 생성 페이지
 	if current_vuser == nil
-		redirect_to '/'
+		redirect_to '/vusers/signin'
 		return
 	end
 
