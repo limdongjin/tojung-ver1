@@ -58,7 +58,7 @@
 
 
 <!-- Funding Detail Cover Desktop-->
-<section id="detail_cover" class="funding_detail_cover d-flex flex-column justify-content-around align-items-center visible-lg" style="background-image: url(<%= @result["propose"]["object"].image.url %>);">
+<section id="detail_cover" class="funding_detail_cover d-flex flex-column justify-content-around align-items-center visible-lg" style="background-image: url(<%= @result["image"] %>);">
 	<h2 class="detail_title text-white font-20 font-sm-18 font-weight-bold "><%= @result["propose"]["object"].title %></h2>
 	<p class="detail_category text-white font-sm-12 font-weight-bold">과학기술</p>
 	<%=image_tag("/assets/images/group-4-1.png", class: "detail_img")%>
@@ -70,7 +70,7 @@
 </section>
 <!-- //Funding Detail Cover Desktop-->
 <!-- Funding Detail Cover Mobile -->
-<section id="detail_mobile_cover" class="detail_mobile_cover visible-xs-block" style="background-image: url(<%= @result["propose"]["object"].image.url %>);">
+<section id="detail_mobile_cover" class="detail_mobile_cover visible-xs-block" style="background-image: url(<%= @result["image"] %>);">
 	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-5"><%= @result["propose"]["object"].title %></h2>
 	<p class="detail_day text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%=remain_time%></span>일 남음</p>
 	<p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%= @result["propose"]["object"].funded_num %></span>명</p>
@@ -107,11 +107,21 @@
 
 <!-- Detail funding2 Community -->
 <section class="detail_menu pb-5">
-  <nav class="nav justify-content-around border-bottom px-3 px-lg-5 mb-4 mb-lg-5">
-    <a class="nav-link active py-4 font-weight-bold font-sm-12" href="#">커뮤니티</a>
-    <a class="nav-link py-4 font-sm-12" href="#">압력넣기</a>
-    <a class="nav-link py-4 font-sm-12" href="#">명예의전당</a>
-  </nav>
+	<nav class="nav justify-content-around border-bottom px-3 px-lg-5 mb-3 mb-lg-5">
+		<% if params["option"] == "push" %>
+		<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id %>">커뮤니티</a>
+		<a class="nav-link py-4 font-sm-12 active font-weight-bold" href="/propose/<%= @result["propose"]["object"].id%>?option=push">압력넣기</a>
+		<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id%>?option=best">명예의전당</a>
+		<% elsif params["option"] == "best"%>
+		<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id %>">커뮤니티</a>
+		<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id%>?option=push">압력넣기</a>
+		<a class="nav-link py-4 font-sm-12 active font-weight-bold" href="/propose/<%= @result["propose"]["object"].id%>?option=best">명예의전당</a>
+		<%else%>
+		<a class="nav-link py-4 font-sm-12 active font-weight-bold" href="/propose/<%= @result["propose"]["object"].id %>">커뮤니티</a>
+		<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id%>?option=push">압력넣기</a>
+		<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id%>?option=best">명예의전당</a>
+		<%end%>
+	</nav>
   <div class="post text-center">
     <h2 class="post_title font-18 font-sm-12 font-grey font-weight-bold mb-3 mb-lg-3"><%= @comu.title %></h2>
     <p class="post_by font-14 font-sm-10 font-grey mb-4 mb-lg-5">by <%=@writer.name%></p>
@@ -177,28 +187,28 @@
 <script type="text/javascript">
 	var proposeNum=$(location)[0].href.split("/")[4]%6
 	if (proposeNum ==1){
-		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
-		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @result["image"] %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @result["image"] %>)');
 	}
 	else if (proposeNum == 2){
-		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
-		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(<%= @result["image"] %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(<%= @result["image"] %>)');
 	}
 	else if (proposeNum == 3){
-		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
-		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(<%= @result["image"] %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(<%= @result["image"] %>)');
 	}
 	else if (proposeNum == 4){
-		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
-		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(<%= @result["image"] %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(<%= @result["image"] %>)');
 	}
 	else if (proposeNum == 5){
-		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
-		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(<%= @result["image"] %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(<%= @result["image"] %>)');
 	}
 	else{
-		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
-		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @result["propose"]["object"].image.url %>)');
+		$("#detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @result["image"] %>)');
+		$("#detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @result["image"] %>)');
 	}
 </script>
 <!-- //Layer -->

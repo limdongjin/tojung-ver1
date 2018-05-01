@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501101650) do
+ActiveRecord::Schema.define(version: 20180501113747) do
 
   create_table "vcandidates", force: :cascade do |t|
     t.integer "propose_id"
@@ -184,6 +184,7 @@ ActiveRecord::Schema.define(version: 20180501101650) do
     t.boolean "plus"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "propose_id"
   end
 
   create_table "vpoints", force: :cascade do |t|
@@ -191,6 +192,7 @@ ActiveRecord::Schema.define(version: 20180501101650) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "propose_id"
   end
 
   create_table "vproducts", force: :cascade do |t|
