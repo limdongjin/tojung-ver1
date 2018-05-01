@@ -44,7 +44,7 @@
   <div class="container">
     <div class="row">
 			<% @proposes.each do |propose| %>
-	      <div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<%= propose.image.url %>)">
+				<div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
 	        <div class="funding_card d-flex flex-column h-100 w-100">
 	          <a href="/propose/<%= propose.id %>">
 	            <h4 class="funding_title text-white"><%= propose.title %></h4>
