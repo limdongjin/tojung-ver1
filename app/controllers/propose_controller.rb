@@ -328,7 +328,8 @@ class ProposeController < ApplicationController
 	@propose.save
 	@contract.save
 	@writer  = Vuser.find(@contract.user_id)	
-Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "약정생성", plus: true)
+
+   Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "약정생성", plus: true)
    vuser_point = Vpoint.find_by_user_id(current_vuser.id)
    if vuser_point == nil
      Vpoint.create(user_id: current_vuser.id, amount: 1004)
@@ -336,8 +337,7 @@ Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "약정생�
      vuser_point.amount += 1004
 	 vuser_point.save
    end
-   redirect_to '/contract/' + @contract.id.to_s
-
+   
     redirect_to '/contract/'+ @contract.id.to_s
   end
   
