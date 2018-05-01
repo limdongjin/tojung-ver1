@@ -163,35 +163,41 @@
 		 <% end%>
 		 <!-- 압력 넣기 -->
 	 <% if params["option"] == "push" %>
-		 <% @result["boss"].each do |boss|%>
-			 <h1>	(관련 위원회 위원장)<br>
-			 <hr>
-			 이름: <%= boss.name %><br>
-			 정당: <%= boss.polynm %><br>
-			 전화번호: <%= boss.tel %><br>
-				 이메일: <% if boss.email != "x"%> <%= boss.email %> <% else %> <%= boss.emaill%><%end%>
-								 </h1>
-		 <% end %>
-		 <% @result["push"].each do |person|%>
-			 <hr>
+		 <% @result["pusher"].each do |push|%>
+            <h1> 
+              소관위 이름: <%= push["name"] %><br>
+			  <%= push["boss"].name %><br>
+			  <%= push["boss"].polynm %><br>
+			  <%= push["boss"].tel %><br>
+              이메일: <% if push["boss"].email != "x"%> <%= push["boss"].email %> <% else %> <%= push["boss"].emaill%><%end%>
+		     <hr>
+			  <% push["people"].each do |person|%> 
+             <hr>
 			 이름: <%= person.name %><br>
 			 정당: <%= person.polynm %><br>
 			 전화번호: <%= person.tel %><br>
-				 이메일: <% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%>
-			<% end %>
+			 이메일: <% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%>
 
+			<% end %>
+		<% end %>
+		 
 		 <% elsif params["option"] == "best"%>
 			<!-- 명예의 전당 -->
 			<p class="font-14 font-sm-10 font-grey text-center">이  입법을 추진시키기 위해, 큰 공헌을 한 10명의 시민분들입니다.</p>
 			<div class="container">
+		    
 			<% @result["contributors"].each do |contr|%>
-				<%if contr["rank"]==1%>
+			    <% if @result["contributors"] == [ ] %>
+				   <% break %>
+				<% end %>
+
+				<%if contr["rank"] == 1%>
 					<div class="row">
 						<div class="col-12 font-grey text-center mb-4">
 							<p class="nickname font-14 font-sm-12 mb-lg-1"><%= contr["user"].name %>
 								<%=image_tag('/assets/images/crown.png', class: "crown2")%></p>
-							<p class="font-24 font-sm-20 mb-lg-0">1,892,290</p>
-							<p class="font-12 font-sm-10">1,000,000 + 892,290</p>
+							<p class="font-24 font-sm-20 mb-lg-0"><%= contr["point"] + contr["contract"] %></p>
+							<p class="font-12 font-sm-10"><%= contr["contract"] %> + <%= contr["point"]%></p>
 						</div>
 					</div>
 				<%else%>
@@ -199,8 +205,8 @@
 						<div class="col-6 col-lg-4 font-grey text-center mb-4">
 							<p class="nickname font-14 mb-lg-1"><%= contr["user"].name %>
 								<%=image_tag('/assets/images/crown.png', class: "crown2")%></p>
-							<p class="font-24 mb-lg-0">1,892,290</p>
-							<p class="font-12">1,000,000 + 892,290</p>
+                            <p class="font-24 font-sm-20 mb-lg-0"><%= contr["point"] + contr["contract"] %></p>
+							<p class="font-12 font-sm-10"><%= contr["contract"] %> + <%= contr["point"]%></p>
 						</div>
 					</div>
 				<%end%>

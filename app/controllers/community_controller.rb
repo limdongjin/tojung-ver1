@@ -283,11 +283,13 @@ class CommunityController < ApplicationController
 				  content: params[:cpost_content], like: 0)
     print("ok3")
 
-    Vpointlog.create(user_id: current_vuser.id, amount: 100, category: "댓글 생성", plus: true, propose_id: params[:id].to_i)
-   vuser_point = Vpoint.where(user_id: current_vuser.id, propose_id: params[:id].to_i)
+    Vpointlog.create(user_id: current_vuser.id, amount: 100, category: "댓글 생성", plus: true, propose_id: vc.propose_id)
+   vuser_point = Vpoint.where(user_id: current_vuser.id, propose_id: vc.propose_id)
    if vuser_point.count == 0
-     Vpoint.create(user_id: current_vuser.id, amount: 100, propose_id: params[:id].to_i)
+	   print("okk")
+     Vpoint.create(user_id: current_vuser.id, amount: 100, propose_id: vc.propose_id)
    else
+	 print("ok")
      vuser_point[0].amount += 100
 	 vuser_point[0].save
    end

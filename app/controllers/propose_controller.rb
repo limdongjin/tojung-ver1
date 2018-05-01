@@ -179,8 +179,8 @@ class ProposeController < ApplicationController
 		 
 		 rank = 1
 		 @points.each do |point|
-           data = { "user"=> Vuser.find(contr.user_id), "rank"=>rank  }
-		   contract = Vcontract.where(:user_id => contr.user_id, :propose_id => @result["propose"]["object"].id)
+           data = { "user"=> Vuser.find(point.user_id), "rank"=>rank  }
+		   contract = Vcontract.where(:user_id => point.user_id, :propose_id => @result["propose"]["object"].id)
 		   if contract.count == 0
               data["contract"] = 0
 		   else 
