@@ -162,6 +162,60 @@ class ProposeController < ApplicationController
 	   @result["image"] = @result["propose"]["object"].default_image
 	   print(@result["image"])
 	end 
+    
+   if params["option"] == "push"
+     push_dict = {  
+        "정치개혁" => ["국회운영", "법제사법"],
+		"외교/통일/국방" => [ "외교통일", "국방","정보" ],
+		"경제/노동"=> [ "기획재정", "산업통상", "정무" ], 
+		"과학기술"=> [ "과학기술" ],
+		"농산어촌"=> [ "농림축산" ],
+		"보건복지"=> [ "보건복지" ],
+		"육아/교육"=> [ "교육문화", "여성" ],
+		"안전/환경"=> [ "행정안전", "환경노동" ],
+		"저출산/고령화"=> [ "여성", "보건복지" ], 
+		"행정"=> [ "행정안전" ],
+		"반려동물"=> [ "농림축산" ],
+		"교통/건축/국토"=>[ "국토교통" ],
+		"인권/성평등"=> [ "여성" ],
+		"문화/예술/체육/언론"=> [ "교육문화", "과학기술" ],
+		"기타"=> [ ]
+	 }
+
+    boss_dict = {
+       "국회운영"=> 2643,
+	   "법제사법"=> 2541 ,
+	   "외교통일"=> 178, 
+	   "국방"=> 2630,
+	   "정보"=>2788,
+       "기획재정"=>38,
+	   "산업통상"=>2568,
+	   "정무"=>2689,
+	   "과학기술"=>2667,
+	   "농림축산"=>488,
+	   "보건복지"=>2201,
+	   "교육문화"=>2759,
+	   "여성"=>2618,
+	   "행정안전"=>2765,
+	   "환경노동"=>2537,
+       "국토교통"=>41
+	 }
+
+
+     @result["push"] = [  ]
+     @result["boss"] = [  ]
+     
+	 push_dict[@result["propose"]["object"].bg_category_name].each do |assos|
+       Person.where("shrtnm LIKE ?", "%#{  assos }%").each do |person|
+         @result["push"].push(person)
+	   end 
+     
+	   @result["boss"].push(Person.find(boss_dict[assos]))
+
+	 end
+     
+        end
+   
   end
 
   # GET /propose/new
