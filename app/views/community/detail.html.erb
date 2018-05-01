@@ -79,7 +79,7 @@
 <!-- //Funding Detail Cover Desktop-->
 <!-- Funding Detail Cover Mobile -->
 <section id="detail_mobile_cover" class="detail_mobile_cover visible-xs-block" style="background-image: url(<%= @result["image"] %>);">
-	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-5"><%= @result["propose"]["object"].title %></h2>
+	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-0"><%= @result["propose"]["object"].title %></h2>
 	<p class="detail_day text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%=remain_time%></span>일 남음</p>
 	<p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%= @result["propose"]["object"].funded_num %></span>명</p>
 	<div class="d-flex justify-content-between">
@@ -156,7 +156,7 @@
 				</div>
 		  <% elsif @ishearton == true %>
 		  	<div class="chart_button d-inline"  onclick="chearton(<%= @comu.id %>, 0);" id="comu<%= @comu.id %>" >
-					<a id="cheart_link<%=@comu.id%>" data-remote="true" rel="nofollow" data-method="get" href="/community/cheart/<%=@comu.id%>">
+					<a class="decoration-none" id="cheart_link<%=@comu.id%>" data-remote="true" rel="nofollow" data-method="get" href="/community/cheart/<%=@comu.id%>">
 						<i class="fas fa-heart"></i>
 					</a>
 			   <!-- <%= link_to image_tag('/assets/images/heart_black.png', class: "post_img"), cheart_path( :id => @comu.id ), method: :post, remote: true, id: "cheart_link#{ @comu.id }" %> -->
