@@ -154,7 +154,14 @@ class ProposeController < ApplicationController
 		@result["community"][obj.id]["post"][post.id]["writer"] = Vuser.find(post.user_id)
 	 end
    end
-
+   if @result["propose"]["object"].image.url != nil
+	   print("not nil")
+	   @result["image"] = @result["propose"]["object"].image.url
+	else  
+		print("nil")
+	   @result["image"] = @result["propose"]["object"].default_image
+	   print(@result["image"])
+	end 
   end
 
   # GET /propose/new
@@ -188,7 +195,29 @@ class ProposeController < ApplicationController
 	@propose.status  = "펀딩진행중"
 
 	@propose.bg_category_name = params[:category_name]
-	print(@propose.bg_category_name)
+	print(@propose.image)
+	#if @propose.image == nil 
+       base_url = "https://s3.ap-northeast-2.amazonaws.com/tojung2018/categoryimage/"
+       image_dict = {  
+	    "정치개혁"=> "politic",
+	    "외교/통일/국방"=> "army",
+		"경제/노동"=> "economy",
+		"과학기술"=> "science", 
+		"농산어촌"=> "farm",
+		"보건복지"=> "medical",
+		"육아/교육"=> "edu",
+		"안전/환경"=> "safety",
+		"저출산/고령화"=> "lowbirth", 
+		"행정"=> "admin",
+		"반려동물"=> "pet",
+		"교통/건축/국토"=> "archi",
+		"인권/성평등"=> "equal",
+		"문화/예술/체육/언론"=> "art",
+		"기타"=> "etc"
+	   }
+	   @propose.default_image = base_url + image_dict[@propose.bg_category_name] + ".png"
+	#end 
+
 	#@propose.sm_category_name = params[:propose_sm_category]
 	
 	@propose.funded_money = 0
