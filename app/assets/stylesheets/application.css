@@ -185,7 +185,7 @@
 
  .funding_card_box{
    background-position: center center;
-   background-size: contain;
+   background-size: cover;
    background-repeat: no-repeat;
    height: calc(50vw * 0.53);
    position: relative;

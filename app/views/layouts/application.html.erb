@@ -31,10 +31,10 @@
   <body>
     <%=render 'layouts/menu'%>
     <% if notice %>
-      <p class="alert alert-success" id="alert"><%= notice %></p>
+      <p class="alert alert-success" id="notice"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger" id="notice"><%= alert %></p>
+      <p class="alert alert-danger" id="alert"><%= alert %></p>
     <% end %>
 
     <%= yield %>
@@ -70,6 +70,7 @@
     <!-- Alert -->
     <script type='text/javascript'>
       $('#alert').fadeOut(3000);
+      $('#notice').fadeOut(3000);
     </script>
     <!-- // Alert -->
 
