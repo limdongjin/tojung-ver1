@@ -89,13 +89,13 @@ class CommunityController < ApplicationController
 	comu.save
 
     print("okkkk")
-   Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "커뮤니티 생성", plus: true)
-   vuser_point = Vpoint.find_by_user_id(current_vuser.id)
-   if vuser_point == nil
-     Vpoint.create(user_id: current_vuser.id, amount: 1004)
+   Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "커뮤니티 생성", plus: true, propose_id: params[:id].to_i)
+   vuser_point = Vpoint.where(user_id: current_vuser.id, propose_id: params[:id].to_id)
+   if vuser_point.count == 0
+     Vpoint.create(user_id: current_vuser.id, amount: 1004, propose_id: params[:id].to_i)
    else 
-     vuser_point.amount += 1004
-	 vuser_point.save
+     vuser_point[0].amount += 1004
+	 vuser_point[0].save
    end
    contr = Vcontributor.where(user_id: current_vuser.id, propose_id: params[:id].to_i)
    if contr.count == 0 
@@ -274,13 +274,13 @@ class CommunityController < ApplicationController
 				  content: params[:cpost_content], like: 0)
     print("ok3")
 
-    Vpointlog.create(user_id: current_vuser.id, amount: 100, category: "댓글 생성", plus: true)
-   vuser_point = Vpoint.find_by_user_id(current_vuser.id)
-   if vuser_point == nil
-     Vpoint.create(user_id: current_vuser.id, amount: 100)
+    Vpointlog.create(user_id: current_vuser.id, amount: 100, category: "댓글 생성", plus: true, propose_id: params[:id].to_i)
+   vuser_point = Vpoint.where(user_id: current_vuser.id, propose_id: params[:id].to_i)
+   if vuser_point.count == 0
+     Vpoint.create(user_id: current_vuser.id, amount: 100, propose_id: params[:id].to_i)
    else 
-     vuser_point.amount += 100
-	 vuser_point.save
+     vuser_point[0].amount += 100
+	 vuser_point[0].save
    end
   
    contr = Vcontributor.where(user_id: current_vuser.id, propose_id: vc.propose_id)

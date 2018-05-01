@@ -143,22 +143,21 @@
 	<section class="detail_posts">
    <!-- 압력 넣기 -->
 	<% if params["option"] == "push" %>
-		<% @result["boss"].each do |boss|%>
-			<h1>	(관련 위원회 위원장)<br>
-		 	<hr>	
-		  이름: <%= boss.name %><br>
-		  정당: <%= boss.polynm %><br>
-		  전화번호: <%= boss.tel %><br>
-	      이메일: <% if boss.email != "x"%> <%= boss.email %> <% else %> <%= boss.emaill%><%end%>
-               </h1>
+		<% @result["pusher"].each do |push| %>
+			<hr>
+            소관위 이름: <%= push["name"] %>
+		<br> 위원장 이름: <%= push["boss"].name %>
+	    <br> 위원장 번호: <%= push["boss"].tel %>
+	    <br> 위원장 메일:  <% if push["boss"].email != "x"%> <%= push["boss"].email %> <% else %> <%= push["boss"].emaill%><%end%>
+	    <br> 위원장 정당: <%= push["boss"].polynm %>
+	       <% push["people"].each do |person| %>
+		<hr>
+			   의원 이름: <%= person.name %>
+		       정당: <%= person.polynm %>
+		       전화번호: <%= person.tel%>
+		       메일: <% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%>
+		   <% end %>
 		<% end %>
-		<% @result["push"].each do |person|%>
-			<hr>	
-		  이름: <%= person.name %><br>
-		  정당: <%= person.polynm %><br>
-		  전화번호: <%= person.tel %><br>
-	      이메일: <% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%>
-	   <% end %>  
    
    <% elsif params["option"] == "best"%>
 	   <!-- 명예의 전당 -->
