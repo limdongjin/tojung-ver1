@@ -162,7 +162,18 @@ class ProposeController < ApplicationController
 	   @result["image"] = @result["propose"]["object"].default_image
 	   print(@result["image"])
 	end 
-    
+   if params["option"] == "best"
+     contributors = Vcontributor.where(propose_id: @result["propose"]["object"].id)
+	 if contributors != nil 
+		 contributors = contributors.order("-count")
+		 @result["contributors"] = [  ]
+		 rank = 1
+         contributors.each do |contr|
+           @result["contributors"].push( { "user"=> Vuser.find(contr.user_id), "rank"=>rank } )
+		   rank += 1
+		 end
+	 end
+   end 
    if params["option"] == "push"
      push_dict = {  
         "정치개혁" => ["국회운영", "법제사법"],

@@ -1,0 +1,2 @@
+class Vcontributor < ApplicationRecord
+end

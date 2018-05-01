@@ -1,0 +1,2 @@
+class Vpointlog < ApplicationRecord
+end

@@ -89,7 +89,21 @@ class CommunityController < ApplicationController
 	comu.save
 
     print("okkkk")
-
+   Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "커뮤니티 생성", plus: true)
+   vuser_point = Vpoint.find_by_user_id(current_vuser.id)
+   if vuser_point == nil
+     Vpoint.create(user_id: current_vuser.id, amount: 1004)
+   else 
+     vuser_point.amount += 1004
+	 vuser_point.save
+   end
+   contr = Vcontributor.where(user_id: current_vuser.id, propose_id: params[:id].to_i)
+   if contr.count == 0 
+     Vcontributor.create(user_id: current_vuser.id, propose_id: params[:id].to_i, count: 1)
+   else 
+     contr[0].count += 1
+	 contr[0].save 
+   end 
 	redirect_to '/propose/' + params[:id]
 
 	# render :json => { "success": comu }
@@ -259,11 +273,30 @@ class CommunityController < ApplicationController
     Vcpost.create(user_id: current_vuser.id, community_id: vc.id,  propose_id: vc.propose_id,
 				  content: params[:cpost_content], like: 0)
     print("ok3")
-    respond_to do |format|
+
+    Vpointlog.create(user_id: current_vuser.id, amount: 100, category: "댓글 생성", plus: true)
+   vuser_point = Vpoint.find_by_user_id(current_vuser.id)
+   if vuser_point == nil
+     Vpoint.create(user_id: current_vuser.id, amount: 100)
+   else 
+     vuser_point.amount += 100
+	 vuser_point.save
+   end
+  
+   contr = Vcontributor.where(user_id: current_vuser.id, propose_id: vc.propose_id)
+   if contr.count == 0 
+     Vcontributor.create(user_id: current_vuser.id, propose_id: vc.propose_id, count: 1)
+   else 
+     contr[0].count += 1
+	 contr[0].save 
+   end 
+
+	respond_to do |format|
        format.js
        format.html
      end
-    redirect_to '/community/' + params[:id]
+    
+	redirect_to '/community/' + params[:id]
   end
 
   # POST /community/cheart/:id
