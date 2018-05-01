@@ -254,6 +254,7 @@ class CommunityController < ApplicationController
 	end
 
 	@community = Vcommunity.find(params[:id])
+
   end
 
   def edit
