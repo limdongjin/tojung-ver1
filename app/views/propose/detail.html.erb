@@ -61,7 +61,15 @@
 <section id="detail_cover" class="funding_detail_cover d-flex flex-column justify-content-around align-items-center visible-lg" style="background-image: url( <%= @result['image']%> );">
 	<h2 class="detail_title text-white font-20 font-sm-18 font-weight-bold "><%= @result["propose"]["object"].title %></h2>
 	<p class="detail_category text-white font-sm-12 font-weight-bold"><%= @result["propose"]["object"].bg_category_name %></p>
-	<%=image_tag("/assets/images/group-4-1.png", class: "detail_img")%>
+	<% if ["펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전"].include?(status)%>
+		<%=image_tag("/assets/images/group-4-1.png", class: "detail_img")%>
+	<% elsif status == "매칭진행중" %>
+		<%=image_tag("/assets/images/group-4-2.png", class: "detail_img")%>
+	<% elsif status == "입법진행중"%>
+		<%=image_tag("/assets/images/group-4-3.png", class: "detail_img")%>
+	<% elsif status == "법안심사" %>
+		<%=image_tag("/assets/images/group-4-4.png", class: "detail_img")%>
+	<% end %>
 	<div class="detail_info d-flex w-100 px-3 px-lg-5 justify-content-between">
 		<p class="text-white font-14 font-sm-10 font-weight-bold">남은 기간 <span class="font-20 font-sm-16 font-weight-bold"><%=remain_time%></span>일</p>
 		<p class="text-white font-20 font-sm-16 font-weight-bold detail_money"><%= @result["propose"]["object"].funded_money%></p>
@@ -71,7 +79,7 @@
 <!-- //Funding Detail Cover Desktop-->
 <!-- Funding Detail Cover Mobile -->
 <section id="detail_mobile_cover" class="detail_mobile_cover visible-xs-block" style="background-image: url(<%= @result['image'] %>);">
-	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-5"><%= @result["propose"]["object"].title %></h2>
+	<h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3 mb-3"><%= @result["propose"]["object"].title %></h2>
 	<p class="detail_day text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%=remain_time%></span>일 남음</p>
 	<p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%= @result["propose"]["object"].funded_num %></span>명</p>
 	<div class="d-flex justify-content-between">
@@ -82,7 +90,15 @@
 <!-- //Funding Detail Cover Mobile -->
 	<!-- Funding Detail Content -->
 	<section class="funding_detail_content py-4 d-flex flex-column justify-content-center align-items-center">
-		<%=image_tag("/assets/images/group_mobile_1.png", class: "visible-xs w-100")%>
+		<% if ["펀딩진행중", "펀딩 마감 하루전", "펀딩 마감 이틀전"].include?(status)%>
+			<%=image_tag("/assets/images/group_mobile_1.png", class: "visible-xs w-100")%>
+		<% elsif status == "매칭진행중" %>
+			<%=image_tag("/assets/images/group_mobile_2.png", class: "visible-xs w-100")%>
+		<% elsif status == "입법진행중"%>
+			<%=image_tag("/assets/images/group_mobile_3.png", class: "visible-xs w-100")%>
+		<% elsif status == "법안심사" %>
+			<%=image_tag("/assets/images/group_mobile_4.png", class: "visible-xs w-100")%>
+		<% end %>
 		<p class="detail_content pt-4 pt-lg-0 pb-3 pb-lg-5 font-grey font-sm-12"><%= @result["propose"]["object"].content %></p>
 		<div class="buttons d-flex w-100 justify-content-around px-4 px-lg-0">
 			<!-- 약정하기 버튼-->
@@ -109,9 +125,19 @@
 	<!-- Detail Community -->
 	<section class="detail_menu pb-5">
 		<nav class="nav justify-content-around border-bottom px-3 px-lg-5 mb-3 mb-lg-5">
-			<a class="nav-link active py-4 font-weight-bold font-sm-12" href="/propose/<%= @result["propose"]["object"].id %>">커뮤니티</a>
+			<% if params["option"] == "push" %>
+			<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id %>">커뮤니티</a>
+			<a class="nav-link py-4 font-sm-12 active font-weight-bold" href="/propose/<%= @result["propose"]["object"].id%>?option=push">압력넣기</a>
+			<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id%>?option=best">명예의전당</a>
+			<% elsif params["option"] == "best"%>
+			<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id %>">커뮤니티</a>
+			<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id%>?option=push">압력넣기</a>
+			<a class="nav-link py-4 font-sm-12 active font-weight-bold" href="/propose/<%= @result["propose"]["object"].id%>?option=best">명예의전당</a>
+			<%else%>
+			<a class="nav-link py-4 font-sm-12 active font-weight-bold" href="/propose/<%= @result["propose"]["object"].id %>">커뮤니티</a>
 			<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id%>?option=push">압력넣기</a>
 			<a class="nav-link py-4 font-sm-12" href="/propose/<%= @result["propose"]["object"].id%>?option=best">명예의전당</a>
+			<%end%>
 		</nav>
 		<% if params["option"] != "push" and params["option"] != "best"%>
 		<% if current_vuser != nil %>
@@ -135,39 +161,60 @@
 		 	<% end %>
 		  <% end %>
 		 <% end%>
+		 <!-- 압력 넣기 -->
+	 <% if params["option"] == "push" %>
+		 <% @result["boss"].each do |boss|%>
+			 <h1>	(관련 위원회 위원장)<br>
+			 <hr>
+			 이름: <%= boss.name %><br>
+			 정당: <%= boss.polynm %><br>
+			 전화번호: <%= boss.tel %><br>
+				 이메일: <% if boss.email != "x"%> <%= boss.email %> <% else %> <%= boss.emaill%><%end%>
+								 </h1>
+		 <% end %>
+		 <% @result["push"].each do |person|%>
+			 <hr>
+			 이름: <%= person.name %><br>
+			 정당: <%= person.polynm %><br>
+			 전화번호: <%= person.tel %><br>
+				 이메일: <% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%>
+			<% end %>
+
+		 <% elsif params["option"] == "best"%>
+			<!-- 명예의 전당 -->
+			<p class="font-14 font-sm-10 font-grey text-center">이  입법을 추진시키기 위해, 큰 공헌을 한 10명의 시민분들입니다.</p>
+			<div class="container">
+			<% @result["contributors"].each do |contr|%>
+				<%if contr["rank"]==1%>
+					<div class="row">
+						<div class="col-12 font-grey text-center mb-4">
+							<p class="nickname font-14 font-sm-12 mb-lg-1"><%= contr["user"].name %>
+								<%=image_tag('/assets/images/crown.png', class: "crown2")%></p>
+							<p class="font-24 font-sm-20 mb-lg-0">1,892,290</p>
+							<p class="font-12 font-sm-10">1,000,000 + 892,290</p>
+						</div>
+					</div>
+				<%else%>
+					<div class="row">
+						<div class="col-6 col-lg-4 font-grey text-center mb-4">
+							<p class="nickname font-14 mb-lg-1"><%= contr["user"].name %>
+								<%=image_tag('/assets/images/crown.png', class: "crown2")%></p>
+							<p class="font-24 mb-lg-0">1,892,290</p>
+							<p class="font-12">1,000,000 + 892,290</p>
+						</div>
+					</div>
+				<%end%>
+			<%end%>
+			</div>
+	 <% else %>
+	 <%end%>
 	</section>
 	<!-- //Detail Commnnity -->
 	<div id="test"></div>
 	<!-- Detail Posts -->
-
+	<% if params["option"] != "push" and params["option"] != "best"%>
+	<% if current_vuser != nil %>
 	<section class="detail_posts">
-   <!-- 압력 넣기 -->
-	<% if params["option"] == "push" %>
-		<% @result["boss"].each do |boss|%>
-			<h1>	(관련 위원회 위원장)<br>
-		 	<hr>	
-		  이름: <%= boss.name %><br>
-		  정당: <%= boss.polynm %><br>
-		  전화번호: <%= boss.tel %><br>
-	      이메일: <% if boss.email != "x"%> <%= boss.email %> <% else %> <%= boss.emaill%><%end%>
-               </h1>
-		<% end %>
-		<% @result["push"].each do |person|%>
-			<hr>	
-		  이름: <%= person.name %><br>
-		  정당: <%= person.polynm %><br>
-		  전화번호: <%= person.tel %><br>
-	      이메일: <% if person.email != "x"%> <%= person.email %> <% else %> <%= person.emaill%><%end%>
-	   <% end %>  
-   
-   <% elsif params["option"] == "best"%>
-	   <!-- 명예의 전당 -->
-       <% @result["contributors"].each do |contr|%>
-		   <hr>
-		   사용자 이름: <%= contr["user"].name %><br>
-		   랭킹: <%= contr["rank"]%><br>
-	   <% end %>
-	<% else %>
 		<ul class="nav align-items-end h-100 justify-content-end pb-3 visible-lg">
 			<li class="nav-item px-0 py-0">
 				<a class="nav-link active font-weight-bold font-14" href="#">인기순</a>
@@ -207,8 +254,9 @@
 				</a>
 			<% end %>
 		</div>
-	<% end %>
 	</section>
+	<%end%>
+	<%end%>
 
 	<!-- Detail Posts -->
 <!-- Layer -->

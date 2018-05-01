@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419071824) do
+ActiveRecord::Schema.define(version: 20180501101650) do
 
   create_table "vcandidates", force: :cascade do |t|
     t.integer "propose_id"
@@ -95,6 +95,14 @@ ActiveRecord::Schema.define(version: 20180419071824) do
     t.date "deadline"
   end
 
+  create_table "vcontributors", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "propose_id"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "vcoupons", force: :cascade do |t|
     t.text "name"
     t.integer "user_id"
@@ -169,6 +177,22 @@ ActiveRecord::Schema.define(version: 20180419071824) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vpointlogs", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "user_id"
+    t.text "category"
+    t.boolean "plus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vpoints", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "vproducts", force: :cascade do |t|
     t.integer "bill_id"
     t.integer "fake_price"
@@ -198,6 +222,7 @@ ActiveRecord::Schema.define(version: 20180419071824) do
     t.datetime "updated_at", null: false
     t.date "deadline"
     t.datetime "deadlines"
+    t.text "default_image"
   end
 
   create_table "vrewards", force: :cascade do |t|
