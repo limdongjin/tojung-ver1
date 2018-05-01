@@ -302,7 +302,9 @@ class ProposeController < ApplicationController
 		"문화/예술/체육/언론"=> "art",
 		"기타"=> "etc"
 	   }
-	   @propose.default_image = base_url + image_dict[@propose.bg_category_name] + ".png"
+	   if @propose.bg_category_name != nil 
+	    @propose.default_image = base_url + image_dict[@propose.bg_category_name] + ".png"
+	   end
 	#end 
 
 	#@propose.sm_category_name = params[:propose_sm_category]
