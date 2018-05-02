@@ -16,12 +16,12 @@
   <div class="container">
     <div class="row">
 			<% @proposes.each do |propose| %>
-	      <div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<%= propose.image.url %>)">
+				<div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
 	        <div class="funding_card d-flex flex-column h-100 w-100">
-	          <a href="/propose/<%= propose.id %>">
+	          <a href="/propose/<%= propose.id %>" class="h-100">
 	            <h4 class="funding_title text-white"><%= propose.title %></h4>
-	            <div class="funding_card_info h-100">
-								<p class="funding_days text-white text-right"><%= propose.status %></p>
+	            <div class="funding_card_info pt-lg-4">
+								<p class="funding_days text-white text-right font-24 font-sm-18"><%= propose.status %></p>
 								<% if (propose.status == "펀딩진행중" or propose.status == "펀딩 마감 하루전" or propose.status == "펀딩 마감 이틀전") and propose.deadlines != nil %>
               	<p class="funding_days text-white text-right">
 									<span class="funding_d_day text-white"><%= ((propose.deadlines - Time.now)/(60*60*24) + 1).to_i %></span>일 남음
@@ -36,4 +36,18 @@
     </div>
   </div>
 </section>
-<!--//List  -->
+<!-- //List-->
+<script type="text/javascript">
+  function comma(str) {
+      str = String(str);
+      return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+  }
+  var i = 0
+  while( i< $(".funding_money").length){
+    var money=$(".funding_money")[i].innerHTML;
+    var newMoney=comma(money);
+    $(".funding_money")[i].innerHTML=newMoney;
+    i+=1;
+  }
+</script>
+<!-- //원화 콤마찍기 -->

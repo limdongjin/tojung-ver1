@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-   
-  
-  
-  get 'search_form' => 'propose#search_form' 
+
+
+
+  get 'search_form' => 'propose#search_form'
   get 'search' => 'propose#search'
 
   get 'community/index'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'community/:id' => 'community#detail'
 
   get 'community/update'
-  post 'communities/:propose_id' => 'community#index' 
+  post 'communities/:propose_id' => 'community#index'
   get 'community/cheart/:id' => 'community#cheart', as: "cheart"
   post 'community/:id/post' => 'community#crepost', as: "cpost"
   get 'community/pheart'
@@ -40,13 +40,13 @@ Rails.application.routes.draw do
 
 
   post 'contract/create/:propose_id' => 'contract#create'
-  
+
   # get 'contract/delete'
 
   # 청원
   # get 'propose/index'
 
-  get 'propose/new'
+  get 'propose/new' => 'propose#new', as: "propose_new"
 
   post 'propose/create'
 
