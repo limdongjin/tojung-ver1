@@ -330,10 +330,10 @@ class ProposeController < ApplicationController
 
 	@writer  = Vuser.find(@contract.user_id)	
 
-   Vpointlog.create(user_id: current_vuser.id, amount: 1004, category: "약정생성", plus: true)
-   vuser_point = Vpoint.find_by_user_id(current_vuser.id)
-   if vuser_point == nil
-     Vpoint.create(user_id: current_vuser.id, amount: 1004)
+   Vpointlog.create(user_id: current_vuser.id, propose_id: @propose.id ,amount: 1004, category: "약정생성", plus: true)
+   vuser_point = Vpoint.where(user_id: current_vuser.id, propose_id: @propose.id)
+   if vuser_point.count == 0
+     Vpoint.create(user_id: current_vuser.id, propose_id: @propose.id, amount: 1004)
    else 
      vuser_point.amount += 1004
 	 vuser_point.save
