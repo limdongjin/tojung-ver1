@@ -24,7 +24,43 @@
 
 > [ 2018.04.24 ] Vanilla.js로 구현한 기능들 보류.
 
-> [ 2018.04.24 ~ ] 프론트엔드와 백엔드의 병합 과정 진행중
+> [ 2018.04.24 ~ 2018.05.02 ] 프론트엔드와 백엔드의 병합 완료 / 사이트 구현 완료
+
+> [ 2018.05.04 ] 비즈니스 로직 변경 및 청원/약정 형식의 사이트 폐기......
+
+## Detail
+
+> 메인 페이지
+
+<img width="50%" height="10%" src="/투정사이트.PNG"></img>
+
+> 로그인 페이지 
+
+<img width="50%" height="10%" src="/투정로그인.PNG"></img>
+
+> 청원 페이지
+
+<img width="50%" height="10%" src="/투정청원.PNG"></img>
+
+> 약정 페이지 
+
+<img width="50%" height="10%" src="/투정약정.PNG"></img>
+
+> 청원 세부 페이지
+
+<img width="50%" height="10%" src="/청원세부.PNG"></img>
+
+> 청원내 커뮤니티 페이지
+
+<img width="50%" height="10%" src="/투정커뮤니티.PNG"></img>
+
+> 청원내 압력넣기 페이지
+
+<img width="50%" height="10%" src="/투정압력넣기.PNG"></img>
+
+> 청원내 명예의 전당 페이지
+
+<img width="50%" height="10%" src="/투정명예전당.PNG"></img>
 
 ## Environment
 
