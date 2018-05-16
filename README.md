@@ -82,5 +82,6 @@
 
 3. Gem 의존성 관리 : bundle
 
+4. ignore파일
 ## LICENSE 
 GPL3.0

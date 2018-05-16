@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516050718) do
+ActiveRecord::Schema.define(version: 20180516080658) do
+
+  create_table "person_responses", force: :cascade do |t|
+    t.text "name"
+    t.integer "person_id"
+    t.text "response_type"
+    t.text "response_text"
+    t.text "send_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "vcandidates", force: :cascade do |t|
     t.integer "propose_id"

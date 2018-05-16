@@ -22,7 +22,10 @@
 <hr>
 <% @people.each do |person| %>
   <hr>
-  <%= person.name %>
-  <%= person.polynm %>
+  <%= person.name %><br>
+  <%= person.polynm %><br>
+  응답여부: <%= @people_res[person.id].response_type %><br>
+  응답 메세지: <%= @people_res[person.id].response_text %><br>
+  관심도(사람들이 메일 보낸 횟수): <%= @people_res[person.id].send_count %><br>
   <a href="/propose/<%= @propose.id %>/email_form/<%= person.id %>"> 이메일 보내기 </a>
 <% end %>

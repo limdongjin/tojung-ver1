@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'search_form' => 'propose#search_form'
   get 'search' => 'propose#search'
 
+  get 'disagree' => 'response#disagree'
+  get 'agree' => 'response#agree'
+
   get 'community/index'
 
   post 'community/new'
