@@ -27,5 +27,12 @@
   응답여부: <%= @people_res[person.id].response_type %><br>
   응답 메세지: <%= @people_res[person.id].response_text %><br>
   관심도(사람들이 메일 보낸 횟수): <%= @people_res[person.id].send_count %><br>
+
+  <% if current_vuser != nil and current_vuser.email == "admin@2jung.com" %>
+     (관리자만 보임)해당 의원이 여기 접속하면 찬성 표시됨: <a href="https://2jung.com/agree?<%= { :key => @people_res[person.id].agree_hash }.to_query %>"> https://2jung.com/agree?<%= { :key => @people_res[person.id].agree_hash }.to_query %> </a>
+    <br>(관리자만 보임) 여기는 반대 표시: <a href="https://2jung.com/disagree?<%= { :key => @people_res[person.id].disagree_hash }.to_query %>"> https://2jung.com/disagree?<%= { :key => @people_res[person.id].disagree_hash }.to_query %> </a>
+  <% end %>
+  <hr>
+  <hr>
   <a href="/propose/<%= @propose.id %>/email_form/<%= person.id %>"> 이메일 보내기 </a>
 <% end %>
