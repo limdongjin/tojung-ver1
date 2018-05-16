@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/codahale/bcrypt-ruby.git
+  revision: 5c2d2d307e7d543521ece38a68ddb7940c548c25
+  specs:
+    bcrypt (3.1.11)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,7 +47,6 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
@@ -75,12 +80,15 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.6.2)
       devise (>= 4.4)
+    domain_name (0.5.20180417)
+      unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.1)
     excon (0.62.0)
     execjs (2.7.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
+    ffi (1.9.23-x64-mingw32)
     fog-aws (2.0.1)
       fog-core (~> 1.38)
       fog-json (~> 1.0)
@@ -100,12 +108,15 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.6)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
     jwt (1.5.6)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -116,6 +127,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    mailgun_rails (0.9.0)
+      actionmailer (>= 3.2.13)
+      json (>= 1.7.7)
+      rest-client (>= 1.6.7)
     method_source (0.9.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -127,9 +142,13 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql2 (0.4.10)
+    mysql2 (0.5.1)
+    mysql2 (0.5.1-x64-mingw32)
+    netrc (0.11.0)
     nio4r (2.3.0)
     nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    nokogiri (1.8.2-x64-mingw32)
       mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -189,6 +208,15 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    rest-client (2.0.2-x64-mingw32)
+      ffi (~> 1.9)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     ruby-json (1.1.2)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
@@ -219,6 +247,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
+    sqlite3 (1.3.13-x64-mingw32)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -227,8 +256,14 @@ GEM
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2018.5)
+      tzinfo (>= 1.0.0)
     uglifier (4.1.8)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
+    unf_ext (0.0.7.5-x64-mingw32)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -244,8 +279,10 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
+  bcrypt!
   byebug
   capybara (~> 2.13)
   carrierwave
@@ -255,6 +292,7 @@ DEPENDENCIES
   fog-aws
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mailgun_rails
   mini_magick
   mysql2
   omniauth-facebook

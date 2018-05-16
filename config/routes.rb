@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'propose/:id/email_send/:person_id' => 'propose#email_send'
 
-
-
+  get 'propose/:id/email_form/:person_id' => 'propose#email_form'
   get 'search_form' => 'propose#search_form'
   get 'search' => 'propose#search'
 

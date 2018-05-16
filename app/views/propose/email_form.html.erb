@@ -1,0 +1,13 @@
+메일 테스트중!
+<hr>
+<%= @person.name %>
+<hr>
+<%= @person.email %>
+<hr>
+
+<form class="propose_form w-100 font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email_send/<%= @person.id %>" accept-charset="UTF-8" method="get">
+    <input type="text" name="user_email" placeholder="이메일을 보내는 사람">
+     <input type="text" name="person_email" placeholder="hoyein9297@gmail.com">
+     <input type="text" name="content" placeholder="보내는 내용">
+     <input type="submit">
+</form>

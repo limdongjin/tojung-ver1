@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501113747) do
+ActiveRecord::Schema.define(version: 20180516050718) do
 
   create_table "vcandidates", force: :cascade do |t|
     t.integer "propose_id"
@@ -225,6 +225,12 @@ ActiveRecord::Schema.define(version: 20180501113747) do
     t.date "deadline"
     t.datetime "deadlines"
     t.text "default_image"
+    t.text "goods"
+    t.text "campaign"
+    t.text "campaign_content"
+    t.text "bill_link"
+    t.text "tumb"
+    t.text "assos"
   end
 
   create_table "vrewards", force: :cascade do |t|

@@ -15,7 +15,7 @@ gem 'fog-aws'
 gem 'omniauth-kakao'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-gem 'mysql2'
+# gem 'mysql2'
 gem 'devise'
 gem 'devise-i18n'
 gem 'ruby-json'
@@ -42,7 +42,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+#gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -66,3 +66,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'bcrypt', '~> 3.1.11', platforms: [:ruby, :x64_mingw, :mingw]
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+gem 'mysql2'
+gem 'mailgun_rails'
