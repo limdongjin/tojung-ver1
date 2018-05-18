@@ -1,0 +1,30 @@
+/* Subscribe */
+.subscribe_form{
+  padding: 20px 30%;
+}
+
+.btn-subscribe{
+  width: 164px;
+  height: 40px;
+  font-size: 1rem;
+  margin: 60px auto;
+  display: block;
+}
+
+@media screen and (max-width: 576px) {
+/* Subscribe */
+
+  .subscribe > p{
+    font-weight: normal !important;
+  }
+  
+  .subscribe_form{
+    padding: 20px 12%;
+  }
+
+  .btn-subscribe{
+    width: 132px;
+    height: 32px;
+    font-size: 12px;
+    margin: 30px auto;
+  }
