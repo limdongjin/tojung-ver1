@@ -121,8 +121,6 @@ class ProposeController < ApplicationController
       return
     end
     @propose = Vpropose.find(params[:id])
-
-
   end
 
   # POST /propose/create

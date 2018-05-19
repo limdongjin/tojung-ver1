@@ -1,29 +1,66 @@
-<h1>Propose#edit</h1>
-<p>Find me in app/views/propose/edit.html.erb</p>
+<!-- Propose Cover -->
+<section class="propose_cover">
+  <h2 class="sr-only">제안 수정하기 </h2>
+  <p class="propose_text text-white mb-2 font-sm-12">겪고 있는 문제가 있나요?</p>
+  <p class="propose_text text-white mb-2 font-sm-12">지금 바로, 투정부려보세요!</p><br/>
+  <p class="propose_text text-white mb-2 font-sm-12">당신의 투정,</p>
+  <p class="propose_text text-white mb-2 font-sm-12">투정이 국회로 직접 배송해드립니다.</p>
+</section>
+<!-- //Propose Cover -->
+<!-- Propose Form -->
+<form class="propose_form w-100 font-sm-10" enctype="multipart/form-data" action="/propose/update/<%= @propose.id %>" accept-charset="UTF-8" method="post">
+    <h2 class="sr-only">제안폼 작성</h2>
+    <input name="utf8" type="hidden" value="&#x2713;">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">투정 제목</label>
+      <input type="text" value="<%= @propose.title %>" class="form-control font-sm-10" id="propose_title" name="propose_title" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">상임위 풀네임으로 입력</label>
+      <input type="text" value="<%= @propose.assos %>" class="form-control font-sm-10" id="assos" name="assos" placeholder="상임위 이름 적으세요.">
+    </div>
+    <div>
 
-<%= form_tag("/propose/update/:id", method: "post", multipart: true ) do %>
-	
-	<!-- 청원 제목 입력 -->
-	<%= text_field_tag 'propose_title', "#{ @propose.title }", placeholder: "청원 제목을 입력해주세요" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">투정 내용</label>
+      <textarea class="form-control font-sm-10" value="<%= @propose.content %>" id="propose_content" name="propose_content" rows="6" placeholder="1. 현재 내가 겪고 있는 문제&#13;&#10;2. 어떻게 바뀌었으면 좋겠는지를 이야기해주세요."></textarea>
+    </div>
 
-	<!-- 청원 카테고리 드랍다운 입력-->
-	<% bg_categorys = [ ["대분류1", "대분류1"] , [ "대분류2", "대분류2" ]  ] %>
-	<div>
-		<%= select_tag(:bg_category_name, options_for_select(bg_categorys))%></div>
-	</div>
-	
-	<% sm_categorys = [ ["소분류1", "소분류1"] , [ "소분류2", "소분류2" ]  ] %>
-	<div>
-		<%= select_tag(:sm_category_name, options_for_select(sm_categorys)) %>
-	</div>
+    <label for="inputGroupFile02">대표 사진 업로드</label><br/>
+        <input type="file" value="<%= @propose.image %>" class="custom-file-input" id="propose_image" onchange="filename_change(this)" name="propose_image" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
+        <label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02">업로드 하지 않으면, 카테고리별 기본 사진으로
+          지정됩니다!</label>
+  <!-- //Propose Form -->
+  <!-- Propose Funding -->
+  <label for="inputGroupFile02"> 굿즈 사진 업로드</label><br/>
+>
+      <input type="file" value="<%= @propose.goods %>"class="custom-file-input" id="goods" onchange="filename_change(this)" name="goods" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
+      <label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02">굿즈 이미지</label>
 
-	<!-- 청원 내용 입력 -->
-	<%= text_field_tag 'propose_content', "#{ @propose.content }", placeholder: "청원 내용을 입력해주세요" %>
-	
-   
-    <!-- 이미지 업로드 -->
-	<%= file_field_tag('propose_image', accept: "image/png,image/gif,image/jpeg,image/PNG,image/jpg") %>
 
-	<!-- 제출 -->
-	<%= submit_tag("propose_create") %>
-<% end %>
+  <label for="inputGroupFile02"> 캠페인 사진 업로드</label><br/>
+
+      <input type="file" value="<%= @propose.campaign %>" class="custom-file-input" id="campaign" onchange="filename_change(this)" name="campaign" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
+      <label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02"> 캠페인 이미지 </label>
+
+    <label for="exampleFormControlTextarea1">캠페인 내용</label>
+    <textarea class="form-control font-sm-10" value="<%= @propose.campaign_content %>" id="campaign_content" name="campaign_content" rows="6" placeholder="캠페인 내용"></textarea>
+
+    <label for="exampleFormControlInput1">법안 원문 링크</label>
+    <input type="text" value="<%= @propose.bill_link %>" form-control font-sm-10" id="propose_title" name="bill_link" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
+
+    <label for="exampleFormControlInput1">텀블벅 링크</label>
+    <input type="text" value="<%= @propose.tumb %>" class="form-control font-sm-10" id="propose_title" name="tumb" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
+
+    <input type="submit" class="btn btn-primary" name="commit" value="투정하기">
+  <!-- //Propose Notice -->
+</form>
+
+<script>
+    function filename_change(obj) {
+        var file_name = obj.files[0].name;
+        document.getElementById('image_label').innerHTML = file_name;
+    }
+</script>
