@@ -1,0 +1,38 @@
+/* Email Form */
+.email_form{
+  padding: 40px 30% 80px 30%;
+}
+
+.btn-email{
+  width: 164px;
+  height: 40px;
+  font-size: 1rem;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Email Response */
+.email_response{
+  background-color: rgba(231, 231, 231, 0.6);
+  padding: 50px 22%;
+}
+
+@media screen and (max-width: 576px) {
+/* Maker Profile*/
+  .maker_profile h4{
+    font-weight: normal !important;
+  }
+/* Email Form */
+  .email_form{
+    padding: 30px 12% 60px 12%;
+  }
+
+  .btn-email{
+    width: 132px;
+    height: 32px;
+  }
+/*Email Response  */
+  .email_response{
+    padding: 30px 9%;
+  }
+}

@@ -1,0 +1,244 @@
+/* Custom settings */
+*{
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.bg-light{
+  background-color: white !important;
+}
+
+.bg-grey{
+  background-color: #f1f1f1;
+}
+
+.font-10{
+  font-size: 0.625rem;
+}
+
+.font-12{
+  font-size: 0.75rem;
+}
+
+.font-14{
+  font-size: 0.875rem;
+}
+
+.font-16{
+  font-size: 1rem;
+}
+
+.font-18{
+  font-size: 1.125rem;
+}
+
+.font-20{
+  font-size: 1.25rem;
+}
+
+.font-24{
+  font-size: 1.5rem;
+}
+
+.font-36{
+  font-size: 2.25rem;
+}
+
+.font-weight-extra-bold{
+  font-weight: 800;
+}
+
+.font-grey{
+  color: #858585;
+}
+
+.text-primary{
+  color: #3e6373 !important;
+}
+
+.visible-xs{
+  display: none;
+}
+
+.visible-xs-block{
+  display: none;
+}
+
+.alert{
+  position: absolute;
+  float: left;
+  width: 100%;
+  z-index: 10000;
+}
+
+.active{
+  color: #3e6373 !important;
+}
+
+.logo{
+  width: 44px;
+  height: 40px;
+  color: white;
+}
+
+.brand{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.underbar-none{
+  text-decoration: none;
+}
+
+.underbar-none:hover{
+  text-decoration: none;
+}
+
+/*Detail Cover*/
+.detail_num{
+  position: relative;
+  left: 90%;
+  bottom: 46px;
+}
+
+.funding_detail_cover{
+  background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: calc(100vw * 0.53);
+  padding-top: 5%;
+}
+
+.detail_post{
+  margin-top: 10%;
+}
+
+.funding_detail_content{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.btn-white{
+  background-color: white;
+  border: 1px solid #a7a7a7;
+  border-radius: 0;
+  width: 217px;
+  color: #a7a7a7;
+}
+
+.btn-share{
+  width: 15%;
+}
+
+.border-bottom{
+  border-bottom: 1px solid #a7a7a7;
+}
+
+form input{
+  border-radius: 3px;
+}
+
+form input[placeholder], form textarea[placeholder]{
+  font-size: 14px;
+  line-height: 1.07;
+  padding: 18px 22px;
+}
+
+::placeholder{
+  color: #aab2bd !important;
+}
+
+@media screen and (max-width: 576px) {
+
+  .visible-xs{
+    display: inline;
+  }
+
+  .visible-xs-block{
+    display: block !important;
+  }
+
+  .visible-lg{
+    display: none !important;
+  }
+
+  .font-sm-8{
+    font-size: 0.5rem !important;
+  }
+  .font-sm-10{
+    font-size: 0.625rem !important;
+  }
+
+  .font-sm-12{
+    font-size: 0.75rem !important;
+  }
+
+  .font-sm-14{
+    font-size: 0.875rem !important;
+  }
+
+  .font-sm-16{
+    font-size: 1rem !important;
+  }
+
+  .font-sm-18{
+    font-size: 1.125rem !important;
+  }
+
+  .font-sm-20{
+    font-size: 1.25rem !important;
+  }
+
+  /*Header*/
+  .logo{
+    width: 36px;
+    height: 34px;
+  }
+
+  /* Detail Cover */
+  .detail_img{
+    width: 90%;
+  }
+
+  .detail_mobile_cover{
+    background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../images/woman.jpg);
+    height: calc(100vw * 0.53);
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .detail_title{
+    width: 60%;
+    height: 50%;
+    margin-bottom: 0;
+  }
+
+  .detail_infos{
+    height: 50%;
+  }
+
+  form input[placeholder], form textarea[placeholder]{
+    font-size: 10px;
+    line-height: 1.5;
+    padding: 8px 13px;
+  }
+
+}
+
+
+video{
+  height: 576px;
+  width: 100%;
+}
+
+
+.visible-lg .nav-item{
+  height: 28%;
+  font-size: 0.875rem;
+}
+
+.visible-lg .nav-item .active{
+  color: #3e6373;
+  font-weight: bold;
+}
