@@ -23,6 +23,8 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = true #ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  # config.api_only = true
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
@@ -61,7 +63,14 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "tojung_page_rails_#{Rails.env}"
   config.action_mailer.perform_caching = false
+  ##############################
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: 'key-a8be3600b23b2417d14747c56a30537f',
+      domain: '2jung.com'
+  }
 
+  ############################
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
