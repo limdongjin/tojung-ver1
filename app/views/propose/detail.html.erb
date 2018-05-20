@@ -69,13 +69,17 @@ style="background-image: url(<%= @propose.image %>);">
     <div class="row mx-0">
       <% @people.each do |person| %>
       <div class="col-4 col-lg-2 maker_card text-white font-weight-bold">
-        <a href="#" class="d-block text-white underbar-none">
+        <a href="/propose/<%= @propose.id %>/email_form/<%= person.id %>" class="d-block text-white underbar-none">
           <div class="maker_card_info">
             <p class="mt-2 mt-lg-0 mb-0"><%= person.name %></p>
             <p class="mb-2"><%= person.polynm %></p>
             <p class="mb-1 mb-lg-0"><span><%= @people_res[person.id].send_count %></span>관심</p>
           </div>
         </a>
+        <% if current_vuser != nil and current_vuser.email == "admin@2jung.com" %>
+           (관리자만 보임)해당 의원이 여기 접속하면 찬성 표시됨: <a href="https://2jung.com/agree?<%= { :key => @people_res[person.id].agree_hash }.to_query %>"> https://2jung.com/agree?<%= { :key => @people_res[person.id].agree_hash }.to_query %> </a>
+          <br>(관리자만 보임) 여기는 반대 표시: <a href="https://2jung.com/disagree?<%= { :key => @people_res[person.id].disagree_hash }.to_query %>"> https://2jung.com/disagree?<%= { :key => @people_res[person.id].disagree_hash }.to_query %> </a>
+        <% end %>
       </div>
       <% end %>
     </div>
@@ -129,8 +133,36 @@ style="background-image: url(<%= @propose.image %>);">
   <a href="/propose/<%= @propose.id %>/email_form/<%= person.id %>"> 이메일 보내기 </a>
 <% end %> -->
 
-<!-- Layer -->
-<script>
+<!-- Height -->
+<script type="text/javascript">
 var wid = $('.maker_card').width();
 $('.maker_card').css({'height':(wid*1.35)+'px'});
+</script>
+<!-- Layer -->
+<script type="text/javascript">
+  var num = <%=@propose.id%>
+  if (num ==1){
+		$(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @propose.image %>)');
+		$(".detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @propose.image %>)');
+	}
+  else if (num == 2){
+    $(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(<%= @propose.image %>)');
+    $(".detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(<%= @propose.image %>)');
+  }
+  else if (num == 3){
+    $(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(<%= @propose.image %>)');
+    $(".detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(<%= @propose.image %>)');
+  }
+  else if (num == 4){
+    $(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(<%= @propose.image %>)');
+    $(".detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(<%= @propose.image %>)');
+  }
+  else if (num == 5){
+    $(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(<%= @propose.image %>)');
+    $(".detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(<%= @propose.image %>)');
+  }
+  else{
+    $(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @propose.image %>)');
+    $(".detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @propose.image %>)');
+  }
 </script>
