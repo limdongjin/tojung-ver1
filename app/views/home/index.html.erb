@@ -1,41 +1,27 @@
 <!-- Cover -->
 <section class="cover">
-  <!-- 영상 들어갈 부분-->
+  <div class="brand pl-lg-4 pt-lg-4 visible-lg">
+    <a class="navbar-brand py-0 mr-0" href="/">
+      <%=image_tag("/assets/images/tojung_green.png", class:"logo")%>
+    </a>
+  </div>
+  <div class="arrow">
+    <%=image_tag("/assets/images/arrow.png", class:"arrow_img")%>
+  </div>
+  <!-- <video src="../manual.mp4" autoplay></video> -->
 </section>
 <!-- //Cover -->
 
-<!-- New 제안하기-->
+<!-- New -->
 <section class="new">
   <h2 class="sr-only">제안하기</h2>
   <div class="container mx-0">
     <div class="row">
-        <div class="col-2 col-lg-3 new_logo">
-  				<!--청원 제안하기  -->
-          <%=link_to propose_new_path do%>
-  					<%=image_tag("/assets//images/shape.png", class: "mic_icon")%>
-            <%end%>
-        </div>
-        <div class="col-8 col-lg-5 new_textbox px-0">
-          <%=link_to propose_new_path, class: "decoration-none d-inherit" do%>
-          	<p id="mention" class="new_text"></p>
-  			<%end%>
-        </div>
-
-      <div class="visible-lg col-lg-4 new_textbox px-0">
-        <ul class="nav align-items-end justify-content-end h-100 w-100">
-          <li class="nav-item px-0 py-0">
-            <a class="nav-link active" href="https://2jung.com?order=hot">인기순</a>
-          </li>
-          <li class="nav-item px-0 py-0">
-            <a class="nav-link" href="https://2jung.com?order=new">최신순</a>
-          </li>
-          <li class="nav-item px-0 py-0">
-            <a class="nav-link" href="https://2jung.com?order=deadl">마감임박순</a>
-          </li>
-          <li class="nav-item px-0 py-0">
-            <a class="nav-link" href="https://2jung.com?order=voting">의원투표진행중</a>
-          </li>
-        </ul>
+      <div class="col-2 col-lg-2 new_logo px-1 py-3 px-lg-5 py-lg-5">
+        <%=image_tag("/assets/images/shape.png", class: "mic_icon d-block mx-auto")%>
+      </div>
+      <div class="col-9 col-lg-9 new_textbox px-0 ml-lg-3">
+        <p id="mention" class="new_text font-20 font-sm-10"></p>
       </div>
     </div>
   </div>
@@ -47,15 +33,14 @@
   <div class="container">
     <div class="row">
 			<% @proposes.each do |propose| %>
-				<div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
-	        <div class="funding_card d-flex flex-column h-100 w-100">
+				<div class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
+	        <div class="funding_card d-flex flex-column h-100">
 	          <a href="/propose/<%= propose.id %>" class="h-100">
-	            <h4 class="funding_title text-white"><%= propose.title %></h4>
-	            <div class="funding_card_info pt-lg-4">
-								<p class="funding_days text-white text-right font-24 font-sm-18"><%= propose.status %></p>
+	            <h4 class="funding_title text-white mb-0"><%= propose.title %></h4>
+	            <div class="funding_card_info">
 								<% if (propose.status == "펀딩진행중" or propose.status == "펀딩 마감 하루전" or propose.status == "펀딩 마감 이틀전") and propose.deadlines != nil %>
-              	<p class="funding_days text-white text-right">
-									<span class="funding_d_day text-white"><%= ((propose.deadlines - Time.now)/(60*60*24) + 1).to_i %></span>일 남음
+              	<p class="funding_num text-white text-right">
+									<span class="funding_nums text-white"><%= ((propose.deadlines - Time.now)/(60*60*24) + 1).to_i %></span>명
 								</p>
 								<% end %>
 	              <p class="funding_money text-white text-right">&#8361;<%= propose.funded_money %></p>
@@ -68,6 +53,7 @@
   </div>
 </section>
 <!--//List  -->
+
 <!-- typewriter js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
 <!-- Typewriter -->

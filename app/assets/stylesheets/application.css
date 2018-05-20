@@ -16,505 +16,253 @@
 
 /* Menu 바 */
 
- /* Custom settings */
- *{
-   font-family: 'Nanum Gothic', sans-serif;
- }
+/* Custom settings */
+*{
+  font-family: 'Nanum Gothic', sans-serif;
+}
 
- .bg-light2{
-   background-color: white !important;
- }
+.bg-light{
+  background-color: white !important;
+}
 
- .bg-grey{
-   background-color: #f1f1f1;
- }
+.bg-grey{
+  background-color: #f1f1f1;
+}
 
- .font-10{
-   font-size: 0.625rem;
- }
+.font-10{
+  font-size: 0.625rem;
+}
 
- .font-12{
-   font-size: 0.75rem;
- }
+.font-12{
+  font-size: 0.75rem;
+}
 
- .font-14{
-   font-size: 0.875rem;
- }
+.font-14{
+  font-size: 0.875rem;
+}
 
- .font-16{
-   font-size: 1rem;
- }
+.font-16{
+  font-size: 1rem;
+}
 
- .font-18{
-   font-size: 1.125rem;
- }
+.font-18{
+  font-size: 1.125rem;
+}
 
- .font-20{
-   font-size: 1.25rem;
- }
+.font-20{
+  font-size: 1.25rem;
+}
 
- .font-24{
-   font-size: 1.5rem !important;
- }
+.font-24{
+  font-size: 1.5rem;
+}
 
- .font-36{
-   font-size: 2.25rem;
- }
+.font-36{
+  font-size: 2.25rem;
+}
 
- .font-grey{
-   color: #858585;
- }
+.font-weight-extra-bold{
+  font-weight: 800;
+}
 
- .text-primary{
-   color: #3e6373 !important;
- }
+.font-grey{
+  color: #858585;
+}
 
- .active{
-   color: #3e6373 !important;
- }
+.text-primary{
+  color: #3e6373 !important;
+}
 
- .decoration-none{
-   text-decoration: none;
- }
+.visible-xs{
+  display: none;
+}
 
- .decoration-none:hover{
-   text-decoration: none;
- }
+.visible-xs-block{
+  display: none;
+}
 
- .alert{
-   position: absolute;
-   float: left;
-   width: 100%;
-   z-index: 10000;
- }
+.alert{
+  position: absolute;
+  float: left;
+  width: 100%;
+  z-index: 10000;
+}
 
- /* Header */
- .brand{
-   margin-bottom: 0;
- }
+.active{
+  color: #3e6373 !important;
+}
 
- .logo{
-   width: 78px;
-   height: 73px;
- }
+.logo{
+  width: 44px;
+  height: 40px;
+  color: white;
+}
 
- nav.navbar.navbar-expand-lg{
-   padding: 1.75rem 2.0625rem 1.75rem 2.75rem;
- }
+.brand{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 
- .nav-item{
-   padding: 21px 21px;
- }
-
- .nav-link {
-   font-size: 0.875rem;
-   text-transform: uppercase;
-   color: #858585;
-   line-height: 1.15;
- }
-
- .visible-xs{
-   display: none;
- }
-
- .visible-xs-block{
-   display: none;
- }
-
-
- /* Cover */
- .cover{
-   height: 576px;
-   width: 100%;
-   background-image: url(/assets/images/funding.jpg);
-   background-position: center center;
-   background-repeat: no-repeat;
-   background-size: cover;
- }
-
- video{
-   height: 576px;
-   width: 100%;
- }
-
- /* New */
- .new{
-   background-color: #eeeef0;
- }
-
- .new_logo{
-   padding: 8% 8.3%;
- }
-
- .mic_icon{
-   width: 70%;
-   height: auto;
- }
-
- .new_textbox{
-   white-space: pre-wrap;
-   display: flex;
-   align-items: center;
- }
-
- .d-inherit{
-   display: inherit;
- }
-
- .new_text{
-   font-size: 1.5rem;
-   line-height: 1.25;
-   color: #858585;
-   margin-bottom: 0;
-   padding-left: 11%;
-   border-left: 4px solid #858585;
- }
-
- .new .container{
-   max-width: 100vw;
- }
-
- .visible-lg .nav-item{
-   height: 28%;
-   font-size: 0.875rem;
- }
-
- .visible-lg .nav-item .active{
-   color: #3e6373;
-   font-weight: bold;
- }
-
- /* Funding_list */
- .funding_list > .container{
-   max-width: 100vw;
- }
-
- .funding_card_box{
-   background-position: center center;
-   background-size: cover;
-   background-repeat: no-repeat;
-   height: calc(50vw * 0.53);
-   position: relative;
- }
-
- .funding_card_box::before{
-   content: '';
-   position: absolute;
-   display: block;
-   top: 0;
-   bottom: 0;
-   right: 0;
-   left: 0;
- }
-
- .funding_card a{
+.underbar-none{
   text-decoration: none;
- }
+}
 
- .funding_card_box:nth-child(6n)::before{
-   background-image: linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6));
- }
+.underbar-none:hover{
+  text-decoration: none;
+}
 
- .funding_card_box:nth-child(6n+1)::before{
-   background-image: linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6));
- }
+/*Detail Cover*/
+.detail_num{
+  position: relative;
+  left: 90%;
+  bottom: 46px;
+}
 
- .funding_card_box:nth-child(6n+2)::before{
-   background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6));
- }
+.funding_detail_cover{
+  background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: calc(100vw * 0.53);
+  padding-top: 5%;
+}
 
- .funding_card_box:nth-child(6n+3)::before{
-   background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6));
- }
+.detail_post{
+  margin-top: 10%;
+}
 
- .funding_card_box:nth-child(6n+4)::before{
-   background-image: linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6));
- }
+.funding_detail_content{
+  padding-left: 20%;
+  padding-right: 20%;
+}
 
- .funding_card_box:nth-child(6n+5)::before{
-   background-image: linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6));
- }
+.btn-white{
+  background-color: white;
+  border: 1px solid #a7a7a7;
+  border-radius: 0;
+  width: 217px;
+  color: #a7a7a7;
+}
 
- .funding_card{
-   z-index: 1000;
-   position: absolute;
- }
+.btn-share{
+  width: 15%;
+}
 
- .funding_title{
-   font-size: 1.5rem;
-   font-weight: bold;
-   width: 55%;
-   padding: 6% 6%;
-   height: 50%;
-   margin-bottom: 0;
- }
+.border-bottom{
+  border-bottom: 1px solid #a7a7a7;
+}
 
- .funding_d_day{
-   font-size: 1.5rem;
- }
+form input{
+  border-radius: 3px;
+}
 
- .funding_days{
-   font-size: 0.875rem;
-   font-weight: bold;
-   padding-right: 5%;
-   margin-bottom: 0;
- }
+form input[placeholder], form textarea[placeholder]{
+  font-size: 14px;
+  line-height: 1.07;
+  padding: 18px 22px;
+}
 
- .funding_money{
-   font-size: 1.5rem;
-   font-weight: bold;
-   padding-right: 5%;
-   line-height: 1;
- }
+::placeholder{
+  color: #aab2bd !important;
+}
 
- .funding_card_info{
-   justify-content: flex-end;
-   align-items: flex-end;
-   height: 50%;
- }
+@media screen and (max-width: 576px) {
 
- /* Funding */
- .funding_cover{
-   background-image: url(../images/funding_bg.png);
-   height: calc(100vw*0.35);
-   background-position: center center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
- }
+  .visible-xs{
+    display: inline;
+  }
 
- #funding_content{
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   padding-bottom: 7%;
- }
+  .visible-xs-block{
+    display: block !important;
+  }
 
- #funding_content p{
-     font-size: 0.875rem;
- }
+  .visible-lg{
+    display: none !important;
+  }
 
- .fund_title{
-   margin-top: 5%;
-   margin-bottom: 5%;
-   font-size: 2.25rem;
-   font-weight: bold;
-   color: #3e6373;
- }
+  .font-sm-8{
+    font-size: 0.5rem !important;
+  }
+  .font-sm-10{
+    font-size: 0.625rem !important;
+  }
 
- .user_nickname{
-   font-weight: bold;
- }
+  .font-sm-12{
+    font-size: 0.75rem !important;
+  }
 
- #funding_content .btn{
-   width: 15%;
-   display: block;
-   margin: 0 auto;
-   margin-top: 5%;
- }
+  .font-sm-14{
+    font-size: 0.875rem !important;
+  }
+
+  .font-sm-16{
+    font-size: 1rem !important;
+  }
+
+  .font-sm-18{
+    font-size: 1.125rem !important;
+  }
+
+  .font-sm-20{
+    font-size: 1.25rem !important;
+  }
+
+  /*Header*/
+  .logo{
+    width: 36px;
+    height: 34px;
+  }
+
+  /* Detail Cover */
+  .detail_img{
+    width: 90%;
+  }
+
+  .detail_mobile_cover{
+    background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../images/woman.jpg);
+    height: calc(100vw * 0.53);
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .detail_title{
+    width: 60%;
+    height: 50%;
+    margin-bottom: 0;
+  }
+
+  .detail_infos{
+    height: 50%;
+  }
+
+  form input[placeholder], form textarea[placeholder]{
+    font-size: 10px;
+    line-height: 1.5;
+    padding: 8px 13px;
+  }
+
+}
 
 
- /* Funding detail */
- .funding_detail_cover{
-   background-image: url(../images/woman.jpg);
-   background-repeat: no-repeat;
-   background-position: center center;
-   background-size: cover;
-   height: calc(100vw * 0.53);
-   padding-top: 5%;
- }
+video{
+  height: 576px;
+  width: 100%;
+}
 
- .funding_detail_content{
-   padding-left: 20%;
-   padding-right: 20%;
- }
 
- .btn-white{
-   background-color: white;
-   border: 1px solid #a7a7a7;
-   border-radius: 0;
-   color: #a7a7a7;
- }
+.visible-lg .nav-item{
+  height: 28%;
+  font-size: 0.875rem;
+}
 
- .btn-share{
-   width: 15%;
- }
-
- .border-bottom{
-   border-bottom: 1px solid #a7a7a7;
- }
-
- .detail_menu{
-   padding-left: 10%;
-   padding-right: 10%;
- }
-
- .detail_menu form{
-   padding-left: 12%;
-   padding-right: 12%;
- }
-
- .detail_menu form .form-group{
-   box-shadow: none;
- }
-
- .detail_menu form input[placeholder]{
-   padding: 1%;
- }
-
- .detail_menu form .custom-file-label{
-   padding: 2%;
- }
-
- .detail_menu form .custom-file-label::after{
-   padding: 2%;
- }
-
- .detail_menu .btn{
-   width: 20%;
-   margin: 0 auto;
-   display: block;
- }
-
- .detail_posts{
-   padding-left: 20%;
-   padding-right: 20%;
-   padding-bottom: 15%;
- }
-
- /* Detail Matching 1 */
- .matching1_text{
-   padding-top: 8%;
-   padding-bottom: 8%;
- }
-
- .detail_menu > .container{
-   margin-top: 10%;
- }
-
- /* Detail Matching 2 */
- .lawmaker_img{
-   width: 100px;
-   height: 100px;
-   border-radius: 300px;
- }
-
- .lawmaker_img:hover{
-   border: 4px solid #3e6373;
- }
-
- .hover_green:hover{
-   color: #3e6373;
-   font-weight: bold;
-   text-decoration: none;
-   cursor: pointer;
- }
+.visible-lg .nav-item .active{
+  color: #3e6373;
+  font-weight: bold;
+}
 
 
 
- /* Detail_Funding 2 */
- .post{
-   padding-left: 15%;
-   padding-right: 15%;
- }
-
- .post_heart:hover{
-   background-image: url('../images/heart_black.png');
- }
-
- .back{
-   display: block;
-   text-align: left;
-   text-decoration: none;
- }
-
- .border-bottom-c{
-   border-bottom: 1px solid #cccccc;
- }
-
- .crown{
-   width: 5%;
-   padding-left: 1%;
- }
-
- /* Detail Lawmake */
- .button-lg{
-   width: 20%;
- }
-
- /* Detail Test */
- #promise{
-   padding: 3% 20% 1% 20%;
- }
-
- .crown2{
-   width: 22.9px;
-   height: 10.9px;
-   margin-left: 3px;
- }
-
- /* Detail Candidate */
- .candidate{
-   padding: 5% 20% 10% 20%;
- }
-
- .mb-10p{
-   margin-bottom: 10%;
- }
-
- .candidate form > .form-group{
-   box-shadow: none;
- }
-
- .candidate form > .form-group input[placeholder]{
-   padding: 1.5%;
- }
-
- .candidate form .custom-checkbox .custom-control-label{
-   margin-top: 0%;
- }
- .candidate form .custom-checkbox .custom-control-label::before{
-   margin-top: 0%;
- }
- .candidate form .custom-checkbox .custom-control-label::after{
-   margin-top: 0%;
- }
-
- .candidate form .custom-checkbox .writebox::before{
-   margin-top: 3px;
- }
-
- .candidate form .custom-checkbox .writebox::after{
-   margin-top: 3px;
- }
-
- .text-black{
-   color: black !important;
- }
-
- .candidate form .custom-control.custom-checkbox{
-   margin: 3% 0;
- }
-
- .checkbox_text{
-   border: none;
-   border-bottom: 1px solid #cccccc;
-   width: 200%;
- }
-
- .check_box:focus{
-   outline: none;
-   border: none;
- }
-
- .candidate form .btn{
-   width: 30%;
-   margin: 10% auto 0 auto;
-   display: block;
- }
 
  /* MY PAGE */
  .mypage{
