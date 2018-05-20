@@ -120,7 +120,7 @@
 }
 
 .funding_detail_cover{
-  background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
+  background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../../images/woman.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -250,16 +250,6 @@ video{
   width: 100%;
 }
 
-
-.visible-lg .nav-item{
-  height: 28%;
-  font-size: 0.875rem;
-}
-
-.visible-lg .nav-item .active{
-  color: #3e6373;
-  font-weight: bold;
-}
 
 
 
@@ -629,19 +619,12 @@ a.text-primary{
   }
 
   /* Cover */
-  .cover{
-    height: 40vh;
-  }
   /* New */
 
   .new_logo{
     padding: 5% 7%;
   }
 
-  .mic_icon{
-    width: 220%;
-    height: auto;
-  }
 
   .new_text{
     font-size: 0.625rem;
