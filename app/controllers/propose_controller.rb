@@ -1,16 +1,49 @@
 # noinspection ALL
 class ProposeController < ApplicationController
+  # GET /propose/:id/subcribe
+  def subscribe_form
+  end
+
+  # POST /propose/:id/subscribe
+  def subscribe
+    subscribe = Subscribe.new
+    subscribe.email = params[:email]
+    subscribe.phone = params[:phone]
+    subscribe.save
+
+    redirect_to '/propose/'+ params[:id]
+  end
+
   # GET /propose/:id/email_form/:person_id
   def email_form
     @propose = Vpropose.find(params[:id].to_i)
     @person = Person.find(params[:person_id].to_i)
     @person_res = PersonResponse.where(propose_id: params[:id],
                                        person_id: params[:person_id])[0]
+    @person_detail = PersonAssosDetail.find_by_name(@person.name)
   end
 
   def email_send
+    person = Person.find(params[:person_id])
+    person_email = ""
+    if person.email == "x" or person.email == nil or person.email == ""
+      if person_emaill == "x" or person.emaill == nil or person.emaill == ""
+        person_email = person.email2
+      else
+        person_email = person.emaill
+      end
+    else
+       person_email = person.email
+    end
+
+    if person_email == "" or person_email == "x" or person_email == nil
+      redirect_to '/'
+    end
+
+    person_email = person_email.remove("\n")
+
     UserMailer.welcome_email(params[:user_email],
-                             params[:person_email],
+                             person_email,
                              params[:title],
                              params[:content]).deliver_now
 

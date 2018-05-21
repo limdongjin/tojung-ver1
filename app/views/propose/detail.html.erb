@@ -36,6 +36,7 @@ style="background-image: url(<%= @propose.image %>);">
     <div class="fb_btns d-flex justify-content-center">
     <p>좋아요</p>
     <p class="">공유하기</p>
+  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
   </div>
   <div class="content_links text-right">
     <a href="<%= @propose.bill_link %>" class="d-block font-grey">&gt; 법안원문 보러가기</a>
@@ -83,7 +84,6 @@ style="background-image: url(<%= @propose.image %>);">
             <p class="mb-1 mb-lg-0"><span><%= @people_res[person.id].send_count %></span>관심</p>
           </div>
         </a>
-
       </div>
       <% end %>
     </div>
@@ -98,13 +98,14 @@ style="background-image: url(<%= @propose.image %>);">
   <div class="fb_btns d-flex justify-content-center">
     <p>좋아요</p>
     <p class="">공유하기</p>
+    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
   </div>
   <div class="d-flex justify-content-center mb-4">
     <%=image_tag("/assets/images/product.png", class:"product_img mr-2")%>
     <img src="<%= @propose.goods %>" class="product_img ml-2">
   </div>
   <div class="buttons d-flex w-100 justify-content-center mt-3">
-    <button class="btn btn-white font-14 font-sm-12 mr-2 mr-lg-3">구독하기</button>
+    <button class="btn btn-white font-14 font-sm-12 mr-2 mr-lg-3"><a href="/propose/<%= @propose.id %>/subscribe">구독하기</a></button>
     <button class="btn btn-white font-14 font-sm-12 ml-2 ml-lg-3">굿즈겟또로 후원하기</button>
   </div>
 </section>
@@ -119,23 +120,6 @@ style="background-image: url(<%= @propose.image %>);">
   <p class="mb-1">2018.06.13.~ 부터 광고를 진행하고 있습니다.</p>
 </section>
 <!-- //3rd Section -->
-
-<!-- <% @people.each do |person| %>
-  <hr>
-  이름: <%= person.name %><br>
-  정당: <%= person.polynm %><br>
-  응답여부: <%= @people_res[person.id].response_type %><br>
-  응답 메세지: <%= @people_res[person.id].response_text %><br>
-  관심도(사람들이 메일 보낸 횟수): <%= @people_res[person.id].send_count %><br>
-
-  <% if current_vuser != nil and current_vuser.email == "admin@2jung.com" %>
-     (관리자만 보임)해당 의원이 여기 접속하면 찬성 표시됨: <a href="https://2jung.com/agree?<%= { :key => @people_res[person.id].agree_hash }.to_query %>"> https://2jung.com/agree?<%= { :key => @people_res[person.id].agree_hash }.to_query %> </a>
-    <br>(관리자만 보임) 여기는 반대 표시: <a href="https://2jung.com/disagree?<%= { :key => @people_res[person.id].disagree_hash }.to_query %>"> https://2jung.com/disagree?<%= { :key => @people_res[person.id].disagree_hash }.to_query %> </a>
-  <% end %>
-  <hr>
-  <hr>
-  <a href="/propose/<%= @propose.id %>/email_form/<%= person.id %>"> 이메일 보내기 </a>
-<% end %> -->
 
 <!-- Height -->
 <script type="text/javascript">
