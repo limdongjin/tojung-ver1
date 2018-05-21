@@ -1,3 +1,9 @@
+수정하러가기: <a href="/propose/edit/<%= @propose.id %>"> Go </a>
+<hr>
+<a href="<%= @propose.bill_link %>"> 법안 원문 보러 가기 </a>
+<hr>
+<a href="<%= @propose.tumb %>"> 텀블벅 링크</a>
+<hr>
 제목: <%= @propose.title %>
 <hr>
 내용: <%= @propose.content %>
@@ -7,10 +13,6 @@
 캠페인 이미지 : <img src="<%= @propose.campaign%>">
 <hr>
 굿즈 이미지: <img src="<%= @propose.goods %>">
-<hr>
-<a href="<%= @propose.bill_link %>"> 법안 원문 보러 가기 </a>
-<hr>
-<a href="<%= @propose.tumb %>"> 텀블벅 링크</a>
 <hr>
 캠페인 내용: <%= @propose.campaign_content %>
 <hr>
@@ -22,8 +24,8 @@
 <hr>
 <% @people.each do |person| %>
   <hr>
-  <%= person.name %><br>
-  <%= person.polynm %><br>
+  이름: <%= person.name %><br>
+  정당: <%= person.polynm %><br>
   응답여부: <%= @people_res[person.id].response_type %><br>
   응답 메세지: <%= @people_res[person.id].response_text %><br>
   관심도(사람들이 메일 보낸 횟수): <%= @people_res[person.id].send_count %><br>

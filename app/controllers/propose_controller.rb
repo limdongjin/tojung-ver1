@@ -166,11 +166,6 @@ class ProposeController < ApplicationController
 
   # POST /propose/update/:id
   def update
-    if @propose.user_id != current_vuser.id
-      redirect_to '/'
-      return
-    end
-
     if current_vuser != Vuser.find_by_email('admin@2jung.com')
       redirect_to '/'
       return
@@ -195,5 +190,6 @@ class ProposeController < ApplicationController
     redirect_to '/propose/' + @propose.id.to_s
   end
 
-  def delete; end
+  def delete
+  end
 end
