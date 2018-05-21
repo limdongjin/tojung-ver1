@@ -33,6 +33,10 @@ style="background-image: url(<%= @propose.image %>);">
 <!-- Maker Profile -->
 <section class="maker_profile mb-lg-5 text-center font-grey">
   <h4 class="font-18 font-sm-10 font-weight-bold my-4 my-md-5"><%= @person.name %> 의원에게 답변을 촉구합니다.</h4>
+  <div class="maker_imgs d-flex justify-content-center flex-wrap">
+    <%=image_tag("/assets/images/product.png", class:"maker_img mr-lg-3")%>
+    <%=image_tag("/assets/images/product.png", class:"maker_img mr-lg-3")%>
+  </div>
   <p class="font-14 font-sm-10 mb-5">이력</p>
   <!-- 의원 이력  + 이미지 -->
 </section>
