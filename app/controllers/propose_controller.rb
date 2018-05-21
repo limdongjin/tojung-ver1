@@ -12,6 +12,12 @@ class ProposeController < ApplicationController
     subscribe.propose_id = params[:id]
     subscribe.save
 
+    @propose = Vpropose.find(params[:id])
+    if @propose.subscribe_count == nil
+      @propose.subscribe_count = 0
+    end
+    @propose.subscribe_count += 1
+    @propose.save
     redirect_to '/propose/'+ params[:id]
   end
 
@@ -53,6 +59,13 @@ class ProposeController < ApplicationController
 
     person_res.send_count = (person_res.send_count.to_i + 1).to_s
     person_res.save
+    @propose = Vpropose.find(params[:id])
+
+    if @propose.send_count == nil
+      @propose.send_count = 0
+    end
+    @propose.send_count += 1
+    @propose.save
 
     redirect_to '/propose/' + params[:id]
   end
@@ -192,6 +205,9 @@ class ProposeController < ApplicationController
     @propose.funded_money = 0
     @propose.goal_money = 10_000_000
     @propose.funded_num = 1
+    @propose.send_count = 0
+    @propose.subscribe_count = 0
+
     @propose.save
 
     redirect_to '/propose/' + @propose.id.to_s

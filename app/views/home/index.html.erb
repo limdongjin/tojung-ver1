@@ -38,8 +38,8 @@
 	          <a href="/propose/<%= propose.id %>" class="h-100">
               <h4 class="funding_title text-white mb-0"><%= propose.title %></h4>
 	            <div class="funding_card_info pt-lg-4">
-                <p class="funding_num text-white text-right"><span class="funding_nums text-white"><%= propose.funded_num %></span>명</p>
-	              <p class="funding_money text-white text-right">&#8361;<%= propose.funded_money %></p>
+                <p class="funding_num text-white text-right"><span class="funding_nums text-white"><% if propose.send_count != nil and propose.subscribe_count != nil%><%= propose.funded_num + propose.send_count + propose.subscribe_count %><% end %></span>명</p>
+	              <p class="funding_money text-white text-right">&#8361;<%= propose.funded_money%></p>
 	            </div>
 	          </a>
 	        </div>
