@@ -11,12 +11,14 @@
 <!-- Cover -->
 <section class="cover">
   <div class="brand pl-lg-4 pt-lg-4 visible-lg">
-    <a class="navbar-brand py-0 mr-0" href="#">
-      <%=image_tag("/assets/images/tojung_white.png", class: "logo")%>
+    <a class="navbar-brand py-0 mr-0" href="/">
+      <%=image_tag("/assets/images/tojung_white.png", class:"logo")%>
+    </a>
   </div>
-  <div class="arrow">
-    <img class="arrow_img" src="assets/images/arrow.png" alt="">
+  <div class="arrow visible-lg">
+    <%=image_tag("/assets/images/arrow.png", class:"arrow_img")%>
   </div>
+  <!-- <video src="../manual.mp4" autoplay></video> -->
 </section>
 <!-- //Cover -->
 
@@ -26,7 +28,7 @@
   <div class="container mx-0">
     <div class="row">
       <div class="col-2 col-lg-2 new_logo px-1 py-3 px-lg-5 py-lg-5">
-        <img class="mic_icon d-block mx-auto" src="assets/images/shape.png" alt="제안하기">
+        <%=image_tag("/assets/images/shape.png", class: "mic_icon d-block mx-auto")%>
       </div>
       <div class="col-9 col-lg-9 new_textbox px-0 ml-lg-3">
         <p id="mention" class="new_text font-20 font-sm-10"></p>
@@ -40,8 +42,8 @@
   <div class="container">
     <div class="row">
 			<% @proposes.each do |propose| %>
-				<div id="funding_card" class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
-	        <div class="funding_card d-flex flex-column h-100 w-100">
+				<div class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
+	        <div class="funding_card d-flex flex-column h-100">
 	          <a href="/propose/<%= propose.id %>" class="h-100">
               <h4 class="funding_title text-white mb-0"><%= propose.title %></h4>
 	            <div class="funding_card_info pt-lg-4">
@@ -56,9 +58,16 @@
   </div>
 </section>
 <!--//List  -->
+
 <!-- typewriter js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
-
+<script>
+  typewriter.typeString('겪고 있는 문제가 있나요?\n')
+    .pauseFor(1000)
+    .typeString('투정으로 끝나지 않게, 해결책이 될 법안을 찾아줄게요.')
+    .pauseFor(2500)
+    .start();
+</script>
 <!-- //TypeWriter -->
 <!-- 원화 콤마찍기 -->
 <script type="text/javascript">

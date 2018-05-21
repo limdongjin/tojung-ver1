@@ -1,46 +1,11 @@
-<!-- Header -->
-<header class="header">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light2">
-    <div class="visible-xs">
-      <% if (current_vuser.blank?) == true %>
-      <a href="/vusers/sign_in">
-      <%else%>
-      <a href="/mypage">
-      <%end%>
-        <%=image_tag("/assets/images/person.png", class: "mylog_icon")%>
-      </a>
-    </div>
-    <div class="brand">
-      <a class="navbar-brand justify-content-center py-0 mr-0" href="/">
+<!-- Mobile Header -->
+<header class="header visible-xs">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+    <div class="brands mb-0">
+      <a class="navbar-brand py-0 mr-0" href="/">
         <%=image_tag("/assets/images/tojung_green.png", class:"logo")%>
       </a>
     </div>
-    <div class="visible-xs">
-      <a href="/search_form">
-        <%=image_tag("/assets/images/search.png", class:"search_icon")%>
-      </a>
-    </div>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/home/about" lang="en">ABOUT</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="/search_form" lang="en">SEARCH</a>
-        </li>
-        <% if (current_vuser.blank?) == true %>
-        <li class="nav-item">
-          <a class="nav-link" href="/vusers/sign_in" lang="en">LOGIN</a>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <a class="nav-link" href="/mypage" lang="en">MY PAGE</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/vusers/sign_out" lang="en">LOGOUT</a>
-        </li>
-        <% end %>
-      </ul>
-    </div>
   </nav>
 </header>
+<!-- //Mobile Header -->
