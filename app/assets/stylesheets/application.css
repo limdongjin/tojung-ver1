@@ -1,409 +1,249 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* Custom settings */
 /* Custom settings */
 *{
-    font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 .bg-light{
-    background-color: white !important;
+  background-color: white !important;
 }
 
 .bg-grey{
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 .font-10{
-    font-size: 0.625rem;
+  font-size: 0.625rem;
 }
 
 .font-12{
-    font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
 .font-14{
-    font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 
 .font-16{
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .font-18{
-    font-size: 1.125rem;
+  font-size: 1.125rem;
 }
 
 .font-20{
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 .font-24{
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .font-36{
-    font-size: 2.25rem;
+  font-size: 2.25rem;
 }
 
 .font-weight-extra-bold{
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .font-grey{
-    color: #858585;
+  color: #858585;
 }
 
 .text-primary{
-    color: #3e6373 !important;
+  color: #3e6373 !important;
 }
 
 .visible-xs{
-    display: none;
+  display: none;
 }
 
 .visible-xs-block{
-    display: none;
+  display: none;
 }
 
 .alert{
-    position: absolute;
-    float: left;
-    width: 100%;
-    z-index: 10000;
+  position: absolute;
+  float: left;
+  width: 100%;
+  z-index: 10000;
 }
 
 .active{
-    color: #3e6373 !important;
+  color: #3e6373 !important;
 }
 
 .logo{
-    width: 44px;
-    height: 40px;
-    color: white;
+  width: 44px;
+  height: 40px;
+  color: white;
 }
 
 .brand{
-    position: absolute;
-    left: 0;
-    top: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .underbar-none{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .underbar-none:hover{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /*Detail Cover*/
 .detail_num{
-    position: relative;
-    left: 90%;
-    bottom: 46px;
+  position: relative;
+  left: 90%;
+  bottom: 46px;
 }
 
 .funding_detail_cover{
-    background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    height: calc(100vw * 0.53);
-    padding-top: 5%;
+  background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: calc(100vw * 0.53);
+  padding-top: 5%;
 }
 
 .detail_post{
-    margin-top: 10%;
+  margin-top: 10%;
 }
 
 .funding_detail_content{
-    padding-left: 20%;
-    padding-right: 20%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .btn-white{
-    background-color: white;
-    border: 1px solid #a7a7a7;
-    border-radius: 0;
-    width: 217px;
-    color: #a7a7a7;
+  background-color: white;
+  border: 1px solid #a7a7a7;
+  border-radius: 0;
+  width: 217px;
+  color: #a7a7a7;
 }
 
 .btn-share{
-    width: 15%;
+  width: 15%;
 }
 
 .border-bottom{
-    border-bottom: 1px solid #a7a7a7;
+  border-bottom: 1px solid #a7a7a7;
 }
 
 form input{
-    border-radius: 3px;
+  border-radius: 3px;
 }
 
 form input[placeholder], form textarea[placeholder]{
-    font-size: 14px;
-    line-height: 1.07;
-    padding: 18px 22px;
+  font-size: 14px;
+  line-height: 1.07;
+  padding: 18px 22px;
 }
 
 ::placeholder{
-    color: #aab2bd !important;
+  color: #aab2bd !important;
 }
 
 @media screen and (max-width: 576px) {
 
-    .visible-xs{
-        display: inline;
-    }
+  .visible-xs{
+    display: inline;
+  }
 
-    .visible-xs-block{
-        display: block !important;
-    }
+  .visible-xs-block{
+    display: block !important;
+  }
 
-    .visible-lg{
-        display: none !important;
-    }
+  .visible-lg{
+    display: none !important;
+  }
 
-    .font-sm-8{
-        font-size: 0.5rem !important;
-    }
-    .font-sm-10{
-        font-size: 0.625rem !important;
-    }
+  .font-sm-8{
+    font-size: 0.5rem !important;
+  }
+  .font-sm-10{
+    font-size: 0.625rem !important;
+  }
 
-    .font-sm-12{
-        font-size: 0.75rem !important;
-    }
+  .font-sm-12{
+    font-size: 0.75rem !important;
+  }
 
-    .font-sm-14{
-        font-size: 0.875rem !important;
-    }
+  .font-sm-14{
+    font-size: 0.875rem !important;
+  }
 
-    .font-sm-16{
-        font-size: 1rem !important;
-    }
+  .font-sm-16{
+    font-size: 1rem !important;
+  }
 
-    .font-sm-18{
-        font-size: 1.125rem !important;
-    }
+  .font-sm-18{
+    font-size: 1.125rem !important;
+  }
 
-    .font-sm-20{
-        font-size: 1.25rem !important;
-    }
+  .font-sm-20{
+    font-size: 1.25rem !important;
+  }
 
-    /*Header*/
-    .logo{
-        width: 36px;
-        height: 34px;
-    }
+  /*Header*/
+  .logo{
+    width: 36px;
+    height: 34px;
+  }
 
-    /* Detail Cover */
-    .detail_img{
-        width: 90%;
-    }
+  /* Detail Cover */
+  .detail_img{
+    width: 90%;
+  }
 
-    .detail_mobile_cover{
-        background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../images/woman.jpg);
-        height: calc(100vw * 0.53);
-        background-position: center center;
-        background-size: cover;
-    }
+  .detail_mobile_cover{
+    background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../images/woman.jpg);
+    height: calc(100vw * 0.53);
+    background-position: center center;
+    background-size: cover;
+  }
 
-    .detail_title{
-        width: 60%;
-        height: 50%;
-        margin-bottom: 0;
-    }
+  .detail_title{
+    width: 60%;
+    height: 50%;
+    margin-bottom: 0;
+  }
 
-    .detail_infos{
-        height: 50%;
-    }
+  .detail_infos{
+    height: 50%;
+  }
 
-    form input[placeholder], form textarea[placeholder]{
-        font-size: 10px;
-        line-height: 1.5;
-        padding: 8px 13px;
-    }
+  form input[placeholder], form textarea[placeholder]{
+    font-size: 10px;
+    line-height: 1.5;
+    padding: 8px 13px;
+  }
 
 }
-
 
 video{
-    height: 576px;
-    width: 100%;
-}
-
-
-.visible-lg .nav-item{
-    height: 28%;
-    font-size: 0.875rem;
-}
-
-.visible-lg .nav-item .active{
-    color: #3e6373;
-    font-weight: bold;
-}
-
-
-/* Cover */
-.cover{
-    height: calc(100vw*0.56);
-    width: 100%;
-    background-image: url(../images/cover.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.arrow{
-    position: relative;
-    left: 50%;
-    top: 85%;
-    animation: movingArrow 2000ms infinite linear;
-}
-
-.arrow_img{
-    width: 35px;
-    height: 36px;
-}
-
-@keyframes movingArrow{
-    0%{top: 85%;}
-    100%{top: 90%;}
-}
-
-/* New */
-.new{
-    background-color: #eeeef0;
-}
-
-.mic_icon{
-    width: 56px;
-    height: 83px;
-}
-
-.new_textbox{
-    white-space: pre-wrap;
-    display: flex;
-    align-items: center;
-}
-
-.new_text{
-    line-height: 1.5;
-    color: #858585;
-    margin-bottom: 0;
-    padding-left: 8%;
-    border-left: 4px solid #858585;
-}
-
-.new .container{
-    max-width: 100vw;
-}
-
-/* Funding_list */
-.funding_list > .container{
-    max-width: 100vw;
-}
-
-.funding_card_box{
-    background-position: center center;
-    background-size: 100% 100%;
-    height: calc(50vw * 0.53);
-}
-
-.funding_card a{
-    text-decoration: none;
-}
-
-.funding_card_box:nth-child(6n){
-    background-image: linear-gradient(to bottom, rgba(221,181,67,0.6), rgba(221,181,67,0.6)), url(../images/woman.jpg);
-}
-
-.funding_card_box:nth-child(6n+1){
-    background-image: linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(../images/woman.jpg);
-}
-
-.funding_card_box:nth-child(6n+2){
-    background-image: linear-gradient(to bottom, rgba(148,54,66,0.6), rgba(148,54,66,0.6)), url(../images/woman.jpg);
-}
-
-.funding_card_box:nth-child(6n+3){
-    background-image: linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(../images/woman.jpg);
-}
-
-.funding_card_box:nth-child(6n+4){
-    background-image: linear-gradient(to bottom, rgba(184,155,117,0.6), rgba(184,155,117,0.6)), url(../images/woman.jpg);
-}
-
-.funding_card_box:nth-child(6n+5){
-    background-image: linear-gradient(to bottom, rgba(60,35,62,0.6), rgba(60,35,62,0.6)), url(../images/woman.jpg);
-}
-
-.funding_title{
-    font-size: 1.5rem;
-    font-weight: bold;
-    width: 55%;
-    height: 50%;
-    padding: 6% 6%;
-}
-
-.funding_nums{
-    font-size: 1.5rem;
-}
-
-.funding_num{
-    font-size: 1.125rem;
-    font-weight: bold;
-    padding-right: 5%;
-    margin-bottom: 0;
-}
-
-.funding_money{
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding-right: 5%;
-    line-height: 1;
-    margin-bottom: 0;
-}
-
-.funding_card_info{
-    justify-content: flex-end;
-    align-items: flex-end;
-    height: 50%;
-    padding-top: 8%;
-}
-
-@media screen and (max-width: 576px) {
-    /*New*/
-    .mic_icon{
-        width: 22px;
-        height: 38px;
-    }
-
-    .new_text{
-        border-left: 1px solid #858585;
-    }
-
-    /*Funding*/
-
-    .funding_card_box{
-        height: calc(100vw * 0.53);
-    }
-
-    .funding_card, .funding_title, .funding_nums, .funding_money{
-        font-size: 1.125rem;
-    }
-
-    .funding_num{
-        font-size: 0.75rem;
-    }
-
-    .funding_title{
-        margin-bottom: 0;
-    }
-
-    .arrow_img{
-        width: 20px;
-        height: 20px;
-    }
-
+  height: 576px;
+  width: 100%;
 }

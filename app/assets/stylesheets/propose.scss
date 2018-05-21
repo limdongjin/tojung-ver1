@@ -120,3 +120,237 @@
     width: 300px;
   }
 }
+
+// POST
+.post{
+  width: 80%;
+  margin: 50px auto;
+}
+
+.post button{
+  display: block;
+  margin: 0 auto;
+}
+
+form .form-group{
+  box-shadow: none !important;
+}
+
+@media screen and (max-width: 576px) {
+  .post{
+    width: 95%;
+  }
+  .post button{
+    width: 140px;
+  }
+}
+
+
+/*Content*/
+.content{
+  padding: 40px 24%;
+}
+
+.content_text{
+  margin-bottom: 40px;
+}
+
+.fb_btns{
+  margin-bottom: 30px;
+}
+
+/*Detail First*/
+
+.big_num{
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.detail_first{
+  padding: 30px 18.75%;
+}
+
+.oval{
+  width: 12px;
+  height: 12px;
+  border-radius: 400px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.cons{
+  background-color: #bf868e;
+}
+
+.pros{
+  background-color: #a6c0bb;
+}
+
+.no_respond{
+  background-color: #d4c3ac;
+}
+
+.maker_card{
+  background-image: linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(../../images/joomin.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+}
+
+.maker_card_info{
+  height: 50%;
+  margin-top: 70%;
+}
+
+/*Detail Second*/
+.detail_second{
+  padding: 40px 26%;
+}
+
+.product_img{
+  width: 232px;
+  height: 166px;
+}
+
+/*Detail Third*/
+.detail_third{
+  padding: 40px 26% 100px 26%;
+}
+
+.campaign_img{
+  width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+
+/*Content*/
+  .content{
+    padding: 30px 6.66%;
+  }
+
+  .content_text{
+    line-height: 2;
+    margin-bottom: 30px;
+  }
+
+  .fb_btns{
+    margin-bottom: 20px;
+  }
+
+  /*Detail First*/
+  .detail_first{
+    padding: 0 0;
+  }
+
+  .first_text{
+    padding: 0 6.6%;
+  }
+
+  .oval{
+    margin-top: 2px;
+    margin-right: 4px;
+  }
+
+  .maker_card_info{
+    height: 40%;
+    margin-top: 80%;
+  }
+  .maker_cards{
+    padding: 0;
+  }
+/*Detail Second*/
+  .detail_second{
+    padding: 20px 6.6%;
+  }
+
+  .product_img{
+    width: 128px;
+    height: 92px;
+  }
+
+  .btn-white{
+    width: 125px;
+  }
+
+/*Detail Third*/
+  .detail_third{
+    padding: 20px 0 40px 0;
+  }
+  .campaign_img{
+    width: 100%;
+  }
+}
+
+/* ----------------------------------------Email Form */
+.email_form{
+  padding: 40px 30% 80px 30%;
+}
+
+.btn-email{
+  width: 164px;
+  height: 40px;
+  font-size: 1rem;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Email Response */
+.email_response{
+  background-color: rgba(231, 231, 231, 0.6);
+  padding: 50px 22%;
+}
+
+@media screen and (max-width: 576px) {
+/* Maker Profile*/
+  .maker_profile h4{
+    font-weight: normal !important;
+  }
+/* Email Form */
+  .email_form{
+    padding: 30px 12% 60px 12%;
+  }
+
+  .btn-email{
+    width: 132px;
+    height: 32px;
+  }
+/*Email Response  */
+  .email_response{
+    padding: 30px 9%;
+  }
+}
+
+
+/*---------------------------- Subscribe */
+.subscribe_form{
+  padding: 20px 30%;
+}
+
+.btn-subscribe{
+  width: 164px;
+  height: 40px;
+  font-size: 1rem;
+  margin: 60px auto;
+  display: block;
+}
+
+@media screen and (max-width: 576px) {
+/* Subscribe */
+
+  .subscribe > p{
+    font-weight: normal !important;
+  }
+
+  .subscribe_form{
+    padding: 20px 12%;
+  }
+
+  .btn-subscribe{
+    width: 132px;
+    height: 32px;
+    font-size: 12px;
+    margin: 30px auto;
+  }
+}

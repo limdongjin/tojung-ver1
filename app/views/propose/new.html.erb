@@ -8,99 +8,45 @@
 </section>
 <!-- //Propose Cover -->
 <!-- Propose Form -->
-<form  class="propose_form w-100 font-sm-10" enctype="multipart/form-data" action="/propose/create" accept-charset="UTF-8" method="post">
- <section id="propose_form" class="propose_new">
-	<h2 class="sr-only">제안폼 작성</h2>
-		<input name="utf8" type="hidden" value="&#x2713;">
-	  <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
-		<div class="form-group">
-			<label for="exampleFormControlInput1">투정 제목</label>
-			<input type="text" class="form-control font-sm-10" id="propose_title" name="propose_title" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
-		</div>
-   <div class="form-group">
-     <label for="exampleFormControlInput1">상임위</label>
-     <input type="text" class="form-control font-sm-10" id="assos" name="assos" placeholder="상임위 이름 적으세요.">
-   </div>
-   <!--
-		<div class="form-group">
-			<label for="exampleFormControlSelect1">카테고리</label>
-			<select class="form-control font-sm-10 font-grey" id="category_name" name="category_name">
-				<option class="font-sm-10" value="" disabled selected hidden>카테고리 선택</option>
-				<option value="정치개혁">정치개혁</option>
-				<option value="외교/통일/국방">외교/통일/국방</option>
-				<option value="경제/노동">경제/노동</option>
-				<option value="과학기술">과학기술</option>
-				<option value="농산어촌">농산어촌</option>
-				<option value="보건복지">보건복지</option>
-				<option value="육아/교육">육아/교육</option>
-				<option value="안전/환경">안전/환경</option>
-				<option value="저출산/고령화">저출산/고령화</option>
-				<option value="행정">행정</option>
-				<option value="반려동물">반려동물</option>
-				<option value="교통/건축/국토">교통/건축/국토</option>
-				<option value="인권/성평등">인권/성평등</option>
-				<option value="문화/예술/체육/언론">문화/예술/체육/언론</option>
-				<option value="기타">기타</option>
-			</select>
-		</div> -->
-   <div>
-
-   </div>
-		<div class="form-group">
-			<label for="exampleFormControlTextarea1">투정 내용</label>
-			<textarea class="form-control font-sm-10" id="propose_content" name="propose_content" rows="6" placeholder="1. 현재 내가 겪고 있는 문제&#13;&#10;2. 어떻게 바뀌었으면 좋겠는지를 이야기해주세요."></textarea>
-		</div>
-
-		<label for="inputGroupFile02">대표 사진 업로드</label><br />
-		<div class="input-group">
-			<div class="custom-file">
-				<input type="file" class="custom-file-input" id="propose_image" onchange="filename_change(this)" name="propose_image" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg" >
-				<label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02">업로드 하지 않으면, 카테고리별 기본 사진으로 지정됩니다!</label>
-			</div>
-		</div>
-	</section>
-	<!-- //Propose Form -->
-	<!-- Propose Funding -->
-  <label for="inputGroupFile02"> 굿즈 사진 업로드</label><br/>
-  <div class="input-group">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="goods" onchange="filename_change(this)" name="goods" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
-      <label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02">굿즈 이미지</label>
-    </div>
-  </div>
-
-  <label for="inputGroupFile02"> 캠페인 사진 업로드</label><br/>
-  <div class="input-group">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="campaign" onchange="filename_change(this)" name="campaign" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
-      <label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02"> 캠페인 이미지 </label>
-    </div>
-  </div>
-
+<form class="post" enctype="multipart/form-data" action="/propose/create" accept-charset="UTF-8" method="post">
+	<h4 class="my-4">관리자용 법안올리기</h4>
+	<input name="utf8" type="hidden" value="&#x2713;">
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
+	<div class="form-group">
+		<label for="exampleFormControlInput1">투정 제목</label>
+		<input type="text" class="form-control font-sm-10" id="exampleFormControlInput1" name="propose_title" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
+	</div>
+ 	<div class="form-group">
+	 <label for="exampleFormControlInput1">상임위</label>
+	 <input type="text" class="form-control font-sm-10" id="assos" name="assos" placeholder="상임위 이름 적으세요.">
+ 	</div>
+	<div class="form-group">
+		<label for="exampleFormControlTextarea1">내용</label>
+		<textarea class="form-control font-sm-10" id="propose_content" name="propose_content" rows="10" ></textarea>
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlFile1">대표 사진 업로드</label>
+		<input type="file" class="form-control-file" id="exampleFormControlFile1" onchange="filename_change(this)" name="propose_image" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlFile1">굿즈 사진 업로드</label>
+		<input type="file" class="form-control-file" id="exampleFormControlFile1" name="goods" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlFile1">캠페인 사진 업로드</label>
+		<input type="file" class="form-control-file" id="exampleFormControlFile1" name="campaign" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
+	</div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">캠페인 내용</label>
-    <textarea class="form-control font-sm-10" id="campaign_content" name="campaign_content" rows="6" placeholder="캠페인 내용"></textarea>
+    <textarea class="form-control font-sm-10" id="campaign_content" name="campaign_content" rows="10" placeholder="캠페인 내용"></textarea>
   </div>
-
-  <div class="form-group">
-    <label for="exampleFormControlInput1">법안 원문 링크</label>
-    <input type="text" class="form-control font-sm-10" id="propose_title" name="bill_link" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
-  </div>
-
-  <div class="form-group">
-    <label for="exampleFormControlInput1">텀블벅 링크</label>
-    <input type="text" class="form-control font-sm-10" id="propose_title" name="tumb" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
-  </div>
-	<section id="propose_notice" class="propose">
-
-		<input type="submit" class="btn btn-primary" name="commit" value="투정하기">
-	</section>
-	<!-- //Propose Notice -->
+	<div class="form-group">
+		<label for="exampleFormControlInput2">법안 원문 링크</label>
+		<input type="text" class="form-control font-sm-10" id="exampleFormControlInput2" name="bill_link">
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlInput3">텀블벅 링크</label>
+		<input type="text" class="form-control font-sm-10" id="exampleFormControlInput3" name="tumb">
+	</div>
+	<button type="submit" class="btn btn-white font-sm-12">제출</button>
 </form>
-
-<script>
-	function filename_change(obj){
-		var file_name=obj.files[0].name;
-		document.getElementById('image_label').innerHTML=file_name;
-	}
-</script>

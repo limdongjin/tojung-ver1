@@ -2,10 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d00c786-d852-4ffe-b113-fbceebae9851" name="Default" comment="의원 찬반 메일 구현 완료!!!!! ?!">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/tojung_ver1.0.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-04d9dee75d096471917fd379c9290c8b5f47197a3a0837e33a57b8bb706d136c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-04d9dee75d096471917fd379c9290c8b5f47197a3a0837e33a57b8bb706d136c.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-11cc0894f149d55c130615eea0be62f29fb4c81315468be315dd9e58834e8074.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-11cc0894f149d55c130615eea0be62f29fb4c81315468be315dd9e58834e8074.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-13ba749daef0a9dd155f1689faa6e15076e7205ee3123dcc76730aec6972d2ef.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-13ba749daef0a9dd155f1689faa6e15076e7205ee3123dcc76730aec6972d2ef.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-3955f07c22d5e974b8cab17085bd3aa8f5d65a545532dc693d3ed628788203a0.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-3955f07c22d5e974b8cab17085bd3aa8f5d65a545532dc693d3ed628788203a0.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-3a106dfa3fff5f3d29ce90a633f35e338ab61c5afd8584ee34417a930b247971.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-3a106dfa3fff5f3d29ce90a633f35e338ab61c5afd8584ee34417a930b247971.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-484aa9974a7d7563c3c6cf036aa34225bc333e3591e4ebcba7cb47f995bb5515.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-484aa9974a7d7563c3c6cf036aa34225bc333e3591e4ebcba7cb47f995bb5515.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-77a2363f6c00d0f68c8c5cf42c28d25cbf38c775853df86f9a5367f917e48afc.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-77a2363f6c00d0f68c8c5cf42c28d25cbf38c775853df86f9a5367f917e48afc.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-fd9f99305ace3652c7988d0f5d55fbc1210479832f7027114b5311cbfb3fc11c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/application-fd9f99305ace3652c7988d0f5d55fbc1210479832f7027114b5311cbfb3fc11c.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/application-22357870a08bda33529a71c56fcefd96b4b680522e2600eff14ac287bc1d1671.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/application-22357870a08bda33529a71c56fcefd96b4b680522e2600eff14ac287bc1d1671.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/application-823034e7781627803191b31ced13c3c6982b245b0eef2e5c66caf12ef6535ec2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/application-823034e7781627803191b31ced13c3c6982b245b0eef2e5c66caf12ef6535ec2.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/data_table-1771e659e939d3ce2f6f68004e6a0e4093c804f40cfbe58de76521b3a1c93675.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/data_table_code-87a82fa6e93c5c0838649d2e07d024ff2f3c8797fcae1241b4e86b447ca6b9d2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/logo-59fa16b8a4541ba856b0be60e8d9e935ea790c7d43ad29181ff8cd5794461428.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/logo_mini-a0c1f83613bce7afc7554ddec7cc4627b1682b802fc6fe0b56c755c9536ad869.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/railsdb-7679061b7a2e3d68b551f7bf4aa72ba19b9fc83ac8343746af64f4dde2d10f8d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/rails_db/runsql-f6eaf5a1e8fb706f643955b7c75a798a0d499a514394576cd59bc50aa6c83deb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/propose.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/propose.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/_menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_menu.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/propose/detail.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/propose/detail.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/propose/email_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/propose/email_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/propose/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/propose/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-7bb1b5f806c3345421fd89cde965374c.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/.sprockets-manifest-7bb1b5f806c3345421fd89cde965374c.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/청원세부.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/투정로그인.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/투정명예전당.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/투정사이트.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/투정압력넣기.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/투정약정.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/투정청원.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/투정커뮤니티.PNG" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -21,7 +65,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/tojung_ver1_0@Rails_console__tojung_ver1_0.rcov" NAME="Rails console: tojung_ver1.0 Coverage Results" MODIFIED="1526726073104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="tojung_ver1.0" />
+    <SUITE FILE_PATH="coverage/tojung_ver1_0@Rails_console__tojung_ver1_0.rcov" NAME="Rails console: tojung_ver1.0 Coverage Results" MODIFIED="1526888358113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="tojung_ver1.0" />
     <SUITE FILE_PATH="coverage/tojung_ver1_0@Development__tojung_ver1_0.rcov" NAME="Development: tojung_ver1.0 Coverage Results" MODIFIED="1526735623559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="tojung_ver1.0" />
     <SUITE FILE_PATH="coverage/tojung_ver1_0@spec__tojung_ver1_0.rcov" NAME="spec: tojung_ver1.0 Coverage Results" MODIFIED="1526411284570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="tojung_ver1.0" />
   </component>
@@ -29,14 +73,14 @@
     <favorites_list name="tojung_ver1.0" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.42999008">
+    <splitter split-orientation="horizontal" split-proportion="0.37034035">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="propose_controller.rb" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/controllers/propose_controller.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="122">
-                  <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
+                <state relative-caret-position="757">
+                  <caret line="167" column="12" lean-forward="true" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -44,7 +88,7 @@
           <file leaf-file-name="production.log" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/log/production.log">
               <provider selected="true" editor-type-id="LogFileEditorProvider">
-                <state relative-caret-position="150518">
+                <state relative-caret-position="345">
                   <caret line="7922" column="90" selection-start-line="7922" selection-start-column="90" selection-end-line="7922" selection-end-column="90" />
                 </state>
               </provider>
@@ -54,22 +98,78 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="edit.html.erb" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/views/propose/edit.html.erb">
+          <file leaf-file-name="10_1.jpg" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/의원정보/의원사진/10_1.jpg">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file leaf-file-name="11_1.jpg" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/의원정보/의원사진/11_1.jpg">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file leaf-file-name="12_1.jpg" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/의원정보/의원사진/12_1.jpg">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file leaf-file-name="farm_person.csv" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/의원정보/farm_person.csv">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+                <state>
+                  <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="detail.html.erb" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/propose/detail.html.erb">
+          <file leaf-file-name="person_assos_detail.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/models/person_assos_detail.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="456">
-                  <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+                <state relative-caret-position="38">
+                  <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="law_person.csv" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/의원정보/law_person.csv">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="152">
+                  <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="woman.csv" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/의원정보/woman.csv">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="114">
+                  <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="hang.csv" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/의원정보/hang.csv">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="19">
+                  <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="eco.csv" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/의원정보/eco.csv">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="171">
+                  <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="12_2.jpg" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/의원정보/의원사진/12_2.jpg">
+              <provider selected="true" editor-type-id="images" />
             </entry>
           </file>
         </leaf>
@@ -147,14 +247,19 @@
         <option value="$PROJECT_DIR$/app/views/response/disagree.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/response_controller.rb" />
         <option value="$PROJECT_DIR$/log/production.log" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/subscribe.css" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/propose/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/propose_controller.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/propose/detail.html.erb" />
+        <option value="$PROJECT_DIR$/의원정보/farm_person.csv" />
+        <option value="$PROJECT_DIR$/의원정보/law_person.csv" />
+        <option value="$PROJECT_DIR$/의원정보/woman.csv" />
+        <option value="$PROJECT_DIR$/의원정보/hang.csv" />
+        <option value="$PROJECT_DIR$/의원정보/eco.csv" />
       </list>
     </option>
   </component>
@@ -176,19 +281,19 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-585" />
-    <option name="y" value="165" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="x" value="-723" />
+    <option name="y" value="99" />
     <option name="width" value="1944" />
     <option name="height" value="1104" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="RailsProjectView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,12 +344,39 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="tojung_ver1.0" type="cbb8eebc:String" user="tojung_ver1.0" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="tojung_ver1.0" type="cbb8eebc:String" user="tojung_ver1.0" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="tojung_ver1.0" type="cbb8eebc:String" user="tojung_ver1.0" />
+              <item name="의원정보" type="cbb8eebc:String" user="의원정보" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="tojung_ver1.0" type="cbb8eebc:String" user="tojung_ver1.0" />
+              <item name="의원정보" type="cbb8eebc:String" user="의원정보" />
+              <item name="의원사진" type="cbb8eebc:String" user="의원사진" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
-    <property name="RunAnythingHistoryKey" value="rails s -e production&#9;null&#9;null&#10;rails assets:precompile RAILS_ENV=production&#9;null&#9;null&#10;rake db:migrate&#9;null&#9;null&#10;rails s&#9;null&#9;null&#10;rails assets:precompile  RAILS_ENV=production &#9;null&#9;null&#10;gem install strmask&#9;null&#9;null&#10;rails g controller response&#9;null&#9;null&#10;rake db:migrate RAILS_ENV=production&#9;null&#9;null&#10;rake db:migrate -e production&#9;null&#9;null&#10;rails g migration add_disagree_hash_to_person_responses disagree_hash:text&#9;null&#9;null&#10;rails g migration add_agree_hash_to_person_responses agree_hash:text&#9;null&#9;null&#10;rails g migration add_goods3_to_vproposes goods3:text&#9;null&#9;null&#10;rails g migration add_goods2_to_vproposes goods2:text&#9;null&#9;null&#10;rails g migration add_propose_id_to_person_responses propose_id:integer&#9;null&#9;null&#10;rails g model person_response name:text person_id:integer response_type:text response_text:text send_count:text&#9;null&#9;null&#10;rails c&#9;null&#9;null&#10;rails c production&#9;null&#9;null&#10;rails c RAILS_ENV=production&#9;null&#9;null&#10;spring stop&#9;null&#9;null&#10;bundle install&#9;null&#9;null&#10;Model&#9;ACTION&#9;rails:generator:active_record:model&#10; bundle exec spring binstub --all&#9;null&#9;null&#10;rails generate mailer UserMailer&#9;null&#9;null&#10;rails g migration add_assos_to_vproposes assos:text&#9;null&#9;null&#10;rails g migration add_tumb_to_vproposes tumb:text&#9;null&#9;null&#10;rails g migration add_bill_link_to_vproposes bill_link:text&#9;null&#9;null&#10;rails g migration add_campaign_content_to_vproposes campaign_content:text&#9;null&#9;null&#10;rails g migration add_vccc_vproposes campaign_content:text&#9;null&#9;null&#10;rails g migration add_ccc_vproposes campaign_content:text &#9;null&#9;null&#10;rails g migration add_cc_to_vproposes campaign_content:text &#9;null&#9;null&#10;rails g migration add_cc_to_proposes campaign_content:text &#9;null&#9;null&#10;rails g migration add_campaign_content_vproposes campaign:text&#9;null&#9;null&#10;rails g migration add_imagesss_to_vproposes campaign:text &#9;null&#9;null&#10;rails g migration add_imagess_to_proposes campaign:text &#9;null&#9;null&#10;rails g migration add_images_to_vproposes campaign:text &#9;null&#9;null&#10;rails g migration add_images_to_vproposes goods:text &#9;null&#9;null&#10;rails g migration add_images_to_proposes goods:text campaign:text&#9;null&#9;null&#10;ruby -v&#9;null&#9;null&#10;rails -v&#9;null&#9;null&#10;rails:update:bin&#9;null&#9;null&#10;bundle exec rake rails:update:bin &#9;null&#9;null&#10;gem install bundler &#9;null&#9;null&#10;gem install bcrypt --platform=ruby  &#9;null&#9;null&#10;gem install bcrypt -v '3.1.11'&#9;null&#9;null&#10;rails s RAILS_ENV=production&#9;null&#9;null&#10;rails s -b 'ssl://0.0.0.0:3000?key=localhost.key&amp;cert=localhost.crt' &#9;null&#9;null" />
+    <property name="RunAnythingHistoryKey" value="rails s -e production&#9;null&#9;null&#10;rake db:migrate RAILS_ENV=production&#9;null&#9;null&#10;rails g model person_assos_detail name:text num:integer assos:text desc1:text desc2:text desc3:text image:text image2:text image3:text&#9;null&#9;null&#10;rails g migration add_specialnum_to_people specialnum:integer&#9;null&#9;null&#10;rails g migration add_image_to_people image:text&#9;null&#9;null&#10;rake server:startup&#9;null&#9;null&#10;rails s -e production -p 8080&#9;null&#9;null&#10;rails s -h&#9;null&#9;null&#10;ps&#9;null&#9;null&#10;spring stop&#9;null&#9;null&#10;rails assets:precompile RAILS_ENV=production&#9;null&#9;null&#10;bundle install&#9;null&#9;null&#10;rake db:migrate&#9;null&#9;null&#10;rails s&#9;null&#9;null&#10;rails assets:precompile  RAILS_ENV=production &#9;null&#9;null&#10;gem install strmask&#9;null&#9;null&#10;rails g controller response&#9;null&#9;null&#10;rake db:migrate -e production&#9;null&#9;null&#10;rails g migration add_disagree_hash_to_person_responses disagree_hash:text&#9;null&#9;null&#10;rails g migration add_agree_hash_to_person_responses agree_hash:text&#9;null&#9;null&#10;rails g migration add_goods3_to_vproposes goods3:text&#9;null&#9;null&#10;rails g migration add_goods2_to_vproposes goods2:text&#9;null&#9;null&#10;rails g migration add_propose_id_to_person_responses propose_id:integer&#9;null&#9;null&#10;rails g model person_response name:text person_id:integer response_type:text response_text:text send_count:text&#9;null&#9;null&#10;rails c&#9;null&#9;null&#10;rails c production&#9;null&#9;null&#10;rails c RAILS_ENV=production&#9;null&#9;null&#10;Model&#9;ACTION&#9;rails:generator:active_record:model&#10; bundle exec spring binstub --all&#9;null&#9;null&#10;rails generate mailer UserMailer&#9;null&#9;null&#10;rails g migration add_assos_to_vproposes assos:text&#9;null&#9;null&#10;rails g migration add_tumb_to_vproposes tumb:text&#9;null&#9;null&#10;rails g migration add_bill_link_to_vproposes bill_link:text&#9;null&#9;null&#10;rails g migration add_campaign_content_to_vproposes campaign_content:text&#9;null&#9;null&#10;rails g migration add_vccc_vproposes campaign_content:text&#9;null&#9;null&#10;rails g migration add_ccc_vproposes campaign_content:text &#9;null&#9;null&#10;rails g migration add_cc_to_vproposes campaign_content:text &#9;null&#9;null&#10;rails g migration add_cc_to_proposes campaign_content:text &#9;null&#9;null&#10;rails g migration add_campaign_content_vproposes campaign:text&#9;null&#9;null&#10;rails g migration add_imagesss_to_vproposes campaign:text &#9;null&#9;null&#10;rails g migration add_imagess_to_proposes campaign:text &#9;null&#9;null&#10;rails g migration add_images_to_vproposes campaign:text &#9;null&#9;null&#10;rails g migration add_images_to_vproposes goods:text &#9;null&#9;null&#10;rails g migration add_images_to_proposes goods:text campaign:text&#9;null&#9;null&#10;ruby -v&#9;null&#9;null&#10;rails -v&#9;null&#9;null&#10;rails:update:bin&#9;null&#9;null&#10;bundle exec rake rails:update:bin &#9;null&#9;null&#10;gem install bundler &#9;null&#9;null&#10;gem install bcrypt --platform=ruby  &#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
@@ -291,8 +423,6 @@
       <command value="rails g migration add_assos_to_vproposes assos:text" />
       <command value="rails generate mailer UserMailer" />
       <command value="bundle exec spring binstub --all" />
-      <command value="bundle install" />
-      <command value="spring stop" />
       <command value="rails c RAILS_ENV=production" />
       <command value="rails c production" />
       <command value="rails c" />
@@ -303,13 +433,22 @@
       <command value="rails g migration add_agree_hash_to_person_responses agree_hash:text" />
       <command value="rails g migration add_disagree_hash_to_person_responses disagree_hash:text" />
       <command value="rake db:migrate -e production" />
-      <command value="rake db:migrate RAILS_ENV=production" />
       <command value="rails g controller response" />
       <command value="gem install strmask" />
       <command value="rails assets:precompile  RAILS_ENV=production" />
       <command value="rails s" />
       <command value="rake db:migrate" />
+      <command value="bundle install" />
       <command value="rails assets:precompile RAILS_ENV=production" />
+      <command value="spring stop" />
+      <command value="ps" />
+      <command value="rails s -h" />
+      <command value="rails s -e production -p 8080" />
+      <command value="rake server:startup" />
+      <command value="rails g migration add_image_to_people image:text" />
+      <command value="rails g migration add_specialnum_to_people specialnum:integer" />
+      <command value="rails g model person_assos_detail name:text num:integer assos:text desc1:text desc2:text desc3:text image:text image2:text image3:text" />
+      <command value="rake db:migrate RAILS_ENV=production" />
       <command value="rails s -e production" />
     </option>
   </component>
@@ -325,18 +464,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Rails.Development: tojung_ver1.0">
+  <component name="RunManager" selected="IRB console.Rails console: tojung_ver1.0">
     <configuration name="Rails console: tojung_ver1.0" type="IrbRunConfigurationType" factoryName="IRB console" temporary="true">
       <module name="tojung_ver1.0" />
       <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <IRB_RUN_CONFIG NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <IRB_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <IRB_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
       <IRB_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
       <IRB_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" />
-      <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/bin/rails" />
+      <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/bin/rails" />
       <IRB_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="console production" />
       <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="true" />
     </configuration>
@@ -344,7 +483,7 @@
       <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
       <module name="tojung_ver1.0" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -363,7 +502,7 @@
       <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
       <module name="tojung_ver1.0" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -381,7 +520,7 @@
     <configuration name="spec: tojung_ver1.0" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="tojung_ver1.0" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -398,7 +537,7 @@
     <configuration name="test: tojung_ver1.0" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="tojung_ver1.0" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -457,7 +596,8 @@
       <workItem from="1526725819033" duration="6055000" />
       <workItem from="1526734809644" duration="810000" />
       <workItem from="1526735693784" duration="1760000" />
-      <workItem from="1526885574964" duration="185000" />
+      <workItem from="1526885574964" duration="459000" />
+      <workItem from="1526886081328" duration="7000000" />
     </task>
     <task id="LOCAL-00001" summary="메일 기능">
       <created>1526455035850</created>
@@ -510,29 +650,29 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38003000" />
+    <option name="totallyTimeSpent" value="45227000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="720" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49898168" visible="true" weight="0.18704453" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50040483" side_tool="true" weight="0.32943144" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49919093" weight="0.3277592" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5032415" side_tool="true" weight="0.44012442" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.49959514" visible="true" weight="0.32943144" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49756888" weight="0.3160535" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49918962" weight="0.3281493" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49675852" visible="true" weight="0.44012442" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3277592" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49898168" visible="true" weight="0.1904376" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32916668" />
       <window_info id="Favorites" order="2" sideWeight="0.50101835" side_tool="true" weight="0.17109375" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3290735" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32882884" />
@@ -541,19 +681,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49898168" visible="true" weight="0.18071313" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32943144" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49918962" weight="0.31726283" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32882884" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32916668" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32943144" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5008104" side_tool="true" weight="0.31881803" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3290735" />
@@ -599,7 +739,8 @@
     <MESSAGE value="의원 찬반 메일 구현 완료!!!!! ?!" />
     <MESSAGE value="수정 페이지" />
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="ㄱㄱ" />
+    <option name="LAST_COMMIT_MESSAGE" value="ㄱㄱ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -607,93 +748,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/typewriter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Front/assets/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="37" selection-end-line="163" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Front/assets/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="23" selection-end-line="244" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Front/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="84" column="45" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/random_color.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Front/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1729">
-          <caret line="91" column="43" lean-forward="true" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/application_mailer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="277">
-            <caret line="84" column="11" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/fog.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="65" column="17" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -764,13 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -897,9 +944,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tmp.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/log/production.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="150518">
+        <state relative-caret-position="345">
           <caret line="7922" column="90" selection-start-line="7922" selection-start-column="90" selection-end-line="7922" selection-end-column="90" />
         </state>
       </provider>
@@ -909,24 +963,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/propose/detail.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/propose/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        <state relative-caret-position="152">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/propose/edit.html.erb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        <state relative-caret-position="117">
+          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/propose/detail.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="86" column="12" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/의원사진/19_1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/의원사진/12_2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/의원사진/10_1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/의원사진/11_1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/의원사진/12_1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/person_assos_detail.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/law_person.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/woman.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/farm_person.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/hang.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/propose_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
+        <state relative-caret-position="757">
+          <caret line="167" column="12" lean-forward="true" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/의원정보/eco.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
         </state>
       </provider>
     </entry>
