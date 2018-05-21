@@ -43,7 +43,7 @@
     <div class="row">
 			<% @proposes.each do |propose| %>
 				<div class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
-	        <div class="funding_card d-flex flex-column h-100">
+	        <div class="funding_card d-flex flex-column h-100 w-100">
 	          <a href="/propose/<%= propose.id %>" class="h-100">
               <h4 class="funding_title text-white mb-0"><%= propose.title %></h4>
 	            <div class="funding_card_info pt-lg-4">
@@ -61,7 +61,13 @@
 
 <!-- typewriter js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
-<script>
+<script type="text/javascript">
+  var app = document.getElementById('mention');
+
+  var typewriter = new Typewriter(app, {
+      loop: true
+  });
+
   typewriter.typeString('겪고 있는 문제가 있나요?\n')
     .pauseFor(1000)
     .typeString('투정으로 끝나지 않게, 해결책이 될 법안을 찾아줄게요.')
