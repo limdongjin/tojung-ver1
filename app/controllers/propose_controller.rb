@@ -9,6 +9,7 @@ class ProposeController < ApplicationController
     subscribe = Subscribe.new
     subscribe.email = params[:email]
     subscribe.phone = params[:phone]
+    subscribe.propose_id = params[:id]
     subscribe.save
 
     redirect_to '/propose/'+ params[:id]
