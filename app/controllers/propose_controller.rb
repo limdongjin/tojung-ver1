@@ -48,20 +48,21 @@ class ProposeController < ApplicationController
     end
 
     person_email = person_email.remove("\n")
-    content =  params[:content] + "\n----------------------------------\n
-이 이메일 청원은 '투정(2jung.com)'을 통해 발송되었습니다.\n\n의원님, 이 입법안에 대한 어떤 의견을 가지고 계신가요? 아래의 링크를 눌러, 이메일 청원에 대한 의원님의 의견을 말씀해 주세요.
-\n\n
-찬성하기 : (링크)\n
-반대하기 : (링크)\n
-*각각의 링크를 클릭하면 투정플랫폼(2jung.com)에 자동 반영되며, 추가 의견에 대해 입력하실 수 있습니다.\n
-\n
-'투정'은 국회의 입법과정이 많은 사람들의 관심 속에 공론화되고, 대한민국을 더 발전시킬 입법안들이 주목받는 세상을 꿈꿉니다.
-\n\n
-바쁘신 와중에도, '투정'을 통해 국민들과의 소통에 응해주셔서 정말 감사합니다.\n"
-    UserMailer.welcome_email(params[:user_email],
+    content =  params[:content]
+# + "\n----------------------------------\n
+# 이 이메일 청원은 '투정(2jung.com)'을 통해 발송되었습니다.\n\n의원님, 이 입법안에 대한 어떤 의견을 가지고 계신가요? 아래의 링크를 눌러, 이메일 청원에 대한 의원님의 의견을 말씀해 주세요.
+# \n\n
+# 찬성하기 : #{ }\n
+# 반대하기 : (링크)\n
+# *각각의 링크를 클릭하면 투정플랫폼(2jung.com)에 자동 반영되며, 추가 의견에 대해 입력하실 수 있습니다.\n
+# \n
+# '투정'은 국회의 입법과정이 많은 사람들의 관심 속에 공론화되고, 대한민국을 더 발전시킬 입법안들이 주목받는 세상을 꿈꿉니다.
+# \n\n
+# 바쁘신 와중에도, '투정'을 통해 국민들과의 소통에 응해주셔서 정말 감사합니다.\n"
+    UserMailer.send_email_to_person(params[:user_email],
                              person_email,
                              params[:title],
-                             content).deliver_now
+                             content, person, propose_id).deliver_now
 
     person_res = PersonResponse.where(propose_id: params[:id],
                                       person_id: params[:person_id])[0]

@@ -1,1 +1,5 @@
 찬성입니다!
+<%= form_tag("/discuss", method: "post", remote: true) do %>
+  <%= text_field_tag 'content', "", placeholder: "추가 의견을 알려주세요"%>
+  <%= submit_tag("discuss") %>
+<% end %>
