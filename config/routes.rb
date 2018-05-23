@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'propose/:id/subscribe' => 'propose#subscribe_form'
+  post 'propose/:id/subscribe' => 'propose#subscribe'
 
   get 'propose/:id/email_send/:person_id' => 'propose#email_send'
 

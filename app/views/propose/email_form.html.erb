@@ -34,17 +34,19 @@ style="background-image: url(<%= @propose.image %>);">
 <section class="maker_profile mb-lg-5 text-center font-grey">
   <h4 class="font-18 font-sm-10 font-weight-bold my-4 my-md-5"><%= @person.name %> 의원에게 답변을 촉구합니다.</h4>
   <div class="maker_imgs d-flex justify-content-center flex-wrap">
-    <%=image_tag("/assets/images/product.png", class:"maker_img mr-lg-3")%>
-    <%=image_tag("/assets/images/product.png", class:"maker_img mr-lg-3")%>
+    <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num%>_1.jpg" class="maker_img mr-lg-3">
   </div>
-  <p class="font-14 font-sm-10 mb-5">이력</p>
+  <p class="font-14 font-sm-10 mb-5" style="white-space: pre-line"><%= @person_detail.desc1 %></p>
   <!-- 의원 이력  + 이미지 -->
+
 </section>
 <!-- //Maker Profile -->
 
 <!-- Email Form -->
 <section class="email_form">
+
   <form class="font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email_send/<%= @person.id %>" accept-charset="UTF-8" method="get">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
     <div class="form-group">
       <input type="email" class="form-control" name="user_email" placeholder="내 이메일 주소">
     </div>
@@ -58,17 +60,17 @@ style="background-image: url(<%= @propose.image %>);">
 
 <!-- 메일 테스트중!
 <hr>
-대표 이미지: <%= @propose.image %>
+대표 이미지: <%#= @propose.image %>
 <hr>
-의원 이름: <%= @person.name %>
+의원 이름: <%#= @person.name %>
 <hr>
-의원 메일: <%= @person.email %>
+의원 메일: <%#= @person.email %>
 <hr>
-응답 상태: <%= @person_res.response_type %>
+응답 상태: <%#= @person_res.response_type %>
 <hr>
-응답 내용: <%= @person_res.response_text %>
+응답 내용: <%#= @person_res.response_text %>
 <hr>
-메일 보낸 사람 수: <%= @person_res.send_count %>
+메일 보낸 사람 수: <%#= @person_res.send_count %>
 <hr>
 <form class="propose_form w-100 font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email_send/<%= @person.id %>" accept-charset="UTF-8" method="get">
     <input type="text" name="user_email" placeholder="이메일을 보내는 사람">

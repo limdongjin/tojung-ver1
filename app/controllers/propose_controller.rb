@@ -1,16 +1,56 @@
 # noinspection ALL
 class ProposeController < ApplicationController
+  # GET /propose/:id/subcribe
+  def subscribe_form
+  end
+
+  # POST /propose/:id/subscribe
+  def subscribe
+    subscribe = Subscribe.new
+    subscribe.email = params[:email]
+    subscribe.phone = params[:phone]
+    subscribe.propose_id = params[:id]
+    subscribe.save
+
+    @propose = Vpropose.find(params[:id])
+    if @propose.subscribe_count == nil
+      @propose.subscribe_count = 0
+    end
+    @propose.subscribe_count += 1
+    @propose.save
+    redirect_to '/propose/'+ params[:id]
+  end
+
   # GET /propose/:id/email_form/:person_id
   def email_form
     @propose = Vpropose.find(params[:id].to_i)
     @person = Person.find(params[:person_id].to_i)
     @person_res = PersonResponse.where(propose_id: params[:id],
                                        person_id: params[:person_id])[0]
+    @person_detail = PersonAssosDetail.find_by_name(@person.name)
   end
 
   def email_send
+    person = Person.find(params[:person_id])
+    person_email = ""
+    if person.email == "x" or person.email == nil or person.email == ""
+      if person_emaill == "x" or person.emaill == nil or person.emaill == ""
+        person_email = person.email2
+      else
+        person_email = person.emaill
+      end
+    else
+       person_email = person.email
+    end
+
+    if person_email == "" or person_email == "x" or person_email == nil
+      redirect_to '/'
+    end
+
+    person_email = person_email.remove("\n")
+
     UserMailer.welcome_email(params[:user_email],
-                             params[:person_email],
+                             person_email,
                              params[:title],
                              params[:content]).deliver_now
 
@@ -19,6 +59,13 @@ class ProposeController < ApplicationController
 
     person_res.send_count = (person_res.send_count.to_i + 1).to_s
     person_res.save
+    @propose = Vpropose.find(params[:id])
+
+    if @propose.send_count == nil
+      @propose.send_count = 0
+    end
+    @propose.send_count += 1
+    @propose.save
 
     redirect_to '/propose/' + params[:id]
   end
@@ -158,6 +205,9 @@ class ProposeController < ApplicationController
     @propose.funded_money = 0
     @propose.goal_money = 10_000_000
     @propose.funded_num = 1
+    @propose.send_count = 0
+    @propose.subscribe_count = 0
+
     @propose.save
 
     redirect_to '/propose/' + @propose.id.to_s
@@ -166,11 +216,6 @@ class ProposeController < ApplicationController
 
   # POST /propose/update/:id
   def update
-    if @propose.user_id != current_vuser.id
-      redirect_to '/'
-      return
-    end
-
     if current_vuser != Vuser.find_by_email('admin@2jung.com')
       redirect_to '/'
       return
@@ -195,5 +240,6 @@ class ProposeController < ApplicationController
     redirect_to '/propose/' + @propose.id.to_s
   end
 
-  def delete; end
+  def delete
+  end
 end

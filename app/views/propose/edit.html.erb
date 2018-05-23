@@ -1,6 +1,6 @@
 <!-- Propose Cover -->
 <section class="propose_cover">
-  <h2 class="sr-only">제안 수정하기 </h2>
+  <h2 class="sr-only">제안 수정하기!!! </h2>
   <p class="propose_text text-white mb-2 font-sm-12">겪고 있는 문제가 있나요?</p>
   <p class="propose_text text-white mb-2 font-sm-12">지금 바로, 투정부려보세요!</p><br/>
   <p class="propose_text text-white mb-2 font-sm-12">당신의 투정,</p>
@@ -13,37 +13,30 @@
     <input name="utf8" type="hidden" value="&#x2713;">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
     <div class="form-group">
-      <label for="exampleFormControlInput1">투정 제목</label>
+투정 제목:
       <input type="text" value="<%= @propose.title %>" class="form-control font-sm-10" id="propose_title" name="propose_title" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
     </div>
     <div class="form-group">
-      <label for="exampleFormControlInput1">상임위 풀네임으로 입력</label>
+      상임위:
       <input type="text" value="<%= @propose.assos %>" class="form-control font-sm-10" id="assos" name="assos" placeholder="상임위 이름 적으세요.">
     </div>
     <div>
 
     </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">투정 내용</label>
+투정내용:
       <textarea class="form-control font-sm-10" value="<%= @propose.content %>" id="propose_content" name="propose_content" rows="6" placeholder="1. 현재 내가 겪고 있는 문제&#13;&#10;2. 어떻게 바뀌었으면 좋겠는지를 이야기해주세요."></textarea>
     </div>
 
     <label for="inputGroupFile02">대표 사진 업로드</label><br/>
-        <input type="file" value="<%= @propose.image %>" class="custom-file-input" id="propose_image" onchange="filename_change(this)" name="propose_image" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
-        <label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02">업로드 하지 않으면, 카테고리별 기본 사진으로
-          지정됩니다!</label>
+        <input type="file" value="<%= @propose.image %>" id="propose_image" onchange="filename_change(this)" name="propose_image" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
+<hr>
   <!-- //Propose Form -->
   <!-- Propose Funding -->
-  <label for="inputGroupFile02"> 굿즈 사진 업로드</label><br/>
->
-      <input type="file" value="<%= @propose.goods %>"class="custom-file-input" id="goods" onchange="filename_change(this)" name="goods" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
-      <label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02">굿즈 이미지</label>
-
-
-  <label for="inputGroupFile02"> 캠페인 사진 업로드</label><br/>
-
-      <input type="file" value="<%= @propose.campaign %>" class="custom-file-input" id="campaign" onchange="filename_change(this)" name="campaign" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
-      <label id="image_label" class="custom-file-label font-sm-8" for="inputGroupFile02"> 캠페인 이미지 </label>
+굿즈사진 업로드:      <input type="file" value="<%= @propose.goods %>" id="goods" onchange="filename_change(this)" name="goods" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
+<hr>
+캠페인 사진 업로드:
+  <input type="file" value="<%= @propose.campaign %>" id="campaign" onchange="filename_change(this)" name="campaign" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
 
     <label for="exampleFormControlTextarea1">캠페인 내용</label>
     <textarea class="form-control font-sm-10" value="<%= @propose.campaign_content %>" id="campaign_content" name="campaign_content" rows="6" placeholder="캠페인 내용"></textarea>
