@@ -12,8 +12,8 @@ class ResponseController < ApplicationController
     @key = key
     @pr = ""
 
-    if PersonResponse.where(agree_hash:  URI.decode_www_form(key)[0][0]).count != 0
-      pr = PersonResponse.where(agree_hash:  URI.decode_www_form(key)[0][0])[0]
+    if PersonResponse.where(agree_hash:  key).count != 0
+      pr = PersonResponse.where(agree_hash: key)[0]
       print(pr)
       pr.response_type = "찬성"
       pr.save
@@ -31,8 +31,19 @@ class ResponseController < ApplicationController
     @key = key
     @pr = ""
 
-    if PersonResponse.where(disagree_hash:  URI.decode_www_form(key)[0][0]).count != 0
-      pr = PersonResponse.where(disagree_hash:  URI.decode_www_form(key)[0][0])[0]
+    print("key => ")
+    print(key)
+    print("\n")
+    print("decode => ")
+    print(URI.decode_www_form(key)[0][0])
+    print("\n")
+    print("\nkey => ")
+    print(key)
+    print("\nparms => ")
+    print(params[:key])
+
+    if PersonResponse.where(disagree_hash: key).count != 0
+      pr = PersonResponse.where(disagree_hash: key)[0]
       pr.response_type = "반대"
       pr.save
 
@@ -42,11 +53,17 @@ class ResponseController < ApplicationController
       redirect_to '/'
       return
     end
+
   end
+
   def discuss
+    key = params[:key]
+
+    print(params)
+
     if params[:type] == "agree"
-      if PersonResponse.where(agree_hash: URI.decode_www_form(params[:key])[0][0]).count != 0
-        p = PersonResponse.where(agree_hash:  URI.decode_www_form(params[:key])[0][0])[0]
+      if PersonResponse.where(agree_hash: key).count != 0
+        p = PersonResponse.where(agree_hash: key)[0]
         p.response_text = params[:content]
         p.save
 
@@ -54,9 +71,9 @@ class ResponseController < ApplicationController
         @t = params
         return
       end
-    elsif params[:type] == "disagee"
-      if PersonResponse.where(disagree_hash:  URI.decode_www_form(params[:key])[0][0]).count != 0
-        p = PersonResponse.where(disagree_hash:  URI.decode_www_form(params[:key])[0][0])[0]
+    elsif params[:type] == "disagree"
+      if PersonResponse.where(disagree_hash: key).count != 0
+        p = PersonResponse.where(disagree_hash: key)[0]
         p.response_text = params[:content]
         p.save
         @c = p.response_text
