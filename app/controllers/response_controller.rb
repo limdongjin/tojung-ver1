@@ -30,6 +30,7 @@ class ResponseController < ApplicationController
     key = params[:key]
     @key = key
     @pr = ""
+
     if PersonResponse.where(disagree_hash: key).count != 0
       pr = PersonResponse.where(disagree_hash: key)[0]
       pr.response_type = "반대"
