@@ -18,7 +18,7 @@ class ProposeController < ApplicationController
     end
     @propose.subscribe_count += 1
     @propose.save
-    redirect_to '/propose/'+ params[:id]
+    redirect_to '/propose/'+params[:id]
   end
 
   # GET /propose/:id/email_form/:person_id
@@ -48,11 +48,20 @@ class ProposeController < ApplicationController
     end
 
     person_email = person_email.remove("\n")
-
+    content =  params[:content] + "\n----------------------------------\n
+이 이메일 청원은 '투정(2jung.com)'을 통해 발송되었습니다.\n\n의원님, 이 입법안에 대한 어떤 의견을 가지고 계신가요? 아래의 링크를 눌러, 이메일 청원에 대한 의원님의 의견을 말씀해 주세요.
+\n\n
+찬성하기 : (링크)\n
+반대하기 : (링크)\n
+*각각의 링크를 클릭하면 투정플랫폼(2jung.com)에 자동 반영되며, 추가 의견에 대해 입력하실 수 있습니다.\n
+\n
+'투정'은 국회의 입법과정이 많은 사람들의 관심 속에 공론화되고, 대한민국을 더 발전시킬 입법안들이 주목받는 세상을 꿈꿉니다.
+\n\n
+바쁘신 와중에도, '투정'을 통해 국민들과의 소통에 응해주셔서 정말 감사합니다.\n"
     UserMailer.welcome_email(params[:user_email],
                              person_email,
                              params[:title],
-                             params[:content]).deliver_now
+                             content).deliver_now
 
     person_res = PersonResponse.where(propose_id: params[:id],
                                       person_id: params[:person_id])[0]
@@ -66,7 +75,7 @@ class ProposeController < ApplicationController
     end
     @propose.send_count += 1
     @propose.save
-
+    print(content)
     redirect_to '/propose/' + params[:id]
   end
 
@@ -91,8 +100,6 @@ class ProposeController < ApplicationController
 
   # GET /propose/:id
   def detail
-    # 청원 세부 정보 페이지
-    print(request.base_url)
     @base_url = request.base_url
     @propose = Vpropose.find(params[:id].to_i)
 
@@ -114,7 +121,10 @@ class ProposeController < ApplicationController
       @result['image'] = @result['propose']['object'].default_image
       print(@result['image'])
     end
-
+    @is_admin = false
+    if current_vuser == Vuser.find_by_email("admin@2jung.com")
+      @is_admin = true
+    end
     # Person.find_by_assos()
     @people = Person.where('shrtnm like ?', "%#{@propose.assos}%")
 
@@ -148,13 +158,15 @@ class ProposeController < ApplicationController
 
   # GET /propose/new
   def new
-    # 청원 생성 페이지
+    # 생성 페이지
+    if current_vuser == nil
+      redirect_to '/'
+      return
+    end
     if current_vuser != Vuser.find_by_email('admin@2jung.com')
       redirect_to '/'
       return
     end
-
-    redirect_to '/', alert: '로그인해야 청원할 수 있습니다.' if current_vuser.nil?
   end
 
   # GET /propose/edit/:id
@@ -163,10 +175,12 @@ class ProposeController < ApplicationController
       redirect_to '/'
       return
     end
+
     if current_vuser != Vuser.find_by_email('admin@2jung.com')
       redirect_to '/'
       return
     end
+
     @propose = Vpropose.find(params[:id])
   end
 
