@@ -9,11 +9,15 @@ class ResponseController < ApplicationController
 
     print(key)
     print(key.class)
+    @key = key
+    @pr = ""
     if PersonResponse.where(agree_hash: key).count != 0
       pr = PersonResponse.where(agree_hash: key)[0]
       print(pr)
       pr.response_type = "찬성"
       pr.save
+
+      @pr = pr.id
       return
     end
 
@@ -29,6 +33,22 @@ class ResponseController < ApplicationController
       pr.save
       return
     end
+  end
+  def discuss
+    if params[:type] == "agree"
+      if PersonResponse.where(agree_hash: params[:key]).count != 0
+        p = PersonResponse.where(agree_hash: params[:key])[0]
+        p.desc1 = params[:content]
+        p.save
+      end
+    elsif params[:type] == "disagee"
+      if PersonResponse.where(disagree_hash: params[:key]).count != 0
+        p = PersonResponse.where(disagree_hash: params[:key])[0]
+        p.desc1 = params[:content]
+        p.save
+      end
+    end
+
   end
 
 end
