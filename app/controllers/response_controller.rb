@@ -38,17 +38,18 @@ class ResponseController < ApplicationController
     if params[:type] == "agree"
       if PersonResponse.where(agree_hash: params[:key]).count != 0
         p = PersonResponse.where(agree_hash: params[:key])[0]
-        p.desc1 = params[:content]
+        p.response_text = params[:content]
         p.save
       end
     elsif params[:type] == "disagee"
       if PersonResponse.where(disagree_hash: params[:key]).count != 0
         p = PersonResponse.where(disagree_hash: params[:key])[0]
-        p.desc1 = params[:content]
+        p.response_text = params[:content]
         p.save
       end
     end
 
+    redirect_to '/'
   end
 
 end
