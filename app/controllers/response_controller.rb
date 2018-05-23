@@ -12,8 +12,8 @@ class ResponseController < ApplicationController
     @key = key
     @pr = ""
 
-    if PersonResponse.where(agree_hash: key).count != 0
-      pr = PersonResponse.where(agree_hash: key)[0]
+    if PersonResponse.where(agree_hash:  URI.decode_www_form(key)[0][0]).count != 0
+      pr = PersonResponse.where(agree_hash:  URI.decode_www_form(key)[0][0])[0]
       print(pr)
       pr.response_type = "찬성"
       pr.save
@@ -31,8 +31,8 @@ class ResponseController < ApplicationController
     @key = key
     @pr = ""
 
-    if PersonResponse.where(disagree_hash: key).count != 0
-      pr = PersonResponse.where(disagree_hash: key)[0]
+    if PersonResponse.where(disagree_hash:  URI.decode_www_form(key)[0][0]).count != 0
+      pr = PersonResponse.where(disagree_hash:  URI.decode_www_form(key)[0][0])[0]
       pr.response_type = "반대"
       pr.save
 
@@ -45,8 +45,8 @@ class ResponseController < ApplicationController
   end
   def discuss
     if params[:type] == "agree"
-      if PersonResponse.where(agree_hash: params[:key]).count != 0
-        p = PersonResponse.where(agree_hash: params[:key])[0]
+      if PersonResponse.where(agree_hash: URI.decode_www_form(params[:key])[0][0]).count != 0
+        p = PersonResponse.where(agree_hash:  URI.decode_www_form(params[:key])[0][0])[0]
         p.response_text = params[:content]
         p.save
 
@@ -55,8 +55,8 @@ class ResponseController < ApplicationController
         return
       end
     elsif params[:type] == "disagee"
-      if PersonResponse.where(disagree_hash: params[:key]).count != 0
-        p = PersonResponse.where(disagree_hash: params[:key])[0]
+      if PersonResponse.where(disagree_hash:  URI.decode_www_form(params[:key])[0][0]).count != 0
+        p = PersonResponse.where(disagree_hash:  URI.decode_www_form(params[:key])[0][0])[0]
         p.response_text = params[:content]
         p.save
         @c = p.response_text
