@@ -155,6 +155,10 @@ form .form-group{
   margin-bottom: 40px;
 }
 
+iframe{
+  padding-left: 40%;
+}
+
 .fb_btns{
   margin-bottom: 30px;
 }
@@ -230,6 +234,11 @@ form .form-group{
     padding: 30px 6.66%;
   }
 
+  iframe{
+    padding-left: 25%;
+  }
+
+
   .content_text{
     line-height: 2;
     margin-bottom: 30px;
@@ -291,6 +300,7 @@ form .form-group{
 .maker_img{
   width: 232px;
   height: 166px;
+  object-fit: cover;
 }
 /* ----------------------------------------Email Form */
 .email_form{
