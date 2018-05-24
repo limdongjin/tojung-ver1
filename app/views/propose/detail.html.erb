@@ -33,9 +33,7 @@ style="background-image: url(<%= @propose.image %>);">
 <!-- Content  -->
 <section class="content font-grey font-12 font-sm-10">
   <p class="content_text"><%= @propose.content %>
-    <div class="fb_btns d-flex justify-content-center">
-  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-  </div>
+    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=button_count&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" id="frame" width="450" height="80" style="border:none;overflow:hidden;padding-left:25%;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
   <div class="content_links text-right">
     <a href="<%= @propose.bill_link %>" class="d-block font-grey">&gt; 법안원문 보러가기</a>
     <% if @is_admin == true %>
@@ -95,14 +93,14 @@ style="background-image: url(<%= @propose.image %>);">
 <section class="detail_second font-grey font-12 font-sm-10 text-center">
   <h3 class="big_num">2</h3>
   <p class="">이 입법안에 대한 사람들의 관심을 더 이끌어내고 싶나요?</p>
-  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=button_count&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" id="frame" width="450" height="80" style="border:none;overflow:hidden;padding-left:25%;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
   <div class="d-flex justify-content-center mb-4">
     <%=image_tag("/assets/images/product.png", class:"product_img mr-2")%>
     <img src="<%= @propose.goods %>" class="product_img ml-2">
   </div>
   <div class="buttons d-flex w-100 justify-content-center mt-3">
-    <button class="btn underbar-none btn-white font-14 font-sm-12 mr-2 mr-lg-3"><a href="/propose/<%= @propose.id %>/subscribe">구독하기</a></button>
-    <button class="btn underbar-none btn-white font-14 font-sm-12 ml-2 ml-lg-3"><a href="<%= @propose.tumb %>">굿즈겟또로 후원하기</a></button>
+    <button class="btn underbar-none btn-white font-14 font-sm-12 mr-2 mr-lg-3"><a class="underbar-none text-white" href="/propose/<%= @propose.id %>/subscribe">구독하기</a></button>
+    <button class="btn underbar-none btn-white font-14 font-sm-12 ml-2 ml-lg-3"><a class="underbar-none text-white" href="<%= @propose.tumb %>">굿즈겟또로 후원하기</a></button>
   </div>
 </section>
 <!-- //2nd Section -->

@@ -2,11 +2,12 @@
 class ProposeController < ApplicationController
   # GET /propose/:id/subcribe
   def subscribe_form
+    @propose = Vpropose.find(params[:id].to_i)
   end
 
   # POST /propose/:id/subscribe
   def subscribe
-    @propose = Vpropose.find(params[:id])
+    @propose = Vpropose.find(params[:id].to_i)
     subscribe = Subscribe.new
     subscribe.email = params[:email]
     subscribe.phone = params[:phone]
