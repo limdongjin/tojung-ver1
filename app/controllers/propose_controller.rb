@@ -18,7 +18,7 @@ class ProposeController < ApplicationController
     end
     @propose.subscribe_count += 1
     @propose.save
-    redirect_to '/propose/'+ params[:id]
+    redirect_to '/propose/'+params[:id]
   end
 
   # GET /propose/:id/email_form/:person_id
@@ -48,11 +48,12 @@ class ProposeController < ApplicationController
     end
 
     person_email = person_email.remove("\n")
+    content =  params[:content]
 
-    UserMailer.welcome_email(params[:user_email],
+    UserMailer.send_email_to_person(params[:user_email],
                              person_email,
                              params[:title],
-                             params[:content]).deliver_now
+                             content, person, params[:id]).deliver_now
 
     person_res = PersonResponse.where(propose_id: params[:id],
                                       person_id: params[:person_id])[0]
@@ -66,7 +67,7 @@ class ProposeController < ApplicationController
     end
     @propose.send_count += 1
     @propose.save
-
+    print(content)
     redirect_to '/propose/' + params[:id]
   end
 
@@ -91,8 +92,6 @@ class ProposeController < ApplicationController
 
   # GET /propose/:id
   def detail
-    # 청원 세부 정보 페이지
-    print(request.base_url)
     @base_url = request.base_url
     @propose = Vpropose.find(params[:id].to_i)
 
@@ -114,7 +113,10 @@ class ProposeController < ApplicationController
       @result['image'] = @result['propose']['object'].default_image
       print(@result['image'])
     end
-
+    @is_admin = false
+    if current_vuser == Vuser.find_by_email("admin@2jung.com")
+      @is_admin = true
+    end
     # Person.find_by_assos()
     @people = Person.where('shrtnm like ?', "%#{@propose.assos}%")
 
@@ -148,13 +150,15 @@ class ProposeController < ApplicationController
 
   # GET /propose/new
   def new
-    # 청원 생성 페이지
+    # 생성 페이지
+    if current_vuser == nil
+      redirect_to '/'
+      return
+    end
     if current_vuser != Vuser.find_by_email('admin@2jung.com')
       redirect_to '/'
       return
     end
-
-    redirect_to '/', alert: '로그인해야 청원할 수 있습니다.' if current_vuser.nil?
   end
 
   # GET /propose/edit/:id
@@ -163,10 +167,12 @@ class ProposeController < ApplicationController
       redirect_to '/'
       return
     end
+
     if current_vuser != Vuser.find_by_email('admin@2jung.com')
       redirect_to '/'
       return
     end
+
     @propose = Vpropose.find(params[:id])
   end
 

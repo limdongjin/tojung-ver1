@@ -9,12 +9,18 @@ class ResponseController < ApplicationController
 
     print(key)
     print(key.class)
-    if PersonResponse.where(agree_hash: key).count != 0
+    @key = key
+    @pr = ""
+
+    if PersonResponse.where(agree_hash:  key).count != 0
       pr = PersonResponse.where(agree_hash: key)[0]
       print(pr)
       pr.response_type = "찬성"
       pr.save
-      return
+
+      @pr = pr.id
+    else
+      redirect_to '/'
     end
 
     print("\nnono")
@@ -22,13 +28,62 @@ class ResponseController < ApplicationController
 
   def disagree
     key = params[:key]
+    @key = key
+    @pr = ""
+
+    print("key => ")
+    print(key)
+    print("\n")
+    print("decode => ")
+    print(URI.decode_www_form(key)[0][0])
+    print("\n")
+    print("\nkey => ")
+    print(key)
+    print("\nparms => ")
+    print(params[:key])
 
     if PersonResponse.where(disagree_hash: key).count != 0
       pr = PersonResponse.where(disagree_hash: key)[0]
       pr.response_type = "반대"
       pr.save
+
+      @pr = pr.id
+      return
+    else
+      redirect_to '/'
       return
     end
+
+  end
+
+  def discuss
+    key = params[:key]
+
+    print(params)
+
+    if params[:type] == "agree"
+      if PersonResponse.where(agree_hash: key).count != 0
+        p = PersonResponse.where(agree_hash: key)[0]
+        p.response_text = params[:content]
+        p.save
+
+        @c = p.response_text
+        @t = params
+        return
+      end
+    elsif params[:type] == "disagree"
+      if PersonResponse.where(disagree_hash: key).count != 0
+        p = PersonResponse.where(disagree_hash: key)[0]
+        p.response_text = params[:content]
+        p.save
+        @c = p.response_text
+        @t = params
+        return
+      end
+    end
+    @c = "노노"
+    @t = "놉 ㅠㅠ"
+
   end
 
 end

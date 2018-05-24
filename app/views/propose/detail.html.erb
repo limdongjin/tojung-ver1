@@ -38,7 +38,9 @@ style="background-image: url(<%= @propose.image %>);">
   </div>
   <div class="content_links text-right">
     <a href="<%= @propose.bill_link %>" class="d-block font-grey">&gt; 법안원문 보러가기</a>
-    <a href="/propose/edit/<%= @propose.id %>" class="d-block font-grey">&gt; 관리자용 수정하기 </a>
+    <% if @is_admin == true %>
+       <a href="/propose/edit/<%= @propose.id %>" class="d-block font-grey">&gt; 관리자용 수정하기 </a>
+    <% end %>
   </div>
 </section>
 <!-- //Content -->
@@ -99,8 +101,8 @@ style="background-image: url(<%= @propose.image %>);">
     <img src="<%= @propose.goods %>" class="product_img ml-2">
   </div>
   <div class="buttons d-flex w-100 justify-content-center mt-3">
-    <a class="btn underbar-none btn-white font-14 font-sm-12 mr-2 mr-lg-3" href="/propose/<%= @propose.id %>/subscribe">구독하기</a>
-    <button class="btn btn-white font-14 font-sm-12 ml-2 ml-lg-3">굿즈겟또로 후원하기</button>
+    <button class="btn underbar-none btn-white font-14 font-sm-12 mr-2 mr-lg-3"><a href="/propose/<%= @propose.id %>/subscribe">구독하기</a></button>
+    <button class="btn underbar-none btn-white font-14 font-sm-12 ml-2 ml-lg-3"><a href="<%= @propose.tumb %>">굿즈겟또로 후원하기</a></button>
   </div>
 </section>
 <!-- //2nd Section -->

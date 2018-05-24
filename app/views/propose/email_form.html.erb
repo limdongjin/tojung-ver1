@@ -1,3 +1,11 @@
+<!-- 의원의 대답!! -->
+<% if @person_res.response_text != nil and @person_res.response_text != "" %>
+  의원의 대답!!!<br>
+  <%= @person_res.response_text%><br>
+  <hr>
+<% end %>
+
+
 <!-- Funding Detail Cover Desktop-->
 <section class="funding_detail_cover d-flex flex-column justify-content-between align-items-center visible-lg"
 style="background-image: url(<%= @propose.image %>);">
@@ -38,17 +46,23 @@ style="background-image: url(<%= @propose.image %>);">
   </div>
   <p class="font-14 font-sm-10 mb-5" style="white-space: pre-line"><%= @person_detail.desc1 %></p>
   <!-- 의원 이력  + 이미지 -->
-
+  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_2.jpg">
+  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_3.jpg">
+  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_4.jpg">
+  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_5.jpg">
+  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_6.jpg">
 </section>
 <!-- //Maker Profile -->
 
 <!-- Email Form -->
 <section class="email_form">
-
-  <form class="font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email_send/<%= @person.id %>" accept-charset="UTF-8" method="get">
+  <form class="font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email_send/<%= @person.id %>" accept-charset="UTF-8" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
     <div class="form-group">
       <input type="email" class="form-control" name="user_email" placeholder="내 이메일 주소">
+    </div>
+    <div class="form-group">
+      <input type="text" name="title" class="form-control" value="제목">
     </div>
     <div class="form-group">
       <textarea class="form-control" name="content" rows="10" placeholder="메일 내용"></textarea>

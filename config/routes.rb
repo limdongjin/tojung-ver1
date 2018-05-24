@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'propose/:id/subscribe' => 'propose#subscribe_form'
   post 'propose/:id/subscribe' => 'propose#subscribe'
-
-  get 'propose/:id/email_send/:person_id' => 'propose#email_send'
+  get '/discuss' => 'response#discuss'
+  post 'propose/:id/email_send/:person_id' => 'propose#email_send'
 
   get 'propose/:id/email_form/:person_id' => 'propose#email_form'
   get 'search_form' => 'propose#search_form'
