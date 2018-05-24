@@ -52,3 +52,6 @@ style="background-image: url(<%= @propose.image %>);">
   <input type="text" class="form-control" name="phone" placeholder="내 전화번호">
   <input type="submit">
 </form> -->
+<script>
+  $('.funding_detail_cover').wrap('<a class="d-block underbar-none text-white" href="/propose/<%=@propose.id%>"></a>');
+</script>

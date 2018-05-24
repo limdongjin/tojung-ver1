@@ -1,6 +1,5 @@
 <!-- Funding Detail Cover Desktop-->
-<section class="funding_detail_cover d-flex flex-column justify-content-between align-items-center visible-lg"
-style="background-image: url(<%= @propose.image %>);">
+<section class="funding_detail_cover d-flex flex-column justify-content-between align-items-center visible-lg" style="background-image: url(<%= @propose.image %>);">
   <div class="brand pl-lg-4 pt-lg-4 visible-lg">
     <a class="navbar-brand py-0 mr-0" href="/">
       <%=image_tag("/assets/images/tojung_white.png", class:"logo")%>
@@ -18,6 +17,7 @@ style="background-image: url(<%= @propose.image %>);">
 <!-- //Funding Detail Cover Desktop-->
 
 <!-- Funding Detail Cover Mobile -->
+<a class="d-block underbar-none text-white" href="/propose/<%=@propose.id%>">
 <section class="detail_mobile_cover visible-xs-block" style="background-image: url(<%= @propose.image %>);">
   <h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3"><%= @propose.title %></h2>
   <div class="detail_infos pt-4">
@@ -28,6 +28,7 @@ style="background-image: url(<%= @propose.image %>);">
     </div>
   </div>
 </section>
+</a>
 <!-- //Funding Detail Cover Mobile -->
 
 <!-- Maker Profile -->
@@ -85,6 +86,9 @@ function email_check() {
     timer: 3000,
   });
 }
+</script>
+<script>
+  $('.funding_detail_cover').wrap('<a class="d-block underbar-none text-white" href="/propose/<%=@propose.id%>"></a>');
 </script>
 <!-- 메일 테스트중!
 <hr>
