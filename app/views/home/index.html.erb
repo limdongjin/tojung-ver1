@@ -1,6 +1,9 @@
 
 <!-- Cover -->
 <section class="cover">
+    <video autoplay loop muted class="cover_vid">
+      <source src="../assets/video.mp4" type="video/mp4">
+    </video>
   <div class="brand pl-lg-4 pt-lg-4 visible-lg">
     <a class="navbar-brand py-0 mr-0" href="/">
       <%=image_tag("/assets/images/tojung_white.png", class:"logo")%>
@@ -9,7 +12,7 @@
   <div class="arrow visible-lg">
     <%=image_tag("/assets/images/arrow.png", class:"arrow_img")%>
   </div>
-  <!-- <video src="../manual.mp4" autoplay></video> -->
+
 </section>
 <!-- //Cover -->
 
@@ -26,6 +29,9 @@
       </div>
     </div>
   </div>
+  <a href="https://tumblbug.com/voting" class="d-block">
+  <%=image_tag("/assets/images/banner.png", class: "w-100")%>
+  </a>
 </section>
 
 <!-- List -->
@@ -37,8 +43,8 @@
 	        <div class="funding_card d-flex flex-column h-100 w-100">
 	          <a href="/propose/<%= propose.id %>" class="h-100">
               <h4 class="funding_title text-white mb-0"><%= propose.title %></h4>
-	            <div class="funding_card_info pt-lg-4">
-                <p class="funding_num text-white text-right"><span class="funding_nums text-white"><% if propose.send_count != nil and propose.subscribe_count != nil%><%= propose.funded_num + propose.send_count + propose.subscribe_count %><% end %></span>명</p>
+	            <div class="funding_card_info">
+                <p class="funding_num text-white text-right"><span class="funding_nums text-white"><% if propose.send_count != nil and propose.subscribe_count != nil%><%= propose.funded_num + propose.send_count + propose.subscribe_count %><%else%>0<% end %></span>명</p>
 	              <p class="funding_money text-white text-right">&#8361;<%= propose.funded_money%></p>
 	            </div>
 	          </a>
@@ -53,17 +59,19 @@
 <!-- typewriter js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
 <script type="text/javascript">
-  var app = document.getElementById('mention');
+$(document).ready(function(){
+    var app = document.getElementById('mention');
 
-  var typewriter = new Typewriter(app, {
-      loop: true
+    var typewriter = new Typewriter(app, {
+        loop: true
+    });
+
+    typewriter.typeString('겪고 있는 문제가 있나요?\n')
+      .pauseFor(1000)
+      .typeString('투정으로 끝나지 않게, 해결책이 될 법안을 찾아줄게요.')
+      .pauseFor(2500)
+      .start();
   });
-
-  typewriter.typeString('겪고 있는 문제가 있나요?\n')
-    .pauseFor(1000)
-    .typeString('투정으로 끝나지 않게, 해결책이 될 법안을 찾아줄게요.')
-    .pauseFor(2500)
-    .start();
 </script>
 <!-- //TypeWriter -->
 <!-- 원화 콤마찍기 -->

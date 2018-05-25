@@ -1,14 +1,5 @@
-<!-- 의원의 대답!! -->
-<% if @person_res.response_text != nil and @person_res.response_text != "" %>
-  의원의 대답!!!<br>
-  <%= @person_res.response_text%><br>
-  <hr>
-<% end %>
-
-
 <!-- Funding Detail Cover Desktop-->
-<section class="funding_detail_cover d-flex flex-column justify-content-between align-items-center visible-lg"
-style="background-image: url(<%= @propose.image %>);">
+<section class="funding_detail_cover d-flex flex-column justify-content-between align-items-center visible-lg" style="background-image: url(<%= @propose.image %>);">
   <div class="brand pl-lg-4 pt-lg-4 visible-lg">
     <a class="navbar-brand py-0 mr-0" href="/">
       <%=image_tag("/assets/images/tojung_white.png", class:"logo")%>
@@ -26,6 +17,7 @@ style="background-image: url(<%= @propose.image %>);">
 <!-- //Funding Detail Cover Desktop-->
 
 <!-- Funding Detail Cover Mobile -->
+<a class="d-block underbar-none text-white" href="/propose/<%=@propose.id%>">
 <section class="detail_mobile_cover visible-xs-block" style="background-image: url(<%= @propose.image %>);">
   <h2 class="detail_title font-sm-18 font-weight-bold text-white px-3 py-3"><%= @propose.title %></h2>
   <div class="detail_infos pt-4">
@@ -36,40 +28,67 @@ style="background-image: url(<%= @propose.image %>);">
     </div>
   </div>
 </section>
+</a>
 <!-- //Funding Detail Cover Mobile -->
 
 <!-- Maker Profile -->
 <section class="maker_profile mb-lg-5 text-center font-grey">
   <h4 class="font-18 font-sm-10 font-weight-bold my-4 my-md-5"><%= @person.name %> 의원에게 답변을 촉구합니다.</h4>
+  <div class="maker_imgs d-flex justify-content-center flex-wrap">
+    <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num%>_1.jpg" class="maker_img mr-lg-3" onerror="this.style.display='none';">
+    <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_2.jpg" class="maker_img mr-lg-3" onerror="this.style.display='none';">
+    <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_3.jpg" class="maker_img mr-lg-3" onerror="this.style.display='none';">
+    <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_4.jpg" class="maker_img mr-lg-3" onerror="this.style.display='none';">
+    <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_5.jpg" class="maker_img mr-lg-3" onerror="this.style.display='none';">
+    <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_6.jpg" class="maker_img mr-lg-3" onerror="this.style.display='none';">
+  </div>
   <p class="font-14 font-sm-10 mb-5" style="white-space: pre-line"><%= @person_detail.desc1 %></p>
-  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num%>_1.jpg">
   <!-- 의원 이력  + 이미지 -->
-  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_2.jpg">
-  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_3.jpg">
-  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_4.jpg">
-  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_5.jpg">
-  <img src="https://s3.ap-northeast-2.amazonaws.com/tojung2018/person_image/<%= @person_detail.num %>_6.jpg">
 </section>
 <!-- //Maker Profile -->
+<!-- Email Response -->
+<% if @person_res.response_text != nil and @person_res.response_text != "" %>
+<section class="email_response">
+  <p class="font-14 font-sm-10">
+    <!-- 의원의 대답!! -->
+    <%= @person_res.response_text%>
+  </p>
+</section>
+<% end %>
+<!-- //Email Response -->
 
 <!-- Email Form -->
 <section class="email_form">
-  <form class="propose_form w-100 font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email_send/<%= @person.id %>" accept-charset="UTF-8" method="post">
+  <form class="font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email_send/<%= @person.id %>" accept-charset="UTF-8" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
     <div class="form-group">
       <input type="email" class="form-control" name="user_email" placeholder="내 이메일 주소">
     </div>
     <div class="form-group">
-      <input type="text" name="title" class="form-control" value="제목">
+      <input type="text" name="title" class="form-control" placeholder="메일 제목">
     </div>
     <div class="form-group">
       <textarea class="form-control" name="content" rows="10" placeholder="메일 내용"></textarea>
     </div>
-    <button type="submit" class="btn btn-email btn-white mt-3 mt-lg-4 font-sm-12">이메일 보내기</button>
+    <button type="submit" class="alert-success btn btn-email btn-white mt-3 mt-lg-4 font-sm-12" onclick="email_check();">이메일 보내기</button>
   </form>
 </section>
 <!-- //Email Form -->
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+function email_check() {
+	swal({
+    title: "당신의 투정 칭찬해~",
+    text: "해당 의원에게 이메일이 전송되었습니다",
+    icon: "success",
+    button: false,
+    timer: 3000,
+  });
+}
+</script>
+<script>
+  $('.funding_detail_cover').wrap('<a class="d-block underbar-none text-white" href="/propose/<%=@propose.id%>"></a>');
+</script>
 <!-- 메일 테스트중!
 <hr>
 대표 이미지: <%#= @propose.image %>
@@ -93,7 +112,7 @@ style="background-image: url(<%= @propose.image %>);">
 </form> -->
 
 <!-- Layer -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   var num = <%=@propose.id%>
   if (num ==1){
 		$(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @propose.image %>)');
@@ -119,4 +138,4 @@ style="background-image: url(<%= @propose.image %>);">
     $(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @propose.image %>)');
     $(".detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @propose.image %>)');
   }
-</script>
+</script> -->

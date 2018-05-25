@@ -32,12 +32,8 @@ style="background-image: url(<%= @propose.image %>);">
 
 <!-- Content  -->
 <section class="content font-grey font-12 font-sm-10">
-  <p class="content_text"><%= @propose.content %>
-    <div class="fb_btns d-flex justify-content-center">
-    <p>좋아요</p>
-    <p class="">공유하기</p>
-  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-  </div>
+  <p class="content_text"><%= @propose.content %></p>
+  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=button_count&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" id="frame" width="450" height="80" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
   <div class="content_links text-right">
     <a href="<%= @propose.bill_link %>" class="d-block font-grey">&gt; 법안원문 보러가기</a>
     <% if @is_admin == true %>
@@ -79,7 +75,7 @@ style="background-image: url(<%= @propose.image %>);">
       <%else%>
       <div class="col-4 col-lg-2 maker_card text-white font-weight-bold" style="background-image: linear-gradient(to bottom, rgba(184, 155, 117, 0.6), rgba(184, 155, 117, 0.6)), url(<%= person.properties %>);;">
       <%end%>
-        <a href="/propose/<%= @propose.id %>/email_form/<%= person.id %>" class="d-block text-white underbar-none">
+        <a href="/propose/<%= @propose.id %>/email_form/<%= person.id %>" class="d-block text-white underbar-none h-100">
           <div class="maker_card_info">
             <p class="mt-2 mt-lg-0 mb-0"><%= person.name %></p>
             <p class="mb-2"><%= person.polynm %></p>
@@ -97,18 +93,14 @@ style="background-image: url(<%= @propose.image %>);">
 <section class="detail_second font-grey font-12 font-sm-10 text-center">
   <h3 class="big_num">2</h3>
   <p class="">이 입법안에 대한 사람들의 관심을 더 이끌어내고 싶나요?</p>
-  <div class="fb_btns d-flex justify-content-center">
-    <p>좋아요</p>
-    <p class="">공유하기</p>
-    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-  </div>
+  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=button_count&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" id="frame" width="450" height="80" style="border:none;overflow:hidden;padding-left:25%;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
   <div class="d-flex justify-content-center mb-4">
     <%=image_tag("/assets/images/product.png", class:"product_img mr-2")%>
     <img src="<%= @propose.goods %>" class="product_img ml-2">
   </div>
   <div class="buttons d-flex w-100 justify-content-center mt-3">
-    <button class="btn btn-white font-14 font-sm-12 mr-2 mr-lg-3"><a href="/propose/<%= @propose.id %>/subscribe">구독하기</a></button>
-    <button class="btn btn-white font-14 font-sm-12 ml-2 ml-lg-3"><a href="<%= @propose.tumb %>">굿즈겟또로 후원하기</a></button>
+    <button class="btn underbar-none btn-white font-14 font-sm-12 mr-2 mr-lg-3"><a class="underbar-none font-grey" href="/propose/<%= @propose.id %>/subscribe">구독하기</a></button>
+    <button class="btn underbar-none btn-white font-14 font-sm-12 ml-2 ml-lg-3"><a class="underbar-none font-grey" href="<%= @propose.tumb %>">굿즈겟또로 후원하기</a></button>
   </div>
 </section>
 <!-- //2nd Section -->
@@ -118,8 +110,8 @@ style="background-image: url(<%= @propose.image %>);">
   <h3 class="big_num">3</h3>
   <p class="mb-4">굿즈 수익금으로는 이러한 캠페인이 진행되고 있습니다.</p>
   <img class="campaign_img" src="<%= @propose.campaign%>">
-  <p class="mt-4 mb-1">상징적인 장소인, 강남역 지하철에</p>
-  <p class="mb-1">2018.06.13.~ 부터 광고를 진행하고 있습니다.</p>
+  <!-- 캠페인 내용 -->
+  <p class="mt-4 mb-1"><%=@propose.campaign_content%></p>
 </section>
 <!-- //3rd Section -->
 
@@ -129,7 +121,7 @@ var wid = $('.maker_card').width();
 $('.maker_card').css({'height':(wid*1.35)+'px'});
 </script>
 <!-- Layer -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   var num = <%=@propose.id%>
   if (num ==1){
 		$(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(206,142,160,0.6), rgba(206,142,160,0.6)), url(<%= @propose.image %>)');
@@ -155,4 +147,4 @@ $('.maker_card').css({'height':(wid*1.35)+'px'});
     $(".funding_detail_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @propose.image %>)');
     $(".detail_mobile_cover").css('background-image', 'linear-gradient(to bottom, rgba(71,120,140,0.6), rgba(71,120,140,0.6)), url(<%= @propose.image %>)');
   }
-</script>
+</script> -->
