@@ -1,3 +1,10 @@
 <h1> 주문 페이지! </h1>
 <hr>
-상품 선택하기 <hr>
+상품 선택하기
+<hr>
+<%= form_tag("/shop/buy", method: "get") do %>
+  <%= hidden_field_tag 'key', "#{ @key }"%>
+  <%= hidden_field_tag 'type', "agree"%>
+  <%= text_field_tag 'content', "", placeholder: "추가 의견을 알려주세요"%>
+  <%= submit_tag("discuss") %>
+<% end %>

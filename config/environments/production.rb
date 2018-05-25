@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
-  config.cache_classes = true
+  config.cache_classes = false
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -63,12 +63,14 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "tojung_page_rails_#{Rails.env}"
   config.action_mailer.perform_caching = false
+
   ##############################
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-      api_key: 'key-a8be3600b23b2417d14747c56a30537f',
-      domain: '2jung.com'
-  }
+  # expire key!
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #    api_key: 'key-a8be3600b23b2417d14747c56a30537f',
+  #    domain: '2jung.com'
+  #}
 
   ############################
   # Ignore bad email addresses and do not raise email delivery errors.

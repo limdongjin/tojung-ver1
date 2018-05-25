@@ -6,7 +6,10 @@ class ShoppingController < ApplicationController
 
   # GET /shop/buy
   def buy_form
+  end
 
+  # POST /shop/buy
+  def buy
   end
 
 end
