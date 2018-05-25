@@ -6,6 +6,10 @@ class ShoppingController < ApplicationController
 
   # GET /shop/buy
   def buy_form
+    if current_vuser != nil and current_vuser.email = "admin@2jung.com"
+      @isadmin = true
+    end
+
     @note = Product.find_by_name("나는 투표했다 노트")
     @tissue = Product.find_by_name("잘 뽑았는가 휴지")
     @file = Product.find_by_name("투표는 잘 하셨는가 파일")
@@ -37,6 +41,8 @@ class ShoppingController < ApplicationController
        @orderdetail.save
        @orderlog.total_price += @note.price * @orderdetail.num
        @orderlog.save
+       @note.remain_num -= @orderdetail.num
+       @note.save
 
        @result["note"] = {
            "num"=> params[:note],
@@ -53,7 +59,8 @@ class ShoppingController < ApplicationController
        @orderdetail.save
        @orderlog.total_price += @tissue.price * @orderdetail.num
        @orderlog.save
-
+       @tissue.remain_num -= @orderdetail.num
+      @tissue.save
        @result["tissue"] = {
            "num"=> params[:tissue],
            "prices"=> params[:tissue].to_i * @tissue.price
@@ -70,7 +77,8 @@ class ShoppingController < ApplicationController
        @orderdetail.save
        @orderlog.total_price += @file.price * @orderdetail.num
        @orderlog.save
-
+       @file.remain_num -= @orderdetail.num
+       @file.save
        @result["file"] = {
            "num"=> params[:file],
            "prices"=> params[:file].to_i * @tissue.price
