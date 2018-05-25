@@ -19,13 +19,20 @@ class ShoppingController < ApplicationController
   # POST /shop/buy
   def buy
      @orderlog = OrderLog.new
+
      @orderlog.title = "휴지 팔기"
      @orderlog.order_person = params[:from_person]
      @orderlog.to_person = params[:to_person]
+
      @orderlog.address = params[:address]
+     @orderlog.address_text = params[:address_text]
+     @orderlog.address_detail = params[:address_detail]
+
      @orderlog.phone = params[:phone]
      @orderlog.payer = params[:payer]
+
      @orderlog.total_price = 0
+
      @orderlog.save
 
      @result = {
