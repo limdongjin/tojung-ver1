@@ -1,10 +1,40 @@
 <h1> 주문 페이지! </h1>
 <hr>
-상품 선택하기
+<form class="font-sm-10" enctype="multipart/form-data" action="/shop/buy" accept-charset="UTF-8" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
+  상품 선택하기
+  <hr>
+  <label for="note"> 나는 투표했다 노트</label>
+  <select name="note">
+    <option value="" disabled selected> 남은 수량 <%= @note.remain_num %></option>
+    <% (0..@note.remain_num).to_a.each do |op| %>
+     <option value="<%= op %>"> <%= op %></option>
+    <% end %>
+  </select>
 <hr>
-<%= form_tag("/shop/buy", method: "get") do %>
-  <%= hidden_field_tag 'key', "#{ @key }"%>
-  <%= hidden_field_tag 'type', "agree"%>
-  <%= text_field_tag 'content', "", placeholder: "추가 의견을 알려주세요"%>
-  <%= submit_tag("discuss") %>
-<% end %>
+  <label for="tissue"> 잘 뽑았는가 휴지</label>
+  <select name="tissue">
+    <option value="" disabled selected> 남은 수량 <%= @tissue.remain_num %></option>
+    <% (0..@tissue.remain_num).to_a.each do |op| %>
+      <option value="<%= op %>"> <%= op %></option>
+    <% end %>
+  </select>
+  <hr>
+  <label for="file"> 투표는 잘 하셨는가 파일</label>
+  <select name="file">
+    <option value="" disabled selected> 남은 수량 <%= @file.remain_num %></option>
+    <% (0..@file.remain_num).to_a.each do |op| %>
+      <option value="<%= op %>"> <%= op %></option>
+    <% end %>
+  </select>
+  <hr>
+  <input type="text" name="from_person" placeholder="주문자명" value="">
+  <input type="text" name="to_person" placeholder="받는 사람" value="">
+  <input type="text" name="address" placeholder="우편번호검색" value="">
+  <input type="text" name="phone" placeholder="폰번" value="">
+  <input type="text" name="payer" placeholder="입금자" value="">
+
+  <button type="submit" class="alert-success btn btn-email btn-white mt-3 mt-lg-4 font-sm-12">
+    구매하기
+  </button>
+</form>

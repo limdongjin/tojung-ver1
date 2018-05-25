@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'shop' => 'shopping#index'
   get 'shop/buy' => 'shopping#buy_form'
+  post 'shop/buy' => 'shopping#buy'
 
   get 'propose/:id/subscribe' => 'propose#subscribe_form'
   post 'propose/:id/subscribe' => 'propose#subscribe'

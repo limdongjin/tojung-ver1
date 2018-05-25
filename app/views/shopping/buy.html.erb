@@ -1,0 +1,23 @@
+주문 완료!
+<%= params %>
+
+주문 내역 확인
+<hr>
+<%= @result %>
+<hr>
+<% if @result["note"] != nil %>
+ 나는 투표했다 노트 <%= @result["note"]["num"] %>개 / <%= @result["note"]["prices"]%>
+<% end %>
+<hr>
+<% if @result["tissue"] != nil %>
+  티슈 <%= @result["tissue"]["num"] %>개 / <%= @result["tissue"]["prices"]%>
+<% end %>
+<hr>
+<% if @result["file"] != nil %>
+  파일 <%= @result["file"]["num"] %>개 / <%= @result["file"]["prices"]%>
+<% end %>
+<hr>
+배송비 / 3000원
+<hr>
+토탈 / <%= @orderlog.total_price + 3000 %>
+<hr>
