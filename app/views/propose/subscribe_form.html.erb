@@ -42,7 +42,7 @@ style="background-image: url(<%= @propose.image %>);">
     <div class="form-group">
       <input type="tel" class="form-control" name="phone" placeholder="핸드폰 번호">
     </div>
-    <button type="submit" class="btn btn-subscribe btn-white font-sm-12">구독하기</button>
+    <button type="submit" class="btn btn-subscribe btn-white font-sm-12" onclick="subscribe();">구독하기</button>
   </form>
 </section>
 <!-- //Subscribe -->
@@ -54,4 +54,18 @@ style="background-image: url(<%= @propose.image %>);">
 </form> -->
 <script>
   $('.funding_detail_cover').wrap('<a class="d-block underbar-none text-white" href="/propose/<%=@propose.id%>"></a>');
+  $('.detail_mobile_cover').wrap('<a class="d-block underbar-none text-white" href="/propose/<%=@propose.id%>"></a>');
+</script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+function subscribe_check() {
+	swal({
+    title: "투정팬이 되셨군요~!",
+    text: "투정을 구독해주셔서 감사합니다",
+    icon: "success",
+    button: false,
+    timer: 3000,
+  });
+}
 </script>
