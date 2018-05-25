@@ -20,7 +20,7 @@ style="background-image: url(<%= @propose.image %>);">
   </div>
   <div class="detail_info w-100">
     <p class="text-white font-20 font-sm-16 font-weight-bold text-center">\<%=@propose.funded_money%></p>
-    <p class="text-white font-20 font-sm-16 font-weight-bold detail_num"><%=@propose.funded_num%><span>명</span></p>
+    <p class="text-white font-20 font-sm-16 font-weight-bold detail_num"><%= @propose.funded_num + @propose.send_count + @propose.subscribe_count %><span>명</span></p>
   </div>
 </section>
 <!-- //Funding Detail Cover Desktop-->
