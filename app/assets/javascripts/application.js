@@ -29,8 +29,3 @@ function go(cid){
      function hello(){
           console.log("ok!!!")
      }
-
-
-
-var abb= $(".alert");
-abb.hide(3000);

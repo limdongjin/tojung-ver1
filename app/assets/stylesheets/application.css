@@ -385,9 +385,6 @@ input[checkbox]:checked{
   padding-bottom: 4%;
 }
 
-.sign_in{
-  width: 20%;
-}
 
 form.sign_in ::placeholder{
   color: #3e6373 !important;
