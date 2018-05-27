@@ -1,23 +1,45 @@
-주문 완료!
-<%= params %>
+<!-- Tissue Cover -->
+<section class="tissue_cover">
+  <div class="brand pl-lg-4 pt-lg-4 visible-lg">
+    <a class="navbar-brand py-0 mr-0" href="/">
+      <%=image_tag("/assets/images/tojung_green.png", class:"logo")%>
+    </a>
+  </div>
+</section>
+<!-- //Tissue Cover -->
 
-주문 내역 확인
-<hr>
-<%= @result %>
-<hr>
-<% if @result["note"] != nil %>
- 나는 투표했다 노트 <%= @result["note"]["num"] %>개 / <%= @result["note"]["prices"]%>
-<% end %>
-<hr>
-<% if @result["tissue"] != nil %>
-  티슈 <%= @result["tissue"]["num"] %>개 / <%= @result["tissue"]["prices"]%>
-<% end %>
-<hr>
-<% if @result["file"] != nil %>
-  파일 <%= @result["file"]["num"] %>개 / <%= @result["file"]["prices"]%>
-<% end %>
-<hr>
-배송비 / 3000원
-<hr>
-토탈 / <%= @orderlog.total_price + 3000 %>
-<hr>
+<!-- Tissue Complete -->
+<section class="tissue_complete">
+  <div class="order_info d-flex justify-content-between">
+    <% if @result["note"] != nil %>
+     <p>나는 투표했다 노트 <%= @result["note"]["num"] %>개 </p>
+     <p><%= @result["note"]["prices"]%>원</p>
+    <% end %>
+  </div>
+  <div class="order_info d-flex justify-content-between">
+    <% if @result["tissue"] != nil %>
+      <p>잘 뽑았는가 휴지 <%= @result["tissue"]["num"] %>개</p>
+      <p><%= @result["tissue"]["prices"]%>원</p>
+    <% end %>
+  </div>
+  <div class="order_info d-flex justify-content-between">
+    <% if @result["file"] != nil %>
+      <p>파일 <%= @result["file"]["num"] %>개</p>
+      <p><%= @result["file"]["prices"]%>원</p>
+    <% end %>
+  </div>
+  <div class="order_info d-flex justify-content-between">
+    <p>배송비</p>
+    <p>3000원</p>
+  </div>
+  <div class="order_info my-4 d-flex justify-content-between">
+    <p>TOTAL</p>
+    <p><%= @orderlog.total_price + 3000 %></p>
+  </div>
+  <div class="order_message font-18 font-sm-12 my--5 text-center">
+    <p>주문이 완료되었습니다!</p>
+    <p>계좌번호 우리은행 0000000000으로 입금해주시면</p>
+    <p>하루 안에 주문확인 문자를 드립니다.</p>
+  </div>
+</section>
+<!-- //Tissue Complete  -->
