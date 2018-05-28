@@ -67,11 +67,11 @@
     <div class="order_form2">
       <div class="form-group">
         <label for="Input0">주문자명</label>
-        <input type="text" name="from_person"  class="form-control" id="Input0">
+        <input type="text" name="from_person"  class="form-control" id="Input0" required>
       </div>
       <div class="form-group">
         <label for="Input1">받는 사람</label>
-        <input type="text" name="to_person" class="form-control" id="Input1">
+        <input type="text" name="to_person" class="form-control" id="Input1" required>
       </div>
       <div class="form-group">
         <label for="sample2_postcode">우편번호</label>
@@ -85,7 +85,7 @@
       </div>
       <div class="form-group">
         <label for="sample2_address">주소</label>
-        <input type="text" class="form-control" id="sample2_address" name="address_text">
+        <input type="text" class="form-control" id="sample2_address" name="address_text" required>
       </div>
       <div class="form-group">
         <label for="Input4">상세주소</label>
@@ -93,11 +93,11 @@
       </div>
       <div class="form-group">
         <label for="Input6">휴대폰번호</label>
-        <input type="tel" class="form-control" id="Input6" name="phone" >
+        <input type="tel" class="form-control" id="Input6" name="phone" required>
       </div>
       <div class="form-group">
         <label for="Input5">입금자명</label>
-        <input type="text" class="form-control" id="Input5" name="payer" >
+        <input type="text" class="form-control" id="Input5" name="payer" required>
       </div>
 
     </div>
@@ -109,7 +109,7 @@
   </form>
 </section>
 <!-- //Tissue Complete  -->
-<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+
 <script>
     // 우편번호 찾기 화면을 넣을 element
     var element_layer = document.getElementById('layer');
@@ -198,50 +198,3 @@
     document.getElementById("total_cost").innerHTML=total+3000;
   }
 </script>
-<!-- <form class="font-sm-10" enctype="multipart/form-data" action="/shop/buy" accept-charset="UTF-8" method="post">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
-  상품 선택하기
-  <hr>
-  <label for="note"> 나는 투표했다 노트</label>
-  <select name="note">
-    <option value="" disabled selected> 남은 수량 <%= @note.remain_num %></option>
-    <% (0..@note.remain_num).to_a.each do |op| %>
-     <option value="<%= op %>"> <%= op %></option>
-    <% end %>
-  </select>
-<hr>
-  <label for="tissue"> 잘 뽑았는가 휴지</label>
-  <select name="tissue">
-    <option value="" disabled selected> 남은 수량 <%= @tissue.remain_num %></option>
-    <% (0..@tissue.remain_num).to_a.each do |op| %>
-      <option value="<%= op %>"> <%= op %></option>
-    <% end %>
-  </select>
-  <hr>
-  <label for="file"> 투표는 잘 하셨는가 파일</label>
-  <select name="file">
-    <option value="" disabled selected> 남은 수량 <%= @file.remain_num %></option>
-    <% (0..@file.remain_num).to_a.each do |op| %>
-      <option value="<%= op %>"> <%= op %></option>
-    <% end %>
-  </select>
-  <hr>
-  <input type="text" name="from_person" placeholder="주문자명" value="">
-  <input type="text" name="to_person" placeholder="받는 사람" value="">
-  <hr>
-  <input type="text" id="sample2_postcode" placeholder="우편번호" name="address">
-  <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
-  <input type="text" id="sample2_address" placeholder="주소" name="address_text">
-  <input type="text" placeholder="상세주소" name="address_detail"> -->
-
-  <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
-  <!-- <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-    <img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
-  </div> -->
-  <!-- <input type="text" name="phone" placeholder="폰번" value="">
-  <input type="text" name="payer" placeholder="입금자" value="">
-
-  <button type="submit" class="alert-success btn btn-email btn-white mt-3 mt-lg-4 font-sm-12">
-    구매하기
-  </button>
-</form> -->

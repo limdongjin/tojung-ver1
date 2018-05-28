@@ -197,6 +197,9 @@ class ProposeController < ApplicationController
     @propose.content = params[:propose_content] # 내용
     @propose.assos = params[:assos] # 상임위
 
+    @propose.bill_id = params[:bill_id] # 법안 ID
+    @propose.bill_name = params[:bill_name] # 법안 제목
+
     @propose.image   = params[:propose_image]   # 대표사진
     @propose.goods   = params[:goods]           # 굿즈 이미지
     @propose.campaign = params[:campaign]       # 캠페인 이미지
@@ -234,6 +237,11 @@ class ProposeController < ApplicationController
     @propose.content = params[:propose_content] # 내용
     @propose.assos = params[:assos] # 상임위
 
+    @propose.bill_id = params[:bill_id] # 법안 ID
+    @propose.bill_name = params[:bill_name] # 법안 제목
+    print("========================\n")
+    print(@propose.bill_id)
+    print(@propose.bill_name)
     @propose.image   = params[:propose_image]   # 대표사진
     @propose.goods   = params[:goods]           # 굿즈 이미지
     @propose.campaign = params[:campaign]       # 캠페인 이미지
