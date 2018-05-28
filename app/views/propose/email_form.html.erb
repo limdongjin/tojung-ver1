@@ -65,10 +65,16 @@
       <input type="email" class="form-control" name="user_email" placeholder="내 이메일 주소">
     </div>
     <div class="form-group">
-      <input type="text" name="title" class="form-control" placeholder="메일 제목">
+      <input type="text" name="title" class="form-control" value="<%= @propose.assos %>에 계류되어있는 <%=@propose.bill_id %> 의안인 '<%= @propose.bill_name %>'이 왜 통과되지 않나요?" placeholder="<%= @propose.assos %>에 계류되어있는 <%=@propose.bill_id %> 의안인 '<%= @propose.bill_name %>'이 왜 통과되지 않나요?">
     </div>
     <div class="form-group">
-      <textarea class="form-control" name="content" rows="10" placeholder="메일 내용"></textarea>
+      <textarea class="form-control" name="content" rows="10" placeholder="안녕하세요, <%= @person.name %> 의원님!
+<%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %> 의안인 ‘<%= @propose.bill_name %>’이 왜 통과되지 않는지 궁금합니다.
+<%= @person.name %> 의원님은 이 입법안에 대해 어떤 의견을 가지고 계시나요? 이 입법을 꼭 빠르게 추진해주세요.
+이메일 청원합니다." value="안녕하세요, <%= @person.name %> 의원님!
+<%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %> 의안인 ‘<%= @propose.bill_name %>’이 왜 통과되지 않는지 궁금합니다.
+<%= @person.name %> 의원님은 이 입법안에 대해 어떤 의견을 가지고 계시나요? 이 입법을 꼭 빠르게 추진해주세요.
+이메일 청원합니다."></textarea>
     </div>
     <button type="submit" class="alert-success btn btn-email btn-white mt-3 mt-lg-4 font-sm-12" onclick="email_check();">이메일 보내기</button>
   </form>

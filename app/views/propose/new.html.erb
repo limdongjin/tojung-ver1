@@ -12,7 +12,9 @@
 	<h4 class="my-4">관리자용 법안올리기</h4>
 	<input name="utf8" type="hidden" value="&#x2713;">
 	<%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
-	<div class="form-group">
+  <input type="text" name="bill_id" placeholder="법안id ex) 200001 ">
+  <input type="text" name="bill_name" placeholder="법안 이름 ex) 데이트 폭력법">
+  <div class="form-group">
 		<label for="exampleFormControlInput1">투정 제목</label>
 		<input type="text" class="form-control font-sm-10" id="exampleFormControlInput1" name="propose_title" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
 	</div>
