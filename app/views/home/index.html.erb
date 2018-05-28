@@ -4,7 +4,7 @@
     <video autoplay loop muted class="cover_vid">
       <source src="../assets/video.mp4" type="video/mp4">
     </video>
-  <div class="brand pl-lg-4 pt-lg-4 visible-lg">
+  <div class="brand pl-4 pt-4 visible-lg">
     <a class="navbar-brand py-0 mr-0" href="/">
       <%=image_tag("/assets/images/tojung_white.png", class:"logo")%>
     </a>
@@ -40,7 +40,7 @@
   <div class="container">
     <div class="row">
 			<% @proposes.each do |propose| %>
-				<div class="col-12 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
+				<div class="col-sm-12 col-md-6 col-lg-6 px-0 funding_card_box" style="background-image: url(<% if propose.image.url != nil %><%= propose.image.url %> <% else %> <%= propose.default_image %> <% end%>)">
 	        <div class="funding_card d-flex flex-column h-100 w-100">
 	          <a href="/propose/<%= propose.id %>" class="h-100">
               <h4 class="funding_title text-white mb-0"><%= propose.title %></h4>

@@ -4,7 +4,7 @@
 /* Cover */
 .cover{
   height: calc(100vw*0.56);
-  width: 100%;
+  width: 100vw;
   // background-image: url(../../../assets/images/cover.png);
   // background-position: center center;
   // background-repeat: no-repeat;
@@ -13,13 +13,13 @@
 
 .cover_vid{
   height: calc(100vw*0.56);
-  width: 100%;
+  width: 100vw;
 }
 
 .arrow{
   position: absolute;
   left: 50%;
-  top: 95%;
+  top: calc(100vw*0.46);
   animation: movingArrow 2000ms infinite linear;
 }
 
@@ -29,8 +29,8 @@
 }
 
 @keyframes movingArrow{
-  0%{top: 95%;}
-  100%{top: 100%;}
+  0%{top: calc(100vw*0.46);}
+  100%{top: calc(100vw*0.5);}
 }
 
 /* New */
@@ -147,7 +147,7 @@
   padding: 10% 6% 6% 6%;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
 /*New*/
   .mic_icon{
     width: 22px;
