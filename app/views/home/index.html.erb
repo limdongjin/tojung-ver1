@@ -1,7 +1,7 @@
 
 <!-- Cover -->
 <section class="cover">
-    <video autoplay loop muted class="cover_vid">
+    <video playsinline autoplay loop muted class="cover_vid" id="video_cover" onclick="playVideo(this);">
       <source src="../assets/video.mp4" type="video/mp4">
     </video>
   <div class="brand pl-4 pt-4 visible-lg">
@@ -87,6 +87,11 @@ $(document).ready(function(){
     var newMoney=comma(money);
     $(".funding_money")[i].innerHTML=newMoney;
     i+=1;
+  }
+</script>
+<script type="text/javascript">
+  function playVideo(x){
+    x.play();
   }
 </script>
 <!-- //원화 콤마찍기 -->
