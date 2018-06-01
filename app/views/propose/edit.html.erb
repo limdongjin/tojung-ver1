@@ -27,7 +27,7 @@
     </div>
     <div class="form-group">
 투정내용:
-      <%= text_field_tag 'propose_content', @propose.content, class: 'form-control font-sm-10' %>
+      <%= text_area_tag 'propose_content', @propose.content, class: 'form-control font-sm-10', rows: 10 %>
     </div>
 
     <label for="inputGroupFile02">대표 사진 업로드</label><br/>
@@ -39,11 +39,11 @@
 <hr>
 캠페인 사진 업로드:
   <input type="file" value="<%= @propose.campaign %>" id="campaign" onchange="filename_change(this)" name="campaign" accept="image/png,image/gif,image/jpeg,image/PNG,image/jpg">
-
+<br />
     <label for="exampleFormControlTextarea1">캠페인 내용</label>
-    <%= text_field_tag 'campaign_content', @propose.campaign_content, class: 'form-control font-sm-10' %>
+    <%= text_area_tag 'campaign_content', @propose.campaign_content, class: 'form-control font-sm-10', rows: 10 %>
     <label for="exampleFormControlInput1">법안 원문 링크</label>
-    <input type="text" value="<%= @propose.bill_link %>" form-control font-sm-10" id="propose_title" name="bill_link" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
+    <input type="text" value="<%= @propose.bill_link %>" class="form-control font-sm-10" id="propose_title" name="bill_link" placeholder="20자 이내로 바라는 점을 이야기해주세요.">
 
     <label for="exampleFormControlInput1">텀블벅 링크</label>
     <input type="text" value="<%= @propose.tumb %>" class="form-control font-sm-10" id="propose_title" name="tumb" placeholder="20자 이내로 바라는 점을 이야기해주세요.">

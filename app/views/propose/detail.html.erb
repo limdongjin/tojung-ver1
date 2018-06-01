@@ -11,7 +11,7 @@ style="background-image: url(<%= @propose.image %>);">
     <p class="detail_category text-white font-sm-12 font-weight-bold text-center"></p>
   </div>
   <div class="detail_info w-100">
-    <p class="text-white font-20 font-sm-16 font-weight-bold text-center">\<%=@propose.funded_money%></p>
+    <p class="text-white font-20 font-sm-16 font-weight-bold text-center f_money">&#8361;<%=@propose.funded_money%></p>
     <p class="text-white font-20 font-sm-16 font-weight-bold detail_num"><%= @propose.funded_num + @propose.send_count + @propose.subscribe_count %><span>명</span></p>
   </div>
 </section>
@@ -24,7 +24,7 @@ style="background-image: url(<%= @propose.image %>);">
     <p class="detail_number text-right pr-3 mb-0 font-12 text-white font-weight-bold"><span class="font-18"><%=@propose.funded_num%></span>명</p>
     <div class="d-flex justify-content-between">
       <p class="detail_category font-weight-bold text-white font-10 pl-3 mt-2 mb-0"></p>
-      <p class="detail_money font-weight-bold text-white font-18 pr-3 mb-0">&#8361;<%=@propose.funded_money%></p>
+      <p class="detail_money font-weight-bold text-white font-18 pr-3 mb-0 f_money">&#8361;<%=@propose.funded_money%></p>
     </div>
   </div>
 </section>
@@ -32,7 +32,7 @@ style="background-image: url(<%= @propose.image %>);">
 
 <!-- Content  -->
 <section class="content font-grey font-12 font-sm-10">
-  <p class="content_text"><%= @propose.content %></p>
+  <p class="content_text"><%= simple_format @propose.content%></p>
   <iframe class="iframe" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=button_count&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" id="frame" width="450" height="80" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
   <div class="content_links text-right">
     <a href="<%= @propose.bill_link %>" class="d-block font-grey">&gt; 법안원문 보러가기</a>
@@ -111,7 +111,7 @@ style="background-image: url(<%= @propose.image %>);">
   <p class="mb-4">굿즈 수익금으로는 이러한 캠페인이 진행되고 있습니다.</p>
   <img class="campaign_img" src="<%= @propose.campaign%>">
   <!-- 캠페인 내용 -->
-  <p class="mt-4 mb-1"><%=@propose.campaign_content%></p>
+  <p class="mt-4 mb-1 campaign_content"><%=simple_format @propose.campaign_content%></p>
 </section>
 <!-- //3rd Section -->
 
@@ -119,6 +119,19 @@ style="background-image: url(<%= @propose.image %>);">
 <script type="text/javascript">
 var wid = $('.maker_card').width();
 $('.maker_card').css({'height':(wid*1.35)+'px'});
+</script>
+<script type="text/javascript">
+  function comma(str) {
+      str = String(str);
+      return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+  }
+  var i = 0
+  while( i< $(".f_money").length){
+    var money=$(".f_money")[i].innerHTML;
+    var newMoney=comma(money);
+    $(".f_money")[i].innerHTML=newMoney;
+    i+=1;
+  }
 </script>
 <!-- Layer -->
 <!-- <script type="text/javascript">
