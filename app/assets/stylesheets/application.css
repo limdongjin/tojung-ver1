@@ -16,16 +16,6 @@
 
 /* Custom settings */
 /* Custom settings */
-*= require icomoon-free/style
-.icon-envelope:before {
-  content: "\e900";
-}
-.icon-facebook:before {
-  content: "\ea90";
-}
-.icon-instagram:before {
-  content: "\ea92";
-}
 *{
   font-family: 'Nanum Gothic', sans-serif;
 }
