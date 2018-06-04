@@ -12,6 +12,7 @@ Devise.setup do |config|
   # config.secret_key = '2e3568066257bfbce73376a1c974f23a154f73120990519ef57e81867d858b2a5079065666d5d1f83ef8c2f77c45f7db175cf10ac1c0c8b97ab3e10a79b13ccc'
   # config.secret_key = 'ac4249434d5c7bcc0b702c9985f2402c1e29b9f7ed7a93823a8c27f9dfd0c3dbbc3a984b7ef63c57d4c8c5882507a9fdb66ca7fb103210015698325dc60911cc'
   config.secret_key = '2ab9dbbe9495ba633aaaa8a8ff1af6a1e0ead289dbba4d6a18c96aafef75a300401126d558ba92c73e278d40c751cabafb9a332254e776590886d9160a20ebce'
+  
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -21,12 +22,13 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.omniauth :kakao, ENV["KAKAO_CLIENT_ID"], :redirect_path => "/vusers/auth/kakao/callback"
+  config.omniauth :kakao, ENV["KAKAO_CLIENT_ID"], :redirect_path => "/vusers/auth/kakao/callback" 
   config.omniauth :facebook, ENV["FB_APP_ID"], ENV["FB_APP_SECRET"]
   config.omniauth :google_oauth2, ENV["GOOGLE_OAUTH_CLIENT_ID"], ENV["GOOGLE_OAUTH_SECRET"], {
 	scope: "email"
   }
 
+  
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

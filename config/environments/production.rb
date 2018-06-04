@@ -65,14 +65,12 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   ##############################
-  # expire key!
-  # config.action_mailer.delivery_method = :mailgun
-  # config.action_mailer.mailgun_settings = {
-  #    api_key: 'key-a8be3600b23b2417d14747c56a30537f',
-  #    domain: '2jung.com'
-  #}
-
-  ############################
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: 'key-7a5df9a4d5c284d287ce95ef6afae426',
+      domain: '2jung.com'
+  }
+    ############################
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

@@ -46,11 +46,11 @@ class ProposeController < ApplicationController
 
     if person_email == "" or person_email == "x" or person_email == nil
       redirect_to '/'
+      return 
     end
 
     person_email = person_email.remove("\n")
     content =  params[:content]
-
     UserMailer.send_email_to_person(params[:user_email],
                              person_email,
                              params[:title],
@@ -68,6 +68,16 @@ class ProposeController < ApplicationController
     end
     @propose.send_count += 1
     @propose.save
+    
+    email_send_log = Esendlog.new
+    email_send_log.propose_id = params[:id]
+    email_send_log.person_id = person.id 
+    email_send_log.from_email = params[:user_email]
+    email_send_log.to_email = person_email
+    email_send_log.title = params[:title] 
+    email_send_log.content = content 
+    email_send_log.save 
+
     print(content)
     redirect_to '/propose/' + params[:id]
   end
