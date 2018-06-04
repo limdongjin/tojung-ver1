@@ -188,3 +188,18 @@
   }
 
 }
+
+.policy{
+  padding: 60px 16px;
+  margin: 0 9%;
+}
+.policy_text p{
+  line-height: 32px;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 576px) {
+  .policy{
+    margin: 0 5%;
+    padding: 40px 0 20px 0;
+  }
+}
