@@ -35,7 +35,7 @@ class ProposeController < ApplicationController
     person = Person.find(params[:person_id])
     person_email = ""
     if person.email == "x" or person.email == nil or person.email == ""
-      if person_emaill == "x" or person.emaill == nil or person.emaill == ""
+      if person.emaill == "x" or person.emaill == nil or person.emaill == ""
         person_email = person.email2
       else
         person_email = person.emaill
