@@ -66,11 +66,11 @@ Rails.application.configure do
 
   ##############################
   # re expire
-  #config.action_mailer.delivery_method = :mailgun
-  #config.action_mailer.mailgun_settings = {
-  #    api_key: 'key-7a5df9a4d5c284d287ce95ef6afae426',
-  #    domain: '2jung.com'
-  #}
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: 'key-ebfc4e21736426e32eb35124d1a3b8c7',
+      domain: '2jung.com'
+  }
   #  ############################
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
