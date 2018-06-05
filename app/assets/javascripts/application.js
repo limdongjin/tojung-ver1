@@ -29,3 +29,16 @@ function go(cid){
      function hello(){
           console.log("ok!!!")
      }
+
+
+ function comma(str) {
+     str = String(str);
+     return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+ }
+ var i = 0
+ while( i< $(".f_money").length){
+   var money=$(".f_money")[i].innerHTML;
+   var newMoney=comma(money);
+   $(".f_money")[i].innerHTML=newMoney;
+   i+=1;
+ }
