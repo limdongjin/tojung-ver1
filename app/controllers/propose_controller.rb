@@ -157,6 +157,22 @@ class ProposeController < ApplicationController
       @people_res[person.id] = person_response
       person_response.save
     end
+	
+	@test = Person.find_by_name("test")
+	@testRes = PersonResponse.where(propose_id: @propose.id, person_id: @test.id)
+	if @testRes.count.zero?
+		@testRes = PersonResponse.create(name: @test.name, 
+										 person_id: @test.id,
+										 response_type: '무응답',
+										 send_count: 0, 
+										 propose_id: @propose.id,
+										 agree_hash: SecureRandom.base64(50),
+										 disagree_hash: SecureRandom.base64(50),
+										)
+	else
+		@testRes = @testRes[0]
+	end
+
   end
 
   # GET /propose/new

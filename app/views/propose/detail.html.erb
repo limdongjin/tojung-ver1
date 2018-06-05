@@ -66,6 +66,12 @@ style="background-image: url(<%= @propose.image %>);">
   </div>
   <div class="maker_cards container">
     <div class="row mx-0">
+		<% if current_vuser != nil and current_vuser.email == "admin@2jung.com" %>
+		 <h1 style="color: red;"> 	
+		<a href="/propose/<%= @propose.id %>/email_form/<%= @test.id %>" class="d-block text-white underbar-none h-100">
+		    테스트 의원
+		</a> </h1>
+		<% end %>
       <% @people.each do |person| %>
       <!-- 여기 의원 이미지 -->
       <%if @people_res[person.id].response_type.include?("찬성")%>
