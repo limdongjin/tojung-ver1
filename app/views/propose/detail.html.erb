@@ -67,7 +67,7 @@ style="background-image: url(<%= @propose.image %>);">
   <div class="maker_cards container">
     <div class="row mx-0">
 		<% if current_vuser != nil and current_vuser.email == "admin@2jung.com" %>
-		 <h1 style="color: red;"> 	
+		 <h1 style="color: red;">
 		<a href="/propose/<%= @propose.id %>/email_form/<%= @test.id %>" class="d-block text-white underbar-none h-100">
 		    테스트 의원
 		</a> </h1>
@@ -125,12 +125,6 @@ style="background-image: url(<%= @propose.image %>);">
 <script type="text/javascript">
 var wid = $('.maker_card').width();
 $('.maker_card').css({'height':(wid*1.35)+'px'});
-</script>
-<script>
-  if (matchMedia("screen and (min-width: 572px)").matches) {
-  $('.iframe').css({'width': '300px' });
-  } else {
-  }
 </script>
 <!-- Layer -->
 <!-- <script type="text/javascript">
