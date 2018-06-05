@@ -120,17 +120,10 @@ style="background-image: url(<%= @propose.image %>);">
 var wid = $('.maker_card').width();
 $('.maker_card').css({'height':(wid*1.35)+'px'});
 </script>
-<script type="text/javascript">
-  function comma(str) {
-      str = String(str);
-      return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-  }
-  var i = 0
-  while( i< $(".f_money").length){
-    var money=$(".f_money")[i].innerHTML;
-    var newMoney=comma(money);
-    $(".f_money")[i].innerHTML=newMoney;
-    i+=1;
+<script>
+  if (matchMedia("screen and (min-width: 572px)").matches) {
+  $('.iframe').css({'width': '300px' });
+  } else {
   }
 </script>
 <!-- Layer -->
