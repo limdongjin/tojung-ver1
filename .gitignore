@@ -1,12 +1,9 @@
 config/database.yml
-config/initializers/fog.rb
-config/environments/production.rb
 *sqlite*
 log/
-secrets.yml
 tmp/
 *.crt
 localhost.key
 openssl
 nohup.out
-
+public/assets/
