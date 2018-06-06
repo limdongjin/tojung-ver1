@@ -68,7 +68,7 @@ Rails.application.configure do
   # re expire
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-      api_key: 'key-ebfc4e21736426e32eb35124d1a3b8c7',
+      api_key: ENV["MAILGUN_KEY"],
       domain: '2jung.com'
   }
   #  ############################
