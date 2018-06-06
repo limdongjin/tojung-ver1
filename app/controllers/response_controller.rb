@@ -46,6 +46,7 @@ class ResponseController < ApplicationController
       pr = PersonResponse.where(disagree_hash: key)[0]
       pr.response_type = "반대"
       pr.save
+      @propose = Vpropose.find(pr.propose_id)
 
       @pr = pr.id
       return
@@ -66,6 +67,7 @@ class ResponseController < ApplicationController
         p = PersonResponse.where(agree_hash: key)[0]
         p.response_text = params[:content]
         p.save
+       @propose = Vpropose.find(p.propose_id)
 
         @c = p.response_text
         @t = params
@@ -76,6 +78,8 @@ class ResponseController < ApplicationController
         p = PersonResponse.where(disagree_hash: key)[0]
         p.response_text = params[:content]
         p.save
+       @propose = Vpropose.find(p.propose_id)
+
         @c = p.response_text
         @t = params
         return
