@@ -1,2 +1,0 @@
-class Vpackage < ApplicationRecord
-end

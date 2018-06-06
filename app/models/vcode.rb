@@ -1,2 +1,0 @@
-class Vcode < ApplicationRecord
-end

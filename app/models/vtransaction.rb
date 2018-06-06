@@ -1,2 +1,0 @@
-class Vtransaction < ApplicationRecord
-end

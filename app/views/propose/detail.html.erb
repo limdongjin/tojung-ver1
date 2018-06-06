@@ -3,7 +3,7 @@
 style="background-image: url(<%= @propose.image %>);">
   <div class="brand pl-4 pt-4 visible-lg">
     <a class="navbar-brand py-0 mr-0" href="/">
-      <%=image_tag("/assets/images/tojung_white.png", class:"logo")%>
+      <%=image_tag( asset_path("tojung_white.png"), class:"logo")%>
     </a>
   </div>
   <div class="detail_post">
@@ -101,7 +101,7 @@ style="background-image: url(<%= @propose.image %>);">
   <p class="">이 입법안에 대한 사람들의 관심을 더 이끌어내고 싶나요?</p>
   <iframe class="iframe" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2F2jung.com%2Fpropose%2F<%= @propose.id %>&width=450&layout=button_count&action=like&size=small&show_faces=true&share=true&height=80&appId=1014670008686658" id="frame" width="450" height="80" style="border:none;overflow:hidden;padding-left:25%;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
   <div class="d-flex justify-content-center mb-4">
-    <%=image_tag("/assets/images/product.png", class:"product_img mr-2")%>
+    <%=image_tag( asset_path("product.png"), class:"product_img mr-2")%>
     <img src="<%= @propose.goods %>" class="product_img ml-2">
   </div>
   <div class="buttons d-flex w-100 justify-content-center mt-3">

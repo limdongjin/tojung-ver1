@@ -1,2 +1,0 @@
-class Vcategoryimage < ApplicationRecord
-end
