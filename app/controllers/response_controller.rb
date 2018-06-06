@@ -6,7 +6,7 @@ class ResponseController < ApplicationController
   def agree
     key = params[:key]
     print("key\n")
-
+    
     print(key)
     print(key.class)
     @key = key
@@ -17,7 +17,7 @@ class ResponseController < ApplicationController
       print(pr)
       pr.response_type = "찬성"
       pr.save
-
+      @propose = Vpropose.find(pr.propose_id)
       @pr = pr.id
     else
       redirect_to '/'
