@@ -1,8 +1,0 @@
-<!-- 커뮤니티 목록 -->
-<% @result["community"]["objects"].each do |comu| %>
-  <hr>
-  커뮤니티 제목: <%= comu.title %>
-  커뮤니티 개설자: <%= @result["community"][comu.id]["writer"].name %>
-  커뮤니티 하트수: <%= comu.heart %>
-  <p onclick="render_community_detail(<%= comu.id %>);"> 커뮤니티로 이동 </p>
-<% end %> 

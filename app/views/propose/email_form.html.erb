@@ -66,7 +66,7 @@
 
 <!-- Email Form -->
 <section class="email_form">
-  <form class="font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email_send/<%= @person.id %>" accept-charset="UTF-8" method="post">
+  <form class="font-sm-10" enctype="multipart/form-data" action="/propose/<%= @propose.id %>/email/<%= @person.id %>" accept-charset="UTF-8" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: :form_token %>
     <div class="form-group">
       <input type="email" class="form-control" name="user_email" placeholder="내 이메일 주소">
