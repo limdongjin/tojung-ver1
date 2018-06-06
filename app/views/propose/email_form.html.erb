@@ -10,8 +10,8 @@
     <p class="detail_category text-white font-sm-12 font-weight-bold text-center"></p>
   </div>
   <div class="detail_info w-100">
-    <p class="text-white font-20 font-sm-16 font-weight-bold text-center">\<%=@propose.funded_money%></p>
-    <p class="text-white font-20 font-sm-16 font-weight-bold detail_num f_money"><%= @propose.funded_num + @propose.send_count + @propose.subscribe_count %><span>명</span></p>
+    <p class="text-white font-20 font-sm-16 font-weight-bold text-center f_money">\<%=@propose.funded_money%></p>
+    <p class="text-white font-20 font-sm-16 font-weight-bold detail_num"><%= @propose.funded_num + @propose.send_count + @propose.subscribe_count %><span>명</span></p>
   </div>
 </section>
 <!-- //Funding Detail Cover Desktop-->
@@ -92,7 +92,7 @@
 <%= @person_res.response_type %> 의견을 보내주신 <%= @person.name %> 의원님은 이 입법안에 대해 어떤 세부 의견을 가지고 계시는지 알려주세요. 이 입법을 꼭 빠르게 추진해주세요.
 이메일 청원합니다.</textarea>
   <% elsif @person_res.response_type == "찬성" %>
-	  <textarea class="form-control" name="content" rows="10" placeholder=" 안녕하세요. <%= @person.name %>의원님! <%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %>의안인 '<%= @propose.bill_name %>'에 대한 의원님의 응답에 감사드립니다! 국회에서의 신속한 진행 부탁드립니다."> 
+	  <textarea class="form-control" name="content" rows="10" placeholder=" 안녕하세요. <%= @person.name %>의원님! <%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %>의안인 '<%= @propose.bill_name %>'에 대한 의원님의 응답에 감사드립니다! 국회에서의 신속한 진행 부탁드립니다.">
 <%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %>의안인 '<%= @propose.bill_name %>'에 대한 의원님의 응답에 감사드립니다! 국회에서의 신속한 진행 부탁드립니다."
 	  </textarea>
   <% elsif @person_res.response_type == "반대" %>
@@ -120,6 +120,20 @@ function email_check() {
 </script>
 <script>
   $('.funding_detail_cover').wrap('<a class="d-block underbar-none text-white" href="/propose/<%=@propose.id%>"></a>');
+</script>
+<!-- 원화 콤마찍기 -->
+<script type="text/javascript">
+  function comma(str) {
+      str = String(str);
+      return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+  }
+  var i = 0
+  while( i< $(".f_money").length){
+    var money=$(".f_money")[i].innerHTML;
+    var newMoney=comma(money);
+    $(".f_money")[i].innerHTML=newMoney;
+    i+=1;
+  }
 </script>
 <!-- 메일 테스트중!
 <hr>

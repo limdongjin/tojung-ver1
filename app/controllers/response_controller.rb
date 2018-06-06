@@ -6,7 +6,7 @@ class ResponseController < ApplicationController
   def agree
     key = params[:key]
     print("key\n")
-    
+
     print(key)
     print(key.class)
     @key = key
@@ -60,8 +60,6 @@ class ResponseController < ApplicationController
   def discuss
     key = params[:key]
 
-    print(params)
-
     if params[:type] == "agree"
       if PersonResponse.where(agree_hash: key).count != 0
         p = PersonResponse.where(agree_hash: key)[0]
@@ -71,7 +69,7 @@ class ResponseController < ApplicationController
 
         @c = p.response_text
         @t = params
-        return
+        redirect_to '/'
       end
     elsif params[:type] == "disagree"
       if PersonResponse.where(disagree_hash: key).count != 0
@@ -82,11 +80,12 @@ class ResponseController < ApplicationController
 
         @c = p.response_text
         @t = params
-        return
+        redirect_to '/'
       end
     end
     @c = "노노"
     @t = "놉 ㅠㅠ"
+
 
   end
 

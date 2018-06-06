@@ -127,6 +127,20 @@ var wid = $('.maker_card').width();
 $('.maker_card').css({'height':(wid*1.35)+'px'});
 </script>
 <!-- Layer -->
+<!-- 원화 콤마찍기 -->
+<script type="text/javascript">
+  function comma(str) {
+      str = String(str);
+      return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+  }
+  var i = 0
+  while( i< $(".f_money").length){
+    var money=$(".f_money")[i].innerHTML;
+    var newMoney=comma(money);
+    $(".f_money")[i].innerHTML=newMoney;
+    i+=1;
+  }
+</script>
 <!-- <script type="text/javascript">
   var num = <%=@propose.id%>
   if (num ==1){
