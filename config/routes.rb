@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'shop' => 'shopping#index'
   get 'shop/buy' => 'shopping#buy_form'
   post 'shop/buy' => 'shopping#buy'
