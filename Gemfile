@@ -66,8 +66,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# gem 'bcrypt', '~> 3.1.11', platforms: [:ruby, :x64_mingw, :mingw]
-gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'mysql2'
 gem 'mailgun_rails'
 # gem 'rails_db', '2.0'

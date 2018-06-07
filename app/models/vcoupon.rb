@@ -1,2 +1,0 @@
-class Vcoupon < ApplicationRecord
-end

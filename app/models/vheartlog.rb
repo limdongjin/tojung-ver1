@@ -1,2 +1,0 @@
-class Vheartlog < ApplicationRecord
-end

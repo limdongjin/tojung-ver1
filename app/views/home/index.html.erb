@@ -2,15 +2,15 @@
 <!-- Cover -->
 <section class="cover">
     <video playsinline autoplay loop muted class="cover_vid" id="video_cover" onclick="playVideo(this);">
-      <source src="../assets/video.mp4" type="video/mp4">
+      <source src="../video.mp4" type="video/mp4">
     </video>
   <div class="brand pl-4 pt-4 visible-lg">
     <a class="navbar-brand py-0 mr-0" href="/">
-      <%=image_tag("/assets/images/tojung_white.png", class:"logo")%>
+      <%=image_tag( asset_path("tojung_white.png"), class:"logo")%>
     </a>
   </div>
   <div class="arrow visible-lg">
-    <%=image_tag("/assets/images/arrow.png", class:"arrow_img")%>
+    <%=image_tag("/images/arrow.png", class:"arrow_img")%>
   </div>
 
 </section>
@@ -22,7 +22,7 @@
   <div class="container mx-0">
     <div class="row">
       <div class="col-2 col-lg-2 new_logo px-1 py-3 px-lg-5 py-lg-5">
-        <%=image_tag("/assets/images/shape.png", class: "mic_icon d-block mx-auto")%>
+        <%=image_tag("/images/shape.png", class: "mic_icon d-block mx-auto")%>
       </div>
       <div class="col-9 col-lg-9 new_textbox px-0 ml-lg-3">
         <p id="mention" class="new_text font-20 font-sm-10"></p>
@@ -31,7 +31,7 @@
   </div>
 <!--  <a href="https://tumblbug.com/voting" class="d-block">-->
   <a href="/shop" class="d-block">
-  <%=image_tag("/assets/images/banner.png", class: "w-100")%>
+  <%=image_tag("/images/banner.png", class: "w-100")%>
   </a>
 </section>
 
@@ -102,4 +102,3 @@ $(document).ready(function(){
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <!-- typewriter js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
-<script src="assets/javascript/typewriter.js"></script>

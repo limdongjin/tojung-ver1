@@ -1,2 +1,0 @@
-class Vcontributor < ApplicationRecord
-end

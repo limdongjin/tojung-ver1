@@ -22,7 +22,7 @@ class ProposeController < ApplicationController
     redirect_to '/propose/'+params[:id]
   end
 
-  # GET /propose/:id/email_form/:person_id
+  # GET /propose/:id/email/:person_id
   def email_form
     @propose = Vpropose.find(params[:id].to_i)
     @person = Person.find(params[:person_id].to_i)
@@ -30,7 +30,8 @@ class ProposeController < ApplicationController
                                        person_id: params[:person_id])[0]
     @person_detail = PersonAssosDetail.find_by_name(@person.name)
   end
-
+  
+  # POST /propose/:id/email/:person_id
   def email_send
     person = Person.find(params[:person_id])
     person_email = ""
@@ -86,19 +87,6 @@ class ProposeController < ApplicationController
   def index
     # 청원 목록 페이지 ( 테스트용 )
     @proposes = Vpropose.all
-  end
-
-  # GET /search_form
-  def search_form; end
-
-  # GET /search?keyword=과학
-  def search
-    keyword = params[:keyword]
-    redirect_to '/' if keyword.nil?
-    wild_keyword = '%' + keyword + '%'
-    @proposes = Vpropose.where('title LIKE ?', wild_keyword)
-                        .or(Vpropose.where('content LIKE ?', wild_keyword)
-    .or(Vpropose.where('bg_category_name LIKE ?', wild_keyword)))
   end
 
   # GET /propose/:id
@@ -203,7 +191,7 @@ class ProposeController < ApplicationController
     @propose = Vpropose.find(params[:id])
   end
 
-  # POST /propose/create
+  # POST /propose
   def create
     # 청원 생성 액션 및 약정 생성 액션
 
@@ -250,7 +238,7 @@ class ProposeController < ApplicationController
   end
 
 
-  # POST /propose/update/:id
+  # PATCH /propose/:id
   def update
     if current_vuser != Vuser.find_by_email('admin@2jung.com')
       redirect_to '/'
@@ -277,10 +265,7 @@ class ProposeController < ApplicationController
     @propose.tumb = params[:tumb] # 텀블벅 링크
 
     @propose.save
-
+    print(@propose)
     redirect_to '/propose/' + @propose.id.to_s
-  end
-
-  def delete
   end
 end

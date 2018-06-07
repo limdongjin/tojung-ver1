@@ -1,2 +1,0 @@
-class Vpoint < ApplicationRecord
-end

@@ -1,12 +1,14 @@
-config/database.yml
-config/initializers/fog.rb
-config/environments/production.rb
+.idea/
 *sqlite*
 log/
-secrets.yml
 tmp/
 *.crt
 localhost.key
 openssl
 nohup.out
+public/assets/
 
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

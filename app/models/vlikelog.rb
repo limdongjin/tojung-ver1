@@ -1,2 +1,0 @@
-class Vlikelog < ApplicationRecord
-end

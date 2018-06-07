@@ -1,2 +1,0 @@
-class Vcart < ApplicationRecord
-end

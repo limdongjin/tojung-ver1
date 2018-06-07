@@ -1,2 +1,0 @@
-class Vseller < ApplicationRecord
-end
