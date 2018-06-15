@@ -35,6 +35,10 @@
 <section class="maker_profile mb-lg-5 text-center font-grey">
   <% if @person_res.response_type == "무응답" %>
     <h4 class="font-18 font-sm-10 font-weight-bold my-4 my-md-5"><%= @person.name %> 의원에게 답변을 촉구합니다.</h4>
+  <% elsif @person_res.response_type == "응답" %>
+	  <h4 class="font-18 font-sm-10 font-weight-bold my-4 my-md-5">
+		  <%= @person.name %> 의원이 응답했습니다. <br>
+      </h4>
   <% else %>
 	  <h4 class="font-18 font-sm-10 font-weight-bold my-4 my-md-5">
 		  <%= @person.name %> 의원이 '<%= @person_res.response_type %>'응답했습니다. <br>
@@ -99,8 +103,11 @@
 	  <textarea class="form-control" name="content" rows="10" placeholder=" 안녕하세요 <%= @person.name %>의원님!<%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %> 의안인 '<%= @propose.bill_name %>'에 대한 의원님의 응답 중 이해가 되지 않는 부분이 있습니다.">
  안녕하세요 <%= @person.name %>의원님!<%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %> 의안인 '<%= @propose.bill_name %>'에 대한 의원님의 응답 중 이해가 되지 않는 부분이 있습니다. "
 	  </textarea>
-
-  <% end %>
+  <% elsif @person_res.response_type == "응답" %>
+ <textarea class="form-control" name="content" rows="10" placeholder=" 안녕하세요. <%= @person.name %>의원님! <%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %>의안인 '<%= @propose.bill_name %>'에 대한 의원님의 응답에 감사드립니다! 국회에서의 신속한 진행 부탁드립니다.">
+<%= @propose.assos %>에 계류되어있는 <%= @propose.bill_id %>의안인 '<%= @propose.bill_name %>'에 대한 의원님의 응답에 감사드립니다! 국회에서의 신속한 진행 부탁드립니다."
+	  </textarea>
+<% end %>
     </div>
     <button type="submit" class="alert-success btn btn-email btn-white mt-3 mt-lg-4 font-sm-12" onclick="email_check();">이메일 보내기</button>
   </form>
