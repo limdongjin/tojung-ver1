@@ -29,11 +29,7 @@
 
 ## Environment
 
-1. 배포 서버 : AWS Elastic Beanstalk / Rails
-
-2. 데이터베이스 서버 : AWS RDS MYSQL 
-
-3. 이미지 저장소 : AWS S3 
+<img width="50%" height="10%" src="/image_readme/아키텍처.PNG"></img>
 
 ## LICENSE 
 GPL3.0
