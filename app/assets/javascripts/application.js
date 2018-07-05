@@ -13,32 +13,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-function go(cid){
-		var httpRequest;
-		if (window.XMLHttpRequest) {
-		    httpRequest = new XMLHttpRequest();
-		} else if (window.ActiveXObject) {
-		    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-        httpRequest.onreadystatechange = hello;
-        cid = parseInt(cid);
-        cid = cid.toString();
-        httpRequest.open('GET', 'https://52.78.7.40:3000/api/community/'+ cid , true);
-        console.log(httpRequest.response)
-     }
-     function hello(){
-          console.log("ok!!!")
-     }
-
 
  function comma(str) {
      str = String(str);
      return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
  }
- var i = 0
- while( i< $(".f_money").length){
-   var money=$(".f_money")[i].innerHTML;
-   var newMoney=comma(money);
-   $(".f_money")[i].innerHTML=newMoney;
-   i+=1;
- }
+ 
