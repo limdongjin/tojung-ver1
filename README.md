@@ -29,7 +29,7 @@
 
 ## Environment
 
-<img width="50%" height="10%" src="/image_readme/아키텍처.PNG"></img>
+<img width="50%" height="10%" src="/image_readme/tojung Architecture V1.png"></img>
 
 ## LICENSE 
 GPL3.0
